@@ -6,8 +6,8 @@
 ---
 
 ## 1. Architecture & Tech Stack
-- **Frontend**: React 19 + TypeScript + Vite 8 + React Router v7
-- **Backend Server (`server.ts`)**: Express + Vite middleware serving on port `3000` with persistent JSON storage (`data/leads.json` & `data/audits.json`):
+- **Frontend**: React 19 + TypeScript + Vite 8 + React Router v7 + PWA (`vite-plugin-pwa` with offline status indicator, install prompt, and Web App Manifest)
+- **Backend Server (`server.ts`)**: Express + Vite middleware serving on port `3000` with persistent JSON storage (`data/leads.json` & `data/audits.json`), dynamic host-aware `/robots.txt` & `/sitemap.xml`, and HTTP security headers (`vercel.json` included for Vercel static/SPA deployments):
   - `POST /api/leads` — Zod-validated lead capture with honeypot spam guard, 45s duplicate protection, and tracked `UT-YYYY-XXX` Lead IDs
   - `GET /api/leads` — Filterable by query, pipeline status, industry, service, and budget
   - `PATCH /api/leads/:leadId` — Updates 9-stage pipeline status and internal studio notes
@@ -15,16 +15,17 @@
   - `POST /api/audit` — Captures Free Website & SEO Audit requests (`AUD-YYYY-XXX`)
 - **Styling**: Tailwind CSS v4 + Consolidated Digital Pink City Tokens (`src/styles/design-tokens.ts` & `src/index.css`) with **Day Jaipur** & **Raat Ka Jaipur** dark mode
 - **3D Signature Scene**: Three.js (`src/components/hero/HeroScene3D.tsx`) composite multi-tier Hawa Mahal + interactive string-cutting *patang* kites with `prefers-reduced-motion` illustration fallback
+- **Navigation & Discovery**: Accessible 4-column Services Mega-Menu, Full-Screen Mobile Navigation Overlay, Quick Solution Finder with 2-question Guided Stack Recommender, and `/` shortcut Search Modal
 
 ---
 
 ## 2. Key Pages & Routes
-- `/` — 8-section Digital Pink City narrative (Hero 3D + 3 Jaipur Service Establishments + Filterable Project Bazaar + 10 Industry Districts + 6-Stage Amer Fort Process + Why Urdta Teeeeeer + Layer A/B/C Packages + Target Board with Inline Project Planner)
+- `/` — Digital Pink City narrative (Hero 3D + Quick Solution Finder + 3 Jaipur Service Establishments + Filterable Project Bazaar + 10 Industry Districts + 6-Stage Amer Fort Process + Why Urdta Teeeeeer + Layer A/B/C Packages + Target Board with Inline Project Planner)
 - `/services`, `/services/design`, `/services/development`, `/services/marketing` — Creative Haveli, Digital Karkhana & Growth Bazaar
 - `/industries` & `/industries/:slug` — 10 tailored industry verticals (`retail`, `hospitality`, `handicrafts`, `education`, `restaurants`, `startups`, `healthcare`, `real-estate`, `manufacturing`, `other`)
 - `/work` & `/work/:slug` — Filterable Project Bazaar (`tapinfi`, `cafeos`, `vyapaar-saathi`, plus honest launch case-study templates)
 - `/insights` & `/insights/:slug` — Playbooks with category filtering, search, and Table of Contents
-- `/plan-your-project` & `/build` — 4-step Interactive Project Planner (also usable via global modal and homepage inline mode)
+- `/plan-your-project` & `/build` — 4-step Interactive Project Planner (context-aware prefill + session draft retention)
 - `/packages` — Layer A (Starter from ₹2,999 with explicit micro-deliverable scope note), Layer B (Growth), Layer C (Custom)
 - `/thank-you` — Tracked Lead ID confirmation screen with WhatsApp & consultation follow-up
 - `/admin/leads` — Internal Lead Management Dashboard with 9-stage pipeline dropdowns, internal notes, and CSV export

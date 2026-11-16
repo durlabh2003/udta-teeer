@@ -100,11 +100,7 @@ export function ServicePillarPage({ pillar }: ServicePillarPageProps) {
 
   return (
     <>
-      <SEOHead
-        title={`${cfg.title} | Urdta Teeeeeer Jaipur`}
-        description={cfg.description}
-        path={`/services/${pillar}`}
-      />
+      <SEOHead pageKey={`services-${pillar}`} path={`/services/${pillar}`} />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
         <nav aria-label="Breadcrumb" className="text-xs font-bold flex items-center gap-2">

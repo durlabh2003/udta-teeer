@@ -30,11 +30,7 @@ export function WorkPage() {
 
   return (
     <>
-      <SEOHead
-        title="Work, Portfolio Candidates & Case Study Templates | Urdta Teeeeeer Jaipur"
-        description="Explore portfolio candidates Tapinfi, CafeOS, and Vyapaar Saathi alongside transparent case study templates."
-        path="/work"
-      />
+      <SEOHead pageKey="work" path="/work" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
         <div className="max-w-3xl space-y-3">
@@ -117,6 +113,9 @@ export function WorkPage() {
                       <img
                         src={proj.image}
                         alt={proj.imageAlt}
+                        width={1200}
+                        height={896}
+                        decoding="async"
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         className="w-full aspect-[16/10] object-cover"
@@ -138,6 +137,7 @@ export function WorkPage() {
                   <div className="pt-4 mt-4 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/20">
                     <Link
                       to={`/work/${proj.slug}`}
+                      aria-label={`View 11-part breakdown for ${proj.name}`}
                       className="inline-flex items-center gap-1.5 text-sm font-bold underline hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
                     >
                       <span>View 11-Part Breakdown</span>

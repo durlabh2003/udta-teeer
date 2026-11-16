@@ -9,11 +9,7 @@ export function AboutPage() {
 
   return (
     <>
-      <SEOHead
-        title="About Urdta Teeeeeer — Creative Technology Studio in Jaipur"
-        description="For ambitious brands in Jaipur, Rajasthan and across India: Urdta Teeeeeer combines bold design, practical technology, and performance marketing into one accountable growth partner."
-        path="/about"
-      />
+      <SEOHead pageKey="about" path="/about" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -39,6 +35,10 @@ export function AboutPage() {
               <img
                 src="/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg"
                 alt="Illustrated Jaipur Hawa Mahal with patang kites and kulhad chai"
+                width={1376}
+                height={768}
+                decoding="async"
+                fetchPriority="high"
                 referrerPolicy="no-referrer"
                 className="w-full aspect-[16/9] object-cover"
               />

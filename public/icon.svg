@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#F3E5CE"/>
+  <rect x="24" y="24" width="464" height="464" rx="48" fill="#FFC21A" stroke="#111111" stroke-width="20"/>
+  <!-- Stylized Patang Diamond + Flying Arrow -->
+  <polygon points="256,88 408,240 256,392 104,240" fill="#FF4F8B" stroke="#111111" stroke-width="18"/>
+  <line x1="128" y1="256" x2="368" y2="256" stroke="#111111" stroke-width="22" stroke-linecap="round"/>
+  <polyline points="296,184 374,256 296,328" fill="none" stroke="#FFF9F0" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="256,392 220,444 292,444" fill="#1FB5B0" stroke="#111111" stroke-width="14"/>
+</svg>

@@ -6,6 +6,7 @@ import { useApp } from '../../context/AppContext';
 import { trackConversionEvent } from '../../lib/analytics';
 import { buildWhatsAppLink } from '../../lib/crmAdapter';
 import { JaaliDivider } from '../ui/JaaliDivider';
+import { PWAInstallButton } from '../ui/PWAInstallButton';
 
 const CHAI_JOKES = [
   'Ek cutting adrak chai, aur ek conversion rate double — dono kadak chahiye!',
@@ -64,6 +65,7 @@ export function Footer() {
                 >
                   Request Free Audit
                 </button>
+                <PWAInstallButton />
               </div>
               {chaiJoke && (
                 <p className="mt-2 text-xs font-hand text-[#B95E50] dark:text-[#FFC21A]">
@@ -73,7 +75,7 @@ export function Footer() {
             </div>
 
             <div className="md:col-span-3 space-y-2 text-sm">
-              <h3 className="font-display font-extrabold text-base mb-3">Studio</h3>
+              <h2 className="font-display font-extrabold text-base mb-3">Studio</h2>
               <ul className="space-y-1.5">
                 <li><Link to="/services" className="hover:underline">Services Bazaar</Link></li>
                 <li><Link to="/industries" className="hover:underline">Industry Solutions</Link></li>
@@ -88,7 +90,7 @@ export function Footer() {
             </div>
 
             <div className="md:col-span-4 space-y-2 text-sm">
-              <h3 className="font-display font-extrabold text-base mb-3">Key Capabilities</h3>
+              <h2 className="font-display font-extrabold text-base mb-3">Key Capabilities</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                 <li><Link to="/services/design" className="hover:underline">Design Haveli</Link></li>
                 <li><Link to="/services/development" className="hover:underline">Digital Karkhana</Link></li>

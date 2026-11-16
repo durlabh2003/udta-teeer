@@ -17,11 +17,7 @@ export function PackagesPage() {
 
   return (
     <>
-      <SEOHead
-        title="Packages & Transparent Pricing (From ₹2,999 Starter) | Urdta Teeeeeer"
-        description="Layered transparent pricing for Jaipur & Indian businesses: Starter deliverables from ₹2,999, Growth websites & retainers, and Custom discovery engineering."
-        path="/packages"
-      />
+      <SEOHead pageKey="packages" path="/packages" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-14">
         <div className="max-w-3xl space-y-3">

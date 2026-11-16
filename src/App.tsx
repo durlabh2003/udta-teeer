@@ -5,12 +5,16 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext';
+import { PAGE_META_DICTIONARY, resolvePageKeyFromPath, updateMetaTags } from './lib/seoMeta';
+import { generateLocalBusinessSchema } from './lib/seoSchema';
 import { Footer } from './components/layout/Footer';
 import { Navbar } from './components/layout/Navbar';
 import { FreeAuditModal } from './components/sections/FreeAuditModal';
 import { ProjectPlanner } from './components/sections/ProjectPlanner';
 import { ChaiLoader } from './components/ui/ChaiLoader';
 import { EasterEggs } from './components/ui/EasterEggs';
+import { OfflineIndicator } from './components/ui/OfflineIndicator';
+import { SearchModal } from './components/ui/SearchModal';
 import { AboutPage } from './pages/AboutPage';
 import { BriefBuilderPage } from './pages/BriefBuilderPage';
 import { CaseStudyDetailPage } from './pages/CaseStudyDetailPage';
@@ -33,11 +37,30 @@ import { TermsPage } from './pages/TermsPage';
 import { ThankYouPage } from './pages/ThankYouPage';
 import { WorkPage } from './pages/WorkPage';
 
-function ScrollToTop() {
+function RouteMetaSync() {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const pageKey = resolvePageKeyFromPath(pathname);
+    if (PAGE_META_DICTIONARY[pageKey]) {
+      updateMetaTags(pageKey, { path: pathname || '/' });
+    }
+    generateLocalBusinessSchema(pageKey, { path: pathname || '/' });
   }, [pathname]);
+  return null;
+}
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
   return null;
 }
 
@@ -86,11 +109,14 @@ export default function App() {
   return (
     <AppProvider>
       <BrowserRouter>
+        <RouteMetaSync />
         <ScrollToTop />
         <ChaiLoader />
         <EasterEggs />
+        <OfflineIndicator />
         <PlannerModalOverlay />
         <FreeAuditModal />
+        <SearchModal />
         <div className="min-h-screen flex flex-col bg-[#F3E5CE] dark:bg-[#182235] text-[#282522] dark:text-[#FFF9F0]">
           <Navbar />
           <main id="main-content" className="flex-1">

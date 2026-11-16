@@ -27,11 +27,7 @@ export function InsightsPage() {
 
   return (
     <>
-      <SEOHead
-        title="Insights & Digital Growth Guides | Urdta Teeeeeer Jaipur"
-        description="Practical guides for Jaipur and Indian businesses on websites, e-commerce, branding vs marketing, and SEO + AI Search (AEO)."
-        path="/insights"
-      />
+      <SEOHead pageKey="insights" path="/insights" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">

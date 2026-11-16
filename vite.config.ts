@@ -3,12 +3,73 @@ import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
 import {defineConfig} from 'vite';
+import {VitePWA} from 'vite-plugin-pwa';
+import {getSecurityHeaders} from './src/lib/security';
 
 export default defineConfig(() => {
   return {
     plugins: [
       react(),
       tailwindcss(),
+      VitePWA({
+        registerType: 'autoUpdate',
+        manifest: false,
+        includeAssets: [
+          'manifest.json',
+          'icon.svg',
+          'apple-touch-icon.png',
+          'pwa-192x192.png',
+          'pwa-512x512.png',
+          'pwa-maskable-512x512.png',
+          'robots.txt',
+          'sitemap.xml',
+        ],
+        workbox: {
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+          navigateFallback: '/index.html',
+          navigateFallbackDenylist: [
+            /^\/api\//,
+            /^\/manifest\.json$/,
+            /^\/robots\.txt$/,
+            /^\/sitemap\.xml$/,
+          ],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'google-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
+              },
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'gstatic-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
+              },
+            },
+          ],
+        },
+        devOptions: {
+          enabled: true,
+          type: 'module',
+        },
+      }),
       // Copies src/assets into dist/ so root-relative URLs like
       // "/src/assets/images/..." (e.g. generate_image output) still resolve
       // in production builds. Do not remove.
@@ -19,18 +80,44 @@ export default defineConfig(() => {
           if (error) {
             return;
           }
-          const distDir = path.resolve(__dirname, 'dist');
-          const srcAssets = path.resolve(__dirname, 'src/assets');
+          const distDir = path.resolve(import.meta.dirname, 'dist');
+          const srcAssets = path.resolve(import.meta.dirname, 'src/assets');
           const distAssets = path.resolve(distDir, 'src/assets');
           if (fs.existsSync(distDir) && fs.existsSync(srcAssets)) {
             fs.cpSync(srcAssets, distAssets, {recursive: true, force: true});
+          }
+
+          // Dynamically rewrite robots.txt and sitemap.xml inside dist/ for static deployments
+          const rawOrigin = (
+            process.env.CANONICAL_ORIGIN ||
+            process.env.VITE_SITE_URL ||
+            (process.env.VERCEL_PROJECT_PRODUCTION_URL
+              ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/^https?:\/\//i, '')}`
+              : '') ||
+            'https://udta-teeer.vercel.app'
+          )
+            .trim()
+            .replace(/\/+$/, '');
+          const resolvedOrigin = /^https?:\/\//i.test(rawOrigin) ? rawOrigin : `https://${rawOrigin}`;
+
+          for (const fileName of ['robots.txt', 'sitemap.xml']) {
+            const filePath = path.join(distDir, fileName);
+            if (fs.existsSync(filePath)) {
+              const updated = fs
+                .readFileSync(filePath, 'utf-8')
+                .replace(
+                  /https?:\/\/(?:www\.)?urdtateeeeeer\.in|https?:\/\/udta-teeer\.vercel\.app/gi,
+                  resolvedOrigin
+                );
+              fs.writeFileSync(filePath, updated, 'utf-8');
+            }
           }
         },
       },
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     server: {
@@ -39,6 +126,18 @@ export default defineConfig(() => {
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
+      headers: getSecurityHeaders({
+        allowWebSockets: true,
+        allowAiStudioFrame: true,
+        includeXFrameOptions: false,
+      }),
+    },
+    preview: {
+      headers: getSecurityHeaders({
+        allowWebSockets: false,
+        allowAiStudioFrame: false,
+        includeXFrameOptions: true,
+      }),
     },
   };
 });

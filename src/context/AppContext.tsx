@@ -19,6 +19,12 @@ export interface SubmittedLeadReceipt {
   whatsappUrl: string;
 }
 
+export interface PlannerLaunchContext {
+  services?: string[];
+  industry?: string;
+  note?: string;
+}
+
 interface AppContextValue {
   lang: LanguageMode;
   setLang: (lang: LanguageMode) => void;
@@ -28,12 +34,19 @@ interface AppContextValue {
   toggleDark: () => void;
   preselectedServiceIds: string[];
   setPreselectedServiceIds: React.Dispatch<React.SetStateAction<string[]>>;
+  preselectedIndustry: string;
+  setPreselectedIndustry: React.Dispatch<React.SetStateAction<string>>;
+  preselectedNote: string;
+  setPreselectedNote: React.Dispatch<React.SetStateAction<string>>;
   plannerModalOpen: boolean;
-  openPlannerModal: (preselect?: string[]) => void;
+  openPlannerModal: (preselect?: string[] | PlannerLaunchContext) => void;
   closePlannerModal: () => void;
   auditModalOpen: boolean;
   openAuditModal: () => void;
   closeAuditModal: () => void;
+  searchModalOpen: boolean;
+  openSearchModal: () => void;
+  closeSearchModal: () => void;
   lastReceipt: SubmittedLeadReceipt | null;
   setLastReceipt: (r: SubmittedLeadReceipt | null) => void;
   chaiCount: number;
@@ -57,8 +70,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   });
 
   const [preselectedServiceIds, setPreselectedServiceIds] = useState<string[]>([]);
+  const [preselectedIndustry, setPreselectedIndustry] = useState<string>('Retail');
+  const [preselectedNote, setPreselectedNote] = useState<string>('');
   const [plannerModalOpen, setPlannerModalOpen] = useState(false);
   const [auditModalOpen, setAuditModalOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [lastReceipt, setLastReceipt] = useState<SubmittedLeadReceipt | null>(null);
   const [chaiCount, setChaiCount] = useState<number>(siteConfig.statsConfig.cupsOfChaiBrewed);
   const [kiteShowerCount, setKiteShowerCount] = useState<number>(0);
@@ -84,9 +100,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const brewChai = () => setChaiCount((c) => c + 1);
   const triggerKiteShower = () => setKiteShowerCount((c) => c + 1);
 
-  const openPlannerModal = (preselect?: string[]) => {
-    if (preselect && preselect.length > 0) {
-      setPreselectedServiceIds(preselect);
+  const openPlannerModal = (preselect?: string[] | PlannerLaunchContext) => {
+    if (Array.isArray(preselect)) {
+      if (preselect.length > 0) setPreselectedServiceIds(preselect);
+    } else if (preselect) {
+      if (preselect.services && preselect.services.length > 0) {
+        setPreselectedServiceIds(preselect.services);
+      }
+      if (preselect.industry) {
+        setPreselectedIndustry(preselect.industry);
+      }
+      if (preselect.note !== undefined) {
+        setPreselectedNote(preselect.note);
+      }
     }
     setPlannerModalOpen(true);
   };
@@ -94,6 +120,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const closePlannerModal = () => setPlannerModalOpen(false);
   const openAuditModal = () => setAuditModalOpen(true);
   const closeAuditModal = () => setAuditModalOpen(false);
+  const openSearchModal = () => setSearchModalOpen(true);
+  const closeSearchModal = () => setSearchModalOpen(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -106,6 +134,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
           target.isContentEditable);
       if (!isInput && (e.key === 'k' || e.key === 'K') && !e.metaKey && !e.ctrlKey) {
         setKiteShowerCount((c) => c + 1);
+      }
+      if (!isInput && e.key === '/' && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        setSearchModalOpen(true);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -125,12 +157,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         toggleDark,
         preselectedServiceIds,
         setPreselectedServiceIds,
+        preselectedIndustry,
+        setPreselectedIndustry,
+        preselectedNote,
+        setPreselectedNote,
         plannerModalOpen,
         openPlannerModal,
         closePlannerModal,
         auditModalOpen,
         openAuditModal,
         closeAuditModal,
+        searchModalOpen,
+        openSearchModal,
+        closeSearchModal,
         lastReceipt,
         setLastReceipt,
         chaiCount,

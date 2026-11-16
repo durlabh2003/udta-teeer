@@ -8,6 +8,8 @@ import { BrutalButton } from '../ui/BrutalButton';
 import { RetroWindow } from '../ui/RetroWindow';
 import { ThaliVisualizer } from '../ui/ThaliVisualizer';
 
+const SESSION_STORAGE_KEY = 'ut_planner_draft_v1';
+
 const PILLAR_GROUPS = [
   {
     group: 'Design — The Creative Haveli',
@@ -104,30 +106,76 @@ const PRESELECT_LABEL_MAP: Record<string, string> = {
   'web-app-dev': 'SaaS platform',
 };
 
-export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) {
-  const { preselectedServiceIds, setLastReceipt, triggerKiteShower } = useApp();
-  const navigate = useNavigate();
+interface DraftState {
+  step: number;
+  selectedServices: string[];
+  businessName: string;
+  industry: string;
+  otherIndustryText: string;
+  website: string;
+  primaryObjectives: string[];
+  businessStage: string;
+  budget: string;
+  timeline: string;
+  engagementType: string;
+  requirementNotes: string;
+}
 
-  const [step, setStep] = useState<number>(1);
+export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) {
+  const {
+    preselectedServiceIds,
+    preselectedIndustry,
+    preselectedNote,
+    setLastReceipt,
+    triggerKiteShower,
+  } = useApp();
+  const navigate = useNavigate();
+  const StepHeading = mode === 'page' ? 'h2' : 'h3';
+  const SubHeading = mode === 'page' ? 'h3' : 'h4';
+
+  const loadSessionDraft = (): Partial<DraftState> => {
+    try {
+      const raw = window.sessionStorage.getItem(SESSION_STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  };
+
+  const savedDraft = typeof window !== 'undefined' ? loadSessionDraft() : {};
+
+  const [step, setStep] = useState<number>(() => savedDraft.step ?? 1);
   const [selectedServices, setSelectedServices] = useState<string[]>(() => {
     const mapped = preselectedServiceIds.map((id) => PRESELECT_LABEL_MAP[id]).filter(Boolean);
-    return mapped.length > 0 ? Array.from(new Set(mapped)) : ['Business website'];
+    if (mapped.length > 0) return Array.from(new Set(mapped));
+    return Array.isArray(savedDraft.selectedServices) && savedDraft.selectedServices.length > 0
+      ? savedDraft.selectedServices
+      : ['Business website'];
   });
 
-  // Step 2 state (preserved on Back navigation)
-  const [businessName, setBusinessName] = useState('');
-  const [industry, setIndustry] = useState('Retail');
-  const [website, setWebsite] = useState('');
-  const [primaryObjectives, setPrimaryObjectives] = useState<string[]>(['Generate more leads']);
-  const [businessStage, setBusinessStage] = useState('Growing business');
+  // Step 2 state (preserved on Back navigation & active session)
+  const [businessName, setBusinessName] = useState(savedDraft.businessName ?? '');
+  const [industry, setIndustry] = useState(
+    preselectedIndustry && INDUSTRIES.includes(preselectedIndustry)
+      ? preselectedIndustry
+      : savedDraft.industry ?? 'Retail'
+  );
+  const [otherIndustryText, setOtherIndustryText] = useState(savedDraft.otherIndustryText ?? '');
+  const [website, setWebsite] = useState(savedDraft.website ?? '');
+  const [primaryObjectives, setPrimaryObjectives] = useState<string[]>(
+    savedDraft.primaryObjectives ?? ['Generate more leads']
+  );
+  const [businessStage, setBusinessStage] = useState(savedDraft.businessStage ?? 'Growing business');
 
   // Step 3 state
-  const [budget, setBudget] = useState('₹25,000–₹50,000');
-  const [timeline, setTimeline] = useState('Within one month');
-  const [engagementType, setEngagementType] = useState('One-time project');
-  const [requirementNotes, setRequirementNotes] = useState('');
+  const [budget, setBudget] = useState(savedDraft.budget ?? '₹25,000–₹50,000');
+  const [timeline, setTimeline] = useState(savedDraft.timeline ?? 'Within one month');
+  const [engagementType, setEngagementType] = useState(savedDraft.engagementType ?? 'One-time project');
+  const [requirementNotes, setRequirementNotes] = useState(
+    preselectedNote || savedDraft.requirementNotes || ''
+  );
 
-  // Step 4 state
+  // Step 4 state (not persisted outside current step state unless submitted with consent)
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -137,8 +185,66 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
 
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [confirmDiscard, setConfirmDiscard] = useState(false);
+
+  // Sync context pre-selections when modal opens with new context
+  useEffect(() => {
+    if (preselectedServiceIds.length > 0) {
+      const mapped = preselectedServiceIds.map((id) => PRESELECT_LABEL_MAP[id]).filter(Boolean);
+      if (mapped.length > 0) setSelectedServices(Array.from(new Set(mapped)));
+    }
+  }, [preselectedServiceIds]);
 
   useEffect(() => {
+    if (preselectedIndustry && INDUSTRIES.includes(preselectedIndustry)) {
+      setIndustry(preselectedIndustry);
+    }
+  }, [preselectedIndustry]);
+
+  useEffect(() => {
+    if (preselectedNote) {
+      setRequirementNotes(preselectedNote);
+    }
+  }, [preselectedNote]);
+
+  // Persist non-PII requirement draft during active session (UT-US-027)
+  useEffect(() => {
+    try {
+      const draft: DraftState = {
+        step,
+        selectedServices,
+        businessName,
+        industry,
+        otherIndustryText,
+        website,
+        primaryObjectives,
+        businessStage,
+        budget,
+        timeline,
+        engagementType,
+        requirementNotes,
+      };
+      window.sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(draft));
+    } catch {
+      // ignore storage quota errors
+    }
+  }, [
+    step,
+    selectedServices,
+    businessName,
+    industry,
+    otherIndustryText,
+    website,
+    primaryObjectives,
+    businessStage,
+    budget,
+    timeline,
+    engagementType,
+    requirementNotes,
+  ]);
+
+  useEffect(() => {
+    trackConversionEvent('planner_start', { source: `planner_${mode}` });
     trackConversionEvent('lead_form_start', { source: `planner_${mode}` });
   }, [mode]);
 
@@ -158,9 +264,16 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
   const handleNext = () => {
     if (step === 1 && selectedServices.length === 0) {
       setErrorMsg('Please select at least one service or "Not sure yet" to continue.');
+      trackConversionEvent('planner_validation_error', { step: 1 });
+      return;
+    }
+    if (step === 2 && industry === 'Other' && otherIndustryText.trim().length < 2) {
+      setErrorMsg('Please specify your industry so we can tailor recommendations.');
+      trackConversionEvent('planner_validation_error', { step: 2 });
       return;
     }
     setErrorMsg(null);
+    trackConversionEvent('planner_step_complete', { step, industry });
     if (step === 1) trackConversionEvent('lead_form_step_1', { serviceCount: selectedServices.length });
     if (step === 2) trackConversionEvent('lead_form_step_2', { industry });
     if (step === 3) trackConversionEvent('lead_form_step_3', { budgetBand: budget });
@@ -169,31 +282,53 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
 
   const handleBack = () => {
     setErrorMsg(null);
+    trackConversionEvent('planner_back_click', { step });
     setStep((s) => Math.max(1, s - 1));
+  };
+
+  const handleModalCloseAttempt = () => {
+    if (!onClose) return;
+    const hasEnteredDetails =
+      step > 1 || businessName.trim().length > 0 || requirementNotes.trim().length > 0 || fullName.trim().length > 0;
+    if (hasEnteredDetails && !confirmDiscard) {
+      setConfirmDiscard(true);
+      return;
+    }
+    setConfirmDiscard(false);
+    onClose();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submitting) return;
     if (fullName.trim().length < 2) {
-      setErrorMsg('Arre boss, please enter your full name.');
+      setErrorMsg('Please enter your full name.');
+      trackConversionEvent('planner_validation_error', { step: 4, label: 'name' });
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
       setErrorMsg('Please enter a valid email address.');
+      trackConversionEvent('planner_validation_error', { step: 4, label: 'email' });
       return;
     }
     if (!/^[+\d\s()-]{8,16}$/.test(phone.trim())) {
       setErrorMsg('Please enter a valid phone / mobile number.');
+      trackConversionEvent('planner_validation_error', { step: 4, label: 'phone' });
       return;
     }
     if (!consent) {
       setErrorMsg('Please confirm the privacy consent checkbox so we can contact you.');
+      trackConversionEvent('planner_validation_error', { step: 4, label: 'consent' });
       return;
     }
 
     setErrorMsg(null);
     setSubmitting(true);
+
+    const resolvedIndustry =
+      industry === 'Other' && otherIndustryText.trim()
+        ? `Other: ${otherIndustryText.trim()}`
+        : industry;
 
     const res = await submitPlannerLead({
       fullName: fullName.trim(),
@@ -201,7 +336,7 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
       phone: phone.trim(),
       whatsapp: whatsapp.trim() || phone.trim(),
       businessName: businessName.trim(),
-      industry,
+      industry: resolvedIndustry,
       website: website.trim(),
       primaryObjectives,
       businessStage,
@@ -217,15 +352,27 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
     setSubmitting(false);
 
     if (!res.ok) {
-      setErrorMsg(res.error || 'Submission failed. Please try again.');
+      setErrorMsg(res.error || 'Submission failed. Please try again — your details are preserved.');
       return;
     }
 
+    trackConversionEvent('planner_submit', {
+      source: `planner_${mode}`,
+      serviceCount: selectedServices.length,
+      budgetBand: budget,
+      industry: resolvedIndustry,
+    });
     trackConversionEvent('lead_form_submit', {
       source: `planner_${mode}`,
       serviceCount: selectedServices.length,
       budgetBand: budget,
     });
+
+    try {
+      window.sessionStorage.removeItem(SESSION_STORAGE_KEY);
+    } catch {
+      // ignore
+    }
 
     setLastReceipt({
       leadId: res.leadId,
@@ -233,7 +380,7 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
       email: email.trim(),
       phone: phone.trim(),
       businessName: businessName.trim(),
-      industry,
+      industry: resolvedIndustry,
       selectedServices,
       budget,
       timeline,
@@ -261,8 +408,39 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
         <RetroWindow
           title={`Let's Plan Your Next Shot — Step ${step} of 4 (~60s)`}
           accent="gulabi"
-          onClose={mode === 'modal' ? onClose : undefined}
+          onClose={mode === 'modal' ? handleModalCloseAttempt : undefined}
         >
+          {/* Discard Confirmation Guard (Scenario 09) */}
+          {confirmDiscard && (
+            <div
+              role="alert"
+              className="mb-5 p-4 brutal-border bg-[#FFC21A] text-[#111111] rounded-[6px] flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+            >
+              <span className="text-xs md:text-sm font-extrabold">
+                Close planner? Your current selections are kept for this session.
+              </span>
+              <div className="flex gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setConfirmDiscard(false)}
+                  className="px-3 py-1.5 brutal-border bg-[#FFF9F0] text-xs font-bold rounded-[4px] cursor-pointer"
+                >
+                  Keep Editing
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setConfirmDiscard(false);
+                    onClose?.();
+                  }}
+                  className="px-3 py-1.5 brutal-border bg-[#111111] text-[#FFF9F0] text-xs font-bold rounded-[4px] cursor-pointer"
+                >
+                  Close Window
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Progress Bar */}
           <div className="mb-6">
             <div className="flex items-center justify-between text-xs font-mono-num font-bold mb-2">
@@ -290,9 +468,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
           {step === 1 && (
             <div className="space-y-5">
               <div>
-                <h2 className="text-2xl font-extrabold mb-1">
+                <StepHeading className="text-2xl font-extrabold mb-1">
                   1. What would you like us to help you with?
-                </h2>
+                </StepHeading>
                 <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
                   Select one or multiple requirements across Design, Development, and Marketing.
                 </p>
@@ -301,9 +479,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
               <div className="space-y-4">
                 {PILLAR_GROUPS.map((grp) => (
                   <div key={grp.group}>
-                    <h3 className="text-xs font-mono-num font-bold uppercase tracking-wider mb-2 text-[#B95E50] dark:text-[#FFC21A]">
+                    <SubHeading className="text-xs font-mono-num font-bold uppercase tracking-wider mb-2 text-[#B95E50] dark:text-[#FFC21A]">
                       {grp.group}
-                    </h3>
+                    </SubHeading>
                     <div className="flex flex-wrap gap-2">
                       {grp.options.map((opt) => {
                         const active = selectedServices.includes(opt);
@@ -335,9 +513,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
           {step === 2 && (
             <div className="space-y-5">
               <div>
-                <h2 className="text-2xl font-extrabold mb-1">
+                <StepHeading className="text-2xl font-extrabold mb-1">
                   2. Tell us a little about your business.
-                </h2>
+                </StepHeading>
                 <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
                   Helps us tailor examples and recommendations to your sector.
                 </p>
@@ -376,6 +554,22 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
                   </select>
                 </div>
               </div>
+
+              {industry === 'Other' && (
+                <div>
+                  <label htmlFor="pp-other-ind" className="block text-sm font-bold mb-1">
+                    Tell us your industry / sector *
+                  </label>
+                  <input
+                    id="pp-other-ind"
+                    type="text"
+                    value={otherIndustryText}
+                    onChange={(e) => setOtherIndustryText(e.target.value)}
+                    placeholder="e.g. Solar EPC, Logistics Fleet, Pet Care..."
+                    className="w-full px-3.5 py-2.5 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+                  />
+                </div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -444,9 +638,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
           {step === 3 && (
             <div className="space-y-5">
               <div>
-                <h2 className="text-2xl font-extrabold mb-1">
+                <StepHeading className="text-2xl font-extrabold mb-1">
                   3. Let&apos;s understand your expected investment and timeline.
-                </h2>
+                </StepHeading>
                 <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
                   These are enquiry qualification ranges so we can recommend the right phase plan.
                 </p>
@@ -530,9 +724,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
           {step === 4 && (
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               <div>
-                <h2 className="text-2xl font-extrabold mb-1">
+                <StepHeading className="text-2xl font-extrabold mb-1">
                   4. Where should we send your growth plan?
-                </h2>
+                </StepHeading>
                 <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
                   Your brief gets stored with a unique Lead ID and routed to our Jaipur studio desk.
                 </p>
@@ -660,9 +854,9 @@ export function ProjectPlanner({ mode = 'page', onClose }: ProjectPlannerProps) 
           <ThaliVisualizer selectedServices={thaliMapping} />
 
           <div className="brutal-border brutal-shadow bg-[#FFF9F0] dark:bg-[#212E46] rounded-[6px] p-5 space-y-3">
-            <h3 className="font-display font-extrabold text-lg">Your Growth Plan Summary</h3>
+            <SubHeading className="font-display font-extrabold text-lg">Your Growth Plan Summary</SubHeading>
             <div className="text-xs space-y-1 text-[#4B433C] dark:text-[#E7D8C5]">
-              <p><strong>Industry:</strong> {industry}</p>
+              <p><strong>Industry:</strong> {industry === 'Other' && otherIndustryText ? `Other (${otherIndustryText})` : industry}</p>
               <p><strong>Budget Band:</strong> {budget}</p>
               <p><strong>Timeline:</strong> {timeline}</p>
             </div>

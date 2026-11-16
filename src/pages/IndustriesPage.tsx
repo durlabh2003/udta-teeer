@@ -9,11 +9,7 @@ export function IndustriesPage() {
 
   return (
     <>
-      <SEOHead
-        title="Industries We Build For | Urdta Teeeeeer Jaipur"
-        description="Tailored brand, website, e-commerce, and growth systems for Jaipur & Indian retail, hospitality, healthcare, education, startups, real estate, and manufacturing."
-        path="/industries"
-      />
+      <SEOHead pageKey="industries" path="/industries" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
         <div className="max-w-3xl space-y-3">
@@ -29,7 +25,12 @@ export function IndustriesPage() {
           </p>
         </div>
 
-        <IndustrySolutionsSection />
+        <section className="space-y-6">
+          <h2 className="font-editorial text-2xl md:text-3xl font-bold">
+            Explore Solutions Across 10 Sectors
+          </h2>
+          <IndustrySolutionsSection />
+        </section>
 
         <div className="p-7 brutal-border brutal-shadow bg-[#263650] text-[#FFF9F0] rounded-[6px] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1">

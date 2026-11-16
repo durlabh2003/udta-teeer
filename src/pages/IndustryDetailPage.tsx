@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import industriesData from '../data/industries.json';
@@ -12,14 +12,36 @@ import { BrutalCard } from '../components/ui/BrutalCard';
 import { JharokhaAccordion } from '../components/ui/JharokhaAccordion';
 import { NotFoundPage } from './NotFoundPage';
 
+const INDUSTRY_TO_PLANNER_LABEL: Record<string, string> = {
+  retail: 'Jewellery',
+  hospitality: 'Hospitality',
+  handicrafts: 'D2C and E-commerce',
+  education: 'Education',
+  restaurants: 'Restaurant and Cafe',
+  startups: 'Startup and Technology',
+  healthcare: 'Healthcare',
+  'real-estate': 'Real Estate',
+  manufacturing: 'Manufacturing',
+  other: 'Other',
+};
+
 export function IndustryDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { openPlannerModal } = useApp();
 
   const industry = industriesData.industries.find((i) => i.slug === slug);
+
+  useEffect(() => {
+    if (industry) {
+      trackConversionEvent('industry_page_view', { industry: industry.slug, label: industry.name });
+    }
+  }, [industry]);
+
   if (!industry) {
     return <NotFoundPage />;
   }
+
+  const plannerIndustry = INDUSTRY_TO_PLANNER_LABEL[industry.slug] ?? 'Other';
 
   const relatedPortfolio = portfolioData.projects.filter((p) =>
     industry.relatedProjectSlugs.includes(p.slug)
@@ -65,8 +87,13 @@ export function IndustryDetailPage() {
                 trackConversionEvent('service_cta_click', {
                   source: 'industry_detail',
                   label: industry.slug,
+                  industry: plannerIndustry,
                 });
-                openPlannerModal(['website-dev', 'seo-aeo']);
+                openPlannerModal({
+                  services: ['website-dev', 'seo-aeo'],
+                  industry: plannerIndustry,
+                  note: `Industry sector enquiry: ${industry.name} (${industry.recommendedCombo}).`,
+                });
               }}
             >
               <span>Plan Your {industry.name} Project</span>
@@ -136,7 +163,13 @@ export function IndustryDetailPage() {
           <BrutalButton
             variant="hotPink"
             size="md"
-            onClick={() => openPlannerModal(['branding-identity', 'website-dev', 'seo-aeo'])}
+            onClick={() =>
+              openPlannerModal({
+                services: ['branding-identity', 'website-dev', 'seo-aeo'],
+                industry: plannerIndustry,
+                note: `Recommended ${industry.name} stack: ${industry.recommendedCombo}.`,
+              })
+            }
           >
             Customize This Stack
           </BrutalButton>

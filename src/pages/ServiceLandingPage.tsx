@@ -69,8 +69,7 @@ export function ServiceLandingPage({ slug }: { slug: string }) {
   return (
     <>
       <SEOHead
-        title={page.metaTitle}
-        description={page.metaDescription}
+        pageKey={page.slug}
         path={`/${page.slug}`}
         jsonLd={structuredSchema}
       />

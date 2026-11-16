@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
-Sitemap: https://urdtateeeeeer.in/sitemap.xml
+Sitemap: https://udta-teeer.vercel.app/sitemap.xml

@@ -11,11 +11,7 @@ import { BrutalCard } from '../components/ui/BrutalCard';
 export function ContactPage() {
   return (
     <>
-      <SEOHead
-        title="Contact & Book Discovery Call | Urdta Teeeeeer Jaipur"
-        description="Talk over chai in Jaipur or book a 20-minute discovery call with Urdta Teeeeeer. Ping us on WhatsApp or send a quick project note."
-        path="/contact"
-      />
+      <SEOHead pageKey="contact" path="/contact" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
         <div className="max-w-2xl space-y-3">

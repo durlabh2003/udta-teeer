@@ -44,6 +44,7 @@ export function IndustrySolutionsSection() {
               ) : (
                 <Link
                   to={`/industries/${ind.slug}`}
+                  aria-label={`View digital solutions for ${ind.name}`}
                   onClick={() => trackConversionEvent('industry_view', { industry: ind.slug })}
                   className="inline-flex items-center justify-between gap-2 text-xs font-bold pt-3 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/20 hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
                 >

@@ -1,43 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://urdtateeeeeer.in/</loc></url>
-  <url><loc>https://urdtateeeeeer.in/services</loc></url>
-  <url><loc>https://urdtateeeeeer.in/services/design</loc></url>
-  <url><loc>https://urdtateeeeeer.in/services/development</loc></url>
-  <url><loc>https://urdtateeeeeer.in/services/marketing</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/retail</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/hospitality</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/handicrafts</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/education</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/restaurants</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/startups</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/healthcare</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/real-estate</loc></url>
-  <url><loc>https://urdtateeeeeer.in/industries/manufacturing</loc></url>
-  <url><loc>https://urdtateeeeeer.in/work</loc></url>
-  <url><loc>https://urdtateeeeeer.in/work/tapinfi</loc></url>
-  <url><loc>https://urdtateeeeeer.in/work/cafeos</loc></url>
-  <url><loc>https://urdtateeeeeer.in/work/vyapaar-saathi</loc></url>
-  <url><loc>https://urdtateeeeeer.in/process</loc></url>
-  <url><loc>https://urdtateeeeeer.in/packages</loc></url>
-  <url><loc>https://urdtateeeeeer.in/insights</loc></url>
-  <url><loc>https://urdtateeeeeer.in/about</loc></url>
-  <url><loc>https://urdtateeeeeer.in/plan-your-project</loc></url>
-  <url><loc>https://urdtateeeeeer.in/build</loc></url>
-  <url><loc>https://urdtateeeeeer.in/contact</loc></url>
-  <url><loc>https://urdtateeeeeer.in/faq</loc></url>
-  <url><loc>https://urdtateeeeeer.in/privacy-policy</loc></url>
-  <url><loc>https://urdtateeeeeer.in/terms</loc></url>
-  <url><loc>https://urdtateeeeeer.in/website-development-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/ecommerce-development-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/branding-agency-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/ui-ux-design-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/digital-marketing-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/seo-services-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/social-media-marketing-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/performance-marketing-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/mobile-app-development-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/automation-ai-jaipur</loc></url>
-  <url><loc>https://urdtateeeeeer.in/saas-development</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://udta-teeer.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Urdta Teeeeeer Jaipur Creative Technology Studio Hero Artwork</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_d2c_illustration_1794811736009.jpg</image:loc>
+      <image:title>D2C E-Commerce and Brand Identity Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Jaipur Hospitality and Restaurant Digital Experience Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>SaaS Dashboard and Workflow Automation Architecture</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/services</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Urdta Teeeeeer Branding, Web Development &amp; Growth Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/services/design</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Creative Haveli Brand Identity and UI/UX Design Services in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/services/development</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Digital Karkhana Custom Web, E-Commerce &amp; SaaS Engineering</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/services/marketing</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Growth Bazaar SEO, AEO &amp; Performance Marketing Dashboard</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/industries</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Digital Solutions for Jaipur &amp; Indian Industries</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/industries/retail</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/industries/hospitality</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Jaipur Hospitality &amp; Boutique Hotel Digital Systems</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/industries/handicrafts</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/industries/education</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/industries/restaurants</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Jaipur Cafes &amp; Restaurants Web &amp; Ordering Experience</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/industries/startups</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/industries/healthcare</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/industries/real-estate</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/industries/manufacturing</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/industries/other</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/work</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_d2c_illustration_1794811736009.jpg</image:loc>
+      <image:title>Tapinfi NFC Digital Card Platform Showcase</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>CafeOS Hospitality Operations Interface</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Vyapaar Saathi SME Platform &amp; Analytics</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/work/tapinfi</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_d2c_illustration_1794811736009.jpg</image:loc>
+      <image:title>Tapinfi NFC Digital Business Card &amp; Storefront Visual</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/work/cafeos</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>CafeOS Hospitality &amp; Cafe Operations Interface</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/work/vyapaar-saathi</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Vyapaar Saathi Business Workflow Platform &amp; Analytics</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/process</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Urdta Teeeeeer 6-Step Brand, Web &amp; Growth Process</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/packages</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Urdta Teeeeeer Jaipur Pricing &amp; Investment Tiers</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/insights</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>Jaipur Digital Growth, SEO &amp; Web Strategy Insights</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/insights/how-jaipur-businesses-can-improve-digital-presence</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/insights/why-every-growing-business-needs-professional-website</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/insights/branding-vs-marketing-understanding-the-difference</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/insights/how-to-choose-the-right-website-solution</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/insights/seo-and-aeo-for-local-businesses</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/insights/what-an-ecommerce-website-should-include</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/about</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>About Urdta Teeeeeer Creative Technology Studio Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/plan-your-project</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Urdta Teeeeeer Interactive Project Brief Planner</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/build</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/contact</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Contact Urdta Teeeeeer Studio in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://udta-teeer.vercel.app/faq</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/privacy-policy</loc></url>
+  <url><loc>https://udta-teeer.vercel.app/terms</loc></url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/website-development-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Custom Website Development Agency in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/ecommerce-development-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_d2c_illustration_1794811736009.jpg</image:loc>
+      <image:title>E-Commerce &amp; D2C Storefront Development in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/branding-agency-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_d2c_illustration_1794811736009.jpg</image:loc>
+      <image:title>Branding &amp; Visual Identity Studio in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/ui-ux-design-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_jaipur_hospitality_1794811736332.jpg</image:loc>
+      <image:title>UI/UX Design Studio in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/digital-marketing-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Digital Marketing Studio in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/seo-services-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>SEO &amp; AI Answer Engine Optimization in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/social-media-marketing-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Social Media Marketing Studio in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/performance-marketing-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg</image:loc>
+      <image:title>Performance Marketing &amp; Paid Ads in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/mobile-app-development-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>Mobile App Development in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/automation-ai-jaipur</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>WhatsApp CRM &amp; Workflow Automation in Jaipur</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://udta-teeer.vercel.app/saas-development</loc>
+    <image:image>
+      <image:loc>https://udta-teeer.vercel.app/src/assets/images/case_saas_automation_1794811736581.jpg</image:loc>
+      <image:title>SaaS Product &amp; MVP Development Studio</image:title>
+    </image:image>
+  </url>
 </urlset>

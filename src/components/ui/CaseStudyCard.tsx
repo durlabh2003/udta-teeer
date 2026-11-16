@@ -30,10 +30,17 @@ interface CaseStudyCardProps {
   study: CaseStudyItem;
   buttonLabel: string;
   onInspect: (study: CaseStudyItem) => void;
+  headingTag?: 'h3' | 'h4';
 }
 
-export function CaseStudyCard({ study, buttonLabel, onInspect }: CaseStudyCardProps) {
+export function CaseStudyCard({
+  study,
+  buttonLabel,
+  onInspect,
+  headingTag = 'h3',
+}: CaseStudyCardProps) {
   const [imgError, setImgError] = useState(false);
+  const Heading = headingTag;
 
   return (
     <BrutalCard className="flex flex-col justify-between h-full p-0 overflow-hidden">
@@ -44,6 +51,9 @@ export function CaseStudyCard({ study, buttonLabel, onInspect }: CaseStudyCardPr
             <img
               src={study.image}
               alt={study.imageAlt}
+              width={1200}
+              height={896}
+              decoding="async"
               referrerPolicy="no-referrer"
               loading="lazy"
               onError={() => setImgError(true)}
@@ -64,7 +74,7 @@ export function CaseStudyCard({ study, buttonLabel, onInspect }: CaseStudyCardPr
           <p className="text-xs text-[#3A3532] dark:text-[#E6D8C5] mb-1">
             {study.industry} <span aria-hidden="true">·</span> Verified Template Slot
           </p>
-          <h3 className="text-xl font-extrabold tracking-tight mb-3">{study.client}</h3>
+          <Heading className="text-xl font-extrabold tracking-tight mb-3">{study.client}</Heading>
 
           {/* Prominent Metrics Engine Grid */}
           <div className="grid grid-cols-3 gap-2 p-3 brutal-border bg-[#FFF4E0] dark:bg-[#14163D] rounded-[4px] mb-4">

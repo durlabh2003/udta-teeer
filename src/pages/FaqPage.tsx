@@ -19,12 +19,7 @@ export function FaqPage() {
 
   return (
     <>
-      <SEOHead
-        title="FAQs — Honest Answers on Pricing, Templates & Support | Urdta Teeeeeer"
-        description="Straight answers about custom builds vs templates, ad spend transparency, post-launch support, and why Urdta Teeeeeer starts with a diagnostic."
-        path="/faq"
-        jsonLd={faqSchema}
-      />
+      <SEOHead pageKey="faq" path="/faq" jsonLd={faqSchema} />
 
       <div className="max-w-[960px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-10">
         <div className="space-y-2">

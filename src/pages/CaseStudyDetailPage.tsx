@@ -87,7 +87,12 @@ export function CaseStudyDetailPage() {
               <BrutalButton
                 variant="hotPink"
                 size="md"
-                onClick={() => openPlannerModal(['website-dev', 'ui-ux-design'])}
+                onClick={() =>
+                  openPlannerModal({
+                    services: ['website-dev', 'ui-ux-design'],
+                    note: `Interested in a project similar to ${title} (${industry}).`,
+                  })
+                }
               >
                 <Sparkles className="w-4 h-4" />
                 <span>Build Something Similar</span>
@@ -123,6 +128,10 @@ export function CaseStudyDetailPage() {
           <img
             src={image}
             alt={imageAlt}
+            width={1200}
+            height={896}
+            decoding="async"
+            fetchPriority="high"
             referrerPolicy="no-referrer"
             className="w-full max-h-[460px] object-cover"
           />
@@ -202,7 +211,12 @@ export function CaseStudyDetailPage() {
               <BrutalButton
                 variant="ink"
                 size="md"
-                onClick={() => openPlannerModal(['website-dev', 'branding-identity'])}
+                onClick={() =>
+                  openPlannerModal({
+                    services: ['website-dev', 'branding-identity'],
+                    note: `Interested in a project similar to ${title} (${industry}).`,
+                  })
+                }
               >
                 Start Your Similar Project
               </BrutalButton>

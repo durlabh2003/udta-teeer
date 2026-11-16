@@ -9,11 +9,7 @@ export function ProcessPage() {
 
   return (
     <>
-      <SEOHead
-        title="Process — How Your Arrow Flies | Urdta Teeeeeer Jaipur"
-        description="Our 6-stage creative technology process from discovery and roadmap planning to design, build, precision launch, and measurable optimization."
-        path="/process"
-      />
+      <SEOHead pageKey="process" path="/process" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
         <div className="max-w-3xl space-y-3">

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
   ArrowRight,
@@ -18,11 +18,12 @@ import siteConfig from '../data/site-config.json';
 import { useApp } from '../context/AppContext';
 import { trackConversionEvent } from '../lib/analytics';
 import { buildWhatsAppLink } from '../lib/crmAdapter';
-import { HeroScene3D } from '../components/hero/HeroScene3D';
+import { HeroStudioShowcase } from '../components/hero/HeroStudioShowcase';
 import { CaseStudyModalView } from '../components/sections/CaseStudyModalView';
 import { IndustrySolutionsSection } from '../components/sections/IndustrySolutionsSection';
 import { ProcessJourneyPath } from '../components/sections/ProcessJourneyPath';
 import { ProjectPlanner } from '../components/sections/ProjectPlanner';
+import { QuickSolutionFinder } from '../components/sections/QuickSolutionFinder';
 import { ServiceBazaarShowcase } from '../components/sections/ServiceBazaarShowcase';
 import { SEOHead } from '../components/SEOHead';
 import { BrutalButton } from '../components/ui/BrutalButton';
@@ -34,18 +35,37 @@ import { PricingCard } from '../components/ui/PricingCard';
 import { ServiceMarquee } from '../components/ui/ServiceMarquee';
 import { StickerBadge } from '../components/ui/StickerBadge';
 
+const HOME_WORK_TABS = ['All Work', 'Design', 'Development', 'Marketing', 'Complete Solutions'] as const;
+
 export function HomePage() {
   const { lang, t, setPreselectedServiceIds, openPlannerModal, openAuditModal } = useApp();
-  const navigate = useNavigate();
 
-  const [workFilter, setWorkFilter] = useState<string>('All');
+  const [workFilter, setWorkFilter] = useState<string>('All Work');
   const [activeCaseStudy, setActiveCaseStudy] = useState<CaseStudyItem | null>(null);
   const [puppetIdx, setPuppetIdx] = useState<number>(0);
 
-  const filteredProjects =
-    workFilter === 'All'
-      ? portfolioData.projects
-      : portfolioData.projects.filter((p) => p.categories.includes(workFilter));
+  useEffect(() => {
+    trackConversionEvent('homepage_view', { source: 'home' });
+  }, []);
+
+  const filteredProjects = portfolioData.projects.filter((p) => {
+    if (workFilter === 'All Work') return true;
+    if (workFilter === 'Design') {
+      return p.categories.includes('Branding') || p.categories.includes('UI/UX');
+    }
+    if (workFilter === 'Development') {
+      return (
+        p.categories.includes('Website Development') ||
+        p.categories.includes('E-commerce') ||
+        p.categories.includes('Digital Products') ||
+        p.categories.includes('SaaS and Dashboards')
+      );
+    }
+    if (workFilter === 'Marketing') {
+      return p.categories.includes('Marketing');
+    }
+    return p.categories.includes('Complete Solutions');
+  });
 
   const testimonials = caseStudiesData.testimonials;
   const activeTestimonial = testimonials[puppetIdx];
@@ -60,7 +80,7 @@ export function HomePage() {
     openPlannerModal(map[id] ?? ['website-dev']);
   };
 
-  const faqSchema = {
+  const homeFaqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: t.faqSection.items.map((item) => ({
@@ -75,12 +95,7 @@ export function HomePage() {
 
   return (
     <>
-      <SEOHead
-        title="Urdta Teeeeeer — Digital Pink City Studio | Creative, Tech & Growth in Jaipur"
-        description="Based in the Pink City. Building for the world. Urdta Teeeeeer unites brand identity, web & product development, and performance marketing into one accountable partner."
-        path="/"
-        jsonLd={faqSchema}
-      />
+      <SEOHead pageKey="home" path="/" jsonLd={homeFaqSchema} />
 
       {/* SECTION 1: HERO — Digital Pink City Arrival + Immediate 5s Clarity + 3D Hawa Mahal & Kites */}
       <section className="relative overflow-hidden paper-grain pt-8 pb-12 md:pt-12 md:pb-16">
@@ -183,7 +198,7 @@ export function HomePage() {
             </div>
 
             <div className="lg:col-span-6">
-              <HeroScene3D />
+              <HeroStudioShowcase />
             </div>
           </div>
         </div>
@@ -191,9 +206,44 @@ export function HomePage() {
 
       <ServiceMarquee />
 
+      {/* QUICK-JUMP BAR TO REDUCE SCROLL FRICTION ON LONG HOMEPAGE */}
+      <nav
+        aria-label="Homepage section quick jump"
+        className="border-b-[3px] border-[#111111] dark:border-[#FFF9F0] bg-[#FFF9F0] dark:bg-[#182235] py-2.5"
+      >
+        <div className="max-w-[1320px] mx-auto px-4 md:px-6 flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
+          <span className="font-mono-num uppercase text-[#B95E50] dark:text-[#FFC21A]">
+            Jump to Section:
+          </span>
+          <div className="flex flex-wrap items-center gap-3 md:gap-5">
+            <a href="#solution-finder" className="hover:underline underline-offset-4">Solution Finder</a>
+            <a href="#services" className="hover:underline underline-offset-4">Services Bazaar</a>
+            <a href="#work" className="hover:underline underline-offset-4">Featured Work</a>
+            <a href="#industries" className="hover:underline underline-offset-4">10 Industries</a>
+            <a href="#process" className="hover:underline underline-offset-4">6-Step Process</a>
+            <a href="#packages" className="hover:underline underline-offset-4">Pricing Layers</a>
+            <a href="#plan-shot" className="text-[#B95E50] dark:text-[#FFC21A] underline underline-offset-4">
+              Plan Your Shot ↓
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* QUICK SOLUTION FINDER — Track B Entry Route */}
+      <QuickSolutionFinder />
+
       {/* TRUST & PROBLEM STRIP */}
       <section className="py-12 md:py-16 border-b-[3px] border-[#111111] dark:border-[#FFF9F0] bg-[#FFFFFF] dark:bg-[#212E46]">
         <div className="max-w-[1320px] mx-auto px-4 md:px-6 space-y-8">
+          <div className="max-w-2xl space-y-2">
+            <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
+              {t.problem.eyebrow}
+            </p>
+            <h2 className="font-editorial text-2xl md:text-4xl font-bold tracking-tight">
+              {t.problem.headline}
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[6px]">
               <div className="text-xs font-bold uppercase tracking-wider mb-1.5 text-[#B95E50] dark:text-[#FFC21A]">
@@ -310,15 +360,18 @@ export function HomePage() {
             </BrutalButton>
           </div>
 
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
-            {portfolioData.filters.map((cat) => (
+          {/* Concise Homepage Filter Tabs (Section 4.4) */}
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by pillar">
+            {HOME_WORK_TABS.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 role="tab"
                 aria-selected={workFilter === cat}
-                onClick={() => setWorkFilter(cat)}
+                onClick={() => {
+                  setWorkFilter(cat);
+                  trackConversionEvent('portfolio_filter', { source: 'homepage_work', label: cat });
+                }}
                 className={`px-3 py-1.5 text-xs font-bold brutal-border rounded-[4px] cursor-pointer ${
                   workFilter === cat
                     ? 'bg-[#FFC21A] text-[#111111]'
@@ -339,6 +392,9 @@ export function HomePage() {
                     <img
                       src={proj.image}
                       alt={proj.imageAlt}
+                      width={1200}
+                      height={896}
+                      decoding="async"
                       loading="lazy"
                       referrerPolicy="no-referrer"
                       className="w-full aspect-[16/10] object-cover"
@@ -360,6 +416,7 @@ export function HomePage() {
                 <div className="pt-4 mt-4 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/20 flex items-center justify-between">
                   <Link
                     to={`/work/${proj.slug}`}
+                    aria-label={`View detailed breakdown for ${proj.name}`}
                     className="inline-flex items-center gap-1.5 text-sm font-bold underline hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
                   >
                     <span>View Case Breakdown</span>
@@ -380,6 +437,7 @@ export function HomePage() {
                 <CaseStudyCard
                   key={study.id}
                   study={study as CaseStudyItem}
+                  headingTag="h4"
                   buttonLabel={t.workSection.openModalBtn}
                   onInspect={(s) => setActiveCaseStudy(s)}
                 />
@@ -455,14 +513,18 @@ export function HomePage() {
                 </p>
               </div>
               <div className="lg:col-span-5">
-                <div className="brutal-border brutal-shadow-sm rounded-[6px] overflow-hidden bg-[#F4A6B8]">
-                  <img
-                    src="/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg"
-                    alt="Jaipur Hawa Mahal, flying patang kites and kulhad chai studio illustration"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                    className="w-full aspect-[16/9] object-cover"
-                  />
+                <div className="brutal-border brutal-shadow-sm rounded-[6px] p-6 bg-[#263650] text-[#FFF9F0] space-y-3">
+                  <div className="font-mono-num text-xs font-bold uppercase tracking-wider text-[#FFC21A]">
+                    Provocative Name · Rigorous Work
+                  </div>
+                  <p className="font-editorial text-xl font-bold leading-snug">
+                    &ldquo;A flying arrow, aimed at the ordinary.&rdquo;
+                  </p>
+                  <ul className="space-y-1.5 text-xs md:text-sm text-[#FFF9F0]/90 pt-1">
+                    <li>01. Diagnostic before retainer — zero blind spending</li>
+                    <li>02. Custom craft — zero recycled page templates</li>
+                    <li>03. Full ownership — GitHub, Figma &amp; ad accounts stay yours</li>
+                  </ul>
                 </div>
               </div>
             </div>

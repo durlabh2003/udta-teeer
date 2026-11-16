@@ -1,21 +1,38 @@
 /**
- * Full Conversion Funnel Event Tracking Adapter (PRD Section 38)
+ * Full Conversion & Dropoff Funnel Event Tracking Adapter
  * Hooks cleanly into GTM dataLayer or gtag if present; safe no-op otherwise.
+ * Never transmits unnecessary PII into analytics payloads.
  */
 
 export type ConversionEventName =
   | 'page_view'
+  | 'homepage_view'
   | 'hero_cta_click'
+  | 'cta_click'
   | 'arrow_journey_start'
+  | 'solution_finder_open'
+  | 'solution_selected'
+  | 'service_menu_open'
   | 'service_view'
+  | 'service_page_view'
   | 'service_cta_click'
   | 'industry_view'
+  | 'industry_page_view'
+  | 'pricing_view'
+  | 'package_select'
+  | 'portfolio_filter'
   | 'case_study_view'
+  | 'blog_read'
   | 'lead_form_start'
+  | 'planner_start'
   | 'lead_form_step_1'
   | 'lead_form_step_2'
   | 'lead_form_step_3'
+  | 'planner_step_complete'
+  | 'planner_back_click'
+  | 'planner_validation_error'
   | 'lead_form_submit'
+  | 'planner_submit'
   | 'form_submit'
   | 'brief_completed'
   | 'whatsapp_click'
@@ -23,8 +40,8 @@ export type ConversionEventName =
   | 'call_click'
   | 'audit_submit'
   | 'consultation_click'
-  | 'cta_click'
-  | 'blog_read'
+  | 'consultation_book'
+  | 'site_search'
   | 'kite_cut';
 
 export interface ConversionPayload {

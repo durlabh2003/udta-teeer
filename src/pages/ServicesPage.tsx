@@ -22,11 +22,7 @@ export function ServicesPage() {
 
   return (
     <>
-      <SEOHead
-        title="Services Bazaar — Design, Development & Marketing | Urdta Teeeeeer"
-        description="Explore Creative Haveli (Design), Digital Karkhana (Development), and Growth Bazaar (Marketing) at Urdta Teeeeeer Jaipur."
-        path="/services"
-      />
+      <SEOHead pageKey="services" path="/services" />
 
       <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-14">
         <div className="max-w-3xl space-y-3">
