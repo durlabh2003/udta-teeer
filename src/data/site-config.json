@@ -1,0 +1,34 @@
+{
+  "brandName": "Urdta Teeeeeer",
+  "legalEntityNote": "Legal Entity: [TODO: Add Registered Proprietorship / LLP / Pvt Ltd Name & Verify Trademark Clearance]",
+  "city": "Jaipur",
+  "state": "Rajasthan",
+  "country": "India",
+  "email": "namaste@urdtateeeeeer.in",
+  "whatsappNumber": "919999900000",
+  "whatsappDisplay": "+91 99999 00000 (Placeholder — Update before launch)",
+  "calendarEmbedPlaceholder": "https://cal.com/urdta-teeeeeer/discovery-chai",
+  "googleBusinessProfileUrl": "#google-business-profile-placeholder",
+  "responseSlaHours": 24,
+  "statsConfig": {
+    "projectsShipped": null,
+    "activeClients": null,
+    "cupsOfChaiBrewed": 1482,
+    "note": "Keep projectsShipped and activeClients as null until verified numbers exist; UI automatically hides null counters and shows only the playful chai counter."
+  },
+  "industriesServed": [
+    "D2C & E-Commerce Brands",
+    "Clinics & Healthcare",
+    "Real Estate & Architecture",
+    "Education & EdTech",
+    "Hospitality, Travel & Cafes",
+    "Early-Stage & Funded Startups"
+  ],
+  "capabilitiesTrustBadges": [
+    "Diagnostic-First Strategy",
+    "Custom Design & Engineering",
+    "English + Hindi / Hinglish",
+    "Owned Analytics Dashboards",
+    "30-Day Post-Launch Support"
+  ]
+}

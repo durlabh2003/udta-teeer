@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Urdta Teeeeeer — Digital Pink City + Neo-Brutalist Design Tokens
+   ========================================================================== */
+:root {
+  /* Consolidated Jaipur Pink City Palette */
+  --sandstone: #F3E5CE;
+  --ivory: #FFF9F0;
+  --jaipur-pink: #E7B9A4;
+  --gulabi: #F4A6B8;
+  --hot-pink: #FF4F8B;
+  --terracotta: #B95E50;
+  --terracotta-bright: #D9482B;
+  --rose: #D9776B;
+  --marigold: #FFC21A;
+  --saffron: #D99B35;
+  --peacock: #1FB5B0;
+  --indigo: #263650;
+  --charcoal: #282522;
+  --cream: #FFF4E0;
+  --ink: #111111;
+
+  /* Semantic Surface & Text Tokens (WCAG 2.2 AA Contrast) */
+  --bg-canvas: #F3E5CE;
+  --bg-surface: #FFF9F0;
+  --bg-elevated: #FFF4E0;
+  --text-primary: #282522;
+  --text-secondary: #4B433C;
+  --border-ink: #111111;
+  --shadow-color: #111111;
+  --focus-ring: #B95E50;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-poster: 'Bowlby One', 'Bricolage Grotesque', sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-hand: 'Permanent Marker', cursive;
+  --font-devanagari: 'Noto Serif Devanagari', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.dark {
+  /* Raat Ka Jaipur (Deep Indigo Night Mode) */
+  --bg-canvas: #182235;
+  --bg-surface: #212E46;
+  --bg-elevated: #263650;
+  --text-primary: #FFF9F0;
+  --text-secondary: #E7D8C5;
+  --border-ink: #FFF9F0;
+  --shadow-color: #0D1422;
+  --focus-ring: #FFC21A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-body);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  *:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+.font-poster {
+  font-family: var(--font-poster);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.brutal-border {
+  border: 3px solid var(--border-ink);
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0 0 var(--shadow-color);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 4px 4px 0 0 var(--shadow-color);
+}
+
+.brutal-shadow-lg {
+  box-shadow: 8px 8px 0 0 var(--shadow-color);
+}
+
+.brutal-press {
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brutal-press:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 var(--shadow-color);
+}
+
+.brutal-press:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 0 var(--shadow-color);
+}
+
+.paper-grain {
+  background-image: radial-gradient(rgba(40, 37, 34, 0.05) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+.dark .paper-grain {
+  background-image: radial-gradient(rgba(255, 249, 240, 0.06) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+.bandhani-bg {
+  background-image:
+    radial-gradient(circle at 8px 8px, #B95E50 2px, transparent 2.5px),
+    radial-gradient(circle at 24px 24px, #D99B35 2px, transparent 2.5px);
+  background-size: 32px 32px;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .brutal-press:hover,
+  .brutal-press:active {
+    transform: none;
+  }
+}
+
+@keyframes chai-steam {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.9);
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-22px) scale(1.2);
+  }
+}
+
+.animate-chai-steam {
+  animation: chai-steam 1.8s ease-out infinite;
+}

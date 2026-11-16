@@ -1,0 +1,88 @@
+{
+  "contentIntegrityNotice": "Launch Portfolio Candidates & Templates: Tapinfi, CafeOS, and Vyapaar Saathi are studio portfolio candidates pending final scope/permission sign-off. No unverified client metrics are fabricated.",
+  "filters": [
+    "All",
+    "Branding",
+    "Website Development",
+    "E-commerce",
+    "UI/UX",
+    "Digital Products",
+    "SaaS and Dashboards",
+    "Marketing",
+    "Complete Solutions"
+  ],
+  "projects": [
+    {
+      "slug": "tapinfi",
+      "name": "Tapinfi",
+      "statusBadge": "Portfolio Candidate · Scope Verification Pending",
+      "industry": "Startup and Technology",
+      "categories": ["Digital Products", "UI/UX", "Website Development", "Branding"],
+      "servicesDelivered": ["Digital Identity Experience", "Product UI/UX", "Website Presentation"],
+      "timeline": "Confirm publishable timeline",
+      "image": "/src/assets/images/case_d2c_illustration_1794811736009.jpg",
+      "imageAlt": "Tapinfi NFC digital business card and storefront visual showcase",
+      "shortDesc": "NFC-based digital business card platform with instant mobile profile sharing and product presentation.",
+      "challenge": "Professionals and teams needed a faster, eco-friendly alternative to paper cards that looks sharp on any phone without requiring an app download.",
+      "objective": "Design and present an intuitive digital profile card system paired with a clear product website.",
+      "strategy": "Prioritize sub-second mobile profile loading, crisp contact-save triggers, and clean product storytelling.",
+      "execution": {
+        "design": "Modular digital profile layout, tactile card mockups, and clean mobile-first typography.",
+        "development": "Responsive web profile renderer, tap-to-save vCard flows, and product landing experience.",
+        "marketing": "Conversion-focused product positioning and social sharing previews."
+      },
+      "results": "Confirm verified adoption metrics before publishing public claims.",
+      "techStack": ["React", "TypeScript", "Tailwind CSS", "NFC / vCard Standards"],
+      "clientFeedback": "Pending written client/partner approval for public testimonial.",
+      "relatedSlugs": ["cafeos", "vyapaar-saathi"]
+    },
+    {
+      "slug": "cafeos",
+      "name": "CafeOS",
+      "statusBadge": "Portfolio Candidate · Scope Verification Pending",
+      "industry": "Restaurants and Cafes",
+      "categories": ["SaaS and Dashboards", "UI/UX", "Digital Products"],
+      "servicesDelivered": ["Operational Workflow UI", "Dashboard Architecture", "Product Experience"],
+      "timeline": "Confirm publishable timeline",
+      "image": "/src/assets/images/case_jaipur_hospitality_1794811736332.jpg",
+      "imageAlt": "CafeOS hospitality and cafe operations interface illustration",
+      "shortDesc": "Cafe-management digital product focused on clean operational workflows, table/order flow, and clarity for staff.",
+      "challenge": "Independent cafes juggle counter orders, kitchen queues, and daily inventory across clunky legacy software.",
+      "objective": "Craft a fast, low-training operational dashboard and menu workflow tailored for busy cafe counters.",
+      "strategy": "Minimize taps per order, use high-contrast legible status cards, and separate counter vs kitchen views.",
+      "execution": {
+        "design": "High-contrast operational UI, modular order cards, and tablet/desktop responsive grids.",
+        "development": "Interactive workflow screens, structured state updates, and modular dashboard components.",
+        "marketing": "Product narrative positioned around speed and staff simplicity."
+      },
+      "results": "Confirm verified operational time-savings before publishing public figures.",
+      "techStack": ["React", "TypeScript", "Tailwind CSS", "REST APIs"],
+      "clientFeedback": "Pending written approval for public attribution.",
+      "relatedSlugs": ["tapinfi", "vyapaar-saathi"]
+    },
+    {
+      "slug": "vyapaar-saathi",
+      "name": "Vyapaar Saathi",
+      "statusBadge": "Portfolio Candidate · Scope Verification Pending",
+      "industry": "Startups and SMEs",
+      "categories": ["Website Development", "Complete Solutions", "Digital Products", "Marketing"],
+      "servicesDelivered": ["Website Experience", "Product Architecture", "Bilingual Positioning"],
+      "timeline": "Confirm publishable timeline",
+      "image": "/src/assets/images/case_saas_automation_1794811736581.jpg",
+      "imageAlt": "Vyapaar Saathi business workflow platform and analytics illustration",
+      "shortDesc": "Business-oriented digital platform built to simplify daily workflows and digital visibility for Indian SMEs.",
+      "challenge": "Small and medium business owners needed practical digital tools explained in plain, relatable language rather than enterprise jargon.",
+      "objective": "Unite a welcoming product website with structured business-tool workflows.",
+      "strategy": "Combine accessible English/Hinglish clarity with a trust-building visual system and straightforward onboarding.",
+      "execution": {
+        "design": "Clear visual hierarchy, approachable color tokens, and structured onboarding flows.",
+        "development": "Responsive web platform, lead/onboarding capture, and modular workflow views.",
+        "marketing": "SME-focused search positioning and conversion-oriented messaging."
+      },
+      "results": "Confirm verified onboarding and engagement figures prior to public claims.",
+      "techStack": ["React", "TypeScript", "Node.js", "Schema.org SEO"],
+      "clientFeedback": "Pending final partner sign-off.",
+      "relatedSlugs": ["tapinfi", "cafeos"]
+    }
+  ]
+}

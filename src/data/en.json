@@ -1,0 +1,209 @@
+{
+  "langLabel": "English",
+  "switchToLabel": "Hinglish",
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "process": "Process",
+    "packages": "Packages",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Start a Project"
+  },
+  "hero": {
+    "kicker": "Jaipur Creative Technology Studio",
+    "headline": "Jaipur's creative tech studio. Brand, website, growth: all in one place.",
+    "subhead": "We help startups, D2C brands and local businesses build distinctive brands, high-converting websites and measurable growth systems — with one accountable team.",
+    "primaryCta": "Launch Your Project",
+    "secondaryCta": "See Our Work",
+    "kiteHint": "Click any kite to cut its string · Press 'K' for kite shower",
+    "katGaya": "String cut! 🪁",
+    "loaderText": "Brewing masala chai…"
+  },
+  "trustStrip": {
+    "heading": "Built With Accountability From Day One",
+    "note": "No fabricated awards or borrowed logos. Core capabilities and sectors we serve:"
+  },
+  "problem": {
+    "eyebrow": "The Core Friction",
+    "headline": "Three disconnected vendors, vague scope, and slow delivery?",
+    "subhead": "When design, engineering, and marketing sit with separate agencies, your budget leaks in the handoffs.",
+    "painPoints": [
+      {
+        "title": "Pretty Mockups, Broken Implementation",
+        "desc": "One freelancer designs in Figma, another rushes a bloated template. You end up with slow pages and leaking mobile funnels."
+      },
+      {
+        "title": "Running Paid Ads to Weak Landing Pages",
+        "desc": "Performance marketers drive clicks, the website fails to convert, and each vendor blames the other."
+      },
+      {
+        "title": "Monthly PDF Reports Without Pipeline Clarity",
+        "desc": "Vanity impressions hide rising acquisition costs when all you want is qualified leads and measurable revenue."
+      }
+    ],
+    "uvpLine": "One team. Brand, website, and growth: clear scope, bold craft, measurable outcomes."
+  },
+  "servicesSection": {
+    "eyebrow": "Three Flagships + Full Studio Catalog",
+    "headline": "Aimed Straight at the Target: Clear Strategy, Sharp Build, Measurable Growth.",
+    "subhead": "Every capability is customizable, and most ambitious teams start with one of our three flagship engagements.",
+    "flagshipsTitle": "Three Flagship Offers",
+    "bazaarTitle": "The Service Bazaar — Every Discipline Under One Roof",
+    "bazaarSub": "Filter by studio wing, inspect concrete deliverables, and customize your scope.",
+    "customizeBtn": "Customize This",
+    "allStallsTab": "All Disciplines"
+  },
+  "workSection": {
+    "eyebrow": "Proof Architecture (Case Study Templates)",
+    "headline": "Work Designed Around Measurable Before & After Outcomes",
+    "subhead": "Content Integrity Commitment: We never invent client names or fabricate metrics. Below are our structured case-study templates ready for verified project outcomes.",
+    "openModalBtn": "Inspect Case"
+  },
+  "processSection": {
+    "eyebrow": "Flight of the Arrow",
+    "headline": "6-Step Process: From First Conversation to Compounding Growth.",
+    "subhead": "Every stage carries a defined timeline, clear deliverable, and single accountable owner.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Conversation (Discovery Call)",
+        "timeline": "Day 1–2",
+        "owner": "Founder + Studio Lead",
+        "desc": "A candid 20-minute call or studio chai in Jaipur to align on business goals, budget reality, and mutual fit."
+      },
+      {
+        "num": "02",
+        "title": "Brand & Digital Diagnostic",
+        "timeline": "7–10 Days",
+        "owner": "Strategy + Tech + Growth",
+        "desc": "A complete audit of your positioning, competitors, site UX, SEO, and funnel leaks — resulting in a 90-day roadmap."
+      },
+      {
+        "num": "03",
+        "title": "Design & Visual System",
+        "timeline": "1–3 Weeks",
+        "owner": "Design Lead",
+        "desc": "Information architecture, custom visual direction, design tokens, and interactive Figma prototypes signed off before code."
+      },
+      {
+        "num": "04",
+        "title": "Engineering & Build",
+        "timeline": "2–6 Weeks",
+        "owner": "Engineering Team",
+        "desc": "Accessible, fast frontend/backend engineering, WhatsApp & CRM routing, Schema.org SEO, and GA4/CAPI tracking."
+      },
+      {
+        "num": "05",
+        "title": "Launch & Handover",
+        "timeline": "Launch Week",
+        "owner": "Joint Sign-off",
+        "desc": "Zero-downtime deployment, search indexing, performance QA, team SOPs, and 30 days of included post-launch support."
+      },
+      {
+        "num": "06",
+        "title": "Grow & Optimize",
+        "timeline": "Monthly Sprints",
+        "owner": "Growth Partner Lead",
+        "desc": "Performance ad testing, regional + English creative production, SEO/AEO compounding, and an owned live dashboard."
+      }
+    ]
+  },
+  "pillarsSection": {
+    "eyebrow": "Jaipur Roots, National Standard",
+    "headline": "Metro-Level Thinking. Jaipur-Accessible Partnership.",
+    "nameStory": "Why 'Urdta Teeeeeer'? 'Teer' means arrow — and the stretched 'eeeeee' is the sound of an arrow slicing through the air straight to its mark. A flying arrow, aimed at the ordinary.",
+    "pillars": [
+      {
+        "title": "Strategy Before Execution",
+        "desc": "Every retainer begins with a paid Brand & Digital Diagnostic so you never spend ad budget or dev hours on guesswork."
+      },
+      {
+        "title": "Creative Technology as One System",
+        "desc": "Design, interaction, engineering, and performance marketing operate as a single integrated system with zero handoff friction."
+      },
+      {
+        "title": "Jaipur Roots, Measurable Outcomes",
+        "desc": "Warm, direct partnership grounded in Jaipur, paired with live analytics dashboards that your company owns outright."
+      },
+      {
+        "title": "Real Hindi & Regional Capability",
+        "desc": "Over 73% of Indian internet users engage in regional languages. We craft native Hindi, Hinglish, and English campaigns that convert."
+      },
+      {
+        "title": "Practical AI & Engineered Workflows",
+        "desc": "No vague AI hype — only demonstrable CRM pipelines, WhatsApp routing, and operational automations that save real team hours."
+      }
+    ]
+  },
+  "pricingSection": {
+    "eyebrow": "Transparent Pricing",
+    "headline": "Packages & Clear 'Starting From' Investment Guide",
+    "subhead": "We publish realistic starting numbers to respect your time and filter poor-fit inquiries upfront.",
+    "whyNot8kTitle": "Why don't we offer ₹8,000 website packages?",
+    "whyNot8kBody": "An ₹8,000 website only buys a generic, slow template with zero research, zero conversion copywriting, weak security, and no accountability after launch. Your digital presence is your 24/7 storefront and sales team — cheap shortcuts end up costing far more in lost leads and rebuilds.",
+    "buildCustomCta": "Build Your Custom Scope"
+  },
+  "testimonialsSection": {
+    "eyebrow": "Client Voices",
+    "headline": "Client Conversations (Verified Slots Only)",
+    "subhead": "We never publish placeholder fake reviews from fictional customers. Verified partner testimonials appear here as projects ship."
+  },
+  "faqSection": {
+    "eyebrow": "Objections & Answers",
+    "headline": "Straight Answers Before We Start",
+    "items": [
+      {
+        "q": "Will you just hand us a recycled template?",
+        "a": "Never. Every site and identity is designed around your positioning, user flows, and brand character — and you retain full ownership of your code and assets."
+      },
+      {
+        "q": "Will your team disappear right after launch?",
+        "a": "No. Every fixed project includes a 30-day post-launch warranty and support window, with optional care plans or ongoing Growth Partnerships afterward."
+      },
+      {
+        "q": "Why is ad spend billed separately from your retainer?",
+        "a": "For complete financial transparency. Media spend goes directly from your card/account to Meta or Google with zero markup; our fee covers strategy, creative production, and optimization."
+      },
+      {
+        "q": "Why do agency quotes vary so widely?",
+        "a": "Because a static 5-page site differs vastly from a custom storefront with CRM sync, bilingual copy, and interactive motion. We list our exact cost drivers openly on our Packages page."
+      },
+      {
+        "q": "Why is the Brand & Digital Diagnostic required before retainers?",
+        "a": "Running ads or rebuilding without diagnosing positioning, UX leaks, and tracking hygiene wastes capital. A 7–10 day diagnostic locks the strategy first."
+      }
+    ]
+  },
+  "finalCta": {
+    "headline": "Ready to aim straight at real growth?",
+    "subhead": "Whether you need a ₹25,000 Diagnostic or an end-to-end brand, web, and growth system — build your custom brief in 60 seconds or book a discovery call.",
+    "primaryCta": "Build Your Package",
+    "secondaryCta": "Book a Discovery Call",
+    "whatsappCta": "Chat on WhatsApp"
+  },
+  "footer": {
+    "tagline": "Urdta Teeeeeer — Creative technology studio in Jaipur, Rajasthan.",
+    "madeWith": "Crafted with ❤️ & chai in Jaipur",
+    "chaiCounterLabel": "Cups of chai brewed at the studio"
+  },
+  "errors": {
+    "nameRequired": "Please enter your name so we know who we're speaking with.",
+    "phoneRequired": "Please share a WhatsApp or phone number to reach you.",
+    "phoneInvalid": "Please enter a valid 10-digit Indian phone number.",
+    "emailRequired": "Please enter your email address.",
+    "emailInvalid": "That email address doesn't look quite right.",
+    "servicesRequired": "Select at least one service to build your brief.",
+    "messageRequired": "Share a quick note about what you're looking to build."
+  },
+  "success": {
+    "title": "Brief received! Right on target. 🎯",
+    "subtitle": "Our Jaipur studio lead will review your scope and reach out on WhatsApp or call within 24 working hours."
+  },
+  "notFound": {
+    "code": "404",
+    "headline": "Oops! That kite string snapped. Page not found.",
+    "subhead": "Looks like the wind carried this URL away. Head back to the studio homepage.",
+    "cta": "Back to Homepage"
+  }
+}

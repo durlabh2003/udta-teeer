@@ -1,0 +1,103 @@
+{
+  "_contentIntegrityNotice": "HONEST LAUNCH PLACEHOLDERS: Never invent client names, logos, or fabricated metrics. Replace each template slot below with verified client outcomes before launch.",
+  "caseStudies": [
+    {
+      "id": "case-study-1",
+      "isPlaceholder": true,
+      "placeholderTag": "[CASE STUDY TEMPLATE 01 — D2C / E-COMMERCE]",
+      "client": "[Client Name — Jaipur D2C / Craft Brand]",
+      "industry": "D2C / E-Commerce",
+      "image": "/src/assets/images/case_d2c_illustration_1794811736009.jpg",
+      "imageAlt": "Illustrated neo-brutalist showcase of a D2C storefront and block-print shipping boxes",
+      "accent": "marigold",
+      "challenge": "[Problem: Replace with verified client bottleneck — e.g., high cart abandonment on mobile UPI/COD checkout and disconnected ad creatives.]",
+      "whatWeBuilt": [
+        "[Solution 1: Custom conversion-focused storefront architecture]",
+        "[Solution 2: Razorpay UPI/COD flow + Shiprocket automation]",
+        "[Solution 3: Bilingual ad creative testing + CAPI attribution]"
+      ],
+      "metrics": [
+        { "label": "Monthly Traffic", "before": "[Before: X/mo]", "after": "[After: Y/mo]" },
+        { "label": "Checkout Conversion", "before": "[Before: X%]", "after": "[After: Y%]" },
+        { "label": "Blended CAC", "before": "[Before: ₹X]", "after": "[After: ₹Y]" }
+      ],
+      "quote": "\"[Placeholder Client Quote: Replace with an attributable quote from the verified founder/director.]\"",
+      "quoteAuthor": "[Founder Name, Brand Name]",
+      "liveLinkLabel": "Project link added at launch"
+    },
+    {
+      "id": "case-study-2",
+      "isPlaceholder": true,
+      "placeholderTag": "[CASE STUDY TEMPLATE 02 — JAIPUR LOCAL SERVICE / HOSPITALITY]",
+      "client": "[Client Name — Jaipur Boutique Stay / Clinic]",
+      "industry": "Local Service & Hospitality",
+      "image": "/src/assets/images/case_jaipur_hospitality_1794811736332.jpg",
+      "imageAlt": "Illustrated neo-brutalist Jaipur jharokha frame surrounding a booking interface",
+      "accent": "gulabi",
+      "challenge": "[Problem: Replace with verified challenge — e.g., over-reliance on aggregator commissions and slow brochure website with zero WhatsApp lead capture.]",
+      "whatWeBuilt": [
+        "[Solution 1: Fast mobile-first booking & inquiry site]",
+        "[Solution 2: Local Jaipur SEO + Google Business Profile overhaul]",
+        "[Solution 3: Automated WhatsApp inquiry & follow-up routing]"
+      ],
+      "metrics": [
+        { "label": "Direct Inquiries", "before": "[Before: X/mo]", "after": "[After: Y/mo]" },
+        { "label": "Google Maps Actions", "before": "[Before: X/mo]", "after": "[After: Y/mo]" },
+        { "label": "Page Load Speed", "before": "[Before: Xs]", "after": "[After: <2.0s]" }
+      ],
+      "quote": "\"[Placeholder Client Quote: Replace with verified client feedback after launch.]\"",
+      "quoteAuthor": "[Director Name, Jaipur Business]",
+      "liveLinkLabel": "Project link added at launch"
+    },
+    {
+      "id": "case-study-3",
+      "isPlaceholder": true,
+      "placeholderTag": "[CASE STUDY TEMPLATE 03 — STARTUP / SAAS / AUTOMATION]",
+      "client": "[Client Name — Early-Stage Tech Startup]",
+      "industry": "Startup / Automation",
+      "image": "/src/assets/images/case_saas_automation_1794811736581.jpg",
+      "imageAlt": "Illustrated neo-brutalist product dashboard and Jantar Mantar geometric workflow",
+      "accent": "peacock",
+      "challenge": "[Problem: Replace with verified challenge — e.g., fragmented spreadsheets, manual lead triage, and unclear product positioning before seed round.]",
+      "whatWeBuilt": [
+        "[Solution 1: Brand positioning & product UI/UX system]",
+        "[Solution 2: Custom web app + CRM workflow automation]",
+        "[Solution 3: Owned executive analytics & funnel tracking]"
+      ],
+      "metrics": [
+        { "label": "Lead Response Time", "before": "[Before: X hrs]", "after": "[After: <5 mins]" },
+        { "label": "Demo Conversion", "before": "[Before: X%]", "after": "[After: Y%]" },
+        { "label": "Manual Ops Saved", "before": "[Before: X hrs/wk]", "after": "[After: Y hrs/wk]" }
+      ],
+      "quote": "\"[Placeholder Client Quote: Replace with verified founder quote.]\"",
+      "quoteAuthor": "[Co-founder, Startup Name]",
+      "liveLinkLabel": "Project link added at launch"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "testimonial-slot-1",
+      "isPlaceholder": true,
+      "puppetRole": "D2C Founder Slot",
+      "quote": "[Verified client testimonial #1 will appear here once published. No fabricated reviews — check the Case Study templates above for how we measure real outcomes.]",
+      "author": "[Client Name]",
+      "org": "[D2C Brand, Jaipur / India]"
+    },
+    {
+      "id": "testimonial-slot-2",
+      "isPlaceholder": true,
+      "puppetRole": "Local Business Slot",
+      "quote": "[Verified client testimonial #2 will appear here. Every quote requires explicit permission and measurable before/after context.]",
+      "author": "[Client Name]",
+      "org": "[Jaipur Business / Clinic / Studio]"
+    },
+    {
+      "id": "testimonial-slot-3",
+      "isPlaceholder": true,
+      "puppetRole": "Startup Partner Slot",
+      "quote": "[Verified client testimonial #3 will appear here. Want to be among our founding Jaipur partner case studies? Let's talk over chai.]",
+      "author": "[Client Name]",
+      "org": "[Startup Partner]"
+    }
+  ]
+}

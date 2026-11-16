@@ -1,0 +1,517 @@
+{
+  "flagships": [
+    {
+      "id": "diagnostic",
+      "stepOrder": "01",
+      "name": "Brand & Digital Diagnostic",
+      "taglineHi": "Pehle check-up, phir ilaaj. No blind spending.",
+      "taglineEn": "Strategy before execution: full market, UX, and channel audit before any retainer.",
+      "priceId": "diagnostic",
+      "accent": "marigold",
+      "badge": "Mandatory First Step",
+      "deliverables": [
+        "Competitor & Jaipur/India market positioning map",
+        "Website UX, speed, SEO & conversion leak audit",
+        "Channel strategy + 90-day priority execution roadmap",
+        "Analytics & attribution measurement blueprint"
+      ]
+    },
+    {
+      "id": "creative-web",
+      "stepOrder": "02",
+      "name": "Creative Web Experience",
+      "taglineHi": "Sirf sundar website nahi — seedha leads aur sales laane wala system.",
+      "taglineEn": "Conversion-focused website or D2C storefront with cohesive brand design and SEO/AEO setup.",
+      "priceId": "creative-web-experience",
+      "accent": "gulabi",
+      "badge": "Sabse Popular",
+      "deliverables": [
+        "Custom UI/UX + visual identity alignment (zero templates)",
+        "Fast, accessible React/Next build + mobile-first conversion flow",
+        "Technical SEO, Schema JSON-LD & AI-search (AEO/GEO) foundation",
+        "GA4, Meta Pixel, WhatsApp lead routing & 30-day post-launch support"
+      ]
+    },
+    {
+      "id": "growth-partnership",
+      "stepOrder": "03",
+      "name": "Growth Partnership",
+      "taglineHi": "Ek accountable team — ads, content, SEO aur live dashboard sab ek saath.",
+      "taglineEn": "Monthly performance marketing, creative production, SEO/AEO, and an owned reporting dashboard.",
+      "priceId": "growth-partnership",
+      "accent": "peacock",
+      "badge": "Monthly Engine",
+      "deliverables": [
+        "Meta + Google performance ad campaigns & creative testing",
+        "Monthly video/static creative production (English + Hinglish/Hindi)",
+        "Owned live growth dashboard (leads, CAC, ROAS — you own the data)",
+        "Bi-weekly strategy call with founders & senior leads"
+      ]
+    }
+  ],
+  "stalls": [
+    {
+      "id": "banawat",
+      "titleHi": "Banawat (Development)",
+      "titleEn": "Banawat — Engineering & Tech",
+      "subtitleHi": "Jugaad nahi, properly engineered systems.",
+      "subtitleEn": "Fast, scalable websites, stores, apps, and practical automation.",
+      "accent": "peacock"
+    },
+    {
+      "id": "hawa-banao",
+      "titleHi": "Hawa Banao (Marketing)",
+      "titleEn": "Hawa Banao — Growth & Search",
+      "subtitleHi": "Aisi hawa banao ki customer khud dhundh ke aaye.",
+      "subtitleEn": "Measurable acquisition across Search, AI Engines, Meta, Google, and regional audiences.",
+      "accent": "marigold"
+    },
+    {
+      "id": "rang-roop",
+      "titleHi": "Rang-Roop (Design)",
+      "titleEn": "Rang-Roop — Brand & Craft",
+      "subtitleHi": "Bheed mein alag dikhne ka pakka intezaam.",
+      "subtitleEn": "Unmistakable brand systems, interfaces, motion, and pitch decks.",
+      "accent": "gulabi"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "website-dev",
+      "stall": "banawat",
+      "slug": "website-development-jaipur",
+      "name": "Website Development",
+      "hookHi": "Fast, conversion-ready website jo 5 second mein kaam samjhaye.",
+      "hookEn": "Custom high-speed business and corporate websites engineered for conversion.",
+      "deliverables": ["Custom UX architecture & copy polish", "Mobile-first responsive build", "Technical SEO + Schema markup", "WhatsApp & CRM lead integration"],
+      "timeline": "2–6 weeks",
+      "priceDisplay": "From ₹40,000",
+      "startingPrice": 40000,
+      "customScope": false
+    },
+    {
+      "id": "ecommerce-dev",
+      "stall": "banawat",
+      "slug": "ecommerce-development-jaipur",
+      "name": "E-Commerce Development",
+      "hookHi": "D2C store jo browse nahi, checkout karwaye.",
+      "hookEn": "Shopify & WooCommerce storefronts built for higher AOV and smooth COD/UPI checkout.",
+      "deliverables": ["Custom Shopify/WooCommerce theme", "UPI, Razorpay & Shiprocket setup", "Product page CRO & bundle flows", "Pixel + CAPI conversion tracking"],
+      "timeline": "4–6 weeks",
+      "priceDisplay": "From ₹1,00,000",
+      "startingPrice": 100000,
+      "customScope": false
+    },
+    {
+      "id": "web-app-dev",
+      "stall": "banawat",
+      "slug": "saas-development",
+      "name": "Web App & SaaS MVP",
+      "hookHi": "Idea se working product tak — clean architecture, milestone-by-milestone.",
+      "hookEn": "Full-stack web applications and SaaS MVPs scoped via paid technical discovery.",
+      "deliverables": ["Architecture & database blueprint", "Auth, billing & role permissions", "Production React/Next + API stack", "Staged QA & milestone handoff"],
+      "timeline": "8–20 weeks",
+      "priceDisplay": "Custom Scope (From ₹3,00,000)",
+      "startingPrice": 300000,
+      "customScope": true
+    },
+    {
+      "id": "mobile-app-dev",
+      "stall": "banawat",
+      "slug": "mobile-app-development-jaipur",
+      "name": "Mobile App Development",
+      "hookHi": "iOS aur Android app — discovery-first, bina fake fixed-price jhaanse ke.",
+      "hookEn": "Cross-platform and native mobile applications delivered in transparent milestones.",
+      "deliverables": ["Product discovery & clickable prototype", "iOS & Android app build", "Push notifications & analytics", "App Store & Play Store deployment"],
+      "timeline": "10–16 weeks",
+      "priceDisplay": "Custom Scope (From ₹5,00,000)",
+      "startingPrice": 500000,
+      "customScope": true
+    },
+    {
+      "id": "crm-systems",
+      "stall": "banawat",
+      "slug": "automation-ai-jaipur",
+      "name": "CRM, AI & Workflow Automation",
+      "hookHi": "Manual Excel aur missed leads band — practical automation jo kaam aasaan kare.",
+      "hookEn": "Practical CRM pipelines, WhatsApp lead routing, and demonstrable AI workflows.",
+      "deliverables": ["Workflow & bottleneck audit", "CRM pipeline setup & lead scoring", "Automated WhatsApp/Email follow-ups", "Team SOPs & training walkthrough"],
+      "timeline": "2–8 weeks",
+      "priceDisplay": "From ₹75,000 (CRM from ₹1,50,000)",
+      "startingPrice": 75000,
+      "customScope": true
+    },
+    {
+      "id": "seo-aeo",
+      "stall": "hawa-banao",
+      "slug": "seo-services-jaipur",
+      "name": "SEO + AEO / GEO",
+      "hookHi": "Sirf Google pe nahi, ChatGPT aur Perplexity answers mein bhi dikho.",
+      "hookEn": "Local & national SEO paired with Answer Engine Optimization for AI search visibility.",
+      "deliverables": ["Technical & local GBP optimization", "High-intent commercial landing pages", "Schema.org JSON-LD entity architecture", "Monthly ranking & lead attribution report"],
+      "timeline": "Monthly (3–6 mo horizon)",
+      "priceDisplay": "From ₹25,000/mo",
+      "startingPrice": 25000,
+      "customScope": false
+    },
+    {
+      "id": "performance-marketing",
+      "stall": "hawa-banao",
+      "slug": "performance-marketing-jaipur",
+      "name": "Performance Marketing (Meta + Google)",
+      "hookHi": "Sirf likes nahi — measurable leads, ROAS aur real pipeline.",
+      "hookEn": "Data-backed paid acquisition across Meta, Google Search, and YouTube with creative testing.",
+      "deliverables": ["Full-funnel campaign architecture", "Weekly ad creative & hook testing", "Landing page conversion feedback", "Owned ROAS & CPL live dashboard"],
+      "timeline": "Monthly Retainer",
+      "priceDisplay": "From ₹35,000/mo (fee only)",
+      "startingPrice": 35000,
+      "customScope": false
+    },
+    {
+      "id": "digital-marketing-system",
+      "stall": "hawa-banao",
+      "slug": "digital-marketing-jaipur",
+      "name": "Full-Funnel Digital Marketing",
+      "hookHi": "Jaipur se pan-India growth: Hindi + English campaigns jo actually convert karein.",
+      "hookEn": "Integrated digital marketing combining regional-language messaging, search, and paid growth.",
+      "deliverables": ["Channel mix & funnel strategy", "Hindi, Hinglish & English ad copy", "Lead capture + WhatsApp nurture flow", "Monthly executive review"],
+      "timeline": "Monthly Retainer",
+      "priceDisplay": "From ₹35,000/mo",
+      "startingPrice": 35000,
+      "customScope": false
+    },
+    {
+      "id": "social-growth-system",
+      "stall": "hawa-banao",
+      "slug": "social-media-marketing-jaipur",
+      "name": "Social Growth System (Bundled)",
+      "hookHi": "Random festivals ke 'Happy Monday' posts nahi — strategic social growth system.",
+      "hookEn": "Strategic reels, carousels, and regional storytelling bundled inside Growth or Creative retainers.",
+      "deliverables": ["Content pillars & monthly hook bank", "Reels editing + motion graphics", "Hindi/Hinglish/English copywriting", "Community & DM funnel guidelines"],
+      "timeline": "Monthly Bundle",
+      "priceDisplay": "From ₹20,000/mo (Bundled)",
+      "startingPrice": 20000,
+      "customScope": false
+    },
+    {
+      "id": "branding-identity",
+      "stall": "rang-roop",
+      "slug": "branding-agency-jaipur",
+      "name": "Brand Identity & Systems",
+      "hookHi": "Aisi pehchaan jo scroll rok de aur packaging pe bhi kamaal lage.",
+      "hookEn": "Logo systems, typography, Jaipur-inspired or modern palettes, packaging, and brand books.",
+      "deliverables": ["Positioning & visual direction board", "Logo suite, typography & color tokens", "Social, print & packaging templates", "Comprehensive Brand Guidelines PDF"],
+      "timeline": "3–4 weeks",
+      "priceDisplay": "From ₹60,000",
+      "startingPrice": 60000,
+      "customScope": false
+    },
+    {
+      "id": "ui-ux-design",
+      "stall": "rang-roop",
+      "slug": "ui-ux-design-jaipur",
+      "name": "UI/UX & Design Systems",
+      "hookHi": "User confuse nahi hoga — seedha action button dabega.",
+      "hookEn": "Research-backed user flows, wireframes, Figma design systems, and clickable prototypes.",
+      "deliverables": ["User journeys & information architecture", "Interactive Figma prototype", "WCAG AA accessible component library", "Developer-ready handoff specs"],
+      "timeline": "2–5 weeks",
+      "priceDisplay": "From ₹45,000",
+      "startingPrice": 45000,
+      "customScope": false
+    },
+    {
+      "id": "creative-motion",
+      "stall": "rang-roop",
+      "slug": "social-media-marketing-jaipur",
+      "name": "Motion, Video & Pitch Decks",
+      "hookHi": "Thumb-stopping reels, explainer motion aur investor-ready pitch decks.",
+      "hookEn": "High-retention video edits, 2D/3D motion graphics, and founder pitch decks.",
+      "deliverables": ["Ad-ready reel cuts & hook variants", "2D/3D product motion graphics", "Founder & fundraising pitch decks", "Social campaign visual kits"],
+      "timeline": "1–3 weeks",
+      "priceDisplay": "Custom / Retainer",
+      "startingPrice": 20000,
+      "customScope": false
+    }
+  ],
+  "secondaryPackages": [
+    {
+      "id": "startup-launch",
+      "name": "Startup Launch Kit",
+      "whoFor": "Early-stage & funded founders",
+      "includes": ["Brand Identity Lite", "High-converting Launch Website", "Pitch Deck Polish", "Analytics & Waitlist Flow"],
+      "timeline": "4–5 weeks",
+      "startingPrice": "From ₹1,10,000"
+    },
+    {
+      "id": "local-business-presence",
+      "name": "Business Digital Presence",
+      "whoFor": "Jaipur clinics, real estate, interiors, education, hospitality",
+      "includes": ["5–7 Page Fast Website", "Local SEO & Schema", "Google Business Profile Optimization", "Instant WhatsApp Lead Flow"],
+      "timeline": "2–3 weeks",
+      "startingPrice": "₹40,000 – ₹60,000+"
+    },
+    {
+      "id": "ecommerce-growth",
+      "name": "E-Commerce Growth Engine",
+      "whoFor": "D2C & retail brands scaling across India",
+      "includes": ["Storefront CRO Audit & Fixes", "Meta + Google Shopping Ads", "High-converting UGC/Motion Creatives", "Retention WhatsApp/Email Flows"],
+      "timeline": "4 weeks setup + Monthly",
+      "startingPrice": "From ₹1,00,000 + Retainer"
+    },
+    {
+      "id": "automation-ai-pack",
+      "name": "Automation & Practical AI Pack",
+      "whoFor": "Teams losing leads in spreadsheets & manual follow-ups",
+      "includes": ["Workflow Bottleneck Audit", "CRM + WhatsApp Lead Automation", "AI Triage / Summary Assistant (Demonstrable)", "Team Handover & Docs"],
+      "timeline": "2–4 weeks",
+      "startingPrice": "From ₹75,000"
+    }
+  ],
+  "seoLandingPages": [
+    {
+      "slug": "website-development-jaipur",
+      "title": "Website Development in Jaipur",
+      "metaTitle": "Website Development in Jaipur | Urdta Teeeeeer Creative Tech Studio",
+      "metaDescription": "Custom, fast, conversion-focused website development in Jaipur. Built for startups, D2C brands, and local businesses with SEO & WhatsApp lead flows.",
+      "heroHeadlineHi": "Jaipur ki sabse tez, conversion-ready websites.",
+      "heroHeadlineEn": "Custom Websites in Jaipur Built to Convert, Not Just Sit Pretty.",
+      "definition": "Urdta Teeeeeer designs and engineers custom, high-speed business websites in Jaipur with clean code, WCAG accessibility, technical SEO, and measurable lead capture.",
+      "serviceType": "Website Development",
+      "priceRef": "From ₹40,000 – ₹60,000 (Business) · From ₹1,00,000 (Creative Experience)",
+      "timeline": "2–6 weeks",
+      "whoIsItFor": ["Clinics, Architects & Real Estate in Jaipur", "D2C & Boutique Brands", "Funded Startups Launching V1"],
+      "deliverables": [
+        "Custom UI/UX design — zero generic cookie-cutter templates",
+        "Sub-2.5s mobile load speed with responsive Tailwind & modern React/Next architecture",
+        "Complete technical SEO, Schema.org JSON-LD, and AI-search (AEO) formatting",
+        "WhatsApp click-to-chat, GA4 conversion events, and 30-day post-launch support"
+      ],
+      "faqs": [
+        { "q": "Template toh nahi chipkaoge?", "a": "Bilkul nahi. Har layout aapke brand aur customer journey ke hisaab se custom design aur code hota hai." },
+        { "q": "Kitna time lagta hai?", "a": "5–7 page business website 2–3 weeks mein live hoti hai; custom interactive builds 4–6 weeks lete hain." }
+      ]
+    },
+    {
+      "slug": "ecommerce-development-jaipur",
+      "title": "E-Commerce Development in Jaipur",
+      "metaTitle": "E-Commerce & Shopify Development in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "High-converting Shopify and WooCommerce D2C storefronts built in Jaipur with UPI/COD flows, Shiprocket integration, and Meta Pixel tracking.",
+      "heroHeadlineHi": "D2C Storefront jo visitor ko customer banaye.",
+      "heroHeadlineEn": "E-Commerce Development in Jaipur for High-Converting Indian D2C Brands.",
+      "definition": "We build custom Shopify and WooCommerce storefronts optimized for Indian buyers: fast mobile product pages, COD/UPI checkout clarity, logistics sync, and full conversion tracking.",
+      "serviceType": "E-Commerce Development",
+      "priceRef": "From ₹1,00,000",
+      "timeline": "4–6 weeks",
+      "whoIsItFor": ["Jaipur Apparel, Jewellery & Craft D2C Brands", "FMCG & Wellness Startups", "Retailers Expanding Online Across India"],
+      "deliverables": [
+        "Custom storefront UX tuned for mobile thumb shopping",
+        "Razorpay / Cashfree UPI + COD verification + Shiprocket integration",
+        "Meta Pixel, Conversions API (CAPI), and Google Shopping feed setup",
+        "Cart recovery & WhatsApp order update automation"
+      ],
+      "faqs": [
+        { "q": "Shopify ya WooCommerce — kya better hai?", "a": "Zyadatar scaling D2C brands ke liye Shopify best rehta hai kyunki maintenance kam hai. Custom catalog ya zero monthly platform fee chahiye toh WooCommerce/headless suggest karte hain." },
+        { "q": "Kya aap ad creatives aur ROAS bhi handle karte ho?", "a": "Haan, hamara Growth Partnership retainer storefront CRO aur Meta/Google ads ko ek saath chalata hai." }
+      ]
+    },
+    {
+      "slug": "branding-agency-jaipur",
+      "title": "Branding & Identity Agency in Jaipur",
+      "metaTitle": "Branding & Identity Agency in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "Distinctive brand strategy, visual identity, packaging, and typography systems crafted in Jaipur for ambitious Indian businesses.",
+      "heroHeadlineHi": "Aisi brand pehchaan jo bheed mein seedha pehchani jaaye.",
+      "heroHeadlineEn": "Brand Strategy & Visual Identity Systems Crafted in Jaipur.",
+      "definition": "Urdta Teeeeeer builds complete visual identity systems — positioning, logo marks, color tokens, typography, packaging, and brand guidelines — grounded in strategy.",
+      "serviceType": "Brand Identity Design",
+      "priceRef": "From ₹60,000",
+      "timeline": "3–4 weeks",
+      "whoIsItFor": ["New D2C Brands", "Legacy Jaipur Businesses Rebranding", "Startups Preparing for Launch or Fundraising"],
+      "deliverables": [
+        "Brand positioning & audience messaging framework",
+        "Primary/secondary logos, custom color tokens & typography pairing",
+        "Packaging, stationery, and social media template kit",
+        "Comprehensive digital Brand Book for your internal team"
+      ],
+      "faqs": [
+        { "q": "Sirf ₹5,000 mein logo ban jayega?", "a": "Hum sirf clip-art logo nahi banate. Hum poora identity system banate hain jo packaging, website aur ads sab jagah consistent chale." },
+        { "q": "Kitne concepts aur revisions milte hain?", "a": "2 distinct strategic directions aur 2 structured refinement rounds milestone ke hisaab se milte hain." }
+      ]
+    },
+    {
+      "slug": "ui-ux-design-jaipur",
+      "title": "UI/UX Design in Jaipur",
+      "metaTitle": "UI/UX Design & Design Systems in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "User-centered UI/UX design, clickable Figma prototypes, and scalable design systems in Jaipur for SaaS products, apps, and web platforms.",
+      "heroHeadlineHi": "Sundar bhi, simple bhi — user bina soche action le.",
+      "heroHeadlineEn": "Conversion-Focused UI/UX Design & Component Systems in Jaipur.",
+      "definition": "We design clear, accessible digital product interfaces, user journeys, and Figma design systems that reduce drop-offs and speed up engineering.",
+      "serviceType": "UI/UX Design",
+      "priceRef": "From ₹45,000",
+      "timeline": "2–5 weeks",
+      "whoIsItFor": ["SaaS & Mobile App Founders", "E-Commerce Teams Fixing Drop-offs", "B2B Platforms Modernizing Legacy UI"],
+      "deliverables": [
+        "User journey mapping & wireframes",
+        "High-fidelity responsive UI in Figma",
+        "Accessible token & component library (WCAG AA)",
+        "Interactive clickable prototype for user testing"
+      ],
+      "faqs": [
+        { "q": "Kya aap sirf Figma design de sakte ho?", "a": "Haan, clean developer-ready Figma specs aur tokens ke saath handoff karte hain — ya hamari dev team hi build kar deti hai." }
+      ]
+    },
+    {
+      "slug": "digital-marketing-jaipur",
+      "title": "Digital Marketing in Jaipur",
+      "metaTitle": "Digital Marketing Studio in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "Full-funnel digital marketing in Jaipur combining Hindi/English messaging, performance ads, SEO, and transparent dashboards you own.",
+      "heroHeadlineHi": "Likes nahi, asli leads aur measurable growth.",
+      "heroHeadlineEn": "Full-Funnel Digital Marketing in Jaipur with Owned Dashboards.",
+      "definition": "Urdta Teeeeeer runs integrated digital marketing systems uniting performance ads, bilingual Hindi/English creative, landing pages, and transparent attribution.",
+      "serviceType": "Digital Marketing",
+      "priceRef": "From ₹35,000 – ₹60,000/month (agency fee)",
+      "timeline": "Monthly Retainer (min 3 months)",
+      "whoIsItFor": ["Jaipur Clinics, Education & Real Estate", "D2C Brands Across India", "B2B & Service Founders"],
+      "deliverables": [
+        "Paid acquisition strategy + funnel landing page optimization",
+        "English, Hinglish & Hindi ad copy + creative direction",
+        "WhatsApp & CRM lead capture integration",
+        "Live reporting dashboard owned by your business"
+      ],
+      "faqs": [
+        { "q": "Ad budget fee mein included hai kya?", "a": "Nahi. Ad spend seedha aapke Meta/Google card se jaata hai for 100% transparency. Hamari fee sirf strategy, execution aur creative ki hoti hai." }
+      ]
+    },
+    {
+      "slug": "seo-services-jaipur",
+      "title": "SEO & AEO Services in Jaipur",
+      "metaTitle": "SEO & AI Search (AEO) Services in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "Rank on Google Maps, organic search, and AI answer engines (ChatGPT/Perplexity) with technical SEO and structured content in Jaipur.",
+      "heroHeadlineHi": "Google aur AI Search dono mein sabse aage dikho.",
+      "heroHeadlineEn": "SEO & Answer Engine Optimization (AEO/GEO) in Jaipur.",
+      "definition": "Our SEO practice combines local Google Business Profile mastery, technical site health, commercial intent content, and Schema.org entity structuring so both Google and AI search cite your brand.",
+      "serviceType": "SEO & AEO Services",
+      "priceRef": "From ₹25,000/month",
+      "timeline": "3–6 month compounding sprint",
+      "whoIsItFor": ["Local Service Businesses in Jaipur & Rajasthan", "D2C Brands Reducing Ad Dependency", "B2B & SaaS Companies"],
+      "deliverables": [
+        "Technical SEO crawl fixes & Core Web Vitals optimization",
+        "Google Business Profile + local citation authority",
+        "AEO/GEO structured FAQ & Schema.org JSON-LD implementation",
+        "Monthly organic traffic & lead conversion tracking"
+      ],
+      "faqs": [
+        { "q": "SEO mein results kab tak aate hain?", "a": "Local GBP improvements 3–6 weeks mein dikhne lagte hain; competitive organic rankings 3–6 months mein compound hoti hain." }
+      ]
+    },
+    {
+      "slug": "social-media-marketing-jaipur",
+      "title": "Social Media Creative & Growth in Jaipur",
+      "metaTitle": "Social Media Creative & Growth System in Jaipur | Urdta Teeeeeer",
+      "metaDescription": "Strategic reels, Hindi/Hinglish storytelling, and thumb-stopping social creatives in Jaipur — sold as growth systems, never generic filler posts.",
+      "heroHeadlineHi": "Boring festival templates nahi — content jo scroll rok de.",
+      "heroHeadlineEn": "Strategic Social Media Creative & Video Systems in Jaipur.",
+      "definition": "We do not sell cheap standalone '12 static posts/month' packages. We build strategic social creative systems combining reels, motion graphics, and regional-language storytelling tied to brand recall and leads.",
+      "serviceType": "Social Media Marketing",
+      "priceRef": "From ₹20,000/month (inside bundles)",
+      "timeline": "Monthly Creative Sprint",
+      "whoIsItFor": ["Consumer & Lifestyle Brands", "Restaurants, Hospitality & Travel", "Founder-Led Brands Building Authority"],
+      "deliverables": [
+        "Content pillars & hook research",
+        "Short-form reels editing + motion graphics",
+        "Hindi / Hinglish / English captions & carousel design",
+        "Ad-ready creative variants for paid amplification"
+      ],
+      "faqs": [
+        { "q": "Aap ₹5,000/month wala social package kyun nahi dete?", "a": "Kyunki bina strategy aur video hooks ke random graphics post karne se na reach aati hai na sales. Hum sirf meaningful growth systems banate hain." }
+      ]
+    },
+    {
+      "slug": "performance-marketing-jaipur",
+      "title": "Performance Marketing in Jaipur",
+      "metaTitle": "Performance Marketing (Meta & Google Ads) Jaipur | Urdta Teeeeeer",
+      "metaDescription": "ROI-focused Meta and Google Ads management in Jaipur with rapid creative testing, landing page CRO, and transparent attribution.",
+      "heroHeadlineHi": "Har rupee ka hisaab — seedha CPL aur ROAS dashboard pe.",
+      "heroHeadlineEn": "Performance Marketing (Meta & Google Ads) Built Around Unit Economics.",
+      "definition": "We manage Meta Ads, Google Search/Shopping, and YouTube campaigns paired with rapid creative testing and landing page optimization so ad spend scales profitably.",
+      "serviceType": "Performance Marketing",
+      "priceRef": "From ₹35,000 – ₹60,000/month (agency fee)",
+      "timeline": "Monthly Sprint",
+      "whoIsItFor": ["D2C E-Commerce Stores", "High-Ticket Local Clinics, Education & Real Estate", "Funded Startups Testing Acquisition Channels"],
+      "deliverables": [
+        "Pixel, CAPI & GA4 server/event hygiene",
+        "Weekly creative angle testing & bid optimization",
+        "Negative keyword & audience pruning",
+        "Live client-owned ROAS / CPL reporting"
+      ],
+      "faqs": [
+        { "q": "Minimum ad budget kitna hona chahiye?", "a": "Meaningful testing ke liye kam se kam ₹30,000–₹50,000/month ad spend recommend karte hain." }
+      ]
+    },
+    {
+      "slug": "mobile-app-development-jaipur",
+      "title": "Mobile App Development in Jaipur",
+      "metaTitle": "Mobile App Development in Jaipur (Discovery-First) | Urdta Teeeeeer",
+      "metaDescription": "Custom iOS and Android mobile app development in Jaipur. Milestone-based engineering starting with technical discovery.",
+      "heroHeadlineHi": "Reliable mobile apps — bina fake fixed-price shortcuts ke.",
+      "heroHeadlineEn": "Milestone-Driven Mobile App Development (iOS & Android) in Jaipur.",
+      "definition": "We engineer production iOS and Android applications through a disciplined Discovery + Milestones model — ensuring clean UX, stable APIs, and predictable launches.",
+      "serviceType": "Mobile App Development",
+      "priceRef": "Custom Scope (Starting from ₹5,00,000)",
+      "timeline": "10–16 weeks",
+      "whoIsItFor": ["Funded Startups", "Service Marketplaces & Booking Platforms", "B2B Operations Apps"],
+      "deliverables": [
+        "Paid technical & UX discovery blueprint",
+        "React Native / Flutter or native mobile architecture",
+        "Backend APIs, auth & payment integration",
+        "Play Store & App Store submission support"
+      ],
+      "faqs": [
+        { "q": "Fixed price pehle kyun nahi batate?", "a": "Har app ke features, offline needs aur integrations alag hote hain. Discovery sprint ke baad exact milestone quote milta hai — koi hidden surprise nahi." }
+      ]
+    },
+    {
+      "slug": "automation-ai-jaipur",
+      "title": "CRM, Automation & Practical AI in Jaipur",
+      "metaTitle": "CRM, Workflow Automation & Practical AI Workflows Jaipur | Urdta Teeeeeer",
+      "metaDescription": "Practical CRM pipelines, WhatsApp lead automation, and demonstrable AI workflows for Jaipur and Indian businesses.",
+      "heroHeadlineHi": "Vague 'AI magic' nahi — asli workflows jo aapke roz ke 10 ghante bachayein.",
+      "heroHeadlineEn": "Practical Automation, CRM Pipelines & Demonstrable AI Workflows.",
+      "definition": "We audit manual operational bottlenecks and implement measurable CRM pipelines, WhatsApp Business API lead routing, and practical AI document/triage automations.",
+      "serviceType": "Automation & AI Systems",
+      "priceRef": "From ₹75,000 (Workflows) · From ₹1,50,000 (CRM Setup)",
+      "timeline": "2–8 weeks",
+      "whoIsItFor": ["Sales Teams Missing WhatsApp/Form Leads", "Clinics, Real Estate & Education Counselors", "Operations-Heavy SMEs"],
+      "deliverables": [
+        "Operations & lead-leak audit",
+        "CRM setup + automated WhatsApp/Email triggers",
+        "Custom webhook/API or practical AI classification workflow",
+        "Video SOPs & team training"
+      ],
+      "faqs": [
+        { "q": "Kya AI workflows mere existing tools ke saath chalenge?", "a": "Haan, hum Zoho, HubSpot, Google Sheets, Razorpay, Shopify aur WhatsApp APIs ke saath cleanly integrate karte hain." }
+      ]
+    },
+    {
+      "slug": "saas-development",
+      "title": "SaaS & Custom Web App Development",
+      "metaTitle": "SaaS MVP & Custom Web App Development | Urdta Teeeeeer Jaipur",
+      "metaDescription": "Build your SaaS MVP or custom web application with Urdta Teeeeeer. Architecture discovery, clean TypeScript engineering, and milestone delivery.",
+      "heroHeadlineHi": "SaaS MVP jo sirf demo na rahe — paying users handle kare.",
+      "heroHeadlineEn": "Custom Web Apps & SaaS MVPs Engineered for Real Paying Users.",
+      "definition": "From multi-tenant SaaS MVPs to internal enterprise dashboards, we partner with founders through paid architecture discovery and bi-weekly milestone releases.",
+      "serviceType": "SaaS & Custom Web App Development",
+      "priceRef": "Custom Scope (Web App from ₹3,00,000 · SaaS MVP from ₹8,00,000)",
+      "timeline": "8–20 weeks",
+      "whoIsItFor": ["Technical & Non-Technical SaaS Founders", "B2B Platforms Digitizing Legacy Workflows"],
+      "deliverables": [
+        "Product & data-model discovery specification",
+        "UI/UX design system + multi-tenant auth & billing",
+        "Clean TypeScript/React/Node or Next.js codebase",
+        "Automated testing, deployment & documentation"
+      ],
+      "faqs": [
+        { "q": "Code ki ownership kiske paas rahegi?", "a": "100% aapke paas. Hum aapke GitHub repo aur cloud account mein kaam karte hain — zero vendor lock-in." }
+      ]
+    }
+  ]
+}

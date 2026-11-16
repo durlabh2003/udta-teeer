@@ -1,0 +1,3164 @@
+# UDTA TEER
+# MASTER WEBSITE PRODUCT REQUIREMENTS & EXPERIENCE SPECIFICATION
+
+**Product:** Udta Teer — Creative, Technology & Digital Growth Agency Website  
+**Location:** Jaipur, Rajasthan, India  
+**Document type:** Consolidated Master PRD, UX Specification and Functional Blueprint  
+**Version:** 2.0 — Consolidated Direction  
+**Status:** Proposed master specification for design and development
+
+---
+
+# PART 1 — PRODUCT FOUNDATION
+
+## 1.1 Product vision
+
+Udta Teer's website will be an interactive digital representation of Jaipur, designed to communicate the agency's creative, technical and marketing capabilities through an immersive city-based storytelling experience.
+
+The visitor should not experience the website as a collection of disconnected sections. Instead, they should feel as though they are travelling through a digital version of Jaipur.
+
+During this journey:
+
+- The city introduces the brand.
+- The arrow guides the visitor.
+- Different establishments introduce services.
+- Business locations introduce industry-specific solutions.
+- Project showcases demonstrate execution capabilities.
+- A structured journey explains how Udta Teer works.
+- The final destination introduces the project planner.
+
+The entire experience should have a consistent narrative.
+
+## 1.2 Business objectives
+
+The website must fulfil the following objectives.
+
+### Objective A — Brand differentiation
+
+Create a recognisable identity that differentiates Udta Teer from conventional agencies.
+
+Success conditions:
+- Jaipur should be recognisable through architecture, colours and environmental elements.
+- The arrow should become a recognisable brand interaction.
+- The website should communicate a modern agency rather than a tourism business.
+- The brand should feel credible to both small businesses and established organisations.
+
+### Objective B — Service discovery
+
+Visitors should understand what Udta Teer offers without navigating through complicated menus.
+
+Success conditions:
+- Three primary service pillars are immediately understandable.
+- Every pillar has a detailed service breakdown.
+- Every service explains its business value.
+- Visitors can navigate directly to relevant services.
+
+### Objective C — Industry-wide customer acquisition
+
+Udta Teer should serve businesses across different industries through requirement-specific solutions.
+
+Potential customer segments:
+- Retail and jewellery.
+- Restaurants and cafes.
+- Hospitality and tourism.
+- Education and institutions.
+- Healthcare and professional services.
+- Real estate and construction.
+- Handicrafts and lifestyle.
+- Startups and SaaS.
+- Manufacturing and industrial businesses.
+- D2C and e-commerce brands.
+- Local service providers.
+- Other small, medium and enterprise businesses.
+
+These are target segments, not claims about existing clients.
+
+### Objective D — Flexible commercial model
+
+The service and pricing architecture should accommodate both smaller businesses and more complex requirements.
+
+Commercial direction:
+- Public starting price: ₹2,999.
+- Requirement-specific packages.
+- Custom combinations of design, development and marketing.
+- One-time project pricing.
+- Monthly recurring service plans where applicable.
+- Custom quotations for complex requirements.
+
+The ₹2,999 starting price must not imply that every service or complete solution is available at that amount.
+
+### Objective E — Lead generation
+
+Every important section should provide an opportunity to initiate a project discussion.
+
+Primary conversion actions:
+- Build My Growth Plan.
+- Take Your First Shot.
+- Request a Quote.
+- Book a Consultation.
+- Request a Free Audit.
+- Chat on WhatsApp.
+
+### Objective F — Long-term scalability
+
+The website should support the addition of:
+- New services.
+- New industry pages.
+- New portfolio projects.
+- New pricing packages.
+- Blog articles.
+- Landing pages.
+- Additional marketing campaigns.
+
+The content architecture should allow these additions without rebuilding the entire website.
+
+---
+
+# 2. TARGET AUDIENCE AND USER PERSONAS
+
+## 2.1 Small and medium business owners
+
+**Example:** A jewellery shop owner in Jaipur.
+
+Problems:
+- No professional website.
+- Poor digital visibility.
+- Inconsistent branding.
+- Limited understanding of digital marketing.
+- Difficulty choosing the right service provider.
+
+What they need:
+- A simple explanation of available solutions.
+- Affordable entry-level options.
+- Transparent deliverables.
+- A way to explain their requirements without technical knowledge.
+
+Expected journey:
+
+Homepage → Industry selection → Relevant solutions → Starting packages → Project planner → WhatsApp/discussion.
+
+## 2.2 Startup founders
+
+Problems:
+- Need to establish a new brand.
+- Require an MVP or product website.
+- Need UI/UX design and development.
+- Need to communicate their product to investors and customers.
+- May require continuous product improvements.
+
+What they need:
+- Product strategy and discovery.
+- Branding.
+- UI/UX.
+- Website or application development.
+- Launch support.
+- Growth marketing.
+
+Expected journey:
+
+Homepage → Development/Design → Project portfolio → Process → Project planner.
+
+## 2.3 E-commerce and D2C businesses
+
+Problems:
+- Low conversion rates.
+- Weak storefront experience.
+- Poor product presentation.
+- Inconsistent marketing.
+- High customer acquisition costs.
+
+What they need:
+- E-commerce website.
+- Product photography and creative direction.
+- SEO.
+- Paid campaigns.
+- Conversion optimisation.
+- Performance reporting.
+
+Expected journey:
+
+Homepage → Marketing/Development → E-commerce projects → Growth solutions → Free audit.
+
+## 2.4 Established organisations
+
+Problems:
+- Existing websites require improvement.
+- Internal processes need automation.
+- Multiple marketing requirements.
+- Need custom dashboards and integrations.
+
+What they need:
+- Custom scope.
+- Technical consultation.
+- Document sharing.
+- Project planning.
+- Formal proposals.
+
+Expected journey:
+
+Homepage → Development → Capabilities → Case studies → Consultation.
+
+## 2.5 Freelancers and agency partners
+
+Potential needs:
+- White-label development.
+- Creative execution.
+- Technical partnerships.
+- Outsourced project support.
+
+This segment can be added as a secondary audience rather than a primary homepage focus.
+
+---
+
+# PART 2 — BRAND IDENTITY AND VISUAL SYSTEM
+
+# 3. VISUAL CONCEPT: THE DIGITAL PINK CITY
+
+## 3.1 Overall art direction
+
+The visual environment should combine:
+
+1. Jaipur's architectural identity.
+2. Modern illustrated city environments.
+3. Cinematic 3D depth.
+4. Contemporary digital-agency aesthetics.
+5. Interactive storytelling.
+6. Clean editorial layouts.
+
+The visual direction should feel like a premium creative studio that happens to be rooted in Jaipur.
+
+It should not look like:
+- A tourism website.
+- A historical museum.
+- A wedding invitation.
+- A traditional government portal.
+- A generic corporate agency template.
+
+The heritage elements should be integrated into the layout, not applied everywhere indiscriminately.
+
+## 3.2 Core environmental elements
+
+### A. Hawa Mahal
+
+Hawa Mahal should be the primary landmark in the opening environment.
+
+Visual requirements:
+- Recognisable multi-storey facade.
+- Repeated jharokha windows.
+- Pink sandstone appearance.
+- Appropriate architectural proportions.
+- Atmospheric lighting.
+- Visible but not excessively exaggerated detailing.
+
+Functional purpose:
+- Establish Jaipur immediately.
+- Act as the visual anchor.
+- Remain visible in the hero composition.
+- Reappear in the closing environmental composition where appropriate.
+
+### B. Jaipur streets
+
+Include:
+- Heritage shopfronts.
+- Narrow urban lanes.
+- Balconies.
+- Traditional signboards.
+- Rooftops.
+- Architectural arches.
+- Street lamps.
+- Small storefronts.
+- Distant city structures.
+
+The environment should feel inhabited and believable without becoming visually overcrowded.
+
+### C. Supporting landmarks
+
+Potential landmarks:
+- Amer Fort.
+- City Palace-inspired architecture.
+- Patrika Gate-inspired decorative patterns.
+- Traditional Jaipur market streets.
+- Jantar Mantar-inspired geometric forms.
+
+These should be used selectively. Hawa Mahal remains the main recognisable visual landmark.
+
+### D. Environmental animations
+
+Subtle movement:
+- Moving clouds.
+- Flying kites.
+- Atmospheric dust.
+- Ambient light changes.
+- Moving shadows.
+- Distant traffic.
+- Shop lights.
+- Small environmental characters or silhouettes where appropriate.
+
+Environmental motion should never compete with the main arrow.
+
+## 3.3 Colour system
+
+Use the following consolidated palette.
+
+| Token | Colour | Hex | Primary application |
+|---|---|---|---|
+| Terracotta | Warm red | #B95E50 | Brand accents and major highlights |
+| Jaipur Pink | Soft pink | #E7B9A4 | Hero environment and decorative elements |
+| Sandstone | Warm beige | #F3E5CE | Main backgrounds |
+| Deep Indigo | Dark blue | #263650 | Navigation, contrast and dark sections |
+| Marigold | Saffron yellow | #D99B35 | CTA highlights and small accents |
+| Rose | Muted rose | #D9776B | Alternative primary accent |
+| Ivory | Warm white | #FFF9F0 | Cards and content surfaces |
+| Charcoal | Dark neutral | #282522 | Main body text |
+
+Implementation rules:
+- Use sandstone and ivory for most content surfaces.
+- Use deep indigo for visual contrast.
+- Use terracotta and Jaipur pink for brand identity.
+- Use marigold sparingly for action-oriented elements.
+- Avoid applying every brand colour to every section.
+- Maintain WCAG 2.2 AA text contrast.
+- Never use low-contrast turmeric text on sandstone backgrounds.
+
+## 3.4 Typography
+
+### Headings
+
+Recommended:
+- Cormorant Garamond.
+- Playfair Display.
+
+Purpose:
+- Establish visual personality.
+- Create an editorial and architectural feeling.
+- Provide contrast against modern UI elements.
+
+### Body and interface
+
+Recommended:
+- Inter.
+- Poppins.
+
+Purpose:
+- Maintain readability.
+- Support long descriptions.
+- Ensure clean form labels and navigation.
+
+### Cultural accent typography
+
+Use Noto Serif Devanagari or a similar readable Devanagari typeface.
+
+Use only for occasional accents, small headings or brand expressions.
+
+Suggested tagline treatment:
+
+"जयपुर से, दुनिया के लिए।"
+
+Do not use decorative Devanagari typography for important functional instructions.
+
+## 3.5 Decorative design elements
+
+### Jharokha windows
+Use as:
+- Hero framing.
+- Service-card containers.
+- Section masks.
+- Image frames.
+
+### Jaali patterns
+Use as:
+- Background textures.
+- Statistics-section decoration.
+- Subtle loading backgrounds.
+- Footer decoration.
+
+### Block-print motifs
+Use as:
+- Dividers.
+- Button feedback.
+- Small decorative borders.
+- Card accents.
+
+### Architectural arches
+Use as:
+- Section transitions.
+- Service cards.
+- Modal frames.
+- Portfolio image masks.
+
+### Heritage signboards
+Use as:
+- Service titles.
+- Industry markers.
+- City-based navigation labels.
+
+All visual assets should be original or appropriately licensed.
+
+---
+
+# PART 3 — INFORMATION ARCHITECTURE
+
+# 4. COMPLETE WEBSITE STRUCTURE
+
+The website should have one immersive homepage supported by dedicated service, portfolio, industry and company pages.
+
+## Primary navigation
+
+1. Home.
+2. Services.
+3. Industries.
+4. Our Work.
+5. Our Process.
+6. About Us.
+7. Insights.
+8. Contact.
+
+Primary navigation CTA:
+
+**PLAN YOUR PROJECT**
+
+Secondary floating action:
+
+**WhatsApp**
+
+## Proposed URL architecture
+
+- `/`
+- `/services`
+- `/services/design`
+- `/services/development`
+- `/services/marketing`
+- `/industries`
+- `/industries/retail`
+- `/industries/hospitality`
+- `/industries/education`
+- `/industries/startups`
+- `/industries/healthcare`
+- `/industries/real-estate`
+- `/work`
+- `/work/[project-slug]`
+- `/process`
+- `/about`
+- `/insights`
+- `/insights/[article-slug]`
+- `/contact`
+- `/plan-your-project`
+- `/privacy-policy`
+- `/terms`
+- `/thank-you`
+- `/404`
+
+Industry pages can be introduced progressively after the core website launch.
+
+---
+
+# PART 4 — HOMEPAGE: COMPLETE SECTION-BY-SECTION SPECIFICATION
+
+# 5. SECTION 01 — ENTER JAIPUR: THE HERO EXPERIENCE
+
+**Purpose:** Create immediate recognition, communicate the brand proposition and encourage visitors to explore.
+
+### Visual layout
+
+The opening screen should present a cinematic Jaipur environment.
+
+Desktop composition:
+- Full-viewport illustrated or 3D city.
+- Hawa Mahal as the central background landmark.
+- Jaipur rooftops and streets in the foreground.
+- An arrow positioned prominently.
+- Udta Teer logo.
+- Main headline.
+- Supporting description.
+- Two CTA buttons.
+- A subtle scroll indicator.
+
+### Suggested copy
+
+**UDTA TEER · JAIPUR**
+
+"You bring the ambition. We bring the aim."
+
+"Your creative, technology and growth partner for building a stronger digital business."
+
+Primary CTA: TAKE YOUR FIRST SHOT
+
+Secondary CTA: EXPLORE OUR WORK
+
+Supporting microcopy:
+
+"Based in the Pink City. Building for the world."
+
+### Opening animation sequence
+
+1. The screen begins with a warm atmospheric background.
+2. The Jaipur skyline gradually appears.
+3. Hawa Mahal is revealed through a controlled camera movement.
+4. Ambient elements introduce depth.
+5. The Udta Teer logo appears.
+6. The arrow enters the composition.
+7. The headline fades into view.
+8. CTA buttons become interactive.
+9. A subtle scroll indicator communicates that the city continues below.
+
+### Arrow interaction
+
+The arrow is the main visual navigation element.
+
+Its initial state should be idle.
+
+On hover:
+- Slight movement.
+- Subtle glow.
+- A directional cue.
+
+On click:
+- Launch the arrow.
+- Begin the scroll journey.
+- Transition into the first service destination.
+
+On scroll:
+- The arrow follows a predefined curved trajectory.
+- The camera adjusts to maintain the composition.
+- The city layers move at different speeds.
+
+### Functional requirements
+
+- Logo navigates to homepage.
+- Primary CTA opens the project planner.
+- Secondary CTA scrolls to portfolio.
+- Scroll indicator initiates the next section.
+- Arrow animation can be skipped.
+- Navigation remains accessible throughout.
+- The hero must remain usable before 3D assets finish loading.
+
+### Trust strip
+
+Directly below or integrated into the hero, introduce a compact credibility strip.
+
+Potential content:
+- Services across three major pillars.
+- Jaipur-based creative and technical team.
+- Project delivery capabilities.
+- Selected client logos, when permission exists.
+
+Do not display unverified project counts, years of experience or customer statistics.
+
+---
+
+# 6. SECTION 02 — THE SERVICE BAZAAR
+
+**Purpose:** Introduce the three primary business capabilities through Jaipur-inspired establishments.
+
+This is the most important storytelling section after the hero.
+
+The arrow travels through the city and reaches three destinations.
+
+## 6.1 DESIGN — THE CREATIVE HAVELI
+
+**Brand message:** We make your business recognisable.
+
+### Visual concept
+
+The Creative Haveli is a sophisticated design studio represented by a Jaipur-inspired heritage building.
+
+Visual elements:
+- Illustrated storefront.
+- Decorative jharokha windows.
+- Creative artwork displayed in the windows.
+- Branding samples.
+- Colour palettes.
+- Packaging and graphic-design mockups.
+
+### Animation
+
+1. Arrow approaches the Creative Haveli.
+2. Arrow hits the target.
+3. A soft impact ripple appears.
+4. The storefront illuminates.
+5. Shutters open.
+6. Design samples appear inside.
+7. A content panel opens beside the building.
+
+### Services offered
+
+**A. Brand Identity and Strategy**
+- Brand discovery.
+- Brand positioning.
+- Logo design.
+- Brand guidelines.
+- Colour systems.
+- Typography systems.
+- Visual identity development.
+- Brand collateral.
+
+**B. UI/UX Design**
+- User research.
+- User personas.
+- User journey mapping.
+- Information architecture.
+- Wireframing.
+- Interactive prototyping.
+- UI design.
+- Responsive design systems.
+- Usability improvements.
+
+**C. Website and Landing Page Design**
+- Homepage design.
+- Landing-page design.
+- Website layouts.
+- Conversion-oriented UI.
+- Responsive interface design.
+- Website redesign.
+
+**D. Graphic Design**
+- Social media creatives.
+- Promotional banners.
+- Marketing creatives.
+- Posters.
+- Brochures.
+- Presentations.
+- Digital advertisements.
+
+**E. Packaging and Print**
+- Product packaging.
+- Label design.
+- Business stationery.
+- Product inserts.
+- Promotional print material.
+
+**F. Motion and Creative Assets**
+- Motion graphics.
+- Animated social media assets.
+- Promotional videos.
+- Digital campaign creatives.
+
+### Service content panel
+
+Each service should have:
+- Service title.
+- Short description.
+- Business problem it solves.
+- Deliverables.
+- Relevant project preview.
+- Starting-price information, if approved.
+- CTA.
+
+CTA: EXPLORE DESIGN SERVICES
+
+Secondary CTA: BUILD MY BRAND
+
+---
+
+## 6.2 DEVELOPMENT — THE DIGITAL KARKHANA
+
+**Brand message:** We turn ideas into working digital products.
+
+### Visual concept
+
+A modern digital workshop combining traditional Jaipur craftsmanship with contemporary technology.
+
+Visual elements:
+- Workshop storefront.
+- Laptop and desktop mockups.
+- Floating application windows.
+- Interface components.
+- Digital product screens.
+- Technical illustrations.
+
+### Animation
+
+1. Arrow approaches the Digital Karkhana.
+2. Target impact occurs.
+3. The traditional workshop lights up.
+4. Its facade transforms into a digital interface.
+5. Website mockups emerge from the building.
+6. A service panel appears.
+
+The architecture-to-interface transformation is a key visual signature.
+
+### Services offered
+
+**A. Business Website Development**
+- Corporate websites.
+- Agency websites.
+- Portfolio websites.
+- Service websites.
+- Landing pages.
+- Responsive websites.
+- Website redesign.
+- Website maintenance.
+
+**B. E-commerce Development**
+- Online stores.
+- Product catalogues.
+- Product detail pages.
+- Cart functionality.
+- Checkout integration.
+- Payment gateway integration.
+- Order management.
+- Customer account functionality.
+- Inventory integration where required.
+
+**C. Custom Web Applications**
+- Business management applications.
+- Booking systems.
+- Customer portals.
+- Operational platforms.
+- Internal management tools.
+- Workflow applications.
+
+**D. Mobile Application Development**
+- Android applications.
+- iOS applications.
+- Cross-platform applications.
+- Application UI/UX.
+- API integration.
+- Testing and deployment.
+
+**E. SaaS and Dashboards**
+- SaaS MVP development.
+- Admin dashboards.
+- Analytics dashboards.
+- Reporting platforms.
+- Subscription-based applications.
+- Role-based systems.
+
+**F. API, Automation and Integration**
+- API development.
+- Third-party API integration.
+- CRM integration.
+- Payment integration.
+- Workflow automation.
+- Database integration.
+- Business-process automation.
+
+### Service content panel
+
+Display:
+- What can be developed.
+- Technologies and capabilities.
+- Typical use cases.
+- Deliverables.
+- Project examples.
+- Development process.
+- CTA.
+
+CTA: EXPLORE DEVELOPMENT SERVICES
+
+Secondary CTA: BUILD MY PRODUCT
+
+---
+
+## 6.3 MARKETING — THE GROWTH BAZAAR
+
+**Brand message:** We take your business to the right audience.
+
+### Visual concept
+
+A vibrant Jaipur market representing business visibility, communication and growth.
+
+Visual elements:
+- Traditional market storefronts.
+- Digital advertising signboards.
+- Social-media-style creative panels.
+- Search-result-inspired graphics.
+- Campaign dashboards.
+- Moving promotional banners.
+
+### Animation
+
+1. Arrow approaches the Growth Bazaar.
+2. Target impact occurs.
+3. Storefront lights switch on.
+4. Digital campaign boards appear.
+5. Search and social-media graphics animate.
+6. Growth dashboard opens.
+
+### Services offered
+
+**A. Search Engine Optimisation**
+- Technical SEO.
+- On-page SEO.
+- Keyword research.
+- Content optimisation.
+- Local SEO.
+- Website audits.
+- SEO reporting.
+
+**B. Paid Advertising**
+- Google Ads.
+- Meta Ads.
+- Campaign strategy.
+- Audience targeting.
+- Ad creatives.
+- Conversion tracking.
+- Campaign optimisation.
+
+**C. Social Media Management**
+- Social media strategy.
+- Content calendars.
+- Post design.
+- Reels and short-form content.
+- Account management.
+- Community engagement.
+
+**D. Content Marketing**
+- Website copywriting.
+- Blog content.
+- Social-media content.
+- Campaign messaging.
+- Promotional content.
+
+**E. Performance Marketing**
+- Campaign planning.
+- Paid acquisition.
+- Conversion tracking.
+- Retargeting.
+- Performance analysis.
+- Budget optimisation.
+
+**F. Lead Generation and Conversion Optimisation**
+- Lead-generation funnels.
+- Landing-page optimisation.
+- Enquiry-form optimisation.
+- Conversion analysis.
+- Lead tracking.
+- Campaign improvement.
+
+### Service content panel
+
+Display:
+- Marketing objective.
+- Available channels.
+- Campaign deliverables.
+- Reporting methodology.
+- Relevant work.
+- CTA.
+
+CTA: EXPLORE MARKETING SERVICES
+
+Secondary CTA: GROW MY BUSINESS
+
+---
+
+## 6.4 COMPLETE GROWTH SOLUTIONS
+
+The three service destinations should be supported by a fourth combined solution.
+
+This should not necessarily be a fourth major storefront. It can be represented as the central business hub of the city.
+
+**Concept:** The Growth Headquarters.
+
+It represents businesses that need multiple capabilities working together.
+
+Examples:
+
+- Branding + Website Development.
+- Website + SEO.
+- E-commerce + Paid Marketing.
+- UI/UX + SaaS Development.
+- Branding + Social Media.
+- Complete Digital Business Setup.
+
+Functional behaviour:
+
+The visitor can select multiple service pillars and build a combined requirement.
+
+CTA: BUILD MY COMPLETE GROWTH PLAN.
+
+---
+
+# 7. SECTION 03 — PROJECT BAZAAR: OUR WORK
+
+**Purpose:** Establish credibility through real project execution.
+
+The portfolio should not be a simple collection of images.
+
+It should function as a filterable project discovery system.
+
+## 7.1 Portfolio layout
+
+Use a visually rich grid inspired by Jaipur miniature-painting frames and architectural windows.
+
+Each project card should include:
+
+- Project image or mockup.
+- Project name.
+- Industry.
+- Project category.
+- Services delivered.
+- Short description.
+- View case study CTA.
+
+## 7.2 Portfolio filters
+
+Provide interactive filters:
+
+- All.
+- Branding.
+- Website Development.
+- E-commerce.
+- UI/UX.
+- Digital Products.
+- SaaS and Dashboards.
+- Marketing.
+- Complete Solutions.
+
+Secondary filters:
+- Industry.
+- Project type.
+
+Filters should work without reloading the entire page.
+
+## 7.3 Initial portfolio candidates
+
+The following existing projects are potential launch candidates:
+
+**Tapinfi**
+- NFC-based digital business card platform.
+- Digital identity and profile experience.
+- Product and website presentation.
+- Relevant capabilities should be identified from actual delivered work.
+
+**CafeOS**
+- Cafe-management-oriented digital product.
+- Interface and operational workflow.
+- Dashboard or application presentation.
+
+**Vyapaar Saathi**
+- Business-oriented digital platform.
+- Website and product experience.
+
+These are portfolio candidates, not verified client case studies. Each project's actual scope and contribution must be confirmed before publication.
+
+## 7.4 Individual case-study functionality
+
+Every project card opens a dedicated case-study page.
+
+Recommended structure:
+
+### 1. Project overview
+- Project name.
+- Industry.
+- Project type.
+- Services delivered.
+- Timeline, if publishable.
+
+### 2. Business challenge
+Explain the problem.
+
+### 3. Project objective
+Explain what needed to be achieved.
+
+### 4. Research and strategy
+Explain the approach.
+
+### 5. Execution
+Describe:
+- Design.
+- Development.
+- Marketing.
+- Technical implementation.
+- Integrations.
+
+### 6. Final solution
+Display:
+- Desktop screenshots.
+- Mobile screenshots.
+- Application screens.
+- Creative assets.
+- Campaign examples.
+
+### 7. Results
+Show measurable results only when supported by genuine evidence.
+
+### 8. Tools and technologies
+Display the actual tools and technology stack.
+
+### 9. Client feedback
+Include an approved quotation where available.
+
+### 10. Related projects
+Show two or three similar projects.
+
+### 11. Final CTA
+"Have a similar requirement? Let's build it."
+
+## 7.5 Portfolio interactions
+
+- Hover image zoom.
+- Image reveal transitions.
+- Project-card elevation.
+- Animated filter switching.
+- Click-to-expand previews.
+- Next/previous project navigation.
+- Related-project navigation.
+
+For mobile, cards should stack vertically without requiring horizontal scrolling.
+
+---
+
+# 8. SECTION 04 — WHO WE HELP: INDUSTRY SOLUTIONS
+
+**Purpose:** Help visitors identify their own business within Udta Teer's service ecosystem.
+
+The section should use illustrated Jaipur establishments representing different industries.
+
+## 8.1 Industry categories
+
+### A. Jewellery and Retail
+Solutions:
+- Brand identity.
+- Product catalogues.
+- E-commerce.
+- Product photography direction.
+- SEO.
+- Paid advertising.
+- Customer acquisition.
+
+Example messaging:
+
+"Build a digital storefront that showcases your products and helps customers discover your brand."
+
+### B. Hospitality and Tourism
+Solutions:
+- Hotel websites.
+- Booking-oriented websites.
+- Destination landing pages.
+- Local SEO.
+- Social media management.
+- Paid campaigns.
+- Enquiry-generation systems.
+
+Example:
+
+"Turn your hospitality business into a destination customers can discover and book."
+
+### C. Handicrafts and Lifestyle
+Solutions:
+- Brand identity.
+- Packaging.
+- Product catalogues.
+- E-commerce.
+- Social content.
+- Digital campaigns.
+
+### D. Education and Institutions
+Solutions:
+- Admission websites.
+- Lead-generation landing pages.
+- Student enquiry forms.
+- SEO.
+- Google Ads.
+- Social campaigns.
+- Educational portals.
+
+### E. Restaurants and Cafes
+Solutions:
+- Restaurant websites.
+- Digital menus.
+- Online ordering.
+- Reservation enquiries.
+- Local SEO.
+- Social media.
+- Promotional campaigns.
+
+### F. Startups and SMEs
+Solutions:
+- Branding.
+- MVP development.
+- Product websites.
+- SaaS development.
+- UI/UX.
+- Launch campaigns.
+- Growth strategy.
+
+### G. Healthcare and Professional Services
+Solutions:
+- Professional websites.
+- Appointment enquiry systems.
+- Local SEO.
+- Service pages.
+- Educational content.
+- Lead-generation campaigns.
+
+### H. Real Estate and Construction
+Solutions:
+- Project websites.
+- Property listing interfaces.
+- Landing pages.
+- Lead forms.
+- Paid campaigns.
+- Digital brochures.
+
+### I. Manufacturing and Industrial Businesses
+Solutions:
+- Corporate websites.
+- Product catalogues.
+- B2B enquiry systems.
+- Technical content.
+- SEO.
+- Lead-generation campaigns.
+
+### J. Other industries
+Include a final card:
+
+"Your industry isn't listed? We build around your requirements."
+
+CTA: TELL US WHAT YOU NEED.
+
+## 8.2 Industry-page behaviour
+
+Clicking an industry card should open its dedicated page.
+
+Each page contains:
+1. Industry-specific introduction.
+2. Common business challenges.
+3. Relevant design solutions.
+4. Relevant development solutions.
+5. Relevant marketing solutions.
+6. Recommended service combinations.
+7. Related projects.
+8. FAQs.
+9. Project planner CTA.
+
+The content should be industry-specific, not the same paragraph copied across every page.
+
+---
+
+# 9. SECTION 05 — OUR PROCESS: FROM IDEA TO IMPACT
+
+**Purpose:** Explain exactly how Udta Teer executes a project.
+
+The process should combine the research documents' six-stage approach with the PRD's simplified homepage process.
+
+The full six-stage process should be used on the detailed process page.
+
+## Stage 01 — Understand the Target
+
+Activities:
+- Initial consultation.
+- Business understanding.
+- Target-audience analysis.
+- Requirement gathering.
+- Problem identification.
+- Competitor understanding.
+
+Deliverables:
+- Discovery discussion.
+- Initial requirement brief.
+- Project objectives.
+
+## Stage 02 — Plan the Shot
+
+Activities:
+- Requirement analysis.
+- Solution planning.
+- Scope definition.
+- Deliverable identification.
+- Priority setting.
+- Timeline estimation.
+- Budget estimation.
+
+Deliverables:
+- Project roadmap.
+- Scope document.
+- Estimated budget.
+- Project milestones.
+
+## Stage 03 — Design the Direction
+
+Activities:
+- Creative direction.
+- Brand exploration.
+- User journey mapping.
+- Wireframes.
+- UI/UX design.
+- Content structure.
+- Prototype development.
+
+Deliverables:
+- Design concepts.
+- Wireframes.
+- UI screens.
+- Interactive prototypes.
+
+## Stage 04 — Build the Solution
+
+Activities:
+- Frontend development.
+- Backend development.
+- Creative production.
+- Marketing setup.
+- Integration implementation.
+- Database development where required.
+
+Deliverables:
+- Working website/application.
+- Creative assets.
+- Technical implementation.
+- Functional integrations.
+
+## Stage 05 — Launch with Precision
+
+Activities:
+- Functional testing.
+- Responsive testing.
+- Browser testing.
+- Performance optimisation.
+- Content review.
+- Deployment.
+- Campaign activation where applicable.
+
+Deliverables:
+- QA report.
+- Deployment.
+- Launch readiness.
+- Handover.
+
+## Stage 06 — Optimise and Grow
+
+Activities:
+- Performance monitoring.
+- Analytics review.
+- SEO improvements.
+- Conversion optimisation.
+- Campaign optimisation.
+- Feature improvements.
+- Maintenance.
+
+Deliverables:
+- Performance reporting.
+- Improvement recommendations.
+- Optimisation tasks.
+- Ongoing support according to the agreed scope.
+
+## Visual implementation
+
+Represent the process as a route through Amer Fort-inspired stairs or architectural checkpoints.
+
+The arrow follows the path.
+
+As the visitor scrolls:
+- The route line draws itself.
+- Each checkpoint activates.
+- A short description appears.
+- Deliverables are displayed.
+- Completed steps remain highlighted.
+
+---
+
+# 10. SECTION 06 — WHY UDTA TEER?
+
+Avoid generic statements such as quality, excellence and innovation.
+
+Use concrete differentiators.
+
+### One partner for multiple requirements
+
+Design, development and marketing can be coordinated under one engagement.
+
+### Requirement-specific solutions
+
+Businesses are not forced into a single predefined solution.
+
+### Transparent scope
+
+Deliverables, milestones and expectations should be defined before execution.
+
+### Business-focused execution
+
+Projects should be connected to the actual problem being solved.
+
+### Continuous improvement
+
+Support and optimisation can continue after launch under the agreed engagement.
+
+Visual direction:
+- Five architectural windows.
+- Each window represents one differentiator.
+- Short explanatory text.
+- Supporting proof or example where available.
+
+---
+
+# 11. SECTION 07 — TRUST AND RESULTS
+
+**Purpose:** Remove hesitation before the visitor contacts Udta Teer.
+
+Components:
+
+### A. Client testimonials
+Each testimonial contains:
+- Client name.
+- Business name.
+- Industry.
+- Approved testimonial.
+- Photo or logo, where permission exists.
+
+### B. Project statistics
+Potential metrics:
+- Projects delivered.
+- Websites launched.
+- Brands supported.
+- Campaigns managed.
+- Leads generated.
+- Conversion improvements.
+
+Only publish verified numbers.
+
+### C. Technology and capabilities
+Show relevant technology logos and platform capabilities.
+
+### D. Project highlights
+Display three short project stories with a problem and a delivered solution.
+
+### E. Client logos
+Use only logos that Udta Teer is authorised to display.
+
+Visual direction:
+A jaali-inspired layout with layered testimonial windows and subtle architectural borders.
+
+---
+
+# 12. SECTION 08 — FINAL DESTINATION: TAKE YOUR SHOT
+
+This is the final stage of the homepage narrative.
+
+The arrow completes its journey and reaches a large target board.
+
+The board contains:
+
+**DESIGN. DEVELOPMENT. GROWTH.**
+
+The target transforms into the project-planning interface.
+
+Suggested headline:
+
+"Every great business starts with a clear target. What's yours?"
+
+Supporting copy:
+
+"Tell us where your business stands and where you want to go. We'll help you identify the right digital solutions."
+
+Primary CTA:
+
+BUILD MY GROWTH PLAN.
+
+Secondary actions:
+- WhatsApp.
+- Book a consultation.
+- Request a quote.
+
+The visitor should never be required to finish watching the animation to access the form.
+
+---
+
+# PART 5 — MOST IMPORTANT FUNCTIONAL FEATURE
+
+# 13. INTERACTIVE PROJECT PLANNER
+
+This is the primary lead-generation system.
+
+It should replace the conventional long contact form with a guided multi-step experience.
+
+The same planner should be accessible from:
+- Hero CTA.
+- Header CTA.
+- Service pages.
+- Industry pages.
+- Portfolio pages.
+- Final homepage section.
+- Contact page.
+
+It should support three presentation modes:
+
+1. Full dedicated page.
+2. Modal overlay.
+3. Inline homepage section.
+
+All three modes should submit into the same backend system.
+
+## 13.1 Planner introduction
+
+Headline:
+
+"Let's plan your next shot."
+
+Description:
+
+"Tell us what you want to build, improve or grow. We'll help you identify the right solution."
+
+Display:
+- Four-step progress indicator.
+- Estimated completion time.
+- Back button.
+- Continue button.
+- Close option when displayed in a modal.
+
+## 13.2 STEP 1 — What do you need?
+
+Question:
+
+"What would you like us to help you with?"
+
+Allow multiple selections.
+
+Options:
+
+**Design**
+- Branding.
+- Logo design.
+- UI/UX.
+- Website design.
+- Graphic design.
+- Packaging.
+- Motion graphics.
+
+**Development**
+- Business website.
+- Landing page.
+- E-commerce.
+- Web application.
+- Mobile application.
+- SaaS platform.
+- Dashboard.
+- API and automation.
+
+**Marketing**
+- SEO.
+- Google Ads.
+- Meta Ads.
+- Social media.
+- Content marketing.
+- Lead generation.
+- Performance marketing.
+
+**Complete Growth Solution**
+- Design + Development.
+- Development + Marketing.
+- Design + Marketing.
+- All three pillars.
+
+**Not Sure Yet**
+- I need guidance.
+- I want a consultation.
+
+Functional requirements:
+- Multiple selections.
+- Visual selection state.
+- Selected-item summary.
+- Remove selection.
+- At least one selection or Not Sure Yet before continuing.
+
+## 13.3 STEP 2 — Understand the business
+
+Question:
+
+"Tell us a little about your business."
+
+Fields:
+
+**Business name**
+- Text input.
+- Optional at this stage.
+
+**Industry**
+Dropdown options:
+- Retail.
+- Jewellery.
+- Hospitality.
+- Tourism.
+- Restaurant and Cafe.
+- Education.
+- Healthcare.
+- Real Estate.
+- Manufacturing.
+- Startup and Technology.
+- D2C and E-commerce.
+- Professional Services.
+- Other.
+
+**Business website**
+- Optional URL field.
+- Show helper text: "Share your existing website, if available."
+
+**Primary objective**
+
+Allow selection of one or multiple goals:
+- Build a new digital presence.
+- Improve an existing website.
+- Generate more leads.
+- Increase sales.
+- Improve brand identity.
+- Launch a new product.
+- Automate business operations.
+- Improve search visibility.
+- Improve customer experience.
+- Other.
+
+**Business stage**
+- New business.
+- Growing business.
+- Established business.
+- New product or startup.
+- Rebranding or redevelopment.
+
+## 13.4 STEP 3 — Budget and timeline
+
+Question:
+
+"Let's understand your expected investment and timeline."
+
+### Budget ranges
+
+Suggested initial options:
+
+- Below ₹5,000.
+- ₹5,000–₹10,000.
+- ₹10,000–₹25,000.
+- ₹25,000–₹50,000.
+- ₹50,000–₹1,00,000.
+- ₹1,00,000–₹3,00,000.
+- ₹3,00,000+.
+- Not sure yet.
+
+These are enquiry qualification ranges, not published service prices.
+
+### Timeline
+
+- Immediately.
+- Within 7 days.
+- Within 15 days.
+- Within one month.
+- 1–3 months.
+- More than 3 months.
+- Just exploring.
+
+### Engagement preference
+
+- One-time project.
+- Monthly engagement.
+- Long-term partnership.
+- Not sure.
+
+### Additional requirement
+
+Optional text area:
+
+"Describe anything important that we should know."
+
+Allow optional reference-file uploads where supported and securely configured.
+
+## 13.5 STEP 4 — Contact information
+
+Question:
+
+"Where should we send your growth plan?"
+
+Fields:
+
+- Full name.
+- Email address.
+- Mobile number.
+- WhatsApp number, if different.
+- Company name, if not provided earlier.
+- Optional additional notes.
+
+Consent checkbox:
+
+"I agree to be contacted regarding this enquiry and understand how my information will be used."
+
+The consent must link to the privacy policy.
+
+Submission button:
+
+SUBMIT MY REQUIREMENT.
+
+## 13.6 Form behaviour
+
+The form must include:
+
+- Progress bar.
+- Back navigation.
+- Step-level validation.
+- Clear error messages.
+- Selection feedback.
+- Mobile-friendly controls.
+- Keyboard accessibility.
+- Server-side validation.
+- Spam prevention.
+- Duplicate-submission protection.
+- Loading state.
+- Submission success state.
+- Submission failure state.
+
+Visitors should not lose entered information when navigating backwards.
+
+## 13.7 After submission
+
+Display a branded success screen.
+
+Headline:
+
+"Your shot has been received!"
+
+Description:
+
+"Thanks for sharing your requirements. The Udta Teer team will review your enquiry and get back to you."
+
+Display:
+- Enquiry reference number.
+- Expected response time.
+- Summary of submitted requirements.
+- WhatsApp contact option.
+- Consultation booking option.
+- Return-to-homepage link.
+
+Send an acknowledgement email to the visitor.
+
+Send a new-lead notification to the internal team.
+
+The response-time promise must be configured to reflect the team's actual operating capacity.
+
+---
+
+# 14. LEAD MANAGEMENT AND BACKEND FUNCTIONALITY
+
+The planner must connect to a real lead storage system.
+
+A frontend-only form or demonstration prototype is not sufficient.
+
+## 14.1 Lead record structure
+
+Each lead should receive a unique ID.
+
+Example: UT-2026-001.
+
+Recommended fields:
+
+| Field | Description |
+|---|---|
+| Lead ID | Unique identifier |
+| Full name | Visitor name |
+| Email | Contact email |
+| Phone | Primary contact |
+| WhatsApp | WhatsApp number |
+| Business name | Company |
+| Industry | Business category |
+| Website | Existing website |
+| Primary objective | Business goal |
+| Selected services | Multiple service selections |
+| Budget | Selected budget range |
+| Timeline | Expected start |
+| Engagement type | Project/monthly/partnership |
+| Requirement notes | Additional description |
+| Source page | Page from which enquiry originated |
+| UTM source | Campaign source |
+| UTM medium | Marketing medium |
+| UTM campaign | Campaign identifier |
+| Created at | Submission timestamp |
+| Status | Lead pipeline stage |
+| Consent | Consent record |
+
+## 14.2 Lead status pipeline
+
+Initial statuses:
+
+1. New.
+2. Contacted.
+3. Qualified.
+4. Discovery Scheduled.
+5. Proposal Sent.
+6. Negotiation.
+7. Won.
+8. Lost.
+9. On Hold.
+
+## 14.3 Internal notification
+
+On successful submission:
+
+- Save the enquiry.
+- Generate the lead ID.
+- Send an internal email.
+- Send an optional WhatsApp notification through an approved integration.
+- Trigger CRM insertion.
+- Send visitor acknowledgement.
+- Record the source and timestamp.
+
+If one external notification fails, the stored enquiry should not be lost.
+
+## 14.4 Lead scoring
+
+A later enhancement can calculate a simple lead priority.
+
+Possible scoring inputs:
+- Budget range.
+- Timeline.
+- Number of selected services.
+- Business stage.
+- Project complexity.
+- Explicit consultation request.
+
+The score should help prioritise follow-up, not automatically reject lower-budget customers.
+
+## 14.5 Lead dashboard
+
+A lightweight internal dashboard can be introduced if required.
+
+Potential functionality:
+- View all enquiries.
+- Search leads.
+- Filter by service.
+- Filter by industry.
+- Filter by budget.
+- Filter by status.
+- View lead details.
+- Update status.
+- Add internal notes.
+- Export lead data.
+- Track enquiry dates.
+
+This is a proposed operational enhancement, not part of the original public-facing website MVP.
+
+---
+
+# PART 6 — SERVICE AND PRICING SYSTEM
+
+# 15. REQUIREMENT-SPECIFIC PACKAGES
+
+Udta Teer should not force every industry into identical packages.
+
+The package system should combine standardised service modules with custom requirements.
+
+## 15.1 Pricing philosophy
+
+Public pricing direction:
+
+**Services starting from ₹2,999.**
+
+The website should clearly communicate that pricing depends on:
+- Type of service.
+- Project complexity.
+- Number of deliverables.
+- Number of revisions.
+- Timeline.
+- Integrations.
+- Ongoing support.
+- Marketing budget, where applicable.
+
+The displayed price must represent an actual deliverable-based offer.
+
+## 15.2 Three package layers
+
+### Layer A — Starter Solutions
+
+For small businesses and new brands.
+
+Potential requirements:
+- Basic logo and branding requirements.
+- Single landing page.
+- Basic digital creatives.
+- Small website updates.
+- Entry-level marketing support.
+
+### Layer B — Growth Solutions
+
+For growing businesses.
+
+Potential requirements:
+- Complete brand identity.
+- Multi-page website.
+- E-commerce setup.
+- SEO implementation.
+- Social media management.
+- Paid campaign setup.
+- Landing-page optimisation.
+
+### Layer C — Custom Solutions
+
+For complex or multi-service requirements.
+
+Potential requirements:
+- Custom applications.
+- SaaS platforms.
+- Advanced dashboards.
+- Complex e-commerce.
+- Integrated marketing systems.
+- Automation.
+- Long-term digital transformation.
+
+These are package categories, not final commitments on price or scope.
+
+## 15.3 Package builder
+
+Visitors should be able to customise their requirement.
+
+Step 1: Select the primary service.
+
+Step 2: Select sub-services.
+
+Step 3: Select industry.
+
+Step 4: Select expected deliverables.
+
+Step 5: Select engagement type.
+
+Step 6: View an indicative scope or request a quotation.
+
+The interface can display:
+- Selected modules.
+- Included deliverables.
+- Exclusions.
+- Estimated project range, if configured.
+- One-time versus recurring charges.
+- CTA to discuss the requirement.
+
+## 15.4 Pricing transparency
+
+Each published package should clearly display:
+
+- Package name.
+- Starting price.
+- Service inclusions.
+- Quantity or limits.
+- Number of revisions.
+- Delivery timeframe.
+- Support period.
+- Additional charges.
+- Exclusions.
+- Upgrade options.
+
+For marketing packages, distinguish the agency management fee from the advertising spend paid to Google, Meta or another advertising platform.
+
+For development projects, identify hosting, domains, third-party licences and paid integrations separately where applicable.
+
+## 15.5 Important pricing functionality
+
+The package system should be manageable through structured data or a CMS.
+
+This will allow Udta Teer to:
+- Add packages.
+- Edit prices.
+- Change deliverables.
+- Disable unavailable packages.
+- Add industry-specific offers.
+- Publish limited-time offers when approved.
+
+Do not hardcode pricing throughout multiple pages.
+
+---
+
+# PART 7 — ADDITIONAL WEBSITE PAGES
+
+# 16. SERVICES OVERVIEW PAGE
+
+The Services overview page should act as a central catalogue.
+
+Components:
+- Hero.
+- Three primary service pillars.
+- Sub-service catalogue.
+- Problem-to-solution mapping.
+- Featured projects.
+- Process summary.
+- Package introduction.
+- FAQ.
+- Project planner CTA.
+
+Every service should have a dedicated detail page.
+
+# 17. INDIVIDUAL SERVICE DETAIL PAGES
+
+Each service page should use the same reusable structure.
+
+1. Outcome-led headline.
+2. Service introduction.
+3. Business problems addressed.
+4. Who should use this service.
+5. Detailed deliverables.
+6. How the service is executed.
+7. Technologies or platforms, where applicable.
+8. Related projects.
+9. Package or starting-price information, if approved.
+10. Frequently asked questions.
+11. CTA.
+
+### Example: Website Development page
+
+Headline:
+
+"Your website should do more than exist. It should work for your business."
+
+Sections:
+- Business websites.
+- Landing pages.
+- E-commerce.
+- Custom web applications.
+- Responsive design.
+- Integrations.
+- Performance and SEO foundations.
+- Maintenance and support.
+
+CTA: PLAN MY WEBSITE.
+
+# 18. ABOUT US PAGE
+
+Purpose: Establish the organisation's identity and credibility.
+
+Components:
+
+### Our story
+Explain:
+- Why Udta Teer was established.
+- The business problems it aims to solve.
+- Its approach to creative and digital execution.
+
+### Jaipur connection
+Explain the Jaipur foundation and the idea behind the Pink City-inspired brand.
+
+### Our philosophy
+- Understand before executing.
+- Design with purpose.
+- Build for usability.
+- Market with measurable objectives.
+- Improve continuously.
+
+### Team
+Display:
+- Team member photo.
+- Name.
+- Role.
+- Professional introduction.
+- Relevant expertise.
+
+Only display confirmed team details.
+
+### CTA
+"Let's build something meaningful."
+
+# 19. INSIGHTS / BLOG
+
+Purpose:
+- Establish expertise.
+- Improve organic search visibility.
+- Educate potential clients.
+
+Blog listing functionality:
+- Categories.
+- Search.
+- Featured articles.
+- Article cards.
+- Reading time.
+- Related posts.
+
+Suggested categories:
+- Branding.
+- Website Development.
+- UI/UX.
+- Digital Marketing.
+- SEO.
+- E-commerce.
+- Business Growth.
+- Jaipur Business Insights.
+
+Article template:
+- Title.
+- Author.
+- Publication date.
+- Reading time.
+- Featured image.
+- Table of contents.
+- Article content.
+- Related services.
+- Related articles.
+- CTA.
+
+Initial editorial topics:
+- How Jaipur businesses can improve their digital presence.
+- Why every growing business needs a professional website.
+- Branding versus marketing: Understanding the difference.
+- How to choose the right website solution.
+- SEO for local businesses.
+- What an e-commerce website should include.
+
+# 20. CONTACT PAGE
+
+Display:
+- Business introduction.
+- Contact form.
+- Business email.
+- Phone number.
+- WhatsApp.
+- Office address, once confirmed.
+- Working hours.
+- Map embed, once the location is confirmed.
+- Social-media links.
+
+The contact form should remain shorter than the project planner.
+
+Suggested fields:
+- Name.
+- Email or phone.
+- Subject.
+- Message.
+- Consent.
+
+Provide a separate CTA to the full project planner.
+
+# 21. FAQ SYSTEM
+
+Suggested homepage FAQs:
+
+1. What services does Udta Teer provide?
+2. Do you work with businesses outside Jaipur?
+3. How much does a website cost?
+4. Can I combine design, development and marketing?
+5. Do you provide customised packages?
+6. How long does a typical project take?
+7. Do you provide website maintenance?
+8. Do you provide ongoing SEO and marketing?
+9. Can you redesign an existing website?
+10. How do I start a project?
+
+Each service page should have its own relevant FAQs.
+
+FAQ content should be managed centrally and use structured data where appropriate.
+
+---
+
+# PART 8 — GLOBAL UI AND FUNCTIONAL COMPONENTS
+
+# 22. HEADER AND NAVIGATION
+
+### Desktop header
+
+Elements:
+- Udta Teer logo.
+- Home.
+- Services dropdown.
+- Industries.
+- Work.
+- Process.
+- About.
+- Insights.
+- Contact.
+- Plan Your Project CTA.
+
+Behaviour:
+- Sticky on scroll.
+- Transparent over the hero.
+- Solid or contrasting background after the hero.
+- Active section indication.
+- Accessible dropdown navigation.
+
+### Mobile navigation
+
+- Full-screen overlay.
+- Jharokha-inspired opening animation.
+- Large navigation links.
+- Expandable Services submenu.
+- CTA at the bottom.
+- WhatsApp shortcut.
+- Close button.
+- Scroll locking while open.
+
+The menu must be fully functional without animations.
+
+# 23. FLOATING WHATSAPP BUTTON
+
+A persistent WhatsApp button should appear on all important public pages.
+
+Behaviour:
+- Click opens the configured WhatsApp conversation.
+- Prefilled message.
+- Track click event.
+- Mobile opens the WhatsApp application where available.
+- Desktop opens WhatsApp Web or the supported destination.
+
+The button must not obscure important mobile content.
+
+# 24. GLOBAL BUTTON SYSTEM
+
+Button types:
+
+**Primary**
+- High-contrast background.
+- Main conversion action.
+
+**Secondary**
+- Outline or subdued fill.
+- Navigation and exploration.
+
+**Text link**
+- Inline navigation.
+
+**Icon button**
+- Search, close, next, previous, menu.
+
+Interactions:
+- Hover state.
+- Focus state.
+- Active state.
+- Disabled state.
+- Loading state.
+- Click feedback.
+
+A subtle arrow or block-print ripple can be used for primary CTA interactions.
+
+# 25. SEARCH AND FILTERING
+
+The website should support search in:
+- Portfolio.
+- Insights.
+
+Potential future search:
+- Services.
+- Industry solutions.
+
+Filtering should:
+- Update visible results.
+- Display active filters.
+- Allow filter removal.
+- Provide an empty state.
+- Preserve usability on mobile.
+
+# 26. FOOTER
+
+The footer should represent Jaipur's skyline at sunset.
+
+Include:
+- Logo.
+- Brand proposition.
+- Services.
+- Industries.
+- Company links.
+- Contact details.
+- Social links.
+- WhatsApp.
+- Newsletter field, if a newsletter programme is actually maintained.
+- Privacy policy.
+- Terms.
+- Copyright.
+
+Animation:
+- Subtle skyline colour transition.
+- Decorative jaali pattern.
+- Gentle background movement.
+
+---
+
+# PART 9 — COMPLETE ANIMATION AND INTERACTION SYSTEM
+
+# 27. MASTER SCROLL STORYBOARD
+
+The entire website should follow one connected motion language.
+
+### Scene 01 — Opening
+
+City reveal.
+
+Effects:
+- Camera movement.
+- Skyline parallax.
+- Atmospheric particles.
+- Hawa Mahal reveal.
+- Brand reveal.
+- Arrow entrance.
+
+### Scene 02 — Arrow launch
+
+The visitor scrolls.
+
+Effects:
+- Arrow follows a curved SVG or 3D trajectory.
+- Motion trail.
+- City layers move at different speeds.
+- Camera follows the arrow.
+
+### Scene 03 — Service impact
+
+The arrow reaches the Creative Haveli.
+
+Effects:
+- Arrow impact.
+- Circular ripple.
+- Short particle effect.
+- Storefront lighting.
+- Shutters opening.
+- Service content reveal.
+
+Repeat the interaction for Development and Marketing.
+
+### Scene 04 — Digital transformation
+
+The Digital Karkhana transforms from a traditional shop into a modern digital workspace.
+
+Effects:
+- Facade morph.
+- Website mockups.
+- Floating interface panels.
+- Product screens.
+- Layered visual transitions.
+
+### Scene 05 — Portfolio transition
+
+The arrow moves past a project frame.
+
+The frame expands into a project showcase.
+
+Effects:
+- Card scale.
+- Image reveal.
+- Project mockup transition.
+- Case-study information reveal.
+
+### Scene 06 — Process route
+
+The arrow travels through six checkpoints.
+
+Effects:
+- Path drawing.
+- Checkpoint activation.
+- Information reveal.
+- Progress indicator.
+
+### Scene 07 — Final target
+
+The arrow reaches the final target.
+
+Effects:
+- Impact.
+- Target illumination.
+- Design, Development and Growth text.
+- Transition into project planner.
+
+# 28. MOTION SPECIFICATIONS
+
+| Element | Effect | Trigger | Priority |
+|---|---|---|---|
+| Hero architecture | Jharokha opening | Page load | P0 |
+| Hero text | Fade and upward reveal | Page load | P0 |
+| City layers | Parallax | Scroll | P1 |
+| Main arrow | Curved trajectory | Scroll | P0 |
+| Service storefront | Lighting and shutter opening | Arrow arrival | P0 |
+| Service cards | Lift and colour fill | Hover/focus | P0 |
+| Process route | SVG path drawing | Scroll | P1 |
+| Portfolio images | Arch-shaped reveal | Viewport | P1 |
+| Portfolio cards | Tilt and zoom | Hover | P2 |
+| Statistics | Count-up | Viewport | P1 |
+| Testimonials | Carousel | User interaction/timer | P1 |
+| CTA buttons | Ripple feedback | Click | P1 |
+| Page transition | Shutter wipe | Navigation | P2 |
+| Footer skyline | Colour transition | Scroll | P2 |
+| Custom cursor | Arch/lotus treatment | Pointer movement | P2 |
+| Planner steps | Slide and progress animation | Interaction | P0 |
+
+### Timing guidelines
+
+- Micro-interactions: 150–300 ms.
+- Content reveals: 400–700 ms.
+- Page transitions: 600–800 ms.
+- Scroll-driven motion: controlled by scroll progress.
+
+Animate transform and opacity wherever possible.
+
+### Motion constraints
+
+- Respect reduced-motion settings.
+- Avoid excessive camera movement.
+- Do not hide content behind animations.
+- Provide visible fallback states.
+- Allow important carousels to pause.
+- Avoid long autoplay sequences without controls.
+- Simplify animations on mobile.
+
+---
+
+# PART 10 — RESPONSIVE EXPERIENCE
+
+# 29. DESKTOP EXPERIENCE
+
+Desktop should provide the richest version of the Jaipur environment.
+
+Requirements:
+- Wide cinematic composition.
+- Full 3D city environment.
+- Hawa Mahal as the main focal point.
+- Curved arrow trajectory.
+- Interactive storefronts.
+- Rich portfolio layouts.
+- Full navigation.
+- Side-by-side service content panels.
+
+# 30. TABLET EXPERIENCE
+
+Requirements:
+- Reduced city complexity.
+- Smaller environmental effects.
+- Simplified camera movement.
+- Touch-friendly controls.
+- Service panels with more available width.
+- Reduced hover dependence.
+
+# 31. MOBILE EXPERIENCE
+
+Mobile should be designed as its own experience.
+
+It must not simply scale down the desktop layout.
+
+### Mobile hero
+
+- Portrait-oriented Jaipur composition.
+- Hawa Mahal remains recognisable.
+- Arrow placed prominently.
+- Short headline.
+- Large CTA buttons.
+- Reduced environmental detail.
+
+### Mobile arrow journey
+
+- Vertical arrow trajectory.
+- Sequential service destinations.
+- Full-width content cards.
+- Reduced parallax.
+- Touch-based navigation.
+
+### Mobile service panels
+
+- Full-width cards.
+- Clear service names.
+- Short descriptions.
+- Expandable deliverables.
+- CTA buttons.
+
+### Mobile portfolio
+
+- Single-column or compact two-column grid where appropriate.
+- Readable project labels.
+- No essential horizontal scrolling.
+- Full-screen case-study images where useful.
+
+### Mobile project planner
+
+- One step per screen.
+- Large selection chips.
+- Easy back navigation.
+- Appropriate keyboard types.
+- Sticky bottom Continue button where practical.
+- No clipped content.
+
+### Responsive breakpoints
+
+Use the PRD's mobile-first layout guidance:
+
+- 360 px.
+- 768 px.
+- 1024 px.
+- 1440 px.
+
+The exact layout should be fluid between breakpoints.
+
+---
+
+# PART 11 — TECHNICAL ARCHITECTURE
+
+# 32. RECOMMENDED TECHNOLOGY STACK
+
+The implementation should use a hybrid approach rather than rendering the entire website inside one continuous heavy 3D scene.
+
+| Layer | Recommended technology | Responsibility |
+|---|---|---|
+| Frontend framework | Next.js | Pages, routing and UI |
+| UI styling | Tailwind CSS or CSS variables | Responsive styling and tokens |
+| 3D environment | Three.js | City, camera and arrow |
+| 3D React integration | React Three Fiber, if useful | Integration with React UI |
+| Scroll choreography | GSAP + ScrollTrigger | Arrow and scene movement |
+| Lightweight animations | CSS/SVG | Micro-interactions |
+| Smooth scrolling | Lenis, optional | Scroll feel |
+| Content management | Sanity or Strapi | Projects, services, articles |
+| Lead backend | Serverless/API endpoint | Enquiry processing |
+| Database/CRM | Zoho, HubSpot or approved database | Lead management |
+| Notifications | Email and approved WhatsApp integration | Lead alerts |
+| Analytics | GA4 and event tracking | Conversion measurement |
+| Hosting | Vercel or comparable CDN-backed hosting | Deployment |
+
+Final selection should depend on implementation budget and team expertise.
+
+## 32.1 Frontend architecture
+
+Separate the website into three layers.
+
+**Layer A — Environmental layer**
+- Three.js city.
+- Camera.
+- Arrow.
+- Storefronts.
+- Background.
+- Environmental effects.
+
+**Layer B — Interaction layer**
+- Scroll events.
+- Arrow state.
+- Service activation.
+- Navigation.
+- Animation triggers.
+- Project interactions.
+
+**Layer C — Content layer**
+- Headings.
+- Descriptions.
+- Services.
+- Projects.
+- Forms.
+- Testimonials.
+- CTA components.
+
+The content layer must remain usable even when the environmental layer is unavailable.
+
+## 32.2 Suggested component architecture
+
+```text
+src/
+  app/
+    page.tsx
+    services/
+    industries/
+    work/
+    about/
+    process/
+    insights/
+    contact/
+    plan-your-project/
+
+  components/
+    layout/
+      Header
+      Footer
+      MobileNavigation
+      WhatsAppButton
+
+    city/
+      JaipurScene
+      HawaMahal
+      CityEnvironment
+      ArrowController
+      CameraController
+      Storefront
+
+    sections/
+      Hero
+      ServiceBazaar
+      ProjectBazaar
+      IndustrySolutions
+      ProcessJourney
+      TrustSection
+      FinalTarget
+
+    services/
+      ServiceCard
+      ServiceDetail
+      ServiceAccordion
+
+    portfolio/
+      ProjectCard
+      ProjectFilters
+      CaseStudyLayout
+
+    planner/
+      ProjectPlanner
+      ProgressBar
+      ServiceSelector
+      BusinessDetails
+      BudgetSelector
+      ContactDetails
+      SuccessScreen
+
+    ui/
+      Button
+      Modal
+      Accordion
+      Carousel
+      Input
+      Select
+
+  lib/
+    analytics
+    validation
+    lead-management
+    tracking
+
+  data/
+    services
+    industries
+    packages
+    projects
+
+  styles/
+```
+
+This is a suggested structure, not a mandatory framework constraint.
+
+## 32.3 Content management
+
+Use a structured CMS for editable content.
+
+Recommended content collections:
+
+**Services**
+- Name.
+- Slug.
+- Description.
+- Pillar.
+- Deliverables.
+- Benefits.
+- FAQs.
+- Related projects.
+- Starting price.
+- Featured status.
+
+**Projects**
+- Name.
+- Slug.
+- Industry.
+- Service tags.
+- Challenge.
+- Objective.
+- Execution.
+- Outcomes.
+- Images.
+- Technologies.
+- Client permission status.
+
+**Testimonials**
+- Client name.
+- Company.
+- Role.
+- Testimonial.
+- Image/logo.
+- Permission status.
+
+**Packages**
+- Name.
+- Service category.
+- Starting price.
+- Deliverables.
+- Limits.
+- Exclusions.
+- Duration.
+- Availability.
+
+**Insights**
+- Title.
+- Slug.
+- Category.
+- Author.
+- Publication date.
+- Featured image.
+- Article content.
+- SEO metadata.
+
+---
+
+# PART 12 — PERFORMANCE, SECURITY AND ACCESSIBILITY
+
+# 33. PERFORMANCE REQUIREMENTS
+
+The website should be tested on a mid-range Android phone over a 4G connection.
+
+Target Core Web Vitals:
+
+- Largest Contentful Paint: below 2.5 seconds.
+- Interaction to Next Paint: below 200 ms.
+- Cumulative Layout Shift: below 0.1.
+
+Additional requirements:
+- Target homepage weight below 2 MB, excluding separately loaded heavy interactive assets where practical.
+- Use AVIF/WebP images.
+- Use responsive image sizes.
+- Lazy-load below-the-fold assets.
+- Load animation libraries only where needed.
+- Compress 3D models and textures.
+- Optimise draw calls.
+- Avoid unnecessarily large texture maps.
+- Pause inactive environmental animations.
+- Use a static or illustrated fallback for unsupported devices.
+- Avoid blocking the main thread with 3D rendering.
+
+The first usable screen should load before the heavy 3D environment.
+
+# 34. ACCESSIBILITY
+
+Target: WCAG 2.2 AA.
+
+Requirements:
+- Keyboard navigation.
+- Visible focus states.
+- Skip-to-content link.
+- Semantic HTML.
+- Proper heading hierarchy.
+- Accessible forms.
+- Screen-reader error announcements.
+- Descriptive image alt text.
+- Accessible dropdowns.
+- Pause controls for carousels.
+- Reduced-motion support.
+- Sufficient colour contrast.
+
+The website must remain navigable without relying on the arrow animation.
+
+# 35. SECURITY AND PRIVACY
+
+Requirements:
+- HTTPS.
+- Secure form submission.
+- Server-side validation.
+- Input sanitisation.
+- Rate limiting.
+- Spam prevention.
+- Secure file upload restrictions.
+- Controlled CRM access.
+- Privacy policy.
+- Cookie consent where required.
+- Consent records.
+- Data retention and deletion procedures.
+
+Design the data flow to meet applicable Indian Digital Personal Data Protection requirements and other relevant privacy obligations where applicable.
+
+Non-essential analytics and advertising tracking should follow the applicable consent requirements.
+
+# 36. BROWSER SUPPORT
+
+Support:
+- Latest two versions of Chrome.
+- Safari.
+- Firefox.
+- Edge.
+- Samsung Internet.
+- Modern iOS and Android browsers.
+
+Fallback behaviour must be provided for unsupported 3D or animation features.
+
+---
+
+# PART 13 — SEO AND ANALYTICS
+
+# 37. SEO ARCHITECTURE
+
+Create dedicated search-friendly pages.
+
+Primary keyword themes:
+- Digital agency in Jaipur.
+- Website development company in Jaipur.
+- Branding agency in Jaipur.
+- Digital marketing agency in Jaipur.
+- SEO agency in Jaipur.
+- UI/UX design agency.
+- E-commerce development.
+- Website design and development.
+
+Industry keyword themes:
+- Website development for restaurants.
+- Digital marketing for jewellery brands.
+- Hotel website development.
+- Education lead generation.
+- E-commerce development for retail.
+
+Technical SEO:
+- Unique page titles.
+- Meta descriptions.
+- Canonical URLs.
+- XML sitemap.
+- Robots.txt.
+- Open Graph images.
+- Structured data.
+- Internal linking.
+- Clean URL structure.
+- Image optimisation.
+- Server-side rendering or static generation.
+
+Suggested structured data:
+- Organization.
+- LocalBusiness, where appropriate.
+- Service.
+- Article.
+- FAQPage where eligible and compliant with current search-engine rules.
+
+Connect and maintain Google Business Profile with accurate business details.
+
+# 38. ANALYTICS EVENT TRACKING
+
+Track the complete conversion funnel.
+
+Suggested events:
+
+| Event | Description |
+|---|---|
+| `page_view` | Page visit |
+| `hero_cta_click` | Hero CTA clicked |
+| `arrow_journey_start` | Arrow experience initiated |
+| `service_view` | Service section viewed |
+| `service_cta_click` | Service CTA clicked |
+| `industry_view` | Industry section viewed |
+| `case_study_view` | Project case study viewed |
+| `lead_form_start` | Planner initiated |
+| `lead_form_step_1` | First step completed |
+| `lead_form_step_2` | Second step completed |
+| `lead_form_step_3` | Third step completed |
+| `lead_form_submit` | Enquiry submitted |
+| `whatsapp_click` | WhatsApp clicked |
+| `phone_click` | Phone clicked |
+| `audit_submit` | Free audit submitted |
+| `consultation_click` | Consultation CTA clicked |
+
+Track:
+- Source page.
+- UTM parameters.
+- Device category.
+- Campaign.
+- Referrer.
+- Form abandonment stage.
+- Selected services.
+
+# 39. SUCCESS METRICS
+
+The original PRD proposes the following initial planning targets, which should be validated against a real baseline after launch.
+
+| Metric | Proposed target |
+|---|---:|
+| Visitor-to-lead conversion | 2–4% |
+| Planner completion rate | 45% or higher |
+| Leads with budget and timeline | 85% or higher |
+| Core Web Vitals pass rate | 90% of page views |
+| New-lead response time | Under 2 business hours |
+
+Additional operational metrics:
+- Service-page-to-planner conversion.
+- WhatsApp click-through rate.
+- Portfolio-to-enquiry conversion.
+- Industry-page conversion.
+- Qualified-lead percentage.
+- Lead-to-meeting rate.
+- Meeting-to-proposal rate.
+- Proposal-to-win rate.
+
+These are planning targets, not guaranteed outcomes.
+
+---
+
+# PART 14 — FUNCTIONAL PRIORITIES AND RELEASE PLAN
+
+# 40. PRIORITY DEFINITIONS
+
+**P0 — Critical:** Required for launch.
+
+**P1 — High:** Strongly recommended for the first production release or immediate post-launch.
+
+**P2 — Enhancement:** Can be introduced after the core system is stable.
+
+## 40.1 P0 — MVP
+
+| Module | Required functionality |
+|---|---|
+| Homepage | Hero, Hawa Mahal, brand messaging, arrow |
+| Navigation | Responsive header and mobile menu |
+| Services | Three service pillars and detail pages |
+| Arrow experience | Scroll-based journey and storefront interactions |
+| Portfolio | Filterable work gallery |
+| Case studies | Individual project pages |
+| Project planner | Four-step enquiry form |
+| Backend | Actual lead submission and storage |
+| Notifications | Visitor acknowledgement and team alert |
+| Contact | Contact page and enquiry methods |
+| WhatsApp | Persistent contact action |
+| Responsive | Desktop, tablet and mobile |
+| Performance | Lightweight fallback |
+| Accessibility | Keyboard and reduced-motion support |
+| Analytics | Core funnel events |
+| SEO | Basic technical and on-page SEO |
+
+## 40.2 P1 — First major enhancement
+
+- Industry-specific landing pages.
+- Six-stage process animation.
+- Advanced testimonials.
+- CMS management.
+- Free website/SEO audit form.
+- Consultation calendar.
+- Blog and insights.
+- Advanced case-study navigation.
+- Detailed lead-source reporting.
+- Expanded service FAQs.
+- Enhanced portfolio filtering.
+
+## 40.3 P2 — Advanced enhancements
+
+- Advanced 3D interactions.
+- Custom cursor.
+- More complex page transitions.
+- Advanced lead scoring.
+- Automated follow-up workflows.
+- Interactive package configurator.
+- Expanded industry-specific experiences.
+- A lightweight lead management dashboard.
+- A/B testing for homepage and planner.
+
+---
+
+# PART 15 — IMPLEMENTATION ROADMAP
+
+# 41. PHASE 0 — DISCOVERY AND REQUIREMENT FINALISATION
+
+Activities:
+- Finalise brand identity.
+- Confirm service catalogue.
+- Define target industries.
+- Confirm commercial model.
+- Confirm public pricing.
+- Identify actual portfolio projects.
+- Collect project permissions.
+- Finalise content.
+- Confirm CRM and notification tools.
+- Finalise analytics requirements.
+
+Deliverables:
+- Final PRD.
+- Sitemap.
+- Content inventory.
+- Technical architecture.
+- Approved visual direction.
+
+# 42. PHASE 1 — DESIGN SYSTEM AND EXPERIENCE DESIGN
+
+Activities:
+- Moodboards.
+- Colour system.
+- Typography.
+- Design tokens.
+- Desktop wireframes.
+- Mobile wireframes.
+- Hero environment design.
+- Jaipur environment composition.
+- Arrow animation storyboard.
+- Service storefront designs.
+- Portfolio layouts.
+- Project planner UI.
+- Responsive prototypes.
+
+Deliverables:
+- Complete design system.
+- High-fidelity screens.
+- Interactive prototypes.
+- Motion specification.
+- Asset inventory.
+
+# 43. PHASE 2 — CORE FRONTEND DEVELOPMENT
+
+Activities:
+- Framework setup.
+- Routing.
+- Header and footer.
+- Design system implementation.
+- Homepage sections.
+- Service pages.
+- Portfolio.
+- Case studies.
+- Industry section.
+- About and contact pages.
+- Responsive implementation.
+
+Deliverables:
+- Functional frontend.
+- Reusable components.
+- CMS-ready content structure.
+
+# 44. PHASE 3 — ENVIRONMENT AND ANIMATION DEVELOPMENT
+
+Activities:
+- Three.js setup.
+- Jaipur city environment.
+- Hawa Mahal modelling or illustration integration.
+- Arrow model.
+- Camera control.
+- Scroll choreography.
+- Storefront interactions.
+- Project transitions.
+- Process animation.
+- Mobile simplification.
+- Static fallback.
+
+Deliverables:
+- Interactive Jaipur environment.
+- Arrow-based navigation experience.
+- Animation system.
+
+# 45. PHASE 4 — BACKEND AND INTEGRATIONS
+
+Activities:
+- Project planner implementation.
+- Backend API.
+- Validation.
+- Lead storage.
+- Lead ID generation.
+- Email notifications.
+- WhatsApp integration, if configured.
+- CRM integration.
+- UTM tracking.
+- Consent handling.
+- Success and error states.
+
+Deliverables:
+- Production-capable enquiry system.
+- Lead management integration.
+- Notification workflow.
+
+# 46. PHASE 5 — CONTENT, SEO AND QA
+
+Activities:
+- Final copywriting.
+- Portfolio content.
+- Service descriptions.
+- Industry content.
+- Metadata.
+- Structured data.
+- Sitemap.
+- Responsive testing.
+- Accessibility testing.
+- Browser testing.
+- Performance testing.
+- Form testing.
+- Analytics verification.
+
+Deliverables:
+- Production-ready content.
+- QA report.
+- SEO-ready pages.
+- Verified conversion tracking.
+
+# 47. PHASE 6 — LAUNCH AND OPTIMISATION
+
+Activities:
+- Production deployment.
+- Domain and SSL.
+- Analytics validation.
+- Lead submission testing.
+- Monitoring.
+- Search Console setup.
+- Core Web Vitals review.
+- Initial conversion analysis.
+
+Post-launch:
+- Improve hero conversion.
+- Optimise service navigation.
+- Analyse planner abandonment.
+- Test CTA copy.
+- Improve portfolio presentation.
+- Publish additional industry pages.
+
+The original PRD suggests approximately one week for discovery, three to four weeks for design, four to six weeks for build, and one to two weeks for QA and launch, with content and SEO running alongside development. These are indicative estimates, not fixed commitments.
+
+---
+
+# PART 16 — ACCEPTANCE CRITERIA
+
+# 48. HOW WILL WE KNOW THE WEBSITE IS COMPLETE?
+
+## A. Brand and visual experience
+
+- Jaipur environment is recognisable.
+- Hawa Mahal is a clear focal point.
+- The arrow is integrated into the narrative.
+- The visual system is consistent.
+- The website does not look like a tourism template.
+- Desktop and mobile compositions are deliberately designed.
+
+## B. Navigation
+
+- All menu links work.
+- Dropdowns are usable.
+- Mobile navigation opens and closes correctly.
+- Sticky header works.
+- CTA links open the correct destination.
+
+## C. Services
+
+- All three pillars are visible.
+- Service cards open the correct pages.
+- Deliverables are clearly explained.
+- Service CTAs work.
+- Related projects are displayed.
+
+## D. Portfolio
+
+- Filters work.
+- Project cards open case studies.
+- Images are responsive.
+- Case studies show challenge and execution.
+- No unsupported metrics are published.
+- Client permissions are recorded.
+
+## E. Project planner
+
+- All four steps work.
+- Multiple service selection works.
+- Budget selection works.
+- Back navigation preserves data.
+- Validation works on frontend and backend.
+- Spam prevention is implemented.
+- Submission creates a real lead record.
+- Visitor acknowledgement works.
+- Internal notification works.
+- Failure states are handled.
+
+## F. Responsive experience
+
+- No horizontal overflow.
+- All buttons are touch-friendly.
+- Forms are usable on mobile.
+- Text remains readable.
+- Important content does not depend on hover.
+- 3D fallback works.
+
+## G. Technical quality
+
+- Core Web Vitals targets are tested.
+- No major console errors.
+- No broken routes.
+- Metadata is configured.
+- Sitemap is accessible.
+- Privacy and consent controls work.
+- Keyboard navigation is supported.
+
+---
+
+# PART 17 — RISKS AND MITIGATION
+
+# 49. KEY RISKS
+
+### Risk 1 — Too much 3D complexity
+
+Problem: Heavy rendering can make the website slow.
+
+Mitigation:
+- Hybrid 3D and SVG approach.
+- Mobile-specific rendering.
+- Lazy loading.
+- Static fallback.
+- Performance budgets.
+
+### Risk 2 — Visual experience overshadows the services
+
+Problem: Visitors enjoy the animation but do not understand the business.
+
+Mitigation:
+- Persistent navigation.
+- Clear headings.
+- Service CTAs.
+- Accessible text.
+- Direct project planner access.
+
+### Risk 3 — Pricing confusion
+
+Problem: A starting price of ₹2,999 may be interpreted as the price for every service.
+
+Mitigation:
+- Explain what each package includes.
+- Display indicative pricing only where approved.
+- Clearly identify additional costs.
+- Use requirement-based quotation for custom projects.
+
+### Risk 4 — Unverified credibility claims
+
+Problem: Unsupported metrics or client claims can reduce trust.
+
+Mitigation:
+- Publish verified numbers only.
+- Obtain client approval.
+- Use real project evidence.
+- Clearly distinguish demonstration work from client work.
+
+### Risk 5 — Long enquiry forms
+
+Problem: Visitors abandon the planner.
+
+Mitigation:
+- Progressive disclosure.
+- Clear progress indicator.
+- Only necessary required fields.
+- Optional fields where possible.
+- Measure step-level abandonment.
+
+### Risk 6 — Poor lead follow-up
+
+Problem: Leads are generated but not contacted quickly.
+
+Mitigation:
+- Automatic notifications.
+- Lead pipeline.
+- Assigned ownership.
+- Response-time monitoring.
+
+### Risk 7 — Inconsistent mobile experience
+
+Problem: A desktop-first 3D design becomes difficult to use on phones.
+
+Mitigation:
+- Separate mobile art direction.
+- Vertical arrow journey.
+- Simplified environmental layers.
+- Touch-first controls.
+- Static fallback.
+
+---
+
+# PART 18 — FINAL PRODUCT DECISIONS
+
+# 50. RECOMMENDED FINAL DIRECTION
+
+The final website should be built around the following seven pillars.
+
+**01. ENTER JAIPUR**
+
+Immersive hero, Hawa Mahal, arrow launch and brand proposition.
+
+**02. THE SERVICE BAZAAR**
+
+Creative Haveli, Digital Karkhana and Growth Bazaar.
+
+**03. PROJECT BAZAAR**
+
+Filterable work, project stories and real execution evidence.
+
+**04. WHO WE HELP**
+
+Industry-specific solutions for businesses across sectors.
+
+**05. OUR PROCESS**
+
+Six stages from understanding the target to optimising and growing.
+
+**06. TRUST AND RESULTS**
+
+Testimonials, genuine metrics, project evidence and capabilities.
+
+**07. TAKE YOUR SHOT**
+
+Interactive project planner, WhatsApp and consultation.
+
+The homepage should connect these seven sections through a consistent arrow journey.
+
+The supporting pages should provide depth, detailed service descriptions, SEO visibility and conversion opportunities.
+
+---
+
+# FINAL PRODUCT PRINCIPLE
+
+Udta Teer's website should not make visitors work hard to understand what the agency does.
+
+The visual experience should attract them. The service architecture should educate them. The portfolio should establish trust. The pricing structure should set expectations. The project planner should convert their interest into an actionable business enquiry.
+
+**The Jaipur environment is the identity. The arrow is the guide. The services are the offering. The projects are the proof. The planner is the destination.**
+
+**UDTA TEER — YOU BRING THE AMBITION. WE BRING THE AIM.**
