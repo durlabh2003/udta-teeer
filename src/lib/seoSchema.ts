@@ -1,7 +1,8 @@
-import defaultOgImage from '../assets/images/jaipur_studio_hero_art_1794811735554.jpg';
 import servicesData from '../data/services.json';
 import siteConfig from '../data/site-config.json';
 import { PAGE_META_DICTIONARY } from './seoMeta';
+
+const defaultOgImage = '/og-image.jpg';
 
 export type PageSchemaType =
   | 'home'
@@ -71,7 +72,7 @@ function buildCoreLocalBusinessNode(origin: string, imageUrl: string) {
       'Brand Identity & UI/UX Design',
       'Custom React & Next.js Web Development',
       'Shopify & WooCommerce E-Commerce',
-      'Local SEO & AI Answer Engine Optimization (AEO)',
+      'Local SEO & AI Answer Engine Optimisation (AEO)',
       'Performance Marketing & WhatsApp CRM Automation',
     ],
     contactPoint: {

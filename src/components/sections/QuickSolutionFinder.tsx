@@ -1,83 +1,71 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  ArrowRight,
-  Compass,
-  Globe,
-  HelpCircle,
-  Layers,
-  Palette,
-  ShoppingBag,
-  TrendingUp,
-} from 'lucide-react';
+import { ArrowRight, Check, Compass } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { trackConversionEvent } from '../../lib/analytics';
+import {
+  ServiceIllustration,
+  ServiceIllustrationKey,
+  TurbanQuestionIllustration,
+} from '../illustrations/JaipurIllustrations';
 import { BrutalButton } from '../ui/BrutalButton';
 import { BrutalCard } from '../ui/BrutalCard';
 
 interface GoalOption {
   id: string;
   label: string;
-  subtitle: string;
+  subline: string;
+  illustrationKey?: ServiceIllustrationKey;
   route?: string;
   serviceIds: string[];
-  accent: 'surface' | 'gulabi' | 'marigold' | 'peacock';
-  icon: React.ComponentType<{ className?: string }>;
 }
 
 const GOAL_CARDS: GoalOption[] = [
   {
     id: 'website',
-    label: 'I need a website',
-    subtitle: 'Fast, conversion-ready business website built from scratch.',
+    label: 'Need a Website',
+    subline: 'Custom fast site',
+    illustrationKey: 'website',
     route: '/website-development-jaipur',
     serviceIds: ['website-dev'],
-    accent: 'surface',
-    icon: Globe,
   },
   {
     id: 'brand',
-    label: 'I want to build my brand',
-    subtitle: 'Logo system, visual identity, UI/UX & cohesive guidelines.',
+    label: 'Build My Brand',
+    subline: 'Logo & UI system',
+    illustrationKey: 'branding',
     route: '/services/design',
     serviceIds: ['branding-identity', 'ui-ux-design'],
-    accent: 'gulabi',
-    icon: Palette,
   },
   {
     id: 'customers',
-    label: 'I need more customers',
-    subtitle: 'SEO, AI-search (AEO), Meta & Google performance ads.',
+    label: 'Get More Customers',
+    subline: 'SEO & paid ads',
+    illustrationKey: 'google-ads',
     route: '/services/marketing',
     serviceIds: ['performance-marketing', 'seo-aeo'],
-    accent: 'marigold',
-    icon: TrendingUp,
   },
   {
     id: 'application',
-    label: 'I want to build an application',
-    subtitle: 'Custom SaaS MVP, portal, CRM workflow, or mobile app.',
+    label: 'Build an Application',
+    subline: 'SaaS, app & CRM',
+    illustrationKey: 'saas',
     route: '/saas-development',
     serviceIds: ['web-app-dev', 'crm-systems'],
-    accent: 'peacock',
-    icon: Layers,
   },
   {
     id: 'store',
-    label: 'I want to grow my online store',
-    subtitle: 'Shopify/WooCommerce D2C storefront + UPI/COD & ad growth.',
+    label: 'Grow Online Store',
+    subline: 'D2C shop + ROAS',
+    illustrationKey: 'ecommerce',
     route: '/ecommerce-development-jaipur',
     serviceIds: ['ecommerce-dev', 'performance-marketing'],
-    accent: 'surface',
-    icon: ShoppingBag,
   },
   {
     id: 'unsure',
-    label: 'I am not sure. Help me choose.',
-    subtitle: 'Answer 2 quick questions to get a custom stack recommendation.',
+    label: 'Help Me Choose',
+    subline: '2-question match',
     serviceIds: [],
-    accent: 'marigold',
-    icon: HelpCircle,
   },
 ];
 
@@ -88,94 +76,84 @@ export function QuickSolutionFinder() {
   const { setPreselectedServiceIds, openPlannerModal } = useApp();
   const navigate = useNavigate();
 
+  const [selectedGoalId, setSelectedGoalId] = useState<string | null>(null);
   const [guidedOpen, setGuidedOpen] = useState(false);
   const [mainGoal, setMainGoal] = useState<MainGoal>('leads');
   const [hasWebsite, setHasWebsite] = useState<HasWebsite>('no');
 
   const recommendation = useMemo(() => {
     if (mainGoal === 'brand') {
-      if (hasWebsite === 'no') {
-        return {
-          title: 'Brand Identity + Business Website Launch',
-          services: ['branding-identity', 'website-dev'],
-          serviceNames: ['Brand Identity & Systems', 'Business Website Development'],
-          explanation:
-            'Since you are starting fresh, aligning your visual identity and website UX together avoids expensive rewrites later.',
-          suggestedRoute: '/services/design',
-          suggestedRouteLabel: 'Explore Creative Haveli',
-        };
-      }
-      return {
-        title: 'Visual Rebrand + Website UX Refresh',
-        services: ['branding-identity', 'ui-ux-design'],
-        serviceNames: ['Brand Identity & Systems', 'UI/UX & Design Systems'],
-        explanation:
-          'Keep what works on your current site while upgrading positioning, typography, and conversion-focused page layouts.',
-        suggestedRoute: '/branding-agency-jaipur',
-        suggestedRouteLabel: 'Explore Branding Solutions',
-      };
+      return hasWebsite === 'no'
+        ? {
+            title: 'Brand Identity + Business Website Launch',
+            services: ['branding-identity', 'website-dev'],
+            serviceNames: ['Brand Identity & Systems', 'Business Website'],
+            explanation: 'Lock visual identity and website UX together from day one.',
+            suggestedRoute: '/services/design',
+            suggestedRouteLabel: 'Explore Design Haveli',
+          }
+        : {
+            title: 'Visual Rebrand + UX Refresh',
+            services: ['branding-identity', 'ui-ux-design'],
+            serviceNames: ['Brand Identity', 'UI/UX Design Systems'],
+            explanation: 'Upgrade positioning and page clarity without discarding working pages.',
+            suggestedRoute: '/branding-agency-jaipur',
+            suggestedRouteLabel: 'Explore Branding',
+          };
     }
 
     if (mainGoal === 'leads') {
-      if (hasWebsite === 'no') {
-        return {
-          title: 'Conversion Website + Local SEO / Ads Engine',
-          services: ['website-dev', 'seo-aeo', 'performance-marketing'],
-          serviceNames: ['Business Website', 'SEO + AEO', 'Performance Marketing'],
-          explanation:
-            'Paid ads and SEO need a fast mobile landing page with WhatsApp capture so inquiries never leak.',
-          suggestedRoute: '/services/marketing',
-          suggestedRouteLabel: 'Explore Growth Bazaar',
-        };
-      }
-      return {
-        title: 'SEO/AEO + Performance Marketing + CRO',
-        services: ['seo-aeo', 'performance-marketing'],
-        serviceNames: ['SEO + AEO', 'Performance Marketing (Meta + Google)'],
-        explanation:
-          'Since you already have a website, we start by fixing conversion leaks on key pages and scaling high-intent search & Meta campaigns.',
-        suggestedRoute: '/performance-marketing-jaipur',
-        suggestedRouteLabel: 'Explore Performance Marketing',
-      };
+      return hasWebsite === 'no'
+        ? {
+            title: 'Conversion Website + Local SEO & Ads',
+            services: ['website-dev', 'seo-aeo', 'performance-marketing'],
+            serviceNames: ['Business Website', 'SEO + AEO', 'Performance Ads'],
+            explanation: 'Fast mobile landing pages ensure ad clicks become WhatsApp leads.',
+            suggestedRoute: '/services/marketing',
+            suggestedRouteLabel: 'Explore Growth Bazaar',
+          }
+        : {
+            title: 'SEO/AEO + Performance Ads + CRO',
+            services: ['seo-aeo', 'performance-marketing'],
+            serviceNames: ['SEO + AEO', 'Performance Ads (Meta + Google)'],
+            explanation: 'Patch landing conversion leaks while scaling high-intent local search.',
+            suggestedRoute: '/performance-marketing-jaipur',
+            suggestedRouteLabel: 'Explore Ads',
+          };
     }
 
     if (mainGoal === 'ecommerce') {
-      if (hasWebsite === 'no') {
-        return {
-          title: 'D2C Storefront Build + Launch Ads Setup',
-          services: ['ecommerce-dev', 'performance-marketing'],
-          serviceNames: ['E-Commerce Development', 'Meta + Google Shopping Ads'],
-          explanation:
-            'Custom Shopify/WooCommerce build tuned for UPI/COD checkouts paired with Pixel/CAPI tracking from day one.',
-          suggestedRoute: '/ecommerce-development-jaipur',
-          suggestedRouteLabel: 'Explore E-Commerce Solutions',
-        };
-      }
-      return {
-        title: 'Storefront CRO + Retention & Ad Scaling',
-        services: ['ecommerce-dev', 'performance-marketing', 'social-growth-system'],
-        serviceNames: ['Storefront Optimization', 'Performance Marketing', 'Reels / Creative System'],
-        explanation:
-          'Improve mobile product page checkout conversion while feeding fresh regional & English video hooks into Meta Ads.',
-          suggestedRoute: '/ecommerce-development-jaipur',
-          suggestedRouteLabel: 'View E-Commerce Architecture',
-      };
+      return hasWebsite === 'no'
+        ? {
+            title: 'D2C Storefront Build + Launch Ads',
+            services: ['ecommerce-dev', 'performance-marketing'],
+            serviceNames: ['E-Commerce Storefront', 'Shopping & Meta Ads'],
+            explanation: 'Shopify/Woo build tuned for UPI/COD checkouts with clean tracking.',
+            suggestedRoute: '/ecommerce-development-jaipur',
+            suggestedRouteLabel: 'Explore E-Commerce',
+          }
+        : {
+            title: 'Storefront CRO + Creative Scaling',
+            services: ['ecommerce-dev', 'performance-marketing', 'social-growth-system'],
+            serviceNames: ['Checkout CRO', 'Performance Ads', 'Reels Hooks'],
+            explanation: 'Boost cart completion while feeding bilingual reels into Meta Ads.',
+            suggestedRoute: '/ecommerce-development-jaipur',
+            suggestedRouteLabel: 'View Store UX',
+          };
     }
 
     return {
-      title: 'Technical Discovery + SaaS MVP / Workflow Automation',
+      title: 'Technical Scoping + SaaS MVP / CRM',
       services: ['web-app-dev', 'crm-systems'],
-      serviceNames: ['Web App & SaaS MVP', 'CRM & Workflow Automation'],
-      explanation:
-        hasWebsite === 'no'
-          ? 'We scope architecture milestones first so you build clean software and automated lead workflows without runaway costs.'
-          : 'Connect your existing site directly into automated CRM pipelines or build bespoke customer portals on top.',
+      serviceNames: ['SaaS MVP / Web App', 'WhatsApp CRM Automation'],
+      explanation: 'Milestone-based builds paired cleanly with automated enquiry pipelines.',
       suggestedRoute: '/saas-development',
       suggestedRouteLabel: 'Explore SaaS & Automation',
     };
   }, [mainGoal, hasWebsite]);
 
   const handleCardSelect = (card: GoalOption) => {
+    setSelectedGoalId(card.id);
     if (card.id === 'unsure') {
       trackConversionEvent('solution_finder_open', { source: 'quick_solution_finder' });
       setGuidedOpen((prev) => !prev);
@@ -197,59 +175,75 @@ export function QuickSolutionFinder() {
     <section
       id="solution-finder"
       aria-labelledby="solution-finder-heading"
-      className="py-12 md:py-16 border-b-[3px] border-[#111111] dark:border-[#FFF9F0] bg-[#F3E5CE] dark:bg-[#182235]"
+      className="py-10 md:py-12 border-b-2 border-[var(--border-ink)] bg-[var(--bg-cream)]"
     >
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 space-y-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div className="max-w-2xl space-y-1.5">
-            <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
-              Quick Solution Finder · Seedha Rasta Chunein
+          <div className="max-w-xl space-y-1">
+            <p className="type-label text-[var(--text-terracotta)]">
+              Quick Finder · Seedha Rasta Chunein
             </p>
-            <h2
-              id="solution-finder-heading"
-              className="font-editorial text-2xl md:text-4xl font-bold tracking-tight"
-            >
+            <h2 id="solution-finder-heading" className="type-h2">
               What are you looking to achieve?
             </h2>
-            <p className="text-sm md:text-base text-[#4B433C] dark:text-[#E7D8C5]">
-              Pick your immediate goal below — we will carry your selection straight into relevant
-              solutions and your project plan.
+            <p className="type-small text-[var(--text-secondary)]">
+              Tap your goal card to jump straight to solutions and prefill your project plan.
             </p>
           </div>
-          <Link
-            to="/services"
-            className="text-sm font-bold underline underline-offset-4 hover:text-[#B95E50] dark:hover:text-[#FFC21A] shrink-0"
-          >
+          <BrutalButton to="/services" variant="tertiary" size="sm">
             Browse full service catalog →
-          </Link>
+          </BrutalButton>
         </div>
 
-        {/* 6 Selectable Goal Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        {/* 6 Visual-First Goal Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {GOAL_CARDS.map((card) => {
-            const Icon = card.icon;
-            const isUnsureOpen = card.id === 'unsure' && guidedOpen;
+            const isSelected = selectedGoalId === card.id || (card.id === 'unsure' && guidedOpen);
             return (
               <button
                 key={card.id}
                 type="button"
                 onClick={() => handleCardSelect(card)}
+                aria-pressed={isSelected}
                 aria-expanded={card.id === 'unsure' ? guidedOpen : undefined}
-                className="text-left group cursor-pointer focus:outline-none"
+                className="text-left group cursor-pointer focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--color-marigold)] rounded-[8px]"
               >
                 <BrutalCard
-                  tone={isUnsureOpen ? 'peacock' : card.accent}
-                  className="h-full flex flex-col justify-between gap-4 transition-transform group-hover:-translate-y-0.5"
+                  tone={isSelected ? 'marigold' : 'surface'}
+                  className={`h-full !p-3.5 flex flex-col justify-between gap-2.5 transition-transform group-hover:-translate-y-1 ${
+                    isSelected ? 'ring-3 ring-[var(--color-gulabi)]' : ''
+                  }`}
                 >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="w-10 h-10 brutal-border bg-[#FFF9F0] text-[#111111] rounded-[4px] flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <ArrowRight className="w-4 h-4 shrink-0 mt-1 transition-transform group-hover:translate-x-1" />
+                  {/* Visual illustration frame */}
+                  <div className="relative h-24 w-full brutal-border bg-[var(--bg-cream)] rounded-[8px] p-1.5 flex items-center justify-center overflow-hidden">
+                    {card.id === 'unsure' ? (
+                      <TurbanQuestionIllustration className="w-28 h-20" alt={card.label} />
+                    ) : (
+                      <ServiceIllustration
+                        name={card.illustrationKey}
+                        alt={card.label}
+                        className="w-28 h-20"
+                      />
+                    )}
+                    {isSelected && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute top-1.5 right-1.5 w-6 h-6 brutal-border bg-[var(--color-gulabi)] text-[var(--text-on-gulabi)] rounded-full flex items-center justify-center"
+                      >
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      </span>
+                    )}
                   </div>
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-extrabold leading-snug">{card.label}</h3>
-                    <p className="text-xs md:text-sm opacity-90 leading-relaxed">{card.subtitle}</p>
+
+                  {/* Short 3-word title + 1 tiny line */}
+                  <div className="flex items-end justify-between gap-2 pt-0.5">
+                    <div>
+                      <h3 className="font-display font-bold text-base leading-tight">
+                        {card.label}
+                      </h3>
+                      <p className="text-xs font-medium opacity-80 mt-0.5">{card.subline}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                 </BrutalCard>
               </button>
@@ -262,47 +256,44 @@ export function QuickSolutionFinder() {
           <div
             role="region"
             aria-label="Guided Solution Recommendation"
-            className="brutal-border brutal-shadow-lg bg-[#FFF9F0] dark:bg-[#212E46] rounded-[6px] p-6 md:p-8 space-y-6"
+            className="brutal-border brutal-shadow-lg bg-[var(--bg-surface)] rounded-[10px] p-6 md:p-8 space-y-6"
           >
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b-2 border-[#111111]/15 dark:border-[#FFF9F0]/20">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[var(--border-ink)]/15">
               <div className="flex items-center gap-2.5">
-                <Compass className="w-5 h-5 text-[#B95E50] dark:text-[#FFC21A]" />
-                <h3 className="font-editorial text-xl md:text-2xl font-bold">
-                  Guided Stack Recommender (2 Quick Questions)
-                </h3>
+                <Compass className="w-5 h-5 text-[var(--text-gulabi)]" />
+                <h3 className="type-h3">Guided Stack Recommender</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setGuidedOpen(false)}
-                className="text-xs font-bold underline cursor-pointer"
+                className="min-h-[44px] px-3 text-xs font-bold underline cursor-pointer"
               >
                 Hide recommender
               </button>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              {/* Questions */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="space-y-2">
-                  <span className="block text-sm font-extrabold">
-                    1. What is your main goal right now?
+                  <span className="block text-sm font-bold">
+                    1. Main business focus right now?
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {[
-                      { id: 'brand', label: 'Launch or refresh my brand identity' },
-                      { id: 'leads', label: 'Get more leads & local customers' },
-                      { id: 'ecommerce', label: 'Sell products online (D2C Store)' },
-                      { id: 'software', label: 'Build a custom app or automate ops' },
+                      { id: 'brand', label: 'Launch or refresh brand' },
+                      { id: 'leads', label: 'Get more local leads' },
+                      { id: 'ecommerce', label: 'Sell products online (D2C)' },
+                      { id: 'software', label: 'Build custom app or CRM' },
                     ].map((opt) => (
                       <button
                         key={opt.id}
                         type="button"
                         onClick={() => setMainGoal(opt.id as MainGoal)}
                         aria-pressed={mainGoal === opt.id}
-                        className={`p-3 text-left text-xs md:text-sm font-bold brutal-border rounded-[4px] cursor-pointer transition-colors ${
+                        className={`min-h-[44px] p-3 text-left text-xs md:text-sm font-bold brutal-border rounded-[8px] cursor-pointer transition-colors ${
                           mainGoal === opt.id
-                            ? 'bg-[#FFC21A] text-[#111111]'
-                            : 'bg-[#FFFFFF] dark:bg-[#182235]'
+                            ? 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)]'
+                            : 'bg-[var(--bg-cream)]'
                         }`}
                       >
                         {opt.label}
@@ -312,12 +303,12 @@ export function QuickSolutionFinder() {
                 </div>
 
                 <div className="space-y-2">
-                  <span className="block text-sm font-extrabold">
-                    2. Do you already have a website?
+                  <span className="block text-sm font-bold">
+                    2. Do you already have a live website?
                   </span>
                   <div className="flex flex-wrap gap-3">
                     {[
-                      { id: 'yes', label: 'Yes — it needs improvement or growth' },
+                      { id: 'yes', label: 'Yes — needs upgrade or growth' },
                       { id: 'no', label: 'No — starting fresh' },
                     ].map((opt) => (
                       <button
@@ -325,10 +316,10 @@ export function QuickSolutionFinder() {
                         type="button"
                         onClick={() => setHasWebsite(opt.id as HasWebsite)}
                         aria-pressed={hasWebsite === opt.id}
-                        className={`px-4 py-2.5 text-xs md:text-sm font-bold brutal-border rounded-[4px] cursor-pointer transition-colors ${
+                        className={`min-h-[44px] px-4 py-2.5 text-xs md:text-sm font-bold brutal-border rounded-[8px] cursor-pointer transition-colors ${
                           hasWebsite === opt.id
-                            ? 'bg-[#1FB5B0] text-[#111111]'
-                            : 'bg-[#FFFFFF] dark:bg-[#182235]'
+                            ? 'bg-[var(--color-cobalt)] text-[var(--text-on-cobalt)]'
+                            : 'bg-[var(--bg-cream)]'
                         }`}
                       >
                         {opt.label}
@@ -338,25 +329,24 @@ export function QuickSolutionFinder() {
                 </div>
               </div>
 
-              {/* Recommendation Output */}
-              <div className="lg:col-span-5 brutal-border bg-[#263650] text-[#FFF9F0] rounded-[6px] p-5 space-y-4">
+              <div className="lg:col-span-5 brutal-border bg-[var(--color-indigo)] text-[#FFF7EC] rounded-[10px] p-5 space-y-4">
                 <div>
-                  <div className="font-mono-num text-[11px] font-bold uppercase text-[#FFC21A] mb-1">
+                  <div className="type-label text-[var(--color-marigold)] mb-1">
                     Recommended Path
                   </div>
-                  <h4 className="font-editorial text-xl font-bold">{recommendation.title}</h4>
+                  <h4 className="font-display text-xl font-bold">{recommendation.title}</h4>
                 </div>
                 <ul className="space-y-1.5 text-xs md:text-sm font-bold">
                   {recommendation.serviceNames.map((name) => (
                     <li key={name}>✓ {name}</li>
                   ))}
                 </ul>
-                <p className="text-xs leading-relaxed text-[#FFF9F0]/90">
+                <p className="text-xs leading-relaxed opacity-90">
                   {recommendation.explanation}
                 </p>
                 <div className="flex flex-wrap items-center gap-3 pt-1">
                   <BrutalButton
-                    variant="hotPink"
+                    variant="primary"
                     size="sm"
                     onClick={() => {
                       trackConversionEvent('solution_selected', {
@@ -366,16 +356,16 @@ export function QuickSolutionFinder() {
                       });
                       openPlannerModal({
                         services: recommendation.services,
-                        note: `Guided Solution Finder match: ${recommendation.title} (Existing site: ${hasWebsite}).`,
+                        note: `Guided Finder: ${recommendation.title} (Existing site: ${hasWebsite}).`,
                       });
                     }}
                   >
-                    <span>Build My Growth Plan</span>
+                    <span>Build My Plan</span>
                     <ArrowRight className="w-4 h-4" />
                   </BrutalButton>
                   <Link
                     to={recommendation.suggestedRoute}
-                    className="text-xs font-bold underline text-[#FFC21A]"
+                    className="text-xs font-bold underline text-[var(--color-marigold)]"
                   >
                     {recommendation.suggestedRouteLabel} →
                   </Link>

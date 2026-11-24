@@ -70,20 +70,43 @@ function ServiceSlugRouter() {
 }
 
 function PlannerModalOverlay() {
-  const { plannerModalOpen, closePlannerModal } = useApp();
+  const {
+    plannerModalOpen,
+    plannerDirty,
+    requestClosePlannerModal,
+    closePlannerModal,
+  } = useApp();
 
   useEffect(() => {
     if (!plannerModalOpen) return;
+    if (window.history.state?.plannerModal !== true) {
+      window.history.pushState({ ...(window.history.state ?? {}), plannerModal: true }, '');
+    }
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closePlannerModal();
+      if (e.key === 'Escape') {
+        requestClosePlannerModal();
+      }
     };
+
+    const onPopState = () => {
+      if (plannerDirty) {
+        window.history.pushState({ plannerModal: true }, '');
+        requestClosePlannerModal();
+      } else {
+        closePlannerModal();
+      }
+    };
+
     document.addEventListener('keydown', onKey);
+    window.addEventListener('popstate', onPopState);
     document.body.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', onKey);
+      window.removeEventListener('popstate', onPopState);
       document.body.style.overflow = '';
     };
-  }, [plannerModalOpen, closePlannerModal]);
+  }, [plannerModalOpen, plannerDirty, requestClosePlannerModal, closePlannerModal]);
 
   if (!plannerModalOpen) return null;
 
@@ -92,14 +115,14 @@ function PlannerModalOverlay() {
       role="dialog"
       aria-modal="true"
       aria-label="Interactive Project Planner"
-      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-[#111111]/75"
-      onClick={closePlannerModal}
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-[var(--color-indigo)]/75"
+      onClick={requestClosePlannerModal}
     >
       <div
         className="w-full max-w-3xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <ProjectPlanner mode="modal" onClose={closePlannerModal} />
+        <ProjectPlanner mode="modal" onClose={requestClosePlannerModal} />
       </div>
     </div>
   );
@@ -117,7 +140,7 @@ export default function App() {
         <PlannerModalOverlay />
         <FreeAuditModal />
         <SearchModal />
-        <div className="min-h-screen flex flex-col bg-[#F3E5CE] dark:bg-[#182235] text-[#282522] dark:text-[#FFF9F0]">
+        <div className="min-h-screen flex flex-col bg-[var(--bg-cream)] text-[var(--text-primary)]">
           <Navbar />
           <main id="main-content" className="flex-1">
             <Routes>

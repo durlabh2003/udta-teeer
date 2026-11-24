@@ -7,18 +7,20 @@ import caseStudiesData from '../data/case-studies.json';
 import { useApp } from '../context/AppContext';
 import { trackConversionEvent } from '../lib/analytics';
 import { SEOHead } from '../components/SEOHead';
+import { ServiceIllustration } from '../components/illustrations/JaipurIllustrations';
 import { BrutalButton } from '../components/ui/BrutalButton';
 import { BrutalCard } from '../components/ui/BrutalCard';
+import { JaaliDivider } from '../components/ui/JaaliDivider';
 import { JharokhaAccordion } from '../components/ui/JharokhaAccordion';
 import { NotFoundPage } from './NotFoundPage';
 
 const INDUSTRY_TO_PLANNER_LABEL: Record<string, string> = {
-  retail: 'Jewellery',
-  hospitality: 'Hospitality',
-  handicrafts: 'D2C and E-commerce',
+  retail: 'Retail & Jewellery',
+  hospitality: 'Hospitality & Tourism',
+  handicrafts: 'Handicrafts & Lifestyle',
   education: 'Education',
-  restaurants: 'Restaurant and Cafe',
-  startups: 'Startup and Technology',
+  restaurants: 'Restaurant & Cafe',
+  startups: 'Startup & SaaS',
   healthcare: 'Healthcare',
   'real-estate': 'Real Estate',
   manufacturing: 'Manufacturing',
@@ -46,7 +48,7 @@ export function IndustryDetailPage() {
   const relatedPortfolio = portfolioData.projects.filter((p) =>
     industry.relatedProjectSlugs.includes(p.slug)
   );
-  const relatedTemplates = caseStudiesData.caseStudies.filter((c) =>
+  const relatedSamples = caseStudiesData.caseStudies.filter((c) =>
     industry.relatedProjectSlugs.includes(c.id)
   );
 
@@ -58,74 +60,80 @@ export function IndustryDetailPage() {
         path={`/industries/${industry.slug}`}
       />
 
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
-        <nav aria-label="Breadcrumb" className="text-xs font-bold flex items-center gap-2">
-          <Link to="/" className="underline">Home</Link>
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
+        <nav aria-label="Breadcrumb" className="type-label flex flex-wrap items-center gap-2">
+          <Link to="/" className="underline min-h-[44px] inline-flex items-center">Home</Link>
           <span aria-hidden="true">/</span>
-          <Link to="/industries" className="underline">Industries</Link>
+          <Link to="/industries" className="underline min-h-[44px] inline-flex items-center">Industries</Link>
           <span aria-hidden="true">/</span>
           <span>{industry.name}</span>
         </nav>
 
-        {/* 1. Industry Intro */}
-        <header className="space-y-4 max-w-3xl">
-          <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
-            {industry.jaipurEstablishment} · Sector Blueprint
-          </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-            {industry.name}
-          </h1>
-          <p className="text-lg font-bold">{industry.tagline}</p>
-          <p className="text-base leading-relaxed text-[#4B433C] dark:text-[#E7D8C5]">
-            {industry.intro}
-          </p>
-          <div className="pt-2 flex flex-wrap gap-3">
-            <BrutalButton
-              variant="hotPink"
-              size="lg"
-              onClick={() => {
-                trackConversionEvent('service_cta_click', {
-                  source: 'industry_detail',
-                  label: industry.slug,
-                  industry: plannerIndustry,
-                });
-                openPlannerModal({
-                  services: ['website-dev', 'seo-aeo'],
-                  industry: plannerIndustry,
-                  note: `Industry sector enquiry: ${industry.name} (${industry.recommendedCombo}).`,
-                });
-              }}
-            >
-              <span>Plan Your {industry.name} Project</span>
-              <ArrowRight className="w-5 h-5" />
-            </BrutalButton>
-            <BrutalButton to="/packages" variant="cream" size="lg">
-              View Transparent Pricing
-            </BrutalButton>
+        {/* Industry Intro + Sector Illustration */}
+        <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="lg:col-span-7 space-y-4 min-w-0">
+            <p className="type-label text-[var(--text-terracotta)]">
+              {industry.jaipurEstablishment} · Sector Blueprint
+            </p>
+            <h1 className="type-display break-words">{industry.name}</h1>
+            <p className="text-lg font-bold">{industry.tagline}</p>
+            <p className="type-body text-[var(--text-secondary)]">{industry.intro}</p>
+            <div className="pt-2 flex flex-wrap gap-3">
+              <BrutalButton
+                variant="primary"
+                size="lg"
+                onClick={() => {
+                  trackConversionEvent('service_cta_click', {
+                    source: 'industry_detail',
+                    label: industry.slug,
+                    industry: plannerIndustry,
+                  });
+                  openPlannerModal({
+                    services: ['website-dev', 'seo-aeo'],
+                    industry: plannerIndustry,
+                    note: `Industry sector enquiry: ${industry.name} (${industry.recommendedCombo}).`,
+                  });
+                }}
+              >
+                <span>Plan Your {industry.name} Shot</span>
+                <ArrowRight className="w-5 h-5" />
+              </BrutalButton>
+              <BrutalButton to="/packages" variant="secondary" size="lg">
+                View Packages
+              </BrutalButton>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <BrutalCard arch="jharokha" tone="sandstone" className="p-4 flex items-center justify-center">
+              <ServiceIllustration
+                name={(industry as { illustrationKey?: string }).illustrationKey}
+                alt={`${industry.name} Jaipur illustration`}
+                className="w-full h-40"
+              />
+            </BrutalCard>
           </div>
         </header>
 
-        {/* 2. Common Challenges */}
+        {/* Common Challenges */}
         <section className="space-y-4">
-          <h2 className="font-editorial text-2xl md:text-3xl font-bold">
-            Common Digital Challenges in {industry.name}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <h2 className="type-h2">Common Friction in {industry.name}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {industry.challenges.map((ch, idx) => (
-              <BrutalCard key={ch} tone="surface">
-                <div className="font-mono-num text-xs font-bold text-[#B95E50] dark:text-[#FFC21A] mb-2">
+              <BrutalCard key={ch} tone="surface" className="p-4">
+                <div className="type-label text-[var(--text-terracotta)] mb-1.5">
                   Friction 0{idx + 1}
                 </div>
-                <p className="text-sm font-medium leading-relaxed">{ch}</p>
+                <p className="type-small font-medium leading-relaxed">{ch}</p>
               </BrutalCard>
             ))}
           </div>
         </section>
 
-        {/* 3, 4, 5. Design, Development & Marketing Solutions */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <BrutalCard tone="gulabi" className="space-y-3">
-            <h2 className="text-xl font-extrabold">Design Solutions (Creative Haveli)</h2>
+        {/* Design, Development & Marketing Solutions */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <BrutalCard tone="gulabi" arch="scalloped" className="space-y-3">
+            <h2 className="type-h3">Creative Haveli (Design)</h2>
             <ul className="space-y-2 text-sm font-medium">
               {industry.designSolutions.map((item) => (
                 <li key={item}>✓ {item}</li>
@@ -133,8 +141,8 @@ export function IndustryDetailPage() {
             </ul>
           </BrutalCard>
 
-          <BrutalCard tone="peacock" className="space-y-3">
-            <h2 className="text-xl font-extrabold">Development (Digital Karkhana)</h2>
+          <BrutalCard tone="cobalt" arch="scalloped" className="space-y-3">
+            <h2 className="type-h3">Digital Karkhana (Dev)</h2>
             <ul className="space-y-2 text-sm font-medium">
               {industry.developmentSolutions.map((item) => (
                 <li key={item}>✓ {item}</li>
@@ -142,8 +150,8 @@ export function IndustryDetailPage() {
             </ul>
           </BrutalCard>
 
-          <BrutalCard tone="marigold" className="space-y-3">
-            <h2 className="text-xl font-extrabold">Marketing (Growth Bazaar)</h2>
+          <BrutalCard tone="marigold" arch="scalloped" className="space-y-3">
+            <h2 className="type-h3">Growth Bazaar (Marketing)</h2>
             <ul className="space-y-2 text-sm font-medium">
               {industry.marketingSolutions.map((item) => (
                 <li key={item}>✓ {item}</li>
@@ -152,16 +160,19 @@ export function IndustryDetailPage() {
           </BrutalCard>
         </section>
 
-        {/* 6. Recommended Service Combination */}
-        <section className="p-6 md:p-8 brutal-border brutal-shadow bg-[#263650] text-[#FFF9F0] rounded-[6px] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        {/* Recommended Service Combination */}
+        <BrutalCard
+          tone="indigo"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+        >
           <div className="space-y-1">
-            <div className="text-xs font-mono-num font-bold text-[#FFC21A] uppercase">
+            <p className="type-label text-[var(--color-marigold)]">
               Recommended Combined Solution
-            </div>
-            <h2 className="font-editorial text-2xl font-bold">{industry.recommendedCombo}</h2>
+            </p>
+            <h2 className="type-h3">{industry.recommendedCombo}</h2>
           </div>
           <BrutalButton
-            variant="hotPink"
+            variant="primary"
             size="md"
             onClick={() =>
               openPlannerModal({
@@ -171,44 +182,42 @@ export function IndustryDetailPage() {
               })
             }
           >
-            Customize This Stack
+            Customise This Stack
           </BrutalButton>
-        </section>
+        </BrutalCard>
 
-        {/* 7. Related Projects / Portfolio Candidates */}
-        {(relatedPortfolio.length > 0 || relatedTemplates.length > 0) && (
+        {/* Related Sample Showcases */}
+        {(relatedPortfolio.length > 0 || relatedSamples.length > 0) && (
           <section className="space-y-4">
-            <h2 className="font-editorial text-2xl md:text-3xl font-bold">
-              Relevant Projects &amp; Templates
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 className="type-h2">Relevant Sample Work</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {relatedPortfolio.map((proj) => (
                 <BrutalCard key={proj.slug} className="space-y-3">
-                  <div className="text-[11px] font-mono-num font-bold text-[#B95E50] dark:text-[#FFC21A]">
+                  <p className="type-label text-[var(--text-terracotta)]">
                     {proj.statusBadge}
-                  </div>
-                  <h3 className="text-xl font-extrabold">{proj.name}</h3>
-                  <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">{proj.shortDesc}</p>
+                  </p>
+                  <h3 className="type-h3">{proj.name}</h3>
+                  <p className="type-small text-[var(--text-secondary)]">{proj.shortDesc}</p>
                   <Link
                     to={`/work/${proj.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold underline"
+                    className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-bold underline"
                   >
-                    Inspect Project Architecture →
+                    Inspect Architecture →
                   </Link>
                 </BrutalCard>
               ))}
-              {relatedTemplates.map((tpl) => (
-                <BrutalCard key={tpl.id} className="space-y-3">
-                  <div className="text-[11px] font-mono-num font-bold text-[#B95E50] dark:text-[#FFC21A]">
-                    {tpl.placeholderTag}
-                  </div>
-                  <h3 className="text-xl font-extrabold">{tpl.client}</h3>
-                  <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">{tpl.challenge}</p>
+              {relatedSamples.map((sc) => (
+                <BrutalCard key={sc.id} className="space-y-3">
+                  <p className="type-label text-[var(--text-terracotta)]">
+                    {sc.badgeLabel}
+                  </p>
+                  <h3 className="type-h3">{sc.client}</h3>
+                  <p className="type-small text-[var(--text-secondary)]">{sc.challenge}</p>
                   <Link
-                    to={`/work/${tpl.id}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-bold underline"
+                    to={`/work/${sc.id}`}
+                    className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-bold underline"
                   >
-                    Open Case Study Template →
+                    Open Sample Case →
                   </Link>
                 </BrutalCard>
               ))}
@@ -216,10 +225,12 @@ export function IndustryDetailPage() {
           </section>
         )}
 
-        {/* 8. Sector FAQs */}
+        <JaaliDivider />
+
+        {/* Sector FAQs */}
         {industry.faqs && industry.faqs.length > 0 && (
           <section className="space-y-4">
-            <h2 className="font-editorial text-2xl font-bold">Common Questions</h2>
+            <h2 className="type-h2">Common Questions</h2>
             <JharokhaAccordion items={industry.faqs} />
           </section>
         )}

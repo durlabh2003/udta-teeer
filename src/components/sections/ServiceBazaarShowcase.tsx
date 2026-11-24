@@ -1,74 +1,71 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Layers, Megaphone, Palette, Sparkles } from 'lucide-react';
+import { ArrowRight, Code2, Layers, Megaphone, Palette, ShoppingBag, Smartphone, Sparkles } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { PILLAR_SUMMARY_PRICING } from '../../data/brandConfig';
 import { trackConversionEvent } from '../../lib/analytics';
+import {
+  PillarBazaarIllustration,
+  PillarHaveliIllustration,
+  PillarKarkhanaIllustration,
+  ThreePillarsInterlockIllustration,
+} from '../illustrations/JaipurIllustrations';
 import { BrutalButton } from '../ui/BrutalButton';
 import { BrutalCard } from '../ui/BrutalCard';
 
-type EstablishmentId = 'design' | 'development' | 'marketing';
-
-const ESTABLISHMENTS = [
+const PILLAR_CARDS = [
   {
     id: 'design' as const,
-    name: 'The Creative Haveli',
-    pillar: '01 · Design',
-    message: 'We make your business recognisable.',
-    accent: '#F4A6B8',
+    name: 'Design Haveli',
+    kicker: '01 · Design',
+    priceFrom: PILLAR_SUMMARY_PRICING.design.price,
+    timeline: PILLAR_SUMMARY_PRICING.design.timeline,
     exploreUrl: '/services/design',
-    exploreLabel: 'Explore Design Services',
-    actionLabel: 'Build My Brand',
     preselect: ['branding-identity', 'ui-ux-design'],
-    groups: [
-      { title: 'Brand Identity & Strategy', items: ['Brand discovery & positioning', 'Logo, colour & typography systems', 'Brand guidelines & collateral'] },
-      { title: 'UI/UX Design', items: ['User research, journeys & wireframes', 'Interactive Figma prototypes', 'Responsive design systems'] },
-      { title: 'Website & Landing Page Design', items: ['Conversion-oriented homepage UI', 'Campaign landing pages', 'Website redesigns'] },
-      { title: 'Graphic, Packaging & Motion', items: ['Social & ad creatives, pitch decks', 'Product packaging & labels', 'Motion graphics & promo reels'] },
+    badgeBg: 'bg-[var(--color-gulabi)] text-[var(--text-on-gulabi)]',
+    Illustration: PillarHaveliIllustration,
+    subServices: [
+      { label: 'Brand Identity & Logo', Icon: Palette },
+      { label: 'UI/UX & Prototypes', Icon: Layers },
+      { label: 'Packaging & Motion', Icon: Sparkles },
     ],
   },
   {
     id: 'development' as const,
-    name: 'The Digital Karkhana',
-    pillar: '02 · Development',
-    message: 'We turn ideas into working digital products.',
-    accent: '#1FB5B0',
+    name: 'Digital Karkhana',
+    kicker: '02 · Development',
+    priceFrom: PILLAR_SUMMARY_PRICING.development.price,
+    timeline: PILLAR_SUMMARY_PRICING.development.timeline,
     exploreUrl: '/services/development',
-    exploreLabel: 'Explore Development Services',
-    actionLabel: 'Build My Product',
     preselect: ['website-dev', 'ecommerce-dev'],
-    groups: [
-      { title: 'Business Websites & E-Commerce', items: ['Corporate, agency & service sites', 'Online stores, cart & UPI/Razorpay checkout', 'Speed, SEO & maintenance'] },
-      { title: 'Custom Web & Mobile Apps', items: ['Booking portals & internal ops tools', 'iOS & Android cross-platform apps', 'Testing & store deployment'] },
-      { title: 'SaaS & Dashboards', items: ['SaaS MVPs & subscription billing', 'Admin & analytics dashboards', 'Role-based client portals'] },
-      { title: 'API, Automation & Integration', items: ['CRM & WhatsApp API routing', 'Payment & inventory webhooks', 'Business-process automation'] },
+    badgeBg: 'bg-[var(--color-cobalt)] text-[var(--text-on-cobalt)]',
+    Illustration: PillarKarkhanaIllustration,
+    subServices: [
+      { label: 'Websites & Landing Pages', Icon: Code2 },
+      { label: 'D2C E-Commerce Stores', Icon: ShoppingBag },
+      { label: 'SaaS, Apps & CRM', Icon: Smartphone },
     ],
   },
   {
     id: 'marketing' as const,
-    name: 'The Growth Bazaar',
-    pillar: '03 · Marketing',
-    message: 'We take your business to the right audience.',
-    accent: '#FFC21A',
+    name: 'Growth Bazaar',
+    kicker: '03 · Marketing',
+    priceFrom: PILLAR_SUMMARY_PRICING.marketing.price,
+    timeline: PILLAR_SUMMARY_PRICING.marketing.timeline,
     exploreUrl: '/services/marketing',
-    exploreLabel: 'Explore Marketing Services',
-    actionLabel: 'Grow My Business',
     preselect: ['seo-aeo', 'performance-marketing'],
-    groups: [
-      { title: 'Search Engine Optimisation (SEO)', items: ['Technical & on-page SEO', 'Local Jaipur & Google Business Profile', 'AEO/GEO AI-search visibility'] },
-      { title: 'Paid & Performance Marketing', items: ['Google Search & Shopping Ads', 'Meta Ads & retargeting funnels', 'Conversion tracking & ROAS dashboards'] },
-      { title: 'Social Media & Content', items: ['Strategic content calendars & reels', 'Website & campaign copywriting', 'English, Hinglish & Hindi messaging'] },
-      { title: 'Lead Gen & CRO', items: ['Landing-page conversion optimization', 'Enquiry-form & funnel audits', 'Lead attribution reporting'] },
+    badgeBg: 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)]',
+    Illustration: PillarBazaarIllustration,
+    subServices: [
+      { label: 'Local SEO & AI Search', Icon: Megaphone },
+      { label: 'Google & Meta Ads', Icon: Sparkles },
+      { label: 'Hinglish Content & CRO', Icon: Layers },
     ],
   },
 ];
 
 export function ServiceBazaarShowcase() {
   const { openPlannerModal } = useApp();
-  const [activeId, setActiveId] = useState<EstablishmentId>('design');
-  const [karkhanaDigitalMode, setKarkhanaDigitalMode] = useState<boolean>(true);
   const [hqSelected, setHqSelected] = useState<string[]>(['Design', 'Development']);
-
-  const active = ESTABLISHMENTS.find((e) => e.id === activeId) ?? ESTABLISHMENTS[0];
 
   const toggleHq = (pillar: string) => {
     setHqSelected((prev) =>
@@ -81,220 +78,105 @@ export function ServiceBazaarShowcase() {
     if (hqSelected.includes('Design')) mapped.push('branding-identity', 'ui-ux-design');
     if (hqSelected.includes('Development')) mapped.push('website-dev');
     if (hqSelected.includes('Marketing')) mapped.push('seo-aeo', 'performance-marketing');
-    trackConversionEvent('service_cta_click', { source: 'growth_hq', label: hqSelected.join('+') });
+    trackConversionEvent('service_cta_click', {
+      source: 'growth_hq',
+      label: hqSelected.join('+'),
+    });
     openPlannerModal(mapped.length ? mapped : ['website-dev']);
   };
 
   return (
-    <div className="space-y-8">
-      {/* Arrow Stop Switcher (3 Jaipur Establishments) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4" role="tablist" aria-label="Jaipur Service Establishments">
-        {ESTABLISHMENTS.map((est) => {
-          const isSelected = est.id === activeId;
+    <div className="space-y-6">
+      {/* 3 Visual-First Pillar Cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {PILLAR_CARDS.map((card) => {
+          const Illustration = card.Illustration;
           return (
-            <button
-              key={est.id}
-              type="button"
-              role="tab"
-              aria-selected={isSelected}
-              onClick={() => {
-                setActiveId(est.id);
-                trackConversionEvent('service_view', { source: 'service_bazaar', label: est.id });
-              }}
-              className={`text-left p-5 brutal-border rounded-[6px] cursor-pointer transition-all ${
-                isSelected
-                  ? 'brutal-shadow-lg -translate-y-0.5 bg-[#FFF9F0] dark:bg-[#263650]'
-                  : 'bg-[#FFFFFF]/70 dark:bg-[#1D2052]/70 hover:bg-[#FFF9F0] dark:hover:bg-[#212E46]'
-              }`}
+            <BrutalCard
+              key={card.id}
+              arch="jharokha"
+              className="flex flex-col justify-between space-y-4"
             >
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span
-                  className="px-2.5 py-1 text-xs font-mono-num font-bold brutal-border text-[#111111] rounded-[3px]"
-                  style={{ backgroundColor: est.accent }}
-                >
-                  {est.pillar}
-                </span>
-                {isSelected && (
-                  <span className="font-hand text-xs text-[#B95E50] dark:text-[#FFC21A]">
-                    Arrow Landed ➔
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span
+                    className={`px-2 py-0.5 type-label brutal-border rounded-[6px] ${card.badgeBg}`}
+                  >
+                    {card.kicker}
                   </span>
-                )}
+                  <span className="font-mono-num text-xs font-bold text-[var(--text-secondary)]">
+                    {card.priceFrom} <span aria-hidden="true">·</span> {card.timeline}
+                  </span>
+                </div>
+
+                <div className="brutal-border rounded-[8px] bg-[var(--bg-cream)] p-2.5 flex items-center justify-center">
+                  <Illustration className="w-full h-24" alt={card.name} />
+                </div>
+
+                <h3 className="type-h3">{card.name}</h3>
+
+                {/* Max 3 concise icon-labelled sub-services */}
+                <ul className="space-y-1.5">
+                  {card.subServices.map(({ label, Icon }) => (
+                    <li
+                      key={label}
+                      className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--text-primary)]"
+                    >
+                      <span className="w-6 h-6 brutal-border bg-[var(--bg-cream)] rounded-[5px] flex items-center justify-center shrink-0">
+                        <Icon className="w-3.5 h-3.5 text-[var(--text-terracotta)]" aria-hidden="true" />
+                      </span>
+                      <span>{label}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-editorial text-2xl font-bold mb-1">{est.name}</h3>
-              <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">{est.message}</p>
-            </button>
+
+              <div className="pt-2.5 border-t border-[var(--border-ink)]/15 flex flex-wrap items-center justify-between gap-2">
+                <BrutalButton to={card.exploreUrl} variant="tertiary" size="sm">
+                  Explore Pillar →
+                </BrutalButton>
+                <BrutalButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => {
+                    trackConversionEvent('service_cta_click', {
+                      source: 'service_bazaar_pillar',
+                      label: card.id,
+                    });
+                    openPlannerModal(card.preselect);
+                  }}
+                >
+                  Scope {card.id === 'design' ? 'Design' : card.id === 'development' ? 'Build' : 'Growth'}
+                </BrutalButton>
+              </div>
+            </BrutalCard>
           );
         })}
       </div>
 
-      {/* Illuminated Establishment Stage */}
-      <BrutalCard className="p-6 md:p-8 space-y-6">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b-2 border-[#111111]/15 dark:border-[#FFF9F0]/20">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs font-mono-num font-bold text-[#B95E50] dark:text-[#FFC21A]">
-              {active.id === 'design' && <Palette className="w-4 h-4" />}
-              {active.id === 'development' && <Code2 className="w-4 h-4" />}
-              {active.id === 'marketing' && <Megaphone className="w-4 h-4" />}
-              <span>{active.pillar} Establishment</span>
-            </div>
-            <h3 className="font-editorial text-3xl md:text-4xl font-bold">
-              {active.name} — {active.message}
-            </h3>
-          </div>
-
-          {active.id === 'development' && (
-            <button
-              type="button"
-              onClick={() => setKarkhanaDigitalMode((v) => !v)}
-              className="px-4 py-2 text-xs font-bold brutal-border bg-[#FFC21A] text-[#111111] rounded-[4px] whitespace-nowrap cursor-pointer"
-            >
-              {karkhanaDigitalMode
-                ? 'View Heritage Workshop View'
-                : 'Transform Facade → Digital Interface'}
-            </button>
-          )}
+      {/* Combined System Banner with Interlocked Three-Pillar Diagram */}
+      <div className="p-4 md:p-6 brutal-border brutal-shadow bg-[var(--color-indigo)] text-[#FFF7EC] rounded-t-[16px] rounded-b-[8px] grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+        <div className="lg:col-span-4 brutal-border bg-[var(--bg-surface)] rounded-[8px] p-2.5">
+          <ThreePillarsInterlockIllustration
+            className="w-full h-20"
+            alt="Brand, Web & Growth working together"
+          />
         </div>
 
-        {/* Establishment Visual + 4 Service Groups */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Interactive Architectural Illustration Frame */}
-          <div className="lg:col-span-5 brutal-border rounded-t-[40px] rounded-b-[6px] overflow-hidden bg-[#F3E5CE] dark:bg-[#182235] p-5 space-y-4">
-            <div className="flex items-center justify-between text-xs font-mono-num font-bold">
-              <span>{active.name}</span>
-              <span>Jaipur Pink City</span>
-            </div>
-
-            {active.id === 'design' && (
-              <div className="grid grid-cols-3 gap-2 pt-2">
-                {['Brand Marks', 'UI Systems', 'Packaging'].map((label, i) => (
-                  <div
-                    key={label}
-                    className="brutal-border rounded-t-full p-3 text-center bg-[#FFF9F0] text-[#111111] min-h-[112px] flex flex-col justify-between"
-                    style={{ backgroundColor: i === 1 ? '#F4A6B8' : '#FFF9F0' }}
-                  >
-                    <span className="text-lg font-editorial font-bold">0{i + 1}</span>
-                    <span className="text-[11px] font-bold leading-tight">{label}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {active.id === 'development' && (
-              <div className="brutal-border bg-[#263650] text-[#FFF9F0] rounded-[6px] p-4 space-y-2 transition-all">
-                <div className="flex items-center justify-between text-[11px] font-mono-num">
-                  <span>
-                    {karkhanaDigitalMode ? 'Live Product Interface' : 'Heritage Karkhana Facade'}
-                  </span>
-                  <span className="text-[#FFC21A]">● ● ●</span>
-                </div>
-                {karkhanaDigitalMode ? (
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    <div className="p-2.5 bg-[#1FB5B0] text-[#111111] brutal-border rounded-[4px] text-xs font-bold">
-                      Storefront & Checkout
-                    </div>
-                    <div className="p-2.5 bg-[#FFC21A] text-[#111111] brutal-border rounded-[4px] text-xs font-bold">
-                      SaaS / Admin Portal
-                    </div>
-                    <div className="col-span-2 p-2.5 bg-[#FFF9F0] text-[#111111] brutal-border rounded-[4px] text-xs font-mono-num">
-                      API + CRM + WhatsApp Automated Pipeline ✓
-                    </div>
-                  </div>
-                ) : (
-                  <div className="py-6 text-center font-editorial text-lg">
-                    Traditional Jaipur Workshop Shutters — Click toggle to morph into UI
-                  </div>
-                )}
-              </div>
-            )}
-
-            {active.id === 'marketing' && (
-              <div className="space-y-2.5">
-                <div className="p-3 brutal-border bg-[#FFC21A] text-[#111111] rounded-[4px] flex items-center justify-between text-xs font-bold">
-                  <span>Search & AI Overviews (SEO/AEO)</span>
-                  <span className="font-mono-num">Intent Traffic ↑</span>
-                </div>
-                <div className="p-3 brutal-border bg-[#FFF9F0] text-[#111111] rounded-[4px] flex items-center justify-between text-xs font-bold">
-                  <span>Meta + Google Campaign Boards</span>
-                  <span className="font-mono-num">CPL / ROAS</span>
-                </div>
-                <div className="p-3 brutal-border bg-[#E7B9A4] text-[#111111] rounded-[4px] flex items-center justify-between text-xs font-bold">
-                  <span>Hindi + English Reels & Funnels</span>
-                  <span className="font-mono-num">73%+ Reach</span>
-                </div>
-              </div>
-            )}
-
-            <p className="text-xs text-[#4B433C] dark:text-[#E7D8C5] leading-relaxed">
-              Every engagement starts by mapping your actual business friction — never a pre-boxed
-              template.
-            </p>
+        <div className="lg:col-span-5 space-y-1.5">
+          <div className="type-label text-[var(--color-marigold)]">
+            Combined System · {hqSelected.length > 0 ? `${hqSelected.length} Pillars Selected` : 'Select Pillars'}
           </div>
-
-          {/* Service Groups Breakdown */}
-          <div className="lg:col-span-7 space-y-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {active.groups.map((grp) => (
-                <div
-                  key={grp.title}
-                  className="p-4 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[6px]"
-                >
-                  <h4 className="font-display font-extrabold text-base mb-2">{grp.title}</h4>
-                  <ul className="space-y-1 text-xs md:text-sm text-[#4B433C] dark:text-[#E7D8C5]">
-                    {grp.items.map((it) => (
-                      <li key={it} className="flex items-start gap-1.5">
-                        <span className="font-bold text-[#B95E50] dark:text-[#FFC21A]" aria-hidden="true">
-                          →
-                        </span>
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <BrutalButton to={active.exploreUrl} variant="marigold" size="md">
-                <span>{active.exploreLabel}</span>
-                <ArrowRight className="w-4 h-4" />
-              </BrutalButton>
-              <BrutalButton
-                variant="hotPink"
-                size="md"
-                onClick={() => {
-                  trackConversionEvent('service_cta_click', {
-                    source: 'service_bazaar_panel',
-                    label: active.actionLabel,
-                  });
-                  openPlannerModal(active.preselect);
-                }}
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>{active.actionLabel}</span>
-              </BrutalButton>
-            </div>
-          </div>
-        </div>
-      </BrutalCard>
-
-      {/* 6.4 The Growth Headquarters — Combine Multiple Pillars */}
-      <div className="p-6 md:p-8 brutal-border brutal-shadow bg-[#263650] text-[#FFF9F0] rounded-[6px] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <div className="space-y-2 max-w-xl">
-          <div className="inline-flex items-center gap-2 text-xs font-mono-num font-bold text-[#FFC21A]">
-            <Layers className="w-4 h-4" />
-            <span>The Growth Headquarters · Combined System</span>
-          </div>
-          <h3 className="font-editorial text-2xl md:text-3xl font-bold">
-            Need Brand + Website + Marketing working together?
+          <h3 className="type-h3 text-[var(--text-on-dark)]">
+            Combine Design, Code &amp; Growth Under One Roof
           </h3>
-          <p className="text-sm text-[#FFF9F0]/85">
-            Select the pillars you want unified under one accountable plan — e.g. Branding + Website,
-            E-Commerce + Ads, or Complete Digital Business Setup.
+          <p className="type-small text-[var(--text-on-dark)]/80">
+            Toggle active workshops below to build your custom stack.
           </p>
         </div>
 
-        <div className="space-y-3 shrink-0">
-          <div className="flex flex-wrap gap-2">
+        <div className="lg:col-span-3 space-y-2.5">
+          <div className="flex flex-wrap gap-1.5">
             {['Design', 'Development', 'Marketing'].map((pillar) => {
               const checked = hqSelected.includes(pillar);
               return (
@@ -303,10 +185,10 @@ export function ServiceBazaarShowcase() {
                   type="button"
                   onClick={() => toggleHq(pillar)}
                   aria-pressed={checked}
-                  className={`px-3.5 py-2 text-xs font-bold brutal-border rounded-[4px] cursor-pointer transition-colors ${
+                  className={`min-h-[44px] px-2.5 py-1 text-xs font-bold brutal-border rounded-[6px] cursor-pointer transition-colors ${
                     checked
-                      ? 'bg-[#FFC21A] text-[#111111]'
-                      : 'bg-[#182235] text-[#FFF9F0] hover:bg-[#FFF9F0]/15'
+                      ? 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)]'
+                      : 'bg-[var(--bg-canvas)] text-[var(--text-primary)] hover:bg-[var(--bg-surface)]'
                   }`}
                 >
                   {checked ? '✓ ' : '+ '}
@@ -315,8 +197,8 @@ export function ServiceBazaarShowcase() {
               );
             })}
           </div>
-          <BrutalButton variant="hotPink" size="md" onClick={handleHqLaunch} className="w-full">
-            <span>Build My Complete Growth Plan</span>
+          <BrutalButton variant="primary" size="sm" onClick={handleHqLaunch} className="w-full">
+            <span>Build Combined Plan</span>
             <ArrowRight className="w-4 h-4" />
           </BrutalButton>
         </div>

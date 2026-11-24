@@ -13,130 +13,136 @@
   "articles": [
     {
       "slug": "how-jaipur-businesses-can-improve-digital-presence",
-      "title": "How Jaipur Businesses Can Improve Their Digital Presence Without Wasting Budget",
+      "title": "How Jaipur Businesses Improve Digital Presence Without Budget Waste",
       "category": "Jaipur Business Insights",
+      "illustrationKey": "google-ads",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-11-10",
-      "readingTime": "5 min read",
+      "readingTime": "4 min read",
       "featured": true,
-      "excerpt": "Why disconnected freelancers, slow PDF menus, and neglected Google Business Profiles cost Jaipur businesses high-intent local buyers every week.",
+      "excerpt": "Fix slow mobile load times, Maps profiles, and ad-to-WhatsApp funnels first.",
       "sections": [
         {
-          "heading": "1. Fix the First 5 Seconds on Mobile",
-          "body": "Over 80% of local discovery in Jaipur happens on mid-range Android phones over 4G. If your website takes 6 seconds to load or hides what you sell behind vague slogans, visitors bounce straight back to Google Maps."
+          "heading": "1. Win the First 5 Seconds on 4G Mobile",
+          "body": "Over 80% of local Jaipur discovery happens on mid-range Android phones. Cut heavy hero assets and put clear offers upfront."
         },
         {
-          "heading": "2. Treat Google Business Profile as Your Digital Storefront",
-          "body": "Before clicking any website link, buyers check photos, hours, reviews, and WhatsApp/call buttons on Maps. Consistent NAP details, local schema markup, and real project photos outperform generic ad boosts."
+          "heading": "2. Own Your Google Maps Storefront",
+          "body": "Real photos, updated hours, and LocalBusiness schema convert high-intent local searches faster than broad ad boosts."
         },
         {
-          "heading": "3. Connect Ads Directly to Trackable WhatsApp & Form Flows",
-          "body": "Never send paid traffic to a slow homepage with no clear call to action. Pair every campaign with a focused landing page and automated lead capture so zero inquiries slip through the cracks."
+          "heading": "3. Connect Ads to Trackable WhatsApp Flows",
+          "body": "Send campaign clicks to dedicated landing pages paired with instant WhatsApp routing so zero enquiries slip away."
         }
       ],
       "relatedServices": ["website-development-jaipur", "seo-services-jaipur"]
     },
     {
       "slug": "why-every-growing-business-needs-professional-website",
-      "title": "Why Every Growing Business Needs a Professional Website (Even If Instagram Works)",
+      "title": "Why Growing Brands Need an Owned Website (Beyond Instagram)",
       "category": "Website Development",
+      "illustrationKey": "website",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-11-08",
       "readingTime": "4 min read",
       "featured": false,
-      "excerpt": "Social platforms rent your reach; a fast, search-indexed website is digital real estate your business actually owns.",
+      "excerpt": "Social algorithms rent your reach; a fast search-indexed website belongs to you.",
       "sections": [
         {
-          "heading": "Algorithm Dependency vs Owned Conversion Asset",
-          "body": "Instagram reels can spark discovery, but serious B2B, healthcare, real estate, and D2C buyers still verify credibility on Google before paying. Your website anchors pricing clarity, FAQs, and case proof."
+          "heading": "Rented Reach vs Owned Conversion Asset",
+          "body": "Reels spark discovery, yet serious B2B, clinic, and D2C buyers verify trust and pricing on Google before purchasing."
         },
         {
-          "heading": "Why ₹8,000 Template Sites Backfire",
-          "body": "Cheap rushed templates break on mobile, lack Schema.org metadata for AI search, and leave you without analytics attribution. Investing once in clean structure prevents costly rebuilds six months later."
+          "heading": "Why ₹8,000 Themes Backfire",
+          "body": "Brittle themes break on mobile, miss Schema markup for AI search, and force costly rebuilds within six months."
         }
       ],
       "relatedServices": ["website-development-jaipur", "ui-ux-design-jaipur"]
     },
     {
       "slug": "branding-vs-marketing-understanding-the-difference",
-      "title": "Branding vs Marketing: Understanding the Difference Before You Spend on Ads",
+      "title": "Branding vs Marketing: Know the Difference Before Buying Ads",
       "category": "Branding",
+      "illustrationKey": "branding",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-11-04",
-      "readingTime": "5 min read",
+      "readingTime": "4 min read",
       "featured": false,
-      "excerpt": "Marketing drives attention; branding determines whether people trust you, remember you, and pay premium margins.",
+      "excerpt": "Marketing buys attention; sharp branding lowers customer acquisition cost.",
       "sections": [
         {
-          "heading": "Why Performance Ads Plateau Without Brand Identity",
-          "body": "When five competitors run identical discount ads on Meta, the brand with distinct visual memory, clear positioning, and cohesive packaging wins lower CAC over time."
+          "heading": "Why Ads Plateau Without Identity",
+          "body": "When competitors run identical discount creatives, memorable visual identity and clear positioning win cheaper clicks."
         },
         {
-          "heading": "Combining Both in One System",
-          "body": "Start with a Brand & Digital Diagnostic to sharpen positioning, lock visual tokens, and then feed those creatives directly into measurable Meta and Google campaigns."
+          "heading": "Align Both in One Studio Sprint",
+          "body": "Run a fast Diagnostic first, lock visual tokens, and feed cohesive creatives directly into Meta and Google funnels."
         }
       ],
       "relatedServices": ["branding-agency-jaipur", "performance-marketing-jaipur"]
     },
     {
       "slug": "how-to-choose-the-right-website-solution",
-      "title": "How to Choose the Right Website Solution: Brochure, E-Commerce, or Custom Web App?",
+      "title": "Brochure Site, E-Commerce Store, or Custom SaaS App?",
       "category": "Business Growth",
+      "illustrationKey": "saas",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-10-29",
-      "readingTime": "6 min read",
+      "readingTime": "5 min read",
       "featured": false,
-      "excerpt": "A practical framework to match your current business stage and budget to the right technical stack without over-engineering.",
+      "excerpt": "Match your stage and revenue model to the right stack without over-engineering.",
       "sections": [
         {
-          "heading": "When a 5–7 Page Business Website Wins",
-          "body": "Local clinics, architects, consultants, and hospitality venues primarily need clarity, trust proof, local SEO, and fast inquiry capture."
+          "heading": "When a Focused 5–7 Page Site Wins",
+          "body": "Clinics, architects, and hospitality venues mainly need clarity, proof, local SEO, and frictionless inquiry capture."
         },
         {
-          "heading": "When Shopify / WooCommerce vs Custom SaaS Makes Sense",
-          "body": "If you sell physical SKUs, never rebuild cart and checkout from scratch — invest budget in product UX, UPI/COD flows, and creatives. Reserve custom React/Node engineering for bespoke portals and SaaS MVPs."
+          "heading": "Shopify / WooCommerce vs Custom Code",
+          "body": "For physical SKUs, invest in product UX and UPI/COD flows over custom carts. Save bespoke React/Node builds for SaaS workflows."
         }
       ],
       "relatedServices": ["ecommerce-development-jaipur", "saas-development"]
     },
     {
       "slug": "seo-and-aeo-for-local-businesses",
-      "title": "SEO + Answer Engine Optimization (AEO) for Local Businesses in 2026",
+      "title": "SEO + AI Answer Engine Optimise (AEO) Playbook for 2026",
       "category": "SEO",
+      "illustrationKey": "seo",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-10-22",
-      "readingTime": "5 min read",
+      "readingTime": "4 min read",
       "featured": false,
-      "excerpt": "How structured JSON-LD, clear service definitions, and city-specific landing pages get your brand cited by both Google and AI assistants.",
+      "excerpt": "How clean Schema.org markup and crisp pricing answers earn AI & Google citations.",
       "sections": [
         {
           "heading": "From Blue Links to Direct Answers",
-          "body": "Buyers increasingly ask ChatGPT, Perplexity, and Google AI Overviews for recommendations. Pages with clear entity definitions, structured FAQs, and honest pricing guides earn citations."
+          "body": "ChatGPT, Perplexity, and Google AI Overviews cite pages with explicit entity definitions, FAQs, and honest price bands."
         },
         {
-          "heading": "Hindi & Hinglish Search Queries Matter",
-          "body": "Over 73% of Indian internet users engage with regional-language content. Addressing real bilingual search intent expands reach without extra ad spend."
+          "heading": "Bilingual Search Intent Matters",
+          "body": "Over 73% of Indian web users interact across regional cues. Addressing Hinglish and local terms lifts organic discovery."
         }
       ],
       "relatedServices": ["seo-services-jaipur", "digital-marketing-jaipur"]
     },
     {
       "slug": "what-an-ecommerce-website-should-include",
-      "title": "What a High-Converting Indian E-Commerce Website Must Include",
+      "title": "Non-Negotiables for High-Converting Indian D2C Stores",
       "category": "E-commerce",
+      "illustrationKey": "ecommerce",
       "author": "Urdta Teeeeeer Editorial",
       "publishedAt": "2026-10-15",
-      "readingTime": "5 min read",
+      "readingTime": "4 min read",
       "featured": false,
-      "excerpt": "From thumb-friendly product pages and transparent COD/UPI checkout to Meta CAPI hygiene — the non-negotiables for D2C brands.",
+      "excerpt": "Thumb-first product cards, UPI/COD trust signals, and clean Meta CAPI tracking.",
       "sections": [
         {
-          "heading": "Mobile Thumb Ergonomics & Fast Media",
-          "body": "Compress product imagery into modern WebP/AVIF formats, keep Add-to-Cart visible, and show delivery timelines and return clarity right beside the buy button."
+          "heading": "Thumb Ergonomics & Fast Media",
+          "body": "Keep WebP photography light, pin Add-to-Cart comfortably on mobile, and display delivery & return rules beside pricing."
         },
         {
-          "heading": "Measurement Hygiene Before Scaling Ads",
-          "body": "Verify GA4 e-commerce events and Meta Conversions API (CAPI) before increasing daily ad budgets so optimization algorithms learn from clean purchase signals."
+          "heading": "Clean Tracking Before Scaling Spend",
+          "body": "Verify GA4 purchase events and Meta CAPI signals before raising budgets so ad algorithms optimise on real sales."
         }
       ],
       "relatedServices": ["ecommerce-development-jaipur", "performance-marketing-jaipur"]

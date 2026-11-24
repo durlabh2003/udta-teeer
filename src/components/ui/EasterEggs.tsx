@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { useApp } from '../../context/AppContext';
 
 interface FallingKite {
@@ -9,7 +9,13 @@ interface FallingKite {
   delay: number;
 }
 
-const COLORS = ['#FFC21A', '#FF4F8B', '#1FB5B0', '#D9482B', '#F4A6B8'];
+const COLORS = [
+  'var(--color-marigold)',
+  'var(--color-gulabi)',
+  'var(--color-cobalt)',
+  'var(--color-terracotta)',
+  'var(--color-gulabi-soft)',
+];
 
 /**
  * Tier 3 Easter Eggs:
@@ -18,11 +24,12 @@ const COLORS = ['#FFC21A', '#FF4F8B', '#1FB5B0', '#D9482B', '#F4A6B8'];
  */
 export function EasterEggs() {
   const { kiteShowerCount } = useApp();
+  const shouldReduceMotion = useReducedMotion();
   const [kites, setKites] = useState<FallingKite[]>([]);
   const [camelActive, setCamelActive] = useState(false);
 
   useEffect(() => {
-    if (kiteShowerCount === 0) return;
+    if (kiteShowerCount === 0 || shouldReduceMotion) return;
     const batch: FallingKite[] = Array.from({ length: 14 }).map((_, i) => ({
       id: Date.now() + i,
       left: 5 + Math.random() * 90,
@@ -32,7 +39,7 @@ export function EasterEggs() {
     setKites(batch);
     const timer = window.setTimeout(() => setKites([]), 2600);
     return () => clearTimeout(timer);
-  }, [kiteShowerCount]);
+  }, [kiteShowerCount, shouldReduceMotion]);
 
   // Konami code detector
   useEffect(() => {
@@ -68,7 +75,7 @@ export function EasterEggs() {
   return (
     <>
       <AnimatePresence>
-        {kites.length > 0 && (
+        {kites.length > 0 && !shouldReduceMotion && (
           <div
             className="fixed inset-0 pointer-events-none z-[75] overflow-hidden"
             aria-hidden="true"
@@ -87,10 +94,10 @@ export function EasterEggs() {
                   <path
                     d="M17 2L32 17L17 32L2 17L17 2Z"
                     fill={k.color}
-                    stroke="#111111"
+                    stroke="var(--border-ink)"
                     strokeWidth="2.5"
                   />
-                  <path d="M17 32L12 40H22L17 32Z" fill="#111111" />
+                  <path d="M17 32L12 40H22L17 32Z" fill="var(--border-ink)" />
                 </svg>
               </motion.div>
             ))}
@@ -101,14 +108,14 @@ export function EasterEggs() {
       <AnimatePresence>
         {camelActive && (
           <motion.div
-            initial={{ x: '-15vw' }}
-            animate={{ x: '110vw' }}
+            initial={shouldReduceMotion ? { opacity: 0 } : { x: '-15vw' }}
+            animate={shouldReduceMotion ? { opacity: 1 } : { x: '110vw' }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 3.4, ease: 'linear' }}
-            className="fixed bottom-4 left-0 z-[75] pointer-events-none px-4 py-2 brutal-border brutal-shadow bg-[#FFC21A] text-[#111111] font-hand text-base rounded-[6px]"
+            transition={{ duration: shouldReduceMotion ? 0.2 : 3.4, ease: 'linear' }}
+            className="fixed bottom-4 left-4 z-[75] pointer-events-none px-4 py-2 brutal-border brutal-shadow bg-[var(--color-marigold)] text-[var(--text-on-marigold)] type-small font-bold rounded-[8px]"
             aria-hidden="true"
           >
-            🐪 Padharo Mhare Desh! (Konami Camel Unlocked)
+            Padharo Mhare Desh! (Jaipur Easter Egg Unlocked)
           </motion.div>
         )}
       </AnimatePresence>

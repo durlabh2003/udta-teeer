@@ -14,6 +14,8 @@ interface PricingCardProps {
   accent?: AccentTone;
   isPopular?: boolean;
   ctaLabel: string;
+  subCtaCaption?: string;
+  illustration?: React.ReactNode;
   onCtaClick: () => void;
 }
 
@@ -27,44 +29,75 @@ export function PricingCard({
   accent = 'cream',
   isPopular = false,
   ctaLabel,
+  subCtaCaption,
+  illustration,
   onCtaClick,
 }: PricingCardProps) {
   return (
-    <div className="relative h-full pt-3">
+    <div className="relative h-full pt-4 overflow-visible">
       {isPopular && (
-        <div className="absolute -top-5 -right-2 z-10">
-          <StickerBadge label="Sabse Popular!" variant="starburst" tone="hotPink" />
+        <div className="absolute -top-2 right-3 z-10 overflow-visible">
+          <StickerBadge label="MOST POPULAR" variant="starburst" tone="gulabi" />
         </div>
       )}
-      <BrutalCard tone={accent} className="flex flex-col justify-between h-full">
+      <BrutalCard
+        tone={accent}
+        arch="scalloped"
+        className="flex flex-col justify-between h-full pt-5 overflow-visible"
+      >
         <div>
-          <p className="text-xs font-bold tracking-tight opacity-85 mb-1.5">
+          {illustration && (
+            <div className="mb-3 p-2 brutal-border bg-[var(--bg-surface)] rounded-[8px] flex items-center justify-center">
+              {illustration}
+            </div>
+          )}
+
+          <p className={`type-label opacity-85 mb-1 ${isPopular ? 'pr-16' : ''}`}>
             {billingModel} <span aria-hidden="true">·</span> {timeline}
           </p>
-          <h3 className="text-2xl font-extrabold tracking-tight mb-2 pr-12">{title}</h3>
-          <div className="font-mono-num text-2xl md:text-3xl font-extrabold mb-3">{price}</div>
-          <p className="text-sm leading-relaxed mb-5 opacity-90">{description}</p>
+          <h3 className={`type-h3 mb-1.5 ${isPopular ? 'pr-16' : ''}`}>{title}</h3>
+          <div
+            data-testid="tier-price"
+            className={`font-mono-num text-xl md:text-2xl font-bold mb-2 ${isPopular ? 'pr-16' : ''}`}
+          >
+            {price}
+          </div>
+          <p className="type-small leading-snug mb-3.5 opacity-90">{description}</p>
 
-          <ul className="space-y-2 text-sm mb-6">
-            {deliverables.map((item) => (
-              <li key={item} className="flex items-start gap-2">
-                <span className="font-bold" aria-hidden="true">
-                  ✓
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
+          <ul className="space-y-1.5 text-sm mb-4">
+            {deliverables.map((item) => {
+              const isColoredSurface =
+                accent === 'marigold' || accent === 'gulabi' || accent === 'cobalt' || accent === 'indigo';
+              return (
+                <li key={item} className="flex items-start gap-2">
+                  <span
+                    className={`font-bold ${isColoredSurface ? 'text-current' : 'text-[var(--text-gulabi)]'}`}
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
-        <BrutalButton
-          variant={accent === 'marigold' ? 'ink' : 'marigold'}
-          size="md"
-          onClick={onCtaClick}
-          className="w-full"
-        >
-          {ctaLabel}
-        </BrutalButton>
+        <div className="space-y-1.5">
+          <BrutalButton
+            variant={isPopular ? 'primary' : 'secondary'}
+            size="md"
+            onClick={onCtaClick}
+            className="w-full"
+          >
+            {ctaLabel}
+          </BrutalButton>
+          {subCtaCaption && (
+            <p className="text-center font-mono-num text-[11px] opacity-75">
+              {subCtaCaption}
+            </p>
+          )}
+        </div>
       </BrutalCard>
     </div>
   );

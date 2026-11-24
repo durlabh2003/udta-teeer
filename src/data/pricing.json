@@ -1,69 +1,69 @@
 {
   "_meta": {
-    "status": "EDITABLE_PLACEHOLDER",
-    "verifyBeforeLaunch": true,
     "currency": "INR",
-    "publicEntryPrice": "From ₹2,999 (Starter micro-deliverables)",
-    "note": "Public starting price ₹2,999 applies to specific entry-level starter deliverables (e.g. single promotional creative pack, landing-page audit, or minor site update) — never implying full custom websites, apps, or retainers cost ₹2,999."
+    "publicEntryPrice": "From ₹2,999 (Starter modules)",
+    "note": "Indicative starting rates for custom brand, web, and growth work."
   },
   "packageLayers": [
     {
       "id": "layer-a-starter",
-      "name": "Layer A — Starter Solutions",
-      "badge": "Entry Level · From ₹2,999",
+      "tier": "small-thali",
+      "name": "Starter Thali",
+      "badge": "From ₹2,999",
       "accent": "marigold",
-      "whoFor": "Small businesses, local Jaipur shops, and new founders testing digital presence.",
-      "startingPrice": "Starting from ₹2,999",
-      "note": "Applies to individual starter deliverables (e.g., landing page refresh, digital creative pack, or focused audit). Full websites start from ₹40,000+.",
+      "whoFor": "Local shops & early founders testing digital.",
+      "startingPrice": "From ₹2,999",
+      "note": "Starter creative packs, micro-audits, or quick landing refreshes.",
       "items": [
-        "Starter social/digital creative bundle or single-page refresh",
-        "Basic logo & colour starter kit",
-        "Focused website/SEO health checklist",
-        "Small website updates & WhatsApp button setup"
+        "Focused audit checklist",
+        "Starter logo & colour kit",
+        "Single-page speed tune-up",
+        "WhatsApp CTA integration"
       ]
     },
     {
       "id": "layer-b-growth",
-      "name": "Layer B — Growth Solutions",
+      "tier": "full-thali",
+      "name": "Growth Thali",
       "badge": "Sabse Popular",
       "accent": "gulabi",
-      "whoFor": "Growing SMEs, D2C brands, hospitality, clinics, and funded startups.",
-      "startingPrice": "From ₹40,000 – ₹1,00,000+",
-      "note": "Complete brand identity, multi-page conversion website or e-commerce storefront, SEO/AEO setup, and monthly growth systems.",
+      "whoFor": "Growing SMEs, D2C brands, clinics & hospitality.",
+      "startingPrice": "From ₹40,000",
+      "note": "Custom business website, D2C store, branding, or SEO/ads engine.",
       "items": [
-        "Complete Brand Identity System + Design Tokens",
-        "Multi-page Conversion Website or Shopify/WooCommerce Store",
-        "Technical SEO + Local GBP + Paid Campaign Architecture",
-        "30-day post-launch support + live analytics dashboard"
+        "Custom brand & UI system",
+        "Conversion site or Shopify store",
+        "Technical SEO + Local GBP",
+        "30-day post-launch support"
       ]
     },
     {
       "id": "layer-c-custom",
-      "name": "Layer C — Custom Solutions",
+      "tier": "royal-feast",
+      "name": "Royal Custom Stack",
       "badge": "Discovery + Milestones",
-      "accent": "peacock",
-      "whoFor": "Established organisations, SaaS founders, and complex multi-system operations.",
-      "startingPrice": "Custom Quotation (From ₹1,50,000 – ₹8,00,000+)",
-      "note": "Scoped via paid technical discovery blueprint with transparent milestone deliverables.",
+      "accent": "cobalt",
+      "whoFor": "SaaS startups & multi-system teams.",
+      "startingPrice": "From ₹1,50,000",
+      "note": "Milestone-scoped apps, CRM automation & dedicated sprint pods.",
       "items": [
-        "Custom Web Applications, SaaS MVPs & Admin Dashboards",
-        "iOS & Android Mobile Applications",
-        "CRM Integration, API Engineering & Practical AI Automation",
-        "Dedicated multi-disciplinary growth & engineering sprints"
+        "Custom SaaS MVP & portals",
+        "iOS & Android mobile apps",
+        "WhatsApp CRM & AI workflows",
+        "Owned live growth dashboard"
       ]
     }
   ],
   "startingPrices": [
     {
       "id": "starter-micro",
-      "name": "Starter Micro-Deliverable / Quick Creative & Site Update",
+      "name": "Starter Creative Pack / Quick Fix",
       "category": "starter",
       "startingFrom": 2999,
       "displayPrice": "From ₹2,999",
-      "billingModel": "One-time starter module",
-      "timeline": "3–5 working days",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "billingModel": "One-time starter",
+      "timeline": "3–5 days",
+      "customScope": false
     },
     {
       "id": "diagnostic",
@@ -72,9 +72,8 @@
       "startingFrom": 25000,
       "displayPrice": "From ₹25,000",
       "billingModel": "One-time, paid",
-      "timeline": "7–10 working days",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "timeline": "7–10 days",
+      "customScope": false
     },
     {
       "id": "brand-identity",
@@ -84,42 +83,68 @@
       "displayPrice": "From ₹60,000",
       "billingModel": "Fixed project",
       "timeline": "3–4 weeks",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "customScope": false
+    },
+    {
+      "id": "ui-ux-design",
+      "name": "UI/UX & Design Systems",
+      "category": "design",
+      "startingFrom": 45000,
+      "displayPrice": "From ₹45,000",
+      "billingModel": "Fixed project",
+      "timeline": "2–5 weeks",
+      "customScope": false
     },
     {
       "id": "business-website",
       "name": "Business Website (5–7 Pages)",
       "category": "development",
-      "startingFrom": 45000,
-      "displayPrice": "₹40,000 – ₹60,000+",
+      "startingFrom": 40000,
+      "displayPrice": "From ₹40,000",
       "billingModel": "Fixed project",
       "timeline": "2–3 weeks",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "customScope": false
     },
     {
       "id": "creative-web-experience",
-      "name": "Creative Web Experience / Corporate Site",
+      "name": "Creative Web Experience",
       "category": "flagship",
       "startingFrom": 100000,
       "displayPrice": "From ₹1,00,000",
       "billingModel": "Fixed project",
       "timeline": "4–6 weeks",
       "customScope": false,
-      "sabsePopular": true,
-      "verifyBeforeLaunch": true
+      "sabsePopular": true
     },
     {
       "id": "ecommerce-site",
-      "name": "E-Commerce Storefront (Shopify / WooCommerce)",
+      "name": "E-Commerce Storefront",
       "category": "development",
       "startingFrom": 100000,
       "displayPrice": "From ₹1,00,000",
       "billingModel": "Fixed project",
       "timeline": "4–6 weeks",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "customScope": false
+    },
+    {
+      "id": "automation-ai",
+      "name": "CRM & Practical AI Workflow",
+      "category": "development",
+      "startingFrom": 75000,
+      "displayPrice": "From ₹75,000",
+      "billingModel": "Audit + Build",
+      "timeline": "2–4 weeks",
+      "customScope": true
+    },
+    {
+      "id": "crm-implementation",
+      "name": "Full CRM Implementation",
+      "category": "development",
+      "startingFrom": 150000,
+      "displayPrice": "From ₹1,50,000",
+      "billingModel": "Setup + Support",
+      "timeline": "4–8 weeks",
+      "customScope": true
     },
     {
       "id": "custom-web-app",
@@ -129,8 +154,7 @@
       "displayPrice": "From ₹3,00,000",
       "billingModel": "Discovery + Milestones",
       "timeline": "8–14 weeks",
-      "customScope": true,
-      "verifyBeforeLaunch": true
+      "customScope": true
     },
     {
       "id": "mobile-app",
@@ -140,19 +164,7 @@
       "displayPrice": "From ₹5,00,000",
       "billingModel": "Discovery + Milestones",
       "timeline": "10–16 weeks",
-      "customScope": true,
-      "verifyBeforeLaunch": true
-    },
-    {
-      "id": "crm-implementation",
-      "name": "CRM Implementation & Workflows",
-      "category": "development",
-      "startingFrom": 150000,
-      "displayPrice": "From ₹1,50,000",
-      "billingModel": "Setup + Monthly Support",
-      "timeline": "4–8 weeks",
-      "customScope": true,
-      "verifyBeforeLaunch": true
+      "customScope": true
     },
     {
       "id": "saas-mvp",
@@ -162,96 +174,76 @@
       "displayPrice": "From ₹8,00,000",
       "billingModel": "Discovery + Milestones",
       "timeline": "12–20 weeks",
-      "customScope": true,
-      "verifyBeforeLaunch": true
-    },
-    {
-      "id": "automation-ai",
-      "name": "Automation & Practical AI Workflow",
-      "category": "development",
-      "startingFrom": 75000,
-      "displayPrice": "From ₹75,000",
-      "billingModel": "Audit + Implementation",
-      "timeline": "2–4 weeks",
-      "customScope": true,
-      "verifyBeforeLaunch": true
-    },
-    {
-      "id": "growth-partnership",
-      "name": "Growth Partnership (Performance + Content)",
-      "category": "flagship",
-      "startingFrom": 40000,
-      "displayPrice": "₹35,000 – ₹60,000/mo",
-      "billingModel": "Monthly Retainer (Agency fee only)",
-      "timeline": "Minimum 3-month sprint",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "customScope": true
     },
     {
       "id": "seo-retainer",
-      "name": "SEO + AEO/GEO Growth Retainer",
+      "name": "SEO + AEO/GEO Retainer",
       "category": "marketing",
       "startingFrom": 25000,
       "displayPrice": "From ₹25,000/mo",
       "billingModel": "Monthly Retainer",
-      "timeline": "3–6 month compounding horizon",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "timeline": "3–6 mo horizon",
+      "customScope": false
     },
     {
       "id": "social-creative-retainer",
-      "name": "Social Creative System (Bundle / Add-on)",
+      "name": "Social Creative System",
       "category": "marketing",
       "startingFrom": 20000,
       "displayPrice": "From ₹20,000/mo",
-      "billingModel": "Monthly Retainer (Bundled with Strategy)",
-      "timeline": "Ongoing monthly calendar",
-      "customScope": false,
-      "verifyBeforeLaunch": true
+      "billingModel": "Monthly Bundle",
+      "timeline": "Monthly sprint",
+      "customScope": false
+    },
+    {
+      "id": "growth-partnership",
+      "name": "Growth Partnership (Ads + Content)",
+      "category": "flagship",
+      "startingFrom": 35000,
+      "displayPrice": "From ₹35,000/mo",
+      "billingModel": "Monthly Retainer",
+      "timeline": "Min 3-month sprint",
+      "customScope": false
     }
   ],
   "mandatoryDisclosures": {
     "en": [
-      "Public entry-level pricing starts from ₹2,999 for focused starter deliverables only — never full custom websites, apps, or ongoing retainers.",
-      "Ad spend (Meta, Google), hosting, domains, paid plugins, licensed stock assets, AI/LLM API usage, and third-party SaaS tools are billed separately at actuals.",
-      "Every fixed project includes structured revision rounds (typically 2 rounds per milestone) — never chaotic 'unlimited revisions' that stall launches.",
-      "Fixed web & brand builds include a 30-day post-launch warranty & support window. Optional monthly care plans are available afterward."
+      "₹2,999 applies to focused starter modules only — custom websites begin from ₹40,000.",
+      "Meta/Google ad spend, hosting, domains, and third-party SaaS tools are billed at actuals.",
+      "Every fixed project includes 2 structured revision rounds per milestone.",
+      "30-day post-launch warranty & support is included on fixed builds."
     ],
     "hinglish": [
-      "₹2,999 starting price sirf chhote starter deliverables (jaise quick creative ya micro-audit) ke liye hai — poori custom website ya app ke liye nahi.",
-      "Ad spend (Meta, Google), hosting, domain, paid plugins, stock assets, AI API usage aur third-party software alag se actuals par bill hote hain.",
-      "Har fixed project mein clear 2 structured revision rounds per milestone hote hain — 'unlimited revisions' bolke kaam nahi latkate.",
-      "Fixed projects mein launch ke baad 30 days ka free support window included rehta hai; uske baad optional care plan le sakte hain."
+      "₹2,999 sirf starter modules ke liye hai — full custom websites ₹40,000 se shuru hoti hain.",
+      "Ad budget, hosting, domain aur paid tools seedha client card par actuals par jaate hain.",
+      "Har milestone mein 2 clear structured revision rounds milte hain.",
+      "Launch ke baad 30 days ka free post-launch support included hai."
     ]
   },
   "scopeCostDrivers": {
-    "titleEn": "What Changes the Price?",
-    "titleHi": "Kya Price Badhata Hai?",
+    "titleEn": "What Drives Scope?",
+    "titleHi": "Price Kis Baat Se Badalta Hai?",
     "factors": [
       {
-        "labelEn": "Page & Screen Count + Custom Motion",
-        "labelHi": "Pages / Screens ki ginti aur custom 3D ya motion",
-        "detailEn": "A 5-page high-speed site differs from a 25-page multi-language architecture with interactive 3D."
+        "labelEn": "Pages, Screens & Custom Motion",
+        "labelHi": "Pages, Screens aur Custom Motion",
+        "detailEn": "5-page site vs. multi-language 25-page experience."
       },
       {
-        "labelEn": "Integrations, Payment Gateways & ERP/CRM Sync",
-        "labelHi": "WhatsApp API, Razorpay, ERP ya CRM integrations",
-        "detailEn": "Connecting inventory, automated WhatsApp lead routing, and CRM webhooks adds engineering hours."
+        "labelEn": "CRM, UPI & ERP Integrations",
+        "labelHi": "WhatsApp API, Razorpay ya CRM Sync",
+        "detailEn": "Automated lead routing and inventory webhooks."
       },
       {
-        "labelEn": "Copywriting & Regional Language Adaptation",
-        "labelHi": "Conversion copywriting aur Hindi / regional content",
-        "detailEn": "Research-backed Hinglish/Hindi and English messaging written from scratch vs. client-supplied copy."
+        "labelEn": "Bilingual Copy & Video Volume",
+        "labelHi": "Hindi/English Copy aur Reels Volume",
+        "detailEn": "Monthly ad hooks and creative production cadence."
       },
       {
-        "labelEn": "Shoot, Video Editing & Ad Creative Volume",
-        "labelHi": "Video production, reels editing aur ad variants ki volume",
-        "detailEn": "Monthly performance retainers scale with how many creative hooks and video cuts we produce."
-      },
-      {
-        "labelEn": "Delivery Urgency ('Jaldi' Sprint)",
-        "labelHi": "Delivery ki speed (Urgent sprint vs. standard timeline)",
-        "detailEn": "Dedicated rush sprints compress team allocation and require priority engineering slots."
+        "labelEn": "Rush Timeline Sprint",
+        "labelHi": "Urgent Delivery Sprint",
+        "detailEn": "Compressed launches reserve priority engineering capacity."
       }
     ]
   },
@@ -260,25 +252,25 @@
       "id": "fixed",
       "nameEn": "Fixed Project",
       "nameHi": "Fixed Project",
-      "bestForEn": "Websites, E-commerce Storefronts, Brand Identity Systems, Diagnostics",
-      "bestForHi": "Websites, D2C Storefronts, Branding, Diagnostic",
-      "structureEn": "Clear scope document, fixed fee, milestone sign-offs (50% advance, 30% staging, 20% launch) + 30-day post-launch support."
+      "bestForEn": "Websites, D2C Stores, Brand Identity, Diagnostics",
+      "bestForHi": "Websites, D2C Stores, Branding, Diagnostic",
+      "structureEn": "Clear written scope, milestone billing (50/30/20) + 30-day support."
     },
     {
       "id": "retainer",
       "nameEn": "Monthly Retainer",
       "nameHi": "Monthly Retainer",
-      "bestForEn": "Growth Partnerships, Performance Marketing, SEO/AEO, Creative Production",
-      "bestForHi": "Performance Ads, SEO/AEO, Social Growth System",
-      "structureEn": "Diagnostic-first onboarding, monthly sprint cadence, owned reporting dashboard, and bi-weekly strategy reviews."
+      "bestForEn": "Performance Ads, SEO/AEO, Creative Production",
+      "bestForHi": "Performance Ads, SEO/AEO, Social Growth",
+      "structureEn": "Diagnostic-first onboarding, bi-weekly sprints, and client-owned dashboards."
     },
     {
       "id": "milestones",
       "nameEn": "Discovery + Milestones",
       "nameHi": "Discovery + Milestones",
-      "bestForEn": "Custom Web Apps, Mobile Apps, CRM Systems, SaaS MVPs",
-      "bestForHi": "Custom Web App, Mobile App, CRM, SaaS MVP",
-      "structureEn": "Paid discovery blueprint first to lock architecture & user flows, followed by bi-weekly deliverable sprints."
+      "bestForEn": "Custom Web Apps, Mobile Apps, CRM, SaaS MVPs",
+      "bestForHi": "Web App, Mobile App, CRM, SaaS MVP",
+      "structureEn": "Paid architecture blueprint first, then bi-weekly sprint deliverables."
     }
   ]
 }

@@ -3,207 +3,304 @@
   "switchToLabel": "English",
   "nav": {
     "services": "Services",
+    "industries": "Industries",
     "work": "Kaam",
-    "process": "Process",
+    "workDual": "Kaam · Work",
     "packages": "Packages",
+    "process": "Process",
+    "insights": "Insights",
     "about": "About",
     "contact": "Contact",
-    "cta": "Teer Chala Do"
+    "cta": "Plan Your Project",
+    "searchLabel": "Search",
+    "needHelp": "Samajh Nahi Aa Raha?",
+    "needHelpDesc": "Finder mein 2 sawaal se right stack chuno.",
+    "notSureLink": "Help me choose"
   },
   "hero": {
-    "kicker": "Jaipur Creative Technology Studio",
-    "headline": "Jaipur ka creative tech studio. Brand, website, growth: ek hi jagah.",
-    "subhead": "We help startups, D2C brands and local businesses build distinctive brands, high-converting websites and measurable growth systems — ek hi accountable team ke saath.",
-    "primaryCta": "Teer Chala Do!",
-    "secondaryCta": "Pehle Kaam Dekho",
-    "kiteHint": "Kites pe click karke kaat ke dekho · Press 'K' for kite shower",
-    "katGaya": "Kat gaya! 🪁",
+    "kicker": "Jaipur Creative Tech Studio",
+    "headline": "Brand, Website aur Growth. Ek Jagah.",
+    "subhead": "Pink City ki craft aur fast engineering — ek accountable team ke saath.",
+    "primaryCta": "Take Your First Shot",
+    "secondaryCta": "Explore Our Work",
+    "auditLink": "Request Free Website Audit",
+    "audienceItems": ["D2C & Retail", "Local Jaipur Brands", "SaaS & Startups"],
+    "kiteHint": "Patang pe click karo · Shower ke liye 'K' dabao",
+    "katGaya": "Kat gaya!",
     "loaderText": "Chai ban rahi hai…"
   },
   "trustStrip": {
-    "heading": "Jo Kaam Hum Bolte Hain, Woh System Mein Dikhta Hai",
-    "note": "No fake awards or borrowed client logos. Capabilities & industries we build for:"
+    "heading": "Kaam Mein Pakka Hisaab",
+    "standardsTitle": "Studio Standards",
+    "industriesTitle": "Industries We Build For"
   },
   "problem": {
     "eyebrow": "Asli Problem",
-    "headline": "Alag-alag vendors, unclear scope, aur slow delivery?",
-    "subhead": "Teen confused freelancers ya agencies ke beech aapka time aur budget dono phans jaata hai.",
+    "headline": "Alag vendors ke beech budget leak?",
+    "subhead": "Design, code aur ads alag hone par conversions girti hain.",
     "painPoints": [
       {
-        "title": "Design kisi aur ka, Code kisi aur ka",
-        "desc": "Designer ne Sundar Figma banaya, developer ne template chipka diya. Result: slow site, broken mobile UX."
+        "title": "Design vs. Developer Clash",
+        "desc": "Figma accha bana, par slow site chipka di gayi."
       },
       {
-        "title": "Ads chal rahe hain, par landing page weak hai",
-        "desc": "Marketing agency traffic laati hai, par website convert nahi karti — phir sab ek dusre ko blame karte hain."
+        "title": "Ads Chal Rahe, Page Leaky Hai",
+        "desc": "Traffic aata hai, page convert nahi karta — blame shuru."
       },
       {
-        "title": "Reporting ke naam pe PDF confusion",
-        "desc": "Vanity impressions dikhake monthly retainer chalta rehta hai, jabki aapko sirf qualified leads aur sales chahiye."
+        "title": "Moti Report, Khali Galla",
+        "desc": "Clicks badhte hain, par asli leads flat rehti hain."
       }
     ],
-    "uvpLine": "Ek hi team. Brand, website, growth: sab clear, sab creative, sab measurable."
+    "uvpLine": "Ek hi team. Clear scope, bold craft, measurable growth."
   },
   "servicesSection": {
-    "eyebrow": "Teen Flagships + Poora Bazaar",
-    "headline": "Seedha Nishaane Pe: Start Clear, Build Sharp, Grow Measurably.",
-    "subhead": "Every service is customizable, par 90% ambitious brands in teen flagships se shuru karte hain.",
-    "flagshipsTitle": "Three Flagship Offers",
-    "bazaarTitle": "The Service Bazaar — Sab Kuch Customizable",
-    "bazaarSub": "Stall chuno, deliverables dekho, aur apna custom package banao.",
-    "customizeBtn": "Customize Karo",
-    "allStallsTab": "All Stalls"
+    "eyebrow": "Teen Pillars, Ek Aim",
+    "headline": "The Service Bazaar",
+    "subhead": "Design, engineering aur growth Jaipur ki ek chhat ke neeche.",
+    "flagshipsTitle": "Three Signature Packages",
+    "bazaarTitle": "Three Workshops Under One Roof",
+    "bazaarSub": "Workshop chuno ya pillars combine karo.",
+    "customizeBtn": "Apna Package Banao",
+    "customizeSubEn": "Customise this package",
+    "allStallsTab": "All Workshops",
+    "catalogCta": "Explore Service Catalog"
   },
   "workSection": {
-    "eyebrow": "Proof Engine (Case Study Templates)",
+    "eyebrow": "Sample Kaam & Outcomes",
     "headline": "Kaam Jo Numbers Pe Baat Kare",
-    "subhead": "Content Integrity Rule: Hum kabhi fake clients ya made-up numbers nahi dikhate. Yeh hamare structured case-study slots hain — ready to showcase verified before/after outcomes.",
-    "openModalBtn": "Window Kholo"
+    "subhead": "Sample blueprints dikhate hain ki design, speed aur ads saath kaise chalte hain.",
+    "openModalBtn": "Inspect Case",
+    "benchmarksTitle": "Sample Conversion Benchmarks",
+    "showingPrefix": "Showing",
+    "showingSingle": "project",
+    "showingPlural": "projects",
+    "emptyTitle": "Is filter mein koi project match nahi hua.",
+    "showAllBtn": "Show all work"
+  },
+  "industriesSection": {
+    "eyebrow": "Jaipur Market & Indian Sectors",
+    "headline": "Aapke Sector Ke Hisaab Se System",
+    "allBtn": "All 10 Sectors"
   },
   "processSection": {
     "eyebrow": "Teer Ki Udaan",
-    "headline": "6-Step Process: Baat Se Growth Tak, Zero Confusion.",
-    "subhead": "Har step pe clear timeline, deliverables, aur accountable owner.",
+    "headline": "Chai Se Growth Tak 6 Steps",
+    "subhead": "Kisi bhi stop pe tap ya hover karke activities dekho.",
+    "guideBtn": "Full Process Guide",
     "steps": [
       {
         "num": "01",
-        "title": "Baat (Chai & Discovery)",
+        "title": "Understand the Target",
         "timeline": "Day 1–2",
-        "owner": "Founder + Studio Lead",
-        "desc": "20-minute honest conversation over chai (in Jaipur or on call). Hum check karte hain ki hum right fit hain ya nahi."
+        "owner": "Founder + Lead",
+        "desc": "20-minute chai call pe goals aur scope lock."
       },
       {
         "num": "02",
-        "title": "Diagnostic (Paid Audit)",
+        "title": "Plan the Shot",
         "timeline": "7–10 Days",
-        "owner": "Strategy + Tech + Growth",
-        "desc": "Market, competitors, website UX, SEO aur funnel leaks ka full X-ray. Iske baad aapke paas 90-day blueprint hota hai."
+        "owner": "Strategy + Tech",
+        "desc": "UX, SEO aur funnel audit — 90-day roadmap."
       },
       {
         "num": "03",
-        "title": "Rang-Roop (Design)",
+        "title": "Design the Direction",
         "timeline": "1–3 Weeks",
         "owner": "Design Lead",
-        "desc": "Wireframes, brand tokens, bold visual identity aur clickable Figma prototype — taaki build se pehle sab crystal clear ho."
+        "desc": "Code se pehle custom Figma prototype approve."
       },
       {
         "num": "04",
-        "title": "Banawat (Build)",
+        "title": "Build the Solution",
         "timeline": "2–6 Weeks",
-        "owner": "Engineering Team",
-        "desc": "Clean code, fast mobile speed, WhatsApp/CRM wiring, GA4 + Pixel events aur accessibility QA."
+        "owner": "Engineering",
+        "desc": "Fast React/Shopify site wired with WhatsApp aur CRM."
       },
       {
         "num": "05",
-        "title": "Udaan (Launch)",
+        "title": "Launch with Precision",
         "timeline": "Launch Week",
-        "owner": "Joint Sign-off",
-        "desc": "Zero-downtime launch, Schema.org indexing, speed audit aur 30-day post-launch warranty support."
+        "owner": "Joint QA",
+        "desc": "Speed QA, schema SEO aur 30-day launch care."
       },
       {
         "num": "06",
-        "title": "Hawa Banao (Grow)",
-        "timeline": "Monthly Sprints",
-        "owner": "Growth Partner Lead",
-        "desc": "Performance ads, bilingual reels/content, SEO/AEO compounding aur live dashboard jo aap khud own karte ho."
+        "title": "Optimise and Grow",
+        "timeline": "Monthly",
+        "owner": "Growth Lead",
+        "desc": "SEO/AEO compounding aur owned dashboard tests."
       }
     ]
   },
   "pillarsSection": {
     "eyebrow": "Jaipur Se, Digital Dhamaka",
-    "headline": "Metro-Level Thinking. Jaipur-Accessible Partnership.",
-    "nameStory": "Naam ka matlab? 'Teer' matlab arrow — aur stretched 'eeeeee' woh awaaz hai jab teer hawa ko cheer ke seedha target pe lagta hai. A flying arrow, aimed at the ordinary.",
+    "headline": "Metro Craft. Jaipur Warmth.",
+    "nameStory": "'Teer' matlab arrow — aur 'eeeeee' woh udaan hai jab nishaana seedha lage.",
     "pillars": [
       {
-        "title": "Strategy Before Execution",
-        "desc": "Har retainer se pehle paid Brand & Digital Diagnostic. Bina clarity ke hum ek rupaya bhi ads ya code pe waste nahi karwate."
+        "title": "Pehle Audit, Phir Kharch",
+        "desc": "Diagnostic pehle taaki ek rupaya bhi blind spend na ho."
       },
       {
-        "title": "Creative Technology as One System",
-        "desc": "Design, interaction, development aur performance marketing ek hi chhat ke neeche — no vendor blame game."
+        "title": "Teen Crafts, Ek Desk",
+        "desc": "Design, engineering aur growth ek accountable owner ke paas."
       },
       {
-        "title": "Jaipur Roots, Measurable Outcomes",
-        "desc": "Johari Bazaar ki warmth aur metro-grade engineering rigor. Har client ko apna owned live metrics dashboard milta hai."
+        "title": "100% Client Ownership",
+        "desc": "Code, Figma aur ad accounts hamesha aapke rehte hain."
       },
       {
-        "title": "Real Hindi & Regional Capability",
-        "desc": "73%+ Indian internet users regional-language content consume karte hain. Hum sirf translate nahi karte — asli Hinglish aur Hindi mein likhte hain."
+        "title": "Asli Hinglish & Hindi",
+        "desc": "Indian buyers ke liye natural Hinglish aur Hindi hooks."
       },
       {
-        "title": "Practical AI & Engineered Jugaad",
-        "desc": "Vague 'AI magic' nahi — demonstrable CRM workflows, WhatsApp lead routing, aur automations jo aapki team ka time bachayein."
+        "title": "Practical AI & CRM",
+        "desc": "WhatsApp routing jo roz ke ghante bachaye."
       }
     ]
   },
   "pricingSection": {
     "eyebrow": "Saaf Hisaab, Paisa Vasool",
-    "headline": "Packages & Transparent 'Starting From' Pricing",
-    "subhead": "Hum fake ₹8,000 wali websites nahi banate — aur na hi random quotes chhupate hain.",
+    "headline": "Packages Built Around Real Scope",
+    "subhead": "₹2,999 starter packs se custom platforms tak saaf rates.",
     "whyNot8kTitle": "Hum ₹8,000 ki website kyun nahi banate?",
-    "whyNot8kBody": "₹8,000 mein sirf ek slow WordPress theme install hoti hai — na positioning research, na conversion copy, na speed optimization, na WhatsApp/CRM setup, aur launch ke baad developer gayab. Aapki website aapka 24/7 sales rep hai; sasta jugaad aapko har mahine leads aur credibility dono mein mehenga padta hai.",
-    "buildCustomCta": "Apna Package Banao"
+    "whyNot8kBody": "₹8,000 mein sirf slow theme milti hai — zero research, weak UX aur zero support.",
+    "buildCustomCta": "Apna Package Banao",
+    "buildCustomSubEn": "Customise this package",
+    "rateGuideBtn": "Complete Rate Guide"
   },
   "testimonialsSection": {
     "eyebrow": "Kathputli Stage",
-    "headline": "Client Baat-Cheet (Verified Slots Only)",
-    "subhead": "Hum kabhi fake 'John Doe 5-star' reviews nahi lagate. Jaise-jaise verified partners publish honge, unki real stories yahan aayengi."
+    "headline": "Sample Voices From Founders",
+    "subhead": "Sample demo quotes jo studio outcomes aur collab dikhate hain."
   },
   "faqSection": {
-    "eyebrow": "Jharokha FAQs",
-    "headline": "Jo Sawaal Aapke Dimag Mein Hain — Seedha Jawab",
+    "eyebrow": "Chai Table FAQs",
+    "headline": "Seedhe Sawaal, Seedhe Jawaab",
     "items": [
       {
-        "q": "Template toh nahi milega?",
-        "a": "Bilkul nahi. Har project aapke business model, audience aur brand personality ke hisaab se custom design aur code hota hai. Code aur Figma files aapke naam par rehti hain."
+        "q": "Koi purani theme toh nahi chipkaoge?",
+        "a": "Bilkul nahi. Har design Figma mein custom banta hai aur code aapka rehta hai."
       },
       {
-        "q": "Launch ke baad gayab toh nahi ho jaoge?",
-        "a": "Never. Har fixed project mein 30 days ka free post-launch support included rehta hai. Uske baad aap optional monthly care plan ya Growth Partnership le sakte hain."
+        "q": "Launch ke baad support milega?",
+        "a": "Haan, har fixed build mein 30 days ka free post-launch support included hai."
       },
       {
         "q": "Ad budget alag kyun hota hai?",
-        "a": "Taaki 100% transparency rahe. Meta aur Google ko ad spend seedha aapke card/account se jaata hai — hum uspe koi hidden commission nahi lagate. Hamari fee sirf strategy, creative aur optimization ki hoti hai."
+        "a": "Taaki 100% transparency rahe — ad spend seedha aapke Meta/Google card se jaata hai."
       },
       {
-        "q": "Agency quotes itne alag kyun hote hain?",
-        "a": "Kyunki ek template brochure aur ek custom conversion engine mein zameen-aasman ka farq hota hai. Scope, page count, custom integrations, copywriting aur timeline price decide karte hain — isliye hum saaf cost drivers publish karte hain."
+        "q": "Website quotes alag-alag kyun hote hain?",
+        "a": "Pages, custom motion, CRM sync aur bilingual copy hours decide karte hain."
       },
       {
-        "q": "Brand & Digital Diagnostic pehle lena zaroori kyun hai?",
-        "a": "Bina audit ke marketing chalana aankh band karke teer chalane jaisa hai. Diagnostic (7–10 days) mein hum exact leaks aur priorities nikaalte hain, taaki aapka aage ka har rupaya kaam kare."
+        "q": "Diagnostic pehle lena zaroori kyun hai?",
+        "a": "7–10 day audit leaks pehle pakadta hai taaki dev aur ads budget waste na ho."
+      },
+      {
+        "q": "Kya Hindi aur Hinglish campaigns likhte ho?",
+        "a": "Haan, hum Jaipur aur pan-India buyers ke liye natural bilingual hooks likhte hain."
       }
     ]
   },
   "finalCta": {
-    "headline": "Scene set hai. Ab teer chalayein?",
-    "subhead": "Chahe ₹25,000 ka Diagnostic chahiye ya poora brand + web + growth system — 60 seconds mein apna brief banao ya chai pe baat karo.",
+    "headline": "Target set hai. Teer chalayein?",
+    "subhead": "60 seconds mein brief banao ya seedha WhatsApp chai chat shuru karo.",
     "primaryCta": "Apna Package Banao",
-    "secondaryCta": "Chai Pe Baat Karein?",
-    "whatsappCta": "WhatsApp Pe Ping Karo"
+    "secondaryCta": "Book a Call",
+    "whatsappCta": "WhatsApp Us"
+  },
+  "planner": {
+    "windowTitle": "Plan Your Shot",
+    "stepOf": "Step",
+    "stepNames": ["Pillars & Services", "Your Business", "Budget & Timing", "Contact Details"],
+    "step1Heading": "1. Pillar chuno aur services select karo",
+    "step1Sub": "Workshop card pe tap karke options jodo",
+    "step2Heading": "2. Apne business ke baare mein batao",
+    "step2Sub": "Aapke industry aur stage ke hisaab se sahi plan ke liye.",
+    "step3Heading": "3. Investment pouches aur timeline",
+    "step3Sub": "Apne budget aur launch timing ke kareeb option chuno.",
+    "step4Heading": "4. Plan kahan bhejein?",
+    "step4Sub": "Demo brief — turant unique Reference ID aur WhatsApp note banata hai.",
+    "budgetLabel": "Expected Budget Band",
+    "timelineLabel": "Target Timeline",
+    "engagementLabel": "Engagement Model",
+    "backBtn": "Wapas",
+    "continueBtn": "Aage Badho",
+    "submitBtn": "Brief Bhejo",
+    "submittingBtn": "Bhej rahe hain…",
+    "discardPrompt": "Leave? Your answers will be lost.",
+    "keepEditing": "Stay",
+    "closeWindow": "Leave",
+    "consentPrefix": "Main contact hone ke liye agree karta/karti hoon under the",
+    "privacyLink": "Privacy Policy"
+  },
+  "modals": {
+    "searchTitle": "Search",
+    "searchPlaceholder": "Services, pricing, Jaipur industries, SEO search karo…",
+    "searchRecentLabel": "Popular searches",
+    "searchEmpty": "Koi exact match nahi mila for",
+    "searchTip": "\"/\" dabao search ke liye · Esc se band karo",
+    "auditTitle": "Free 5-Point Website & SEO Audit",
+    "auditIntro": "Apna URL do. Hum speed, mobile clarity, SEO aur lead leaks check karte hain.",
+    "auditSuccessTitle": "Audit Request Logged!",
+    "auditSuccessNote": "Demo confirmation — live studio mein 48 hrs mein review milta hai.",
+    "auditSubmit": "Free Audit Request Karo",
+    "auditSubmitting": "Check ho raha hai…",
+    "auditDone": "Done"
+  },
+  "forms": {
+    "fullName": "Poora Naam *",
+    "email": "Email Address *",
+    "phone": "Indian Mobile (+91) *",
+    "whatsapp": "WhatsApp (agar alag hai)",
+    "businessName": "Business Naam (Optional)",
+    "industry": "Industry",
+    "website": "Website URL (Optional)",
+    "businessStage": "Business Stage",
+    "notes": "Koi Khaas Baat ya Reference Link",
+    "websiteUrl": "Website ya Store URL *",
+    "focusArea": "Audit Focus",
+    "sendNote": "Note Bhejo",
+    "sending": "Save ho raha hai…"
   },
   "footer": {
-    "tagline": "Urdta Teeeeeer — Creative technology studio in Jaipur, Rajasthan.",
-    "madeWith": "Made with ❤️ & kulhad chai in Jaipur",
-    "chaiCounterLabel": "Cups of chai brewed at the studio"
+    "tagline": "Jaipur creative technology studio — design, code aur growth ek saath.",
+    "madeWith": "Jaipur mein kulhad chai ke saath bana",
+    "chaiCounterLabel": "Cups of chai brewed",
+    "studioHeading": "Studio",
+    "servicesHeading": "Capabilities",
+    "connectHeading": "Connect",
+    "freeAuditBtn": "Free Site Audit",
+    "legalLine": "© 2026 Urdta Teeeeeer, Jaipur. Demo design.",
+    "demoBadge": "Demo Showcase"
   },
   "errors": {
-    "nameRequired": "Arre boss, apna naam toh batao!",
-    "phoneRequired": "WhatsApp ya phone number daalo taaki hum call kar sakein.",
-    "phoneInvalid": "Sahi 10-digit Indian mobile number daalo bhai.",
-    "emailRequired": "Arre bhai, email toh daalo!",
-    "emailInvalid": "Yeh email format thoda gadbad lag raha hai.",
-    "servicesRequired": "Kam se kam ek service toh chuno!",
-    "messageRequired": "Thoda sa toh likho ki kya banana hai."
+    "nameRequired": "Arre boss, apna poora naam toh batao!",
+    "phoneRequired": "WhatsApp ya mobile number daalo.",
+    "phoneInvalid": "Sahi 10-digit Indian mobile daalo (e.g. +91 98290 12345).",
+    "emailRequired": "Email address daalo.",
+    "emailInvalid": "Sahi email format daalo (e.g. you@brand.in).",
+    "urlInvalid": "Sahi website domain ya URL daalo (e.g. https://brand.in).",
+    "servicesRequired": "Kam se kam ek pillar ya service chuno.",
+    "industryOtherRequired": "Apni industry ka naam likho.",
+    "consentRequired": "Consent checkbox tick karna zaroori hai.",
+    "messageRequired": "Project ke baare mein 1–2 lines likho."
   },
   "success": {
-    "title": "Ho gaya boss! Teer seedha nishaane pe laga. 🎯",
-    "subtitle": "Hum aapka brief check karke agle 24 working hours mein WhatsApp ya call karenge."
+    "title": "Nishaana pakka! Brief confirmed.",
+    "subtitle": "Hum agle 24 working hours mein WhatsApp ya call karenge.",
+    "demoRibbon": "Demo Preview — sirf browser simulation (server par koi data save nahi hua).",
+    "whatsappBtn": "WhatsApp Pe Baat Karein",
+    "callBtn": "Discovery Call Book Karein",
+    "homeBtn": "Home Wapas Chalo"
   },
   "notFound": {
     "code": "404",
-    "headline": "Arre! Patang kat gaya. Yeh page nahi mila.",
-    "subhead": "Lagta hai hawa tez thi ya link purana tha. Neeche se seedha studio wapas chalo.",
+    "headline": "Patang kat gaya — page nahi mila.",
+    "subhead": "Lagta hai hawa tez thi. Neeche se seedha studio home wapas chalo.",
     "cta": "Ghar Wapas Chalo"
   }
 }

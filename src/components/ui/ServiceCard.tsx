@@ -1,18 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  ArrowUpRight,
-  Bot,
-  Code2,
-  Megaphone,
-  Palette,
-  Search,
-  ShoppingBag,
-  Smartphone,
-  Sparkles,
-  TrendingUp,
-} from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { ServiceIllustration } from '../illustrations/JaipurIllustrations';
 import { BrutalButton } from './BrutalButton';
 import { BrutalCard } from './BrutalCard';
 
@@ -20,6 +10,7 @@ export interface CatalogServiceItem {
   id: string;
   stall: string;
   slug: string;
+  illustrationKey?: string;
   name: string;
   hookHi: string;
   hookEn: string;
@@ -29,21 +20,6 @@ export interface CatalogServiceItem {
   startingPrice: number;
   customScope: boolean;
 }
-
-const SERVICE_ICONS: Record<string, React.ReactNode> = {
-  'website-dev': <Code2 className="w-5 h-5 stroke-[2.5]" />,
-  'ecommerce-dev': <ShoppingBag className="w-5 h-5 stroke-[2.5]" />,
-  'web-app-dev': <Code2 className="w-5 h-5 stroke-[2.5]" />,
-  'mobile-app-dev': <Smartphone className="w-5 h-5 stroke-[2.5]" />,
-  'crm-systems': <Bot className="w-5 h-5 stroke-[2.5]" />,
-  'seo-aeo': <Search className="w-5 h-5 stroke-[2.5]" />,
-  'performance-marketing': <TrendingUp className="w-5 h-5 stroke-[2.5]" />,
-  'digital-marketing-system': <Megaphone className="w-5 h-5 stroke-[2.5]" />,
-  'social-growth-system': <Sparkles className="w-5 h-5 stroke-[2.5]" />,
-  'branding-identity': <Palette className="w-5 h-5 stroke-[2.5]" />,
-  'ui-ux-design': <Palette className="w-5 h-5 stroke-[2.5]" />,
-  'creative-motion': <Sparkles className="w-5 h-5 stroke-[2.5]" />,
-};
 
 export function ServiceCard({ service }: { service: CatalogServiceItem }) {
   const { lang, t, setPreselectedServiceIds } = useApp();
@@ -58,28 +34,31 @@ export function ServiceCard({ service }: { service: CatalogServiceItem }) {
 
   const stallLabel =
     service.stall === 'banawat'
-      ? 'Banawat'
+      ? 'Digital Karkhana'
       : service.stall === 'hawa-banao'
-        ? 'Hawa Banao'
-        : 'Rang-Roop';
+        ? 'Growth Bazaar'
+        : 'Creative Haveli';
 
   return (
     <BrutalCard className="flex flex-col justify-between h-full">
       <div>
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="w-11 h-11 brutal-border bg-[#FFC21A] text-[#111111] flex items-center justify-center rounded-[4px] shrink-0">
-            {SERVICE_ICONS[service.id] ?? <Code2 className="w-5 h-5" />}
-          </div>
+        <div className="mb-3 p-2.5 brutal-border bg-[var(--bg-cream)] rounded-[8px] flex items-center justify-center relative">
+          <ServiceIllustration
+            name={service.illustrationKey ?? service.id}
+            alt={`${service.name} Jaipur illustration`}
+            className="w-full h-24"
+          />
           <Link
             to={`/${service.slug}`}
-            className="inline-flex items-center gap-1 text-xs font-bold underline underline-offset-4 hover:text-[#D9482B] dark:hover:text-[#FFC21A] whitespace-nowrap"
+            aria-label={`Inspect ${service.name} details`}
+            className="absolute top-2 right-2 min-h-[44px] min-w-[44px] px-2.5 inline-flex items-center justify-center gap-1 text-xs font-bold brutal-border bg-[var(--bg-surface)] text-[var(--text-primary)] rounded-[6px] hover:bg-[var(--color-marigold)] hover:text-[var(--text-on-marigold)] transition-colors"
           >
-            Details <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>Details</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Unboxed clean metadata per Zero-Pill rule */}
-        <p className="text-xs font-medium text-[#3A3532] dark:text-[#E6D8C5] mb-1.5">
+        <p className="type-label text-[var(--text-secondary)] mb-1">
           {stallLabel} <span aria-hidden="true">·</span> {service.timeline}
           {service.customScope ? (
             <>
@@ -89,15 +68,15 @@ export function ServiceCard({ service }: { service: CatalogServiceItem }) {
           ) : null}
         </p>
 
-        <h3 className="text-xl font-extrabold tracking-tight mb-2">{service.name}</h3>
-        <p className="text-sm font-medium text-[#3A3532] dark:text-[#E6D8C5] mb-4 leading-relaxed">
+        <h3 className="type-h3 mb-1.5">{service.name}</h3>
+        <p className="type-small text-[var(--text-secondary)] mb-3 leading-snug">
           {lang === 'hinglish' ? service.hookHi : service.hookEn}
         </p>
 
-        <ul className="space-y-1.5 mb-5 text-sm">
-          {service.deliverables.map((item) => (
+        <ul className="space-y-1 mb-4 text-xs sm:text-sm">
+          {service.deliverables.slice(0, 3).map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="font-bold text-[#D9482B] dark:text-[#FFC21A]" aria-hidden="true">
+              <span className="font-bold text-[var(--text-terracotta)]" aria-hidden="true">
                 →
               </span>
               <span>{item}</span>
@@ -106,12 +85,12 @@ export function ServiceCard({ service }: { service: CatalogServiceItem }) {
         </ul>
       </div>
 
-      <div className="pt-4 border-t-2 border-[#111111]/15 dark:border-[#FFF4E0]/20 flex items-center justify-between gap-3 flex-wrap">
+      <div className="pt-3 border-t-2 border-[var(--border-ink)]/15 flex items-center justify-between gap-2 flex-wrap">
         <div>
-          <span className="block text-xs text-[#3A3532] dark:text-[#E6D8C5]">Starting from</span>
-          <span className="font-mono-num font-bold text-base">{service.priceDisplay}</span>
+          <span className="block type-label text-[var(--text-secondary)]">Starting from</span>
+          <span className="font-mono-num font-bold text-sm md:text-base">{service.priceDisplay}</span>
         </div>
-        <BrutalButton size="sm" variant="marigold" onClick={handleCustomize}>
+        <BrutalButton size="sm" variant="secondary" onClick={handleCustomize}>
           {t.servicesSection.customizeBtn}
         </BrutalButton>
       </div>

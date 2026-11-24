@@ -1,0 +1,390 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated user profile and package-access unlock state.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID",
+          "minLength": 6,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 160
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 24
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "packagesUnlocked": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "displayName",
+        "email",
+        "packagesUnlocked",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Lead": {
+      "title": "Lead",
+      "description": "Captured studio enquiry, package gate unlock lead, or project planner submission.",
+      "type": "object",
+      "properties": {
+        "leadId": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerUid": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "fullName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 160
+        },
+        "phone": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 24
+        },
+        "whatsapp": {
+          "type": "string",
+          "maxLength": 24
+        },
+        "businessName": {
+          "type": "string",
+          "maxLength": 140
+        },
+        "industry": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "selectedServices": {
+          "type": "array",
+          "description": "Selected studio services (1 to 15 items)"
+        },
+        "budget": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "timeline": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "engagementType": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "requirementNotes": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "sourcePage": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "captureChannel": {
+          "type": "string",
+          "enum": [
+            "package_gate",
+            "project_planner",
+            "quick_contact",
+            "audit_modal",
+            "callback_strip",
+            "packages_quote",
+            "google_signin"
+          ]
+        },
+        "consent": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "New",
+            "Contacted",
+            "Qualified",
+            "Discovery Scheduled",
+            "Proposal Sent",
+            "Negotiation",
+            "Won",
+            "Lost",
+            "On Hold"
+          ]
+        },
+        "internalNotes": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "leadId",
+        "ownerUid",
+        "fullName",
+        "email",
+        "phone",
+        "selectedServices",
+        "captureChannel",
+        "consent",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "AuditRequest": {
+      "title": "AuditRequest",
+      "description": "Website speed, SEO & conversion audit request submitted by an authenticated user.",
+      "type": "object",
+      "properties": {
+        "auditId": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerUid": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 160
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 24
+        },
+        "websiteUrl": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 240
+        },
+        "focusArea": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "status": {
+          "type": "string",
+          "enum": ["Requested", "In Review", "Completed"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "auditId",
+        "ownerUid",
+        "name",
+        "email",
+        "websiteUrl",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Service-commerce package order or consultation quotation with server-verified pricing.",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "ownerUid": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "packageId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "packageCode": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 16
+        },
+        "packageName": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "packageSlug": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "category": {
+          "type": "string",
+          "enum": ["design", "marketing", "development"]
+        },
+        "checkoutBehavior": {
+          "type": "string",
+          "enum": [
+            "direct_payment",
+            "monthly_subscription",
+            "deposit_milestone",
+            "consultation_quotation"
+          ]
+        },
+        "selectedAddonNames": {
+          "type": "array",
+          "description": "List of selected add-on summary lines (0 to 25 items)"
+        },
+        "basePrice": { "type": "number", "minimum": 0 },
+        "addonTotal": { "type": "number", "minimum": 0 },
+        "discountAmount": { "type": "number", "minimum": 0 },
+        "subtotal": { "type": "number", "minimum": 0 },
+        "gstEstimate": { "type": "number", "minimum": 0 },
+        "totalAmount": { "type": "number", "minimum": 0 },
+        "payableNow": { "type": "number", "minimum": 0 },
+        "milestoneBalance": { "type": "number", "minimum": 0 },
+        "couponCode": { "type": "string", "maxLength": 40 },
+        "customerName": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "customerPhone": { "type": "string", "minLength": 8, "maxLength": 24 },
+        "customerEmail": { "type": "string", "format": "email", "minLength": 5, "maxLength": 160 },
+        "businessName": { "type": "string", "maxLength": 140 },
+        "projectBrief": { "type": "string", "minLength": 5, "maxLength": 2000 },
+        "referenceUrl": { "type": "string", "maxLength": 300 },
+        "preferredContact": {
+          "type": "string",
+          "enum": ["WhatsApp", "Phone Call", "Email"]
+        },
+        "recurringConsent": { "type": "boolean" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Quotation Requested",
+            "Pending Payment",
+            "Confirmed",
+            "In Progress",
+            "Completed",
+            "Cancelled"
+          ]
+        },
+        "paymentReference": { "type": "string", "maxLength": 120 },
+        "internalNotes": { "type": "string", "maxLength": 1000 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "orderId",
+        "ownerUid",
+        "packageId",
+        "packageCode",
+        "packageName",
+        "packageSlug",
+        "category",
+        "checkoutBehavior",
+        "selectedAddonNames",
+        "basePrice",
+        "totalAmount",
+        "payableNow",
+        "customerName",
+        "customerPhone",
+        "customerEmail",
+        "projectBrief",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Private user profiles and package unlock state"
+    },
+    "/leads/{leadId}": {
+      "schema": {
+        "$ref": "#/entities/Lead"
+      },
+      "description": "Captured project leads and package unlock enquiries"
+    },
+    "/audits/{auditId}": {
+      "schema": {
+        "$ref": "#/entities/AuditRequest"
+      },
+      "description": "Free 5-point website and SEO audit requests"
+    },
+    "/orders/{orderId}": {
+      "schema": {
+        "$ref": "#/entities/Order"
+      },
+      "description": "Purchased service packages, add-ons, milestone plans and consultation quotes"
+    },
+    "/admins/{adminId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Studio administrator role lookup collection"
+    }
+  }
+}

@@ -8,6 +8,8 @@ import portfolioData from '../../data/portfolio.json';
 import servicesData from '../../data/services.json';
 import { useApp } from '../../context/AppContext';
 import { trackConversionEvent } from '../../lib/analytics';
+import { useFocusTrap } from '../../lib/focusTrap';
+import { EmptySearchIllustration } from '../illustrations/JaipurIllustrations';
 import { BrutalButton } from './BrutalButton';
 
 interface SearchResultItem {
@@ -17,10 +19,16 @@ interface SearchResultItem {
   category: 'Services' | 'Work & Case Studies' | 'Industries' | 'Insights';
 }
 
+const POPULAR_CHIPS = ['Websites', 'SEO Jaipur', 'E-Commerce', 'Tapinfi', 'Pricing'];
+
 export function SearchModal() {
-  const { searchModalOpen, closeSearchModal, openPlannerModal } = useApp();
+  const { searchModalOpen, closeSearchModal, openPlannerModal, t } = useApp();
   const [query, setQuery] = useState('');
+  const [recentQueries, setRecentQueries] = useState<string[]>([]);
+  const modalRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useFocusTrap(modalRef, searchModalOpen, closeSearchModal);
 
   useEffect(() => {
     if (!searchModalOpen) return;
@@ -28,40 +36,35 @@ export function SearchModal() {
     const timer = window.setTimeout(() => {
       inputRef.current?.focus();
     }, 40);
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeSearchModal();
-    };
-    document.addEventListener('keydown', onKey);
     return () => {
       window.clearTimeout(timer);
-      document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
-  }, [searchModalOpen, closeSearchModal]);
+  }, [searchModalOpen]);
 
   const searchableIndex = useMemo<SearchResultItem[]>(() => {
     const items: SearchResultItem[] = [
       {
-        title: 'The Creative Haveli — Design Pillar',
-        subtitle: 'Branding, Logo Systems, UI/UX, Packaging & Motion Graphics',
+        title: 'Design Haveli — Branding & UI/UX Pillar',
+        subtitle: 'Brand Identity, Signboards, UI/UX, Packaging & Motion',
         to: '/services/design',
         category: 'Services',
       },
       {
-        title: 'The Digital Karkhana — Development Pillar',
+        title: 'Digital Karkhana — Engineering Pillar',
         subtitle: 'Websites, E-Commerce, SaaS MVPs, Mobile Apps & Automation',
         to: '/services/development',
         category: 'Services',
       },
       {
-        title: 'The Growth Bazaar — Marketing Pillar',
-        subtitle: 'SEO, Answer Engine Optimization (AEO), Meta & Google Performance Ads',
+        title: 'Growth Bazaar — Marketing Pillar',
+        subtitle: 'Local SEO, AEO, Google Search & Meta Ads',
         to: '/services/marketing',
         category: 'Services',
       },
       {
         title: 'Packages & Transparent Pricing Guide',
-        subtitle: 'Layer A Starter (from ₹2,999) · Growth (₹40k–₹1L+) · Custom Scopes',
+        subtitle: 'Starter packs from ₹2,999 · Websites from ₹40,000 · Stores from ₹1,00,000',
         to: '/packages',
         category: 'Services',
       },
@@ -88,7 +91,7 @@ export function SearchModal() {
     for (const cs of caseStudiesData.caseStudies) {
       items.push({
         title: cs.client,
-        subtitle: `${cs.industry} — ${cs.placeholderTag}`,
+        subtitle: `${cs.industry} — ${cs.badgeLabel}`,
         to: `/work/${cs.id}`,
         category: 'Work & Case Studies',
       });
@@ -123,10 +126,24 @@ export function SearchModal() {
     }
   }, [trimmed]);
 
+  const handleChipClick = (chip: string) => {
+    setQuery(chip);
+    setRecentQueries((prev) => [chip, ...prev.filter((c) => c !== chip)].slice(0, 4));
+    inputRef.current?.focus();
+  };
+
+  const handleResultSelect = () => {
+    const clean = query.trim();
+    if (clean.length >= 2) {
+      setRecentQueries((prev) => [clean, ...prev.filter((c) => c !== clean)].slice(0, 4));
+    }
+    closeSearchModal();
+  };
+
   const groupedResults = useMemo(() => {
     const matches =
       trimmed.length === 0
-        ? searchableIndex.filter((_, idx) => idx < 8)
+        ? searchableIndex.slice(0, 6)
         : searchableIndex.filter(
             (item) =>
               item.title.toLowerCase().includes(trimmed) ||
@@ -148,69 +165,82 @@ export function SearchModal() {
 
   if (!searchModalOpen) return null;
 
+  const chipsToRender = Array.from(new Set([...recentQueries, ...POPULAR_CHIPS])).slice(0, 6);
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Search Urdta Teeeeeer services, work, industries, and insights"
-      className="fixed inset-0 z-[70] flex items-start justify-center p-4 pt-12 md:pt-20 bg-[#111111]/75"
+      aria-label={t.modals.searchTitle}
+      className="fixed inset-0 z-[70] flex items-start justify-center p-4 pt-12 md:pt-20 bg-[#111827]/75 backdrop-blur-[2px]"
       onClick={closeSearchModal}
     >
       <div
+        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-2xl brutal-border brutal-shadow-lg bg-[#FFF9F0] dark:bg-[#212E46] text-[#111111] dark:text-[#FFF9F0] rounded-[6px] overflow-hidden"
+        className="w-full max-w-2xl brutal-border brutal-shadow-lg bg-[var(--bg-surface)] text-[var(--text-primary)] rounded-t-[20px] rounded-b-[10px] overflow-hidden"
       >
         {/* Search Input Header */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b-[3px] border-[#111111] dark:border-[#FFF9F0] bg-[#FFC21A] text-[#111111]">
+        <div className="flex items-center gap-3 px-4 py-2.5 border-b-2 border-[var(--border-ink)] bg-[var(--color-marigold)] text-[var(--text-on-marigold)]">
           <Search className="w-5 h-5 shrink-0" />
           <input
             ref={inputRef}
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search services, pricing, Jaipur industries, Tapinfi, SEO..."
-            aria-label="Search site content"
-            className="w-full bg-transparent text-sm md:text-base font-bold placeholder:text-[#111111]/65 focus:outline-none"
+            placeholder={t.modals.searchPlaceholder}
+            aria-label={t.modals.searchTitle}
+            className="w-full bg-transparent text-sm md:text-base font-bold placeholder:text-[#1B243B]/65 focus:outline-none"
           />
           <button
             type="button"
             onClick={closeSearchModal}
             aria-label="Close search"
-            className="w-8 h-8 brutal-border bg-[#FFF9F0] text-[#111111] rounded-[4px] flex items-center justify-center shrink-0 cursor-pointer"
+            className="w-11 h-11 brutal-border bg-[var(--bg-surface)] text-[var(--text-primary)] rounded-[8px] flex items-center justify-center shrink-0 cursor-pointer hover:bg-[var(--bg-sandstone)]"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
+        {/* Popular & Recent Chips */}
+        <div className="px-4 py-2.5 border-b border-[var(--border-ink)]/15 bg-[var(--bg-cream)] flex flex-wrap items-center gap-2">
+          <span className="type-label opacity-75 mr-1">{t.modals.searchRecentLabel}:</span>
+          {chipsToRender.map((chip) => (
+            <button
+              key={chip}
+              type="button"
+              onClick={() => handleChipClick(chip)}
+              className="px-2.5 py-1 text-xs font-bold brutal-border bg-[var(--bg-surface)] rounded-[6px] hover:bg-[var(--color-marigold)] hover:text-[var(--text-on-marigold)] transition-colors cursor-pointer"
+            >
+              {chip}
+            </button>
+          ))}
+        </div>
+
         {/* Grouped Results Body */}
-        <div className="max-h-[65vh] overflow-y-auto p-4 md:p-6 space-y-5">
+        <div className="max-h-[58vh] overflow-y-auto p-4 md:p-6 space-y-5">
           {groupedResults.total === 0 ? (
-            <div className="p-6 text-center space-y-4">
+            <div className="p-4 text-center flex flex-col items-center space-y-4">
+              <EmptySearchIllustration className="w-32 h-24" alt={t.modals.searchEmpty} />
               <p className="font-bold text-base">
-                No direct match found for &ldquo;{query}&rdquo;.
-              </p>
-              <p className="text-xs md:text-sm text-[#4B433C] dark:text-[#E7D8C5]">
-                Jump directly to one of our main pathways or tell us what you need in the planner:
+                {t.modals.searchEmpty} &ldquo;{query}&rdquo;.
               </p>
               <div className="flex flex-wrap justify-center gap-2.5">
-                <BrutalButton to="/services" variant="cream" size="sm" onClick={closeSearchModal}>
-                  Explore Services
+                <BrutalButton to="/services" variant="secondary" size="sm" onClick={closeSearchModal}>
+                  {t.nav.services}
                 </BrutalButton>
-                <BrutalButton to="/packages" variant="marigold" size="sm" onClick={closeSearchModal}>
-                  View Pricing
-                </BrutalButton>
-                <BrutalButton to="/work" variant="cream" size="sm" onClick={closeSearchModal}>
-                  View Work
+                <BrutalButton to="/packages" variant="secondary" size="sm" onClick={closeSearchModal}>
+                  {t.nav.packages}
                 </BrutalButton>
                 <BrutalButton
-                  variant="hotPink"
+                  variant="primary"
                   size="sm"
                   onClick={() => {
                     closeSearchModal();
                     openPlannerModal();
                   }}
                 >
-                  Plan Your Project
+                  {t.nav.cta}
                 </BrutalButton>
               </div>
             </div>
@@ -221,7 +251,7 @@ export function SearchModal() {
               if (list.length === 0) return null;
               return (
                 <div key={cat} className="space-y-2">
-                  <div className="font-mono-num text-[11px] font-bold uppercase tracking-wider text-[#B95E50] dark:text-[#FFC21A]">
+                  <div className="type-label text-[var(--text-cobalt)]">
                     {cat} ({list.length})
                   </div>
                   <div className="space-y-2">
@@ -229,11 +259,11 @@ export function SearchModal() {
                       <Link
                         key={`${cat}-${item.to}-${item.title}`}
                         to={item.to}
-                        onClick={closeSearchModal}
-                        className="flex items-center justify-between gap-3 p-3 brutal-border bg-[#FFFFFF] dark:bg-[#182235] rounded-[4px] hover:bg-[#FFC21A] hover:text-[#111111] transition-colors group"
+                        onClick={handleResultSelect}
+                        className="min-h-[48px] flex items-center justify-between gap-3 p-3 brutal-border bg-[var(--bg-cream)] rounded-[8px] hover:bg-[var(--color-marigold)] hover:text-[var(--text-on-marigold)] transition-colors group"
                       >
                         <div className="min-w-0">
-                          <div className="text-sm font-extrabold truncate">{item.title}</div>
+                          <div className="text-sm font-bold truncate">{item.title}</div>
                           <div className="text-xs opacity-80 truncate">{item.subtitle}</div>
                         </div>
                         <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform" />
@@ -246,10 +276,10 @@ export function SearchModal() {
           )}
         </div>
 
-        <div className="px-4 py-2.5 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/15 bg-[#F3E5CE] dark:bg-[#182235] flex items-center justify-between text-[11px] font-mono-num">
-          <span>Tip: Press &quot;/&quot; anywhere to search · Esc to close</span>
+        <div className="px-4 py-2.5 border-t border-[var(--border-ink)]/15 bg-[var(--bg-cream)] flex items-center justify-between text-[11px] font-mono-num">
+          <span>{t.modals.searchTip}</span>
           <Link to="/contact" onClick={closeSearchModal} className="underline font-bold">
-            Need help? Contact Jaipur Desk
+            {t.nav.contact}
           </Link>
         </div>
       </div>

@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import pricingData from '../data/pricing.json';
 import servicesData from '../data/services.json';
 import { useApp } from '../context/AppContext';
 import { SEOHead } from '../components/SEOHead';
+import { TierThaliIllustration } from '../components/illustrations/JaipurIllustrations';
 import { BrutalButton } from '../components/ui/BrutalButton';
 import { BrutalCard } from '../components/ui/BrutalCard';
+import { JaaliDivider, JaipurSkylineDivider } from '../components/ui/JaaliDivider';
 import { PricingCard } from '../components/ui/PricingCard';
+
+function getThaliVariant(tier?: string): 'starter' | 'growth' | 'royal' {
+  if (tier === 'small-thali') return 'starter';
+  if (tier === 'royal-feast' || tier === 'royal-kite') return 'royal';
+  return 'growth';
+}
 
 export function PackagesPage() {
   const { lang, t, openPlannerModal } = useApp();
+  const [rateGuideOpen, setRateGuideOpen] = useState(true);
 
   const disclosures =
     lang === 'hinglish'
@@ -19,56 +29,85 @@ export function PackagesPage() {
     <>
       <SEOHead pageKey="packages" path="/packages" />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-14">
-        <div className="max-w-3xl space-y-3">
-          <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-10">
+        {/* Header */}
+        <header className="max-w-2xl space-y-2.5">
+          <p className="type-label text-[var(--text-terracotta)]">
             {t.pricingSection.eyebrow}
           </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-            {t.pricingSection.headline}
-          </h1>
-          <p className="text-base md:text-lg text-[#4B433C] dark:text-[#E7D8C5]">
-            {pricingData._meta.note}
+          <h1 className="type-display">{t.pricingSection.headline}</h1>
+          <p className="type-body text-[var(--text-secondary)]">
+            {t.pricingSection.subhead}
           </p>
-        </div>
+        </header>
 
-        {/* Layer A / B / C Architecture */}
+        {/* Three Transparent Investment Layers (Jaipur Thali Tiers) */}
         <section className="space-y-5">
-          <h2 className="font-editorial text-2xl md:text-3xl font-bold">
-            Three Transparent Investment Layers
-          </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="max-w-xl space-y-1">
+            <h2 className="type-h2">Three Transparent Investment Tiers</h2>
+            <p className="type-small text-[var(--text-secondary)]">
+              Pick the scope tier matching your stage — from ₹2,999 starter packs to full platforms.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {pricingData.packageLayers.map((layer) => (
               <BrutalCard
                 key={layer.id}
-                tone={layer.accent as 'marigold' | 'gulabi' | 'peacock'}
-                className="flex flex-col justify-between space-y-4"
+                arch="scalloped"
+                tone={layer.accent as 'marigold' | 'gulabi' | 'cobalt'}
+                className="flex flex-col justify-between space-y-3"
               >
-                <div className="space-y-2.5">
-                  <div className="text-xs font-mono-num font-extrabold uppercase">
-                    {layer.badge}
+                <div className="space-y-2">
+                  <div className="p-2 brutal-border bg-[var(--bg-surface)] rounded-[8px] flex items-center justify-center">
+                    <TierThaliIllustration
+                      variant={getThaliVariant(layer.tier)}
+                      className="w-32 h-16"
+                      alt={`${layer.name} tier visual`}
+                    />
                   </div>
-                  <h3 className="font-editorial text-2xl font-bold">{layer.name}</h3>
-                  <div className="font-mono-num text-xl font-extrabold">{layer.startingPrice}</div>
+                  <p className="type-label opacity-85">{layer.badge}</p>
+                  <h3 className="type-h3">{layer.name}</h3>
+                  <div className="font-mono-num text-xl font-bold">{layer.startingPrice}</div>
                   <p className="text-xs font-bold opacity-85">{layer.whoFor}</p>
-                  <ul className="space-y-1.5 text-sm pt-2">
+                  <ul className="space-y-1.5 text-sm pt-1">
                     {layer.items.map((it) => (
                       <li key={it}>✓ {it}</li>
                     ))}
                   </ul>
                 </div>
-                <p className="text-[11px] opacity-85 pt-3 border-t-2 border-[#111111]/15">
-                  {layer.note}
-                </p>
+
+                <div className="pt-2.5 border-t-2 border-[var(--border-ink)]/15 space-y-2.5">
+                  <p className="text-xs opacity-90">{layer.note}</p>
+                  <BrutalButton
+                    variant="primary"
+                    size="sm"
+                    onClick={() => openPlannerModal()}
+                    className="w-full"
+                  >
+                    <span className="flex flex-col items-center leading-tight">
+                      <span>{t.pricingSection.buildCustomCta}</span>
+                      <span className="text-[10px] font-normal opacity-90">
+                        {t.pricingSection.buildCustomSubEn}
+                      </span>
+                    </span>
+                  </BrutalButton>
+                </div>
               </BrutalCard>
             ))}
           </div>
         </section>
 
-        {/* 3 Flagships */}
+        <JaaliDivider />
+
+        {/* 3 Core Flagship Offers */}
         <section className="space-y-5">
-          <h2 className="font-editorial text-2xl md:text-3xl font-bold">Core Flagship Offers</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="max-w-xl space-y-1">
+            <h2 className="type-h2">{t.servicesSection.flagshipsTitle}</h2>
+            <p className="type-small text-[var(--text-secondary)]">
+              Single accountable workflows aligned across design, code, and growth.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {servicesData.flagships.map((f) => {
               const p = pricingData.startingPrices.find((x) => x.id === f.priceId);
               return (
@@ -80,9 +119,16 @@ export function PackagesPage() {
                   timeline={p?.timeline ?? ''}
                   description={lang === 'hinglish' ? f.taglineHi : f.taglineEn}
                   deliverables={f.deliverables}
-                  accent={f.accent as 'marigold' | 'gulabi' | 'peacock'}
+                  accent={f.accent as 'marigold' | 'gulabi' | 'cobalt'}
                   isPopular={f.id === 'creative-web'}
+                  illustration={
+                    <TierThaliIllustration
+                      variant={getThaliVariant(f.tierType)}
+                      alt=""
+                    />
+                  }
                   ctaLabel={t.pricingSection.buildCustomCta}
+                  subCtaCaption={t.pricingSection.buildCustomSubEn}
                   onCtaClick={() => openPlannerModal(['website-dev'])}
                 />
               );
@@ -90,64 +136,99 @@ export function PackagesPage() {
           </div>
         </section>
 
-        {/* Full Transparent Price Table */}
-        <section className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h2 className="font-editorial text-2xl font-bold">Complete Starting-From Rate Guide</h2>
-            <span className="text-xs font-mono-num text-[#B95E50] dark:text-[#FFC21A] font-bold">
-              Editable config: src/data/pricing.json
-            </span>
+        <JaipurSkylineDivider />
+
+        {/* Collapsible & Mobile-Responsive Starting-From Rate Guide */}
+        <section className="space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h2 className="type-h2">Complete Starting-From Rate Guide</h2>
+              <p className="type-small text-[var(--text-secondary)]">
+                Clear baseline numbers before discovery scoping.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setRateGuideOpen((prev) => !prev)}
+              aria-expanded={rateGuideOpen}
+              className="min-h-[44px] px-4 py-2 brutal-border brutal-shadow-sm bg-[var(--bg-surface)] text-[var(--text-primary)] rounded-[6px] inline-flex items-center gap-2 text-sm font-bold cursor-pointer self-start sm:self-auto"
+            >
+              <span>{rateGuideOpen ? 'Hide Rate Guide' : 'Show Rate Guide'}</span>
+              {rateGuideOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
           </div>
 
-          <div className="brutal-border brutal-shadow bg-[#FFF9F0] dark:bg-[#212E46] rounded-[6px] overflow-x-auto">
-            <table className="w-full text-left border-collapse text-sm">
-              <thead>
-                <tr className="border-b-[3px] border-[#111111] dark:border-[#FFF9F0] bg-[#FFC21A] text-[#111111]">
-                  <th className="p-4 font-extrabold">Capability</th>
-                  <th className="p-4 font-extrabold">Engagement Model</th>
-                  <th className="p-4 font-extrabold">Typical Timeline</th>
-                  <th className="p-4 font-extrabold">Starting From</th>
-                </tr>
-              </thead>
-              <tbody>
+          {rateGuideOpen && (
+            <>
+              {/* Mobile stacked cards (< md) */}
+              <div className="grid grid-cols-1 gap-3 md:hidden">
                 {pricingData.startingPrices.map((row) => (
-                  <tr
-                    key={row.id}
-                    className="border-b border-[#111111]/15 dark:border-[#FFF9F0]/15 last:border-b-0"
-                  >
-                    <td className="p-4 font-bold">{row.name}</td>
-                    <td className="p-4 text-[#4B433C] dark:text-[#E7D8C5]">{row.billingModel}</td>
-                    <td className="p-4 font-mono-num text-xs">{row.timeline}</td>
-                    <td className="p-4 font-mono-num font-bold">{row.displayPrice}</td>
-                  </tr>
+                  <BrutalCard key={row.id} className="p-4 flex items-center justify-between gap-3">
+                    <div className="space-y-0.5">
+                      <h3 className="font-display font-bold text-base">{row.name}</h3>
+                      <p className="type-label text-[var(--text-secondary)]">
+                        {row.billingModel} · {row.timeline}
+                      </p>
+                    </div>
+                    <span className="font-mono-num font-bold text-sm shrink-0">
+                      {row.displayPrice}
+                    </span>
+                  </BrutalCard>
                 ))}
-              </tbody>
-            </table>
-          </div>
+              </div>
+
+              {/* Desktop structured table (md+) */}
+              <div className="hidden md:block brutal-border brutal-shadow bg-[var(--bg-surface)] rounded-[10px] overflow-x-auto">
+                <table className="w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b-[3px] border-[var(--border-ink)] bg-[var(--color-marigold)] text-[var(--text-on-marigold)]">
+                      <th className="p-4 font-extrabold">Capability</th>
+                      <th className="p-4 font-extrabold">Engagement Model</th>
+                      <th className="p-4 font-extrabold">Typical Timeline</th>
+                      <th className="p-4 font-extrabold">Starting From</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pricingData.startingPrices.map((row) => (
+                      <tr
+                        key={row.id}
+                        className="border-b border-[var(--border-ink)]/15 last:border-b-0"
+                      >
+                        <td className="p-4 font-bold">{row.name}</td>
+                        <td className="p-4 text-[var(--text-secondary)]">{row.billingModel}</td>
+                        <td className="p-4 font-mono-num text-xs">{row.timeline}</td>
+                        <td className="p-4 font-mono-num font-bold">{row.displayPrice}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
         </section>
 
         {/* Engagement Models + Mandatory Disclosures */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-7 space-y-4">
-            <h2 className="font-editorial text-2xl font-bold">Engagement Models</h2>
+            <h2 className="type-h2">Engagement Models</h2>
             <div className="grid grid-cols-1 gap-4">
               {pricingData.engagementModels.map((em) => (
-                <BrutalCard key={em.id}>
-                  <h3 className="text-lg font-extrabold mb-1">
+                <BrutalCard key={em.id} className="p-5">
+                  <h3 className="type-h3 mb-1">
                     {lang === 'hinglish' ? em.nameHi : em.nameEn}
                   </h3>
-                  <p className="text-xs font-bold text-[#B95E50] dark:text-[#FFC21A] mb-2">
+                  <p className="type-label text-[var(--text-terracotta)] mb-2">
                     Best for: {lang === 'hinglish' ? em.bestForHi : em.bestForEn}
                   </p>
-                  <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">{em.structureEn}</p>
+                  <p className="type-small text-[var(--text-secondary)]">{em.structureEn}</p>
                 </BrutalCard>
               ))}
             </div>
           </div>
 
           <div className="lg:col-span-5 space-y-4">
-            <h2 className="font-editorial text-2xl font-bold">Important Billing Notes</h2>
-            <BrutalCard tone="gulabi" className="space-y-3">
+            <h2 className="type-h2">Clear Billing Terms</h2>
+            <BrutalCard tone="gulabi" arch="scalloped" className="space-y-3">
               <ul className="space-y-2.5 text-sm font-medium">
                 {disclosures.map((d) => (
                   <li key={d} className="flex items-start gap-2">
@@ -161,7 +242,7 @@ export function PackagesPage() {
         </section>
 
         <div className="flex justify-center">
-          <BrutalButton variant="hotPink" size="lg" onClick={() => openPlannerModal()}>
+          <BrutalButton variant="primary" size="lg" onClick={() => openPlannerModal()}>
             {t.pricingSection.buildCustomCta}
           </BrutalButton>
         </div>

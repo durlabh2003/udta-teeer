@@ -1,77 +1,99 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Palette, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { PILLAR_SUMMARY_PRICING } from '../../data/brandConfig';
 import { trackConversionEvent } from '../../lib/analytics';
+import { ServiceIllustration, ServiceIllustrationKey } from '../illustrations/JaipurIllustrations';
 
 interface PillarPreview {
   id: 'design' | 'development' | 'marketing';
-  label: string;
+  shortLabel: string;
   workshop: string;
   headline: string;
-  deliverables: string;
   startingFrom: string;
   timeline: string;
   to: string;
+  illustrationKey: ServiceIllustrationKey;
   plannerServices: string[];
-  icon: React.ComponentType<{ className?: string }>;
+  accentBg: string;
 }
 
 const PILLARS: PillarPreview[] = [
   {
     id: 'design',
-    label: '01. Design',
-    workshop: 'Creative Haveli',
-    headline: 'Distinctive visual identities, Figma UI/UX systems & packaging built for recall.',
-    deliverables: 'Brand Book · UI/UX Design Systems · Motion & Pitch Decks',
-    startingFrom: 'From ₹45,000',
-    timeline: '2–5 weeks',
+    shortLabel: 'Design',
+    workshop: 'Design Haveli',
+    headline: 'Visual identity, Figma UX & packaging built for instant recall.',
+    startingFrom: PILLAR_SUMMARY_PRICING.design.price,
+    timeline: PILLAR_SUMMARY_PRICING.design.timeline,
     to: '/services/design',
+    illustrationKey: 'branding',
     plannerServices: ['branding-identity', 'ui-ux-design'],
-    icon: Palette,
+    accentBg: 'bg-[var(--color-gulabi)] text-[var(--text-on-gulabi)]',
   },
   {
     id: 'development',
-    label: '02. Engineering',
+    shortLabel: 'Engineering',
     workshop: 'Digital Karkhana',
-    headline: 'Custom React/Next websites, D2C storefronts, SaaS MVPs & CRM workflows.',
-    deliverables: 'Business Sites · Shopify/Woo · Custom Apps & Automation',
-    startingFrom: 'From ₹40,000',
-    timeline: '2–6 weeks',
+    headline: 'Fast React websites, D2C stores, SaaS MVPs & WhatsApp CRM.',
+    startingFrom: PILLAR_SUMMARY_PRICING.development.price,
+    timeline: PILLAR_SUMMARY_PRICING.development.timeline,
     to: '/services/development',
+    illustrationKey: 'website',
     plannerServices: ['website-dev', 'ecommerce-dev'],
-    icon: Code2,
+    accentBg: 'bg-[var(--color-cobalt)] text-[var(--text-on-cobalt)]',
   },
   {
     id: 'marketing',
-    label: '03. Growth',
+    shortLabel: 'Growth',
     workshop: 'Growth Bazaar',
-    headline: 'SEO, AI-Search (AEO) & performance ads wired to an owned reporting dashboard.',
-    deliverables: 'Local & National SEO · Meta + Google Ads · Bilingual Hooks',
-    startingFrom: 'From ₹25,000/mo',
-    timeline: 'Monthly Sprint',
+    headline: 'SEO, AI search (AEO) & ads wired to live owned dashboards.',
+    startingFrom: PILLAR_SUMMARY_PRICING.marketing.price,
+    timeline: PILLAR_SUMMARY_PRICING.marketing.timeline,
     to: '/services/marketing',
+    illustrationKey: 'performance',
     plannerServices: ['seo-aeo', 'performance-marketing'],
-    icon: TrendingUp,
+    accentBg: 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)]',
   },
 ];
 
 export function HeroStudioShowcase() {
   const { openPlannerModal } = useApp();
   const [activeId, setActiveId] = useState<'design' | 'development' | 'marketing'>('development');
+  const [paused, setPaused] = useState(false);
   const [imgFailed, setImgFailed] = useState(false);
 
+  // Subtle auto-rotation paused on hover/focus or prefers-reduced-motion
+  useEffect(() => {
+    if (paused) return;
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      setActiveId((prev) =>
+        prev === 'design' ? 'development' : prev === 'development' ? 'marketing' : 'design'
+      );
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, [paused]);
+
   const active = PILLARS.find((p) => p.id === activeId) ?? PILLARS[1];
-  const ActiveIcon = active.icon;
 
   return (
-    <div className="h-full flex flex-col brutal-border brutal-shadow-lg bg-[#FFF9F0] dark:bg-[#212E46] rounded-[6px] overflow-hidden">
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      className="h-full flex flex-col brutal-border brutal-shadow-lg bg-[var(--bg-surface)] rounded-t-[20px] rounded-b-[8px] overflow-hidden"
+    >
       {/* Editorial Artwork Frame */}
-      <div className="relative w-full aspect-[16/9] bg-[#F4A6B8] border-b-[3px] border-[#111111] dark:border-[#FFF9F0] overflow-hidden">
+      <div className="relative w-full aspect-[16/9] max-h-[210px] bg-[var(--color-sandstone)] border-b-2 border-[var(--border-ink)] overflow-hidden">
         {!imgFailed ? (
           <img
             src="/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg"
-            alt="Jaipur Hawa Mahal architectural facade with flying patang kites and kulhad chai studio illustration"
+            alt="Jaipur Hawa Mahal facade with flying kites and studio workspace"
             width={1376}
             height={768}
             decoding="async"
@@ -81,16 +103,19 @@ export function HeroStudioShowcase() {
             className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-[1.02]"
           />
         ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#F4A6B8] text-[#111111]">
-            <span className="font-poster text-2xl">Urdta Teeeeeer</span>
-            <span className="text-sm font-bold mt-1">Jaipur Creative Technology Studio</span>
+          <div className="w-full h-full p-4 flex items-center justify-center bg-[var(--bg-cream)]">
+            <ServiceIllustration
+              name="website"
+              alt="Jaipur Hawa Mahal browser architecture illustration"
+              className="w-36 h-28"
+            />
           </div>
         )}
       </div>
 
-      {/* Interactive 3-Pillar Studio Scope Explorer */}
-      <div className="flex-1 p-5 md:p-6 flex flex-col justify-between gap-4">
-        <div className="space-y-3">
+      {/* Interactive 3 Illustrated Mini-Tiles (Auto-rotate + tappable) */}
+      <div className="flex-1 p-4 flex flex-col justify-between gap-3">
+        <div className="space-y-2.5">
           <div
             role="tablist"
             aria-label="Preview studio capabilities"
@@ -105,42 +130,40 @@ export function HeroStudioShowcase() {
                   role="tab"
                   aria-selected={selected}
                   onClick={() => setActiveId(pillar.id)}
-                  className={`px-2.5 py-2 text-xs font-extrabold brutal-border rounded-[4px] whitespace-nowrap cursor-pointer transition-colors ${
+                  className={`min-h-[60px] p-1.5 brutal-border rounded-[8px] flex flex-col items-center justify-center gap-0.5 text-center cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[var(--color-marigold)] ${
                     selected
-                      ? 'bg-[#FFC21A] text-[#111111]'
-                      : 'bg-[#F3E5CE] dark:bg-[#182235] text-[#282522] dark:text-[#E7D8C5] hover:bg-[#E7B9A4] hover:text-[#111111]'
+                      ? `${pillar.accentBg} brutal-shadow-sm -translate-y-0.5`
+                      : 'bg-[var(--bg-cream)] text-[var(--text-primary)] hover:bg-[var(--bg-sandstone)]'
                   }`}
                 >
-                  {pillar.label}
+                  <div className="w-9 h-7">
+                    <ServiceIllustration name={pillar.illustrationKey} alt="" className="w-full h-full" />
+                  </div>
+                  <span className="font-display font-bold text-xs leading-none">
+                    {pillar.shortLabel}
+                  </span>
                 </button>
               );
             })}
           </div>
 
-          <div role="tabpanel" className="space-y-2 pt-1">
-            <div className="flex items-center justify-between gap-2 text-xs font-mono-num">
-              <span className="inline-flex items-center gap-1.5 font-extrabold text-[#B95E50] dark:text-[#FFC21A]">
-                <ActiveIcon className="w-4 h-4" />
-                <span>{active.workshop}</span>
-              </span>
-              <span className="font-bold text-[#4B433C] dark:text-[#E7D8C5]">
+          <div role="tabpanel" className="space-y-1 pt-0.5">
+            <div className="flex items-center justify-between gap-2 type-label">
+              <span className="text-[var(--text-terracotta)]">{active.workshop}</span>
+              <span className="text-[var(--text-secondary)]">
                 {active.startingFrom} <span aria-hidden="true">·</span> {active.timeline}
               </span>
             </div>
-
-            <p className="text-sm md:text-base font-bold leading-snug text-[#111111] dark:text-[#FFF9F0]">
+            <p className="text-sm font-bold leading-snug text-[var(--text-primary)]">
               {active.headline}
-            </p>
-            <p className="text-xs font-medium text-[#4B433C] dark:text-[#E7D8C5]">
-              {active.deliverables}
             </p>
           </div>
         </div>
 
-        <div className="pt-3 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/15 flex flex-wrap items-center justify-between gap-3">
+        <div className="pt-2.5 border-t border-[var(--border-ink)]/15 flex flex-wrap items-center justify-between gap-2">
           <Link
             to={active.to}
-            className="text-xs md:text-sm font-extrabold underline underline-offset-4 hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
+            className="min-h-[44px] inline-flex items-center text-xs font-bold underline underline-offset-4 hover:text-[var(--text-gulabi)]"
           >
             Explore {active.workshop} →
           </Link>
@@ -153,9 +176,9 @@ export function HeroStudioShowcase() {
               });
               openPlannerModal({ services: active.plannerServices });
             }}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-extrabold brutal-border bg-[#263650] text-[#FFF9F0] hover:bg-[#FF4F8B] hover:text-[#111111] rounded-[4px] whitespace-nowrap cursor-pointer transition-colors"
+            className="min-h-[44px] inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold brutal-border bg-[var(--color-cobalt)] text-[var(--text-on-cobalt)] rounded-[8px] whitespace-nowrap cursor-pointer brutal-press"
           >
-            <span>Scope {active.workshop}</span>
+            <span>Scope {active.shortLabel}</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

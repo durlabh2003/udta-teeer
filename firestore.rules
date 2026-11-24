@@ -1,0 +1,404 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net (Default-Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Reusable Global Primitives ---
+    function isValidId(id) {
+      return id is string && id.size() >= 4 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isEmailAdmin() {
+      return isVerifiedUser() && request.auth.token.email == 'durlabhdaryani70@gmail.com';
+    }
+
+    function isAdmin() {
+      return isEmailAdmin() || (
+        isVerifiedUser() &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isNonNegNumber(val) {
+      return (val is int || val is float) && val >= 0;
+    }
+
+    // --- Validation Blueprints ---
+    function isValidUserProfile(data) {
+      return data.keys().hasAll([
+          'uid',
+          'displayName',
+          'email',
+          'packagesUnlocked',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'uid',
+          'displayName',
+          'email',
+          'phone',
+          'photoURL',
+          'packagesUnlocked',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        isValidId(data.uid) &&
+        data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 120 &&
+        data.email is string && data.email.size() >= 5 && data.email.size() <= 160 &&
+        (!('phone' in data) || (data.phone is string && data.phone.size() <= 24)) &&
+        (!('photoURL' in data) || (data.photoURL is string && data.photoURL.size() <= 500)) &&
+        data.packagesUnlocked is bool &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidLead(data) {
+      return data.keys().hasAll([
+          'leadId',
+          'ownerUid',
+          'fullName',
+          'email',
+          'phone',
+          'selectedServices',
+          'captureChannel',
+          'consent',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'leadId',
+          'ownerUid',
+          'fullName',
+          'email',
+          'phone',
+          'whatsapp',
+          'businessName',
+          'industry',
+          'selectedServices',
+          'budget',
+          'timeline',
+          'engagementType',
+          'requirementNotes',
+          'sourcePage',
+          'captureChannel',
+          'consent',
+          'status',
+          'internalNotes',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.leadId is string && data.leadId.size() >= 4 && data.leadId.size() <= 64 && data.leadId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        isValidId(data.ownerUid) &&
+        data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 120 &&
+        data.email is string && data.email.size() >= 5 && data.email.size() <= 160 &&
+        data.phone is string && data.phone.size() >= 8 && data.phone.size() <= 24 &&
+        (!('whatsapp' in data) || (data.whatsapp is string && data.whatsapp.size() <= 24)) &&
+        (!('businessName' in data) || (data.businessName is string && data.businessName.size() <= 140)) &&
+        (!('industry' in data) || (data.industry is string && data.industry.size() <= 80)) &&
+        data.selectedServices is list && data.selectedServices.size() >= 1 && data.selectedServices.size() <= 15 &&
+        data.selectedServices[0] is string && data.selectedServices[0].size() <= 80 &&
+        (!('budget' in data) || (data.budget is string && data.budget.size() <= 80)) &&
+        (!('timeline' in data) || (data.timeline is string && data.timeline.size() <= 80)) &&
+        (!('engagementType' in data) || (data.engagementType is string && data.engagementType.size() <= 80)) &&
+        (!('requirementNotes' in data) || (data.requirementNotes is string && data.requirementNotes.size() <= 2000)) &&
+        (!('sourcePage' in data) || (data.sourcePage is string && data.sourcePage.size() <= 200)) &&
+        data.captureChannel in [
+          'package_gate',
+          'project_planner',
+          'quick_contact',
+          'audit_modal',
+          'callback_strip',
+          'packages_quote',
+          'google_signin'
+        ] &&
+        data.consent == true &&
+        data.status in [
+          'New',
+          'Contacted',
+          'Qualified',
+          'Discovery Scheduled',
+          'Proposal Sent',
+          'Negotiation',
+          'Won',
+          'Lost',
+          'On Hold'
+        ] &&
+        (!('internalNotes' in data) || (data.internalNotes is string && data.internalNotes.size() <= 1000)) &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidAuditRequest(data) {
+      return data.keys().hasAll([
+          'auditId',
+          'ownerUid',
+          'name',
+          'email',
+          'websiteUrl',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'auditId',
+          'ownerUid',
+          'name',
+          'email',
+          'phone',
+          'websiteUrl',
+          'focusArea',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.auditId is string && data.auditId.size() >= 4 && data.auditId.size() <= 64 && data.auditId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        isValidId(data.ownerUid) &&
+        data.name is string && data.name.size() >= 2 && data.name.size() <= 120 &&
+        data.email is string && data.email.size() >= 5 && data.email.size() <= 160 &&
+        (!('phone' in data) || (data.phone is string && data.phone.size() <= 24)) &&
+        data.websiteUrl is string && data.websiteUrl.size() >= 4 && data.websiteUrl.size() <= 240 &&
+        (!('focusArea' in data) || (data.focusArea is string && data.focusArea.size() <= 120)) &&
+        data.status in ['Requested', 'In Review', 'Completed'] &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    function isValidOrder(data) {
+      return data.keys().hasAll([
+          'orderId',
+          'ownerUid',
+          'packageId',
+          'packageCode',
+          'packageName',
+          'packageSlug',
+          'category',
+          'checkoutBehavior',
+          'selectedAddonNames',
+          'basePrice',
+          'totalAmount',
+          'payableNow',
+          'customerName',
+          'customerPhone',
+          'customerEmail',
+          'projectBrief',
+          'status',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.keys().hasOnly([
+          'orderId',
+          'ownerUid',
+          'packageId',
+          'packageCode',
+          'packageName',
+          'packageSlug',
+          'category',
+          'checkoutBehavior',
+          'selectedAddonNames',
+          'basePrice',
+          'addonTotal',
+          'discountAmount',
+          'subtotal',
+          'gstEstimate',
+          'totalAmount',
+          'payableNow',
+          'milestoneBalance',
+          'couponCode',
+          'customerName',
+          'customerPhone',
+          'customerEmail',
+          'businessName',
+          'projectBrief',
+          'referenceUrl',
+          'preferredContact',
+          'recurringConsent',
+          'status',
+          'paymentReference',
+          'internalNotes',
+          'createdAt',
+          'updatedAt'
+        ]) &&
+        data.orderId is string && data.orderId.size() >= 4 && data.orderId.size() <= 64 && data.orderId.matches('^[a-zA-Z0-9_\\-]+$') &&
+        isValidId(data.ownerUid) &&
+        data.packageId is string && data.packageId.size() >= 1 && data.packageId.size() <= 40 &&
+        data.packageCode is string && data.packageCode.size() >= 1 && data.packageCode.size() <= 16 &&
+        data.packageName is string && data.packageName.size() >= 2 && data.packageName.size() <= 120 &&
+        data.packageSlug is string && data.packageSlug.size() >= 2 && data.packageSlug.size() <= 120 &&
+        data.category in ['design', 'marketing', 'development'] &&
+        data.checkoutBehavior in [
+          'direct_payment',
+          'monthly_subscription',
+          'deposit_milestone',
+          'consultation_quotation'
+        ] &&
+        data.selectedAddonNames is list && data.selectedAddonNames.size() <= 25 &&
+        (data.selectedAddonNames.size() == 0 || (data.selectedAddonNames[0] is string && data.selectedAddonNames[0].size() <= 120)) &&
+        isNonNegNumber(data.basePrice) &&
+        (!('addonTotal' in data) || isNonNegNumber(data.addonTotal)) &&
+        (!('discountAmount' in data) || isNonNegNumber(data.discountAmount)) &&
+        (!('subtotal' in data) || isNonNegNumber(data.subtotal)) &&
+        (!('gstEstimate' in data) || isNonNegNumber(data.gstEstimate)) &&
+        isNonNegNumber(data.totalAmount) &&
+        isNonNegNumber(data.payableNow) &&
+        (!('milestoneBalance' in data) || isNonNegNumber(data.milestoneBalance)) &&
+        (!('couponCode' in data) || (data.couponCode is string && data.couponCode.size() <= 40)) &&
+        data.customerName is string && data.customerName.size() >= 2 && data.customerName.size() <= 120 &&
+        data.customerPhone is string && data.customerPhone.size() >= 8 && data.customerPhone.size() <= 24 &&
+        data.customerEmail is string && data.customerEmail.size() >= 5 && data.customerEmail.size() <= 160 &&
+        (!('businessName' in data) || (data.businessName is string && data.businessName.size() <= 140)) &&
+        data.projectBrief is string && data.projectBrief.size() >= 5 && data.projectBrief.size() <= 2000 &&
+        (!('referenceUrl' in data) || (data.referenceUrl is string && data.referenceUrl.size() <= 300)) &&
+        (!('preferredContact' in data) || data.preferredContact in ['WhatsApp', 'Phone Call', 'Email']) &&
+        (!('recurringConsent' in data) || data.recurringConsent is bool) &&
+        data.status in [
+          'Quotation Requested',
+          'Pending Payment',
+          'Confirmed',
+          'In Progress',
+          'Completed',
+          'Cancelled'
+        ] &&
+        (!('paymentReference' in data) || (data.paymentReference is string && data.paymentReference.size() <= 120)) &&
+        (!('internalNotes' in data) || (data.internalNotes is string && data.internalNotes.size() <= 1000)) &&
+        data.createdAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    // --- Collection Rules ---
+
+    // Admin lookup documents: managed server-side / Firebase console only
+    match /admins/{adminId} {
+      allow read, write: if false;
+    }
+
+    // Private User Profiles (PII Isolated, no blanket list)
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if false;
+      allow create: if isVerifiedUser() &&
+        isOwner(userId) &&
+        isValidId(userId) &&
+        isValidUserProfile(incoming()) &&
+        incoming().uid == request.auth.uid &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isVerifiedUser() &&
+        isValidId(userId) &&
+        isValidUserProfile(incoming()) &&
+        incoming().uid == existing().uid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          (isOwner(userId) && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'phone', 'photoURL', 'packagesUnlocked', 'updatedAt'])) ||
+          isAdmin()
+        );
+      allow delete: if false;
+    }
+
+    // Leads Collection (Owner scoped + Admin CRM access; zero DB reads in list queries)
+    match /leads/{leadId} {
+      allow get: if isValidId(leadId) && ((isSignedIn() && existing().ownerUid == request.auth.uid) || isAdmin());
+      allow list: if (isSignedIn() && existing().ownerUid == request.auth.uid) || isEmailAdmin();
+      allow create: if isVerifiedUser() &&
+        isValidId(leadId) &&
+        isValidLead(incoming()) &&
+        incoming().leadId == leadId &&
+        incoming().ownerUid == request.auth.uid &&
+        incoming().status == 'New' &&
+        (!('internalNotes' in incoming()) || incoming().internalNotes == '') &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isVerifiedUser() &&
+        isValidId(leadId) &&
+        isValidLead(incoming()) &&
+        incoming().leadId == existing().leadId &&
+        incoming().ownerUid == existing().ownerUid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        (
+          isAdmin() ||
+          (
+            existing().ownerUid == request.auth.uid &&
+            !(existing().status in ['Won', 'Lost']) &&
+            incoming().diff(existing()).affectedKeys().hasOnly(['requirementNotes', 'budget', 'timeline', 'updatedAt'])
+          )
+        );
+      allow delete: if isAdmin() && isValidId(leadId);
+    }
+
+    // Audit Requests Collection (Owner scoped + Admin access; zero DB reads in list queries)
+    match /audits/{auditId} {
+      allow get: if isValidId(auditId) && ((isSignedIn() && existing().ownerUid == request.auth.uid) || isAdmin());
+      allow list: if (isSignedIn() && existing().ownerUid == request.auth.uid) || isEmailAdmin();
+      allow create: if isVerifiedUser() &&
+        isValidId(auditId) &&
+        isValidAuditRequest(incoming()) &&
+        incoming().auditId == auditId &&
+        incoming().ownerUid == request.auth.uid &&
+        incoming().status == 'Requested' &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isVerifiedUser() &&
+        isValidId(auditId) &&
+        isValidAuditRequest(incoming()) &&
+        incoming().auditId == existing().auditId &&
+        incoming().ownerUid == existing().ownerUid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+      allow delete: if isAdmin() && isValidId(auditId);
+    }
+
+    // Orders Collection (Owner scoped + Admin Order Management; price & status locked)
+    match /orders/{orderId} {
+      allow get: if isValidId(orderId) && ((isSignedIn() && existing().ownerUid == request.auth.uid) || isAdmin());
+      allow list: if (isSignedIn() && existing().ownerUid == request.auth.uid) || isEmailAdmin();
+      allow create: if isVerifiedUser() &&
+        isValidId(orderId) &&
+        isValidOrder(incoming()) &&
+        incoming().orderId == orderId &&
+        incoming().ownerUid == request.auth.uid &&
+        incoming().status in ['Quotation Requested', 'Pending Payment'] &&
+        (!('internalNotes' in incoming()) || incoming().internalNotes == '') &&
+        incoming().createdAt == request.time &&
+        incoming().updatedAt == request.time;
+      allow update: if isVerifiedUser() &&
+        isValidId(orderId) &&
+        isValidOrder(incoming()) &&
+        incoming().orderId == existing().orderId &&
+        incoming().ownerUid == existing().ownerUid &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().basePrice == existing().basePrice &&
+        incoming().totalAmount == existing().totalAmount &&
+        incoming().payableNow == existing().payableNow &&
+        incoming().updatedAt == request.time &&
+        isAdmin();
+      allow delete: if isAdmin() && isValidId(orderId);
+    }
+  }
+}

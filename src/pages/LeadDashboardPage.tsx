@@ -73,7 +73,7 @@ export function LeadDashboardPage() {
         setNoteDrafts(notesMap);
       }
     } catch {
-      // ignore transient network failure
+      // Demo mode: API optional
     } finally {
       setLoading(false);
     }
@@ -123,31 +123,26 @@ export function LeadDashboardPage() {
     <>
       <SEOHead
         title="Studio Lead Management Desk | Urdta Teeeeeer"
-        description="Internal lead capture pipeline for Urdta Teeeeeer."
+        description="Studio lead preview pipeline for Urdta Teeeeeer."
         path="/admin/leads"
       />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-10 md:py-14 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="space-y-1">
-            <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
-              Studio CRM Desk · /api/leads
-            </p>
-            <h1 className="font-editorial text-3xl md:text-4xl font-bold tracking-tight">
-              Lead Management Dashboard
-            </h1>
-            <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
-              Filter captured enquiries, update 9-stage pipeline status, add internal notes, or
-              export CSV.
+            <p className="type-label text-[var(--text-terracotta)]">Studio CRM Desk</p>
+            <h1 className="type-display">Lead Pipeline Overview</h1>
+            <p className="type-small text-[var(--text-secondary)]">
+              Filter captured demo enquiries, update stages, and review brief notes.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <BrutalButton variant="cream" size="sm" onClick={fetchLeads}>
+            <BrutalButton variant="secondary" size="sm" onClick={fetchLeads}>
               <RefreshCw className="w-4 h-4" />
               <span>Refresh</span>
             </BrutalButton>
-            <BrutalButton href="/api/leads/export" variant="marigold" size="sm">
+            <BrutalButton href="/api/leads/export" variant="secondary" size="sm">
               <Download className="w-4 h-4" />
               <span>Export CSV</span>
             </BrutalButton>
@@ -163,7 +158,7 @@ export function LeadDashboardPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search Lead ID, name, email, or business..."
-              className="w-full pl-9 pr-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+              className="w-full min-h-[44px] pl-9 pr-3 py-2 brutal-border bg-[var(--bg-cream)] text-[var(--text-primary)] rounded-[6px] text-sm"
             />
           </div>
 
@@ -171,7 +166,7 @@ export function LeadDashboardPage() {
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             aria-label="Filter by pipeline status"
-            className="px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm font-bold"
+            className="min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] text-[var(--text-primary)] rounded-[6px] text-sm font-bold"
           >
             <option value="All">All Statuses</option>
             {PIPELINE_STATUSES.map((st) => (
@@ -185,7 +180,7 @@ export function LeadDashboardPage() {
             value={industryFilter}
             onChange={(e) => setIndustryFilter(e.target.value)}
             aria-label="Filter by industry"
-            className="px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm font-bold"
+            className="min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] text-[var(--text-primary)] rounded-[6px] text-sm font-bold"
           >
             <option value="All">All Industries</option>
             {uniqueIndustries.map((ind) => (
@@ -201,29 +196,29 @@ export function LeadDashboardPage() {
           <BrutalCard className="p-8 text-center font-bold">Loading captured leads...</BrutalCard>
         ) : leads.length === 0 ? (
           <BrutalCard className="p-8 text-center space-y-3">
-            <p className="font-bold">No leads captured matching the current filter.</p>
-            <BrutalButton to="/plan-your-project" variant="hotPink" size="sm">
-              Test Project Planner Submission
+            <p className="font-bold">No stored leads matching the current filter.</p>
+            <BrutalButton to="/plan-your-project" variant="primary" size="sm">
+              Try Project Planner Demo
             </BrutalButton>
           </BrutalCard>
         ) : (
           <div className="space-y-4">
             {leads.map((lead) => (
               <BrutalCard key={lead.leadId} className="space-y-4">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b-2 border-[#111111]/15 dark:border-[#FFF9F0]/20">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b-2 border-[var(--border-ink)]/15">
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 text-xs font-mono-num font-bold">
-                      <span className="px-2 py-0.5 brutal-border bg-[#FFC21A] text-[#111111] rounded-[3px]">
+                    <div className="flex flex-wrap items-center gap-2 type-label">
+                      <span className="px-2 py-0.5 brutal-border bg-[var(--color-marigold)] text-[var(--text-on-marigold)] rounded-[4px]">
                         {lead.leadId}
                       </span>
                       <span>{new Date(lead.createdAt).toLocaleString()}</span>
                       <span>· Source: {lead.sourcePage || '/'}</span>
                     </div>
-                    <h2 className="text-xl font-extrabold mt-1">
+                    <h2 className="type-h3 mt-1">
                       {lead.fullName}
                       {lead.businessName ? ` — ${lead.businessName}` : ''}
                     </h2>
-                    <p className="text-xs text-[#4B433C] dark:text-[#E7D8C5]">
+                    <p className="text-xs text-[var(--text-secondary)]">
                       {lead.email} · {lead.phone} · Industry: {lead.industry}
                     </p>
                   </div>
@@ -237,7 +232,7 @@ export function LeadDashboardPage() {
                       value={lead.status}
                       disabled={savingId === lead.leadId}
                       onChange={(e) => handleStatusChange(lead.leadId, e.target.value as LeadStatus)}
-                      className="px-3 py-1.5 brutal-border bg-[#1FB5B0] text-[#111111] rounded-[4px] text-xs font-extrabold cursor-pointer"
+                      className="min-h-[44px] px-3 py-1.5 brutal-border bg-[var(--color-cobalt)] text-[var(--text-on-cobalt)] rounded-[6px] text-xs font-extrabold cursor-pointer"
                     >
                       {PIPELINE_STATUSES.map((st) => (
                         <option key={st} value={st}>
@@ -277,11 +272,11 @@ export function LeadDashboardPage() {
                           setNoteDrafts((prev) => ({ ...prev, [lead.leadId]: e.target.value }))
                         }
                         placeholder="Add follow-up context..."
-                        className="w-full px-3 py-1.5 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-xs"
+                        className="w-full min-h-[44px] px-3 py-1.5 brutal-border bg-[var(--bg-cream)] text-[var(--text-primary)] rounded-[6px] text-xs"
                       />
                     </div>
                     <BrutalButton
-                      variant="cream"
+                      variant="secondary"
                       size="sm"
                       disabled={savingId === lead.leadId}
                       onClick={() => handleSaveNotes(lead.leadId)}

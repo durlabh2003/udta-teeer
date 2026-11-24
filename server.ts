@@ -228,196 +228,20 @@ async function startServer() {
   const SITEMAP_IMAGES: Record<string, Array<{ path: string; title: string }>> = {
     '/': [
       {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Urdta Teeeeeer Jaipur Creative Technology Studio Hero Artwork',
-      },
-      {
-        path: '/src/assets/images/case_d2c_illustration_1794811736009.jpg',
-        title: 'D2C E-Commerce and Brand Identity Showcase',
-      },
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Jaipur Hospitality and Restaurant Digital Experience Showcase',
-      },
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'SaaS Dashboard and Workflow Automation Architecture',
+        path: '/og-image.jpg',
+        title: 'Urdta Teeeeeer — Jaipur Branding & Web Development Studio',
       },
     ],
     '/services': [
       {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
+        path: '/og-image.jpg',
         title: 'Urdta Teeeeeer Branding, Web Development &amp; Growth Services',
-      },
-    ],
-    '/services/design': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Creative Haveli Brand Identity and UI/UX Design Services in Jaipur',
-      },
-    ],
-    '/services/development': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Digital Karkhana Custom Web, E-Commerce &amp; SaaS Engineering',
-      },
-    ],
-    '/services/marketing': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Growth Bazaar SEO, AEO &amp; Performance Marketing Dashboard',
-      },
-    ],
-    '/industries': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Digital Solutions for Jaipur &amp; Indian Industries',
-      },
-    ],
-    '/industries/hospitality': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Jaipur Hospitality &amp; Boutique Hotel Digital Systems',
-      },
-    ],
-    '/industries/restaurants': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Jaipur Cafes &amp; Restaurants Web &amp; Ordering Experience',
-      },
-    ],
-    '/work': [
-      {
-        path: '/src/assets/images/case_d2c_illustration_1794811736009.jpg',
-        title: 'Tapinfi NFC Digital Card Platform Showcase',
-      },
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'CafeOS Hospitality Operations Interface',
-      },
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Vyapaar Saathi SME Platform &amp; Analytics',
-      },
-    ],
-    '/work/tapinfi': [
-      {
-        path: '/src/assets/images/case_d2c_illustration_1794811736009.jpg',
-        title: 'Tapinfi NFC Digital Business Card &amp; Storefront Visual',
-      },
-    ],
-    '/work/cafeos': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'CafeOS Hospitality &amp; Cafe Operations Interface',
-      },
-    ],
-    '/work/vyapaar-saathi': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Vyapaar Saathi Business Workflow Platform &amp; Analytics',
-      },
-    ],
-    '/process': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Urdta Teeeeeer 6-Step Brand, Web &amp; Growth Process',
       },
     ],
     '/packages': [
       {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
+        path: '/og-image.jpg',
         title: 'Urdta Teeeeeer Jaipur Pricing &amp; Investment Tiers',
-      },
-    ],
-    '/insights': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'Jaipur Digital Growth, SEO &amp; Web Strategy Insights',
-      },
-    ],
-    '/about': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'About Urdta Teeeeeer Creative Technology Studio Jaipur',
-      },
-    ],
-    '/plan-your-project': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Urdta Teeeeeer Interactive Project Brief Planner',
-      },
-    ],
-    '/contact': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Contact Urdta Teeeeeer Studio in Jaipur',
-      },
-    ],
-    '/website-development-jaipur': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Custom Website Development Agency in Jaipur',
-      },
-    ],
-    '/ecommerce-development-jaipur': [
-      {
-        path: '/src/assets/images/case_d2c_illustration_1794811736009.jpg',
-        title: 'E-Commerce &amp; D2C Storefront Development in Jaipur',
-      },
-    ],
-    '/branding-agency-jaipur': [
-      {
-        path: '/src/assets/images/case_d2c_illustration_1794811736009.jpg',
-        title: 'Branding &amp; Visual Identity Studio in Jaipur',
-      },
-    ],
-    '/ui-ux-design-jaipur': [
-      {
-        path: '/src/assets/images/case_jaipur_hospitality_1794811736332.jpg',
-        title: 'UI/UX Design Studio in Jaipur',
-      },
-    ],
-    '/digital-marketing-jaipur': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Digital Marketing Studio in Jaipur',
-      },
-    ],
-    '/seo-services-jaipur': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'SEO &amp; AI Answer Engine Optimization in Jaipur',
-      },
-    ],
-    '/social-media-marketing-jaipur': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Social Media Marketing Studio in Jaipur',
-      },
-    ],
-    '/performance-marketing-jaipur': [
-      {
-        path: '/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg',
-        title: 'Performance Marketing &amp; Paid Ads in Jaipur',
-      },
-    ],
-    '/mobile-app-development-jaipur': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'Mobile App Development in Jaipur',
-      },
-    ],
-    '/automation-ai-jaipur': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'WhatsApp CRM &amp; Workflow Automation in Jaipur',
-      },
-    ],
-    '/saas-development': [
-      {
-        path: '/src/assets/images/case_saas_automation_1794811736581.jpg',
-        title: 'SaaS Product &amp; MVP Development Studio',
       },
     ],
   };
@@ -642,10 +466,11 @@ async function startServer() {
   });
 
   if (process.env.NODE_ENV !== 'production') {
+    const disableHmr = process.env.DISABLE_HMR === 'true';
     const vite = await createViteServer({
       server: {
         middlewareMode: true,
-        ws: { server: httpServer },
+        ...(disableHmr ? { hmr: false, ws: false } : { ws: { server: httpServer } }),
       },
       appType: 'spa',
     });

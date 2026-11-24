@@ -24,10 +24,10 @@ export function OfflineIndicator() {
   return (
     <div
       role="status"
-      className="fixed bottom-4 left-4 z-50 flex items-center gap-2 brutal-border brutal-shadow-sm bg-[#FFC21A] text-[#111111] px-3.5 py-2 rounded-[6px] text-xs font-extrabold"
+      className="fixed bottom-16 md:bottom-4 left-4 z-50 flex items-center gap-2 brutal-border brutal-shadow-sm bg-[var(--color-marigold)] text-[var(--text-on-marigold)] px-3.5 py-2 rounded-[8px] text-xs font-bold"
     >
       <WifiOff className="w-4 h-4 stroke-[2.5]" />
-      <span>Offline Mode — Cached studio pages active</span>
+      <span>Offline Mode — Cached pages active</span>
     </div>
   );
 }

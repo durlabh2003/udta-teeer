@@ -14,13 +14,13 @@ const MARQUEE_ITEMS = [
 export function ServiceMarquee() {
   return (
     <div
-      className="w-full overflow-hidden border-y-[3px] border-[#111111] dark:border-[#FFF4E0] bg-[#FFC21A] text-[#111111] py-3 select-none"
+      className="w-full overflow-hidden border-y-2 border-[var(--border-ink)] bg-[var(--color-marigold)] text-[var(--text-on-marigold)] py-2.5 select-none"
       aria-label="Core studio capabilities"
     >
-      <div className="animate-marquee flex items-center gap-6">
+      <div className="animate-marquee flex items-center gap-5">
         {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
-          <div key={`${item}-${idx}`} className="flex items-center gap-6 shrink-0">
-            <span className="font-display font-extrabold text-sm md:text-base tracking-tight whitespace-nowrap">
+          <div key={`${item}-${idx}`} className="flex items-center gap-5 shrink-0">
+            <span className="font-display font-bold text-xs md:text-sm tracking-tight whitespace-nowrap">
               {item}
             </span>
             <svg
@@ -33,8 +33,8 @@ export function ServiceMarquee() {
             >
               <path
                 d="M12 2L20 12L12 22L4 12L12 2Z"
-                fill="#FF4F8B"
-                stroke="#111111"
+                fill="var(--color-gulabi)"
+                stroke="var(--border-ink)"
                 strokeWidth="2.5"
               />
             </svg>

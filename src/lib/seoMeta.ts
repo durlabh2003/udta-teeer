@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { BRAND_CONFIG } from '../data/brandConfig';
 import servicesData from '../data/services.json';
 
 export interface PageMetaConfig {
@@ -9,15 +10,7 @@ export interface PageMetaConfig {
   ogImage: string;
 }
 
-import defaultOgImage from '../assets/images/jaipur_studio_hero_art_1794811735554.jpg';
-import d2cOgImage from '../assets/images/case_d2c_illustration_1794811736009.jpg';
-import hospitalityOgImage from '../assets/images/case_jaipur_hospitality_1794811736332.jpg';
-import saasOgImage from '../assets/images/case_saas_automation_1794811736581.jpg';
-
-const DEFAULT_OG_IMAGE = defaultOgImage;
-const D2C_OG_IMAGE = d2cOgImage;
-const HOSPITALITY_OG_IMAGE = hospitalityOgImage;
-const SAAS_OG_IMAGE = saasOgImage;
+const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
 export const PAGE_META_DICTIONARY: Record<string, PageMetaConfig> = {
   home: {
@@ -39,35 +32,35 @@ export const PAGE_META_DICTIONARY: Record<string, PageMetaConfig> = {
     description:
       'Custom brand identity, logo systems, packaging, and WCAG-accessible UI/UX design in Figma crafted in Jaipur for startups, D2C labels & local businesses.',
     path: '/services/design',
-    ogImage: HOSPITALITY_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   'services-development': {
     title: 'Custom Web, E-Commerce & SaaS Development Jaipur | Urdta Teeeeeer',
     description:
       'High-speed React & Next.js websites, Shopify/WooCommerce stores, SaaS MVPs, mobile apps, and WhatsApp CRM automation engineered by Urdta Teeeeeer Jaipur.',
     path: '/services/development',
-    ogImage: SAAS_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   'services-marketing': {
     title: 'SEO, AEO & Performance Marketing Studio in Jaipur | Urdta Teeeeeer',
     description:
-      'Measurable local SEO, AI Answer Engine Optimization (AEO), Meta & Google Ads, and bilingual Hindi/English creative funnels with live client-owned dashboards.',
+      'Measurable local SEO, AI Answer Engine Optimisation (AEO), Meta & Google Ads, and bilingual Hindi/English creative funnels with live client-owned dashboards.',
     path: '/services/marketing',
-    ogImage: SAAS_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   industries: {
     title: 'Digital Solutions Across 10 Jaipur & Indian Industries | Urdta Teeeeeer',
     description:
       'Tailored branding, websites, CRM automation, and growth systems for Jewellery, Hospitality, Handicrafts, Education, Healthcare, Cafes, Real Estate & SaaS.',
     path: '/industries',
-    ogImage: HOSPITALITY_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   work: {
-    title: 'Portfolio Candidates & Case Templates | Urdta Teeeeeer Jaipur',
+    title: 'Featured Work & Sample Case Blueprints | Urdta Teeeeeer Jaipur',
     description:
-      'Inspect product architecture and UX breakdowns for Tapinfi, CafeOS, and Vyapaar Saathi alongside transparent conversion case study templates.',
+      'Inspect product architecture and UX breakdowns for Tapinfi, CafeOS, and Vyapaar Saathi alongside sample conversion case blueprints.',
     path: '/work',
-    ogImage: D2C_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   packages: {
     title: 'Web Design & Digital Marketing Pricing Guide Jaipur | Urdta Teeeeeer',
@@ -81,14 +74,14 @@ export const PAGE_META_DICTIONARY: Record<string, PageMetaConfig> = {
     description:
       'From our 7–10 day Brand & Digital Diagnostic to UI/UX architecture, agile engineering, precision launch, and owned growth analytics.',
     path: '/process',
-    ogImage: SAAS_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   insights: {
     title: 'Jaipur Digital Growth, SEO & Web Strategy Insights | Urdta Teeeeeer',
     description:
       'Practical playbooks for Indian founders covering Google Maps SEO, AI search (AEO), D2C checkout CRO, and choosing between websites, stores, or SaaS MVPs.',
     path: '/insights',
-    ogImage: HOSPITALITY_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   about: {
     title: 'About Urdta Teeeeeer — Creative Technology Studio in Jaipur',
@@ -116,12 +109,12 @@ export const PAGE_META_DICTIONARY: Record<string, PageMetaConfig> = {
     description:
       'Build a tailored scope across Design, Development, and Marketing in 4 simple steps with instant budget & timeline alignment from Urdta Teeeeeer.',
     path: '/plan-your-project',
-    ogImage: SAAS_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   },
   'privacy-policy': {
     title: 'Privacy Policy & Enquiry Data Handling | Urdta Teeeeeer',
     description:
-      'How Urdta Teeeeeer collects, stores, and protects business enquiry information submitted through our website planner and audit forms.',
+      'How Urdta Teeeeeer handles business enquiry information submitted through our interactive demo planner and audit forms.',
     path: '/privacy-policy',
     ogImage: DEFAULT_OG_IMAGE,
   },
@@ -133,30 +126,26 @@ export const PAGE_META_DICTIONARY: Record<string, PageMetaConfig> = {
     ogImage: DEFAULT_OG_IMAGE,
   },
   'thank-you': {
-    title: 'Project Brief Confirmed — Lead Receipt | Urdta Teeeeeer',
+    title: 'Project Brief Confirmed — Demo Receipt | Urdta Teeeeeer',
     description:
-      'Your project brief has been received with a tracked Lead ID. Connect directly via WhatsApp or schedule a discovery call with our Jaipur team.',
+      'Your project brief demo confirmation with a simulated Lead ID. Connect directly via WhatsApp or book a discovery chat with our Jaipur team.',
     path: '/thank-you',
+    ogImage: DEFAULT_OG_IMAGE,
+  },
+  '404': {
+    title: '404 — Page Not Found | Urdta Teeeeeer Jaipur',
+    description: 'This route drifted away. Return to Urdta Teeeeeer Jaipur home.',
+    path: '/404',
     ogImage: DEFAULT_OG_IMAGE,
   },
 };
 
-const SLUG_IMAGE_MAP: Record<string, string> = {
-  'ecommerce-development-jaipur': D2C_OG_IMAGE,
-  'branding-agency-jaipur': D2C_OG_IMAGE,
-  'ui-ux-design-jaipur': HOSPITALITY_OG_IMAGE,
-  'saas-development': SAAS_OG_IMAGE,
-  'automation-ai-jaipur': SAAS_OG_IMAGE,
-  'mobile-app-development-jaipur': SAAS_OG_IMAGE,
-};
-
-// Register all 11 dedicated SEO service pages from services.json
 for (const landing of servicesData.seoLandingPages) {
   PAGE_META_DICTIONARY[landing.slug] = {
     title: landing.metaTitle,
     description: landing.metaDescription,
     path: `/${landing.slug}`,
-    ogImage: SLUG_IMAGE_MAP[landing.slug] ?? DEFAULT_OG_IMAGE,
+    ogImage: DEFAULT_OG_IMAGE,
   };
 }
 
@@ -186,10 +175,6 @@ function upsertMetaTag(attr: 'name' | 'property', key: string, content: string) 
   el.setAttribute('content', content);
 }
 
-/**
- * Updates document title, meta description, OpenGraph (og:title, og:description,
- * og:url, og:image), Twitter cards, and canonical URL from PAGE_META_DICTIONARY.
- */
 export function updateMetaTags(
   pageKey: string,
   overrides?: { title?: string; description?: string; path?: string; ogImage?: string }
@@ -206,17 +191,20 @@ export function updateMetaTags(
 
   document.title = resolved.title;
 
-  const origin = window.location.origin;
-  const canonicalHref = `${origin}${resolved.path}`;
+  const origin = BRAND_CONFIG.domain.replace(/\/+$/, '');
+  const cleanPath = resolved.path.startsWith('/') ? resolved.path : `/${resolved.path}`;
+  const canonicalHref = `${origin}${cleanPath}`;
   const ogImageUrl = resolved.ogImage.startsWith('http')
     ? resolved.ogImage
     : `${origin}${resolved.ogImage}`;
 
   upsertMetaTag('name', 'description', resolved.description);
+  upsertMetaTag('property', 'og:type', 'website');
   upsertMetaTag('property', 'og:url', canonicalHref);
   upsertMetaTag('property', 'og:title', resolved.title);
   upsertMetaTag('property', 'og:description', resolved.description);
   upsertMetaTag('property', 'og:image', ogImageUrl);
+  upsertMetaTag('name', 'twitter:card', 'summary_large_image');
   upsertMetaTag('name', 'twitter:title', resolved.title);
   upsertMetaTag('name', 'twitter:description', resolved.description);
   upsertMetaTag('name', 'twitter:image', ogImageUrl);
@@ -232,9 +220,6 @@ export function updateMetaTags(
   return resolved;
 }
 
-/**
- * Custom React hook to synchronize page-specific meta tags when the route changes.
- */
 export function useRouteMetaTags() {
   const { pathname } = useLocation();
 

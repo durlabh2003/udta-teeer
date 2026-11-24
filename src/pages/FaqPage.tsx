@@ -1,11 +1,12 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
 import { SEOHead } from '../components/SEOHead';
+import { ChaiFaqIllustration } from '../components/illustrations/JaipurIllustrations';
 import { BrutalButton } from '../components/ui/BrutalButton';
 import { JharokhaAccordion } from '../components/ui/JharokhaAccordion';
 
 export function FaqPage() {
-  const { t } = useApp();
+  const { t, openPlannerModal } = useApp();
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -21,23 +22,24 @@ export function FaqPage() {
     <>
       <SEOHead pageKey="faq" path="/faq" jsonLd={faqSchema} />
 
-      <div className="max-w-[960px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-10">
-        <div className="space-y-2">
-          <p className="font-hand text-base text-[#D9482B] dark:text-[#FFC21A]">
-            {t.faqSection.eyebrow}
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            {t.faqSection.headline}
-          </h1>
-        </div>
+      <div className="max-w-[840px] mx-auto px-4 md:px-6 py-8 md:py-12 space-y-7">
+        <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1.5">
+            <p className="type-label text-[var(--text-terracotta)]">
+              {t.faqSection.eyebrow}
+            </p>
+            <h1 className="type-display">{t.faqSection.headline}</h1>
+          </div>
+          <ChaiFaqIllustration className="w-20 h-20 shrink-0" />
+        </header>
 
         <JharokhaAccordion items={t.faqSection.items} />
 
         <div className="flex flex-wrap gap-4 pt-4">
-          <BrutalButton to="/build" variant="hotPink" size="md">
-            Apna Package Banao
+          <BrutalButton variant="primary" size="md" onClick={() => openPlannerModal()}>
+            {t.pricingSection.buildCustomCta}
           </BrutalButton>
-          <BrutalButton to="/contact" variant="cream" size="md">
+          <BrutalButton to="/contact" variant="secondary" size="md">
             Ask Another Question
           </BrutalButton>
         </div>

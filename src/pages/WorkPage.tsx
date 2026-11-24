@@ -6,9 +6,47 @@ import portfolioData from '../data/portfolio.json';
 import { useApp } from '../context/AppContext';
 import { CaseStudyModalView } from '../components/sections/CaseStudyModalView';
 import { SEOHead } from '../components/SEOHead';
+import { EmptySearchIllustration, ServiceIllustration } from '../components/illustrations/JaipurIllustrations';
 import { BrutalButton } from '../components/ui/BrutalButton';
 import { BrutalCard } from '../components/ui/BrutalCard';
 import { CaseStudyCard, CaseStudyItem } from '../components/ui/CaseStudyCard';
+import { JaipurSkylineDivider } from '../components/ui/JaaliDivider';
+
+function ProjectVisual({
+  image,
+  alt,
+  illustrationKey,
+}: {
+  image: string;
+  alt: string;
+  illustrationKey?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed || !image) {
+    return (
+      <div className="brutal-border rounded-[8px] mb-4 bg-[var(--bg-cream)] p-4 flex items-center justify-center aspect-[16/10]">
+        <ServiceIllustration name={illustrationKey} alt={alt} className="w-full h-full" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="brutal-border rounded-[8px] overflow-hidden mb-4 bg-[var(--bg-sandstone)]">
+      <img
+        src={image}
+        alt={alt}
+        width={1200}
+        height={896}
+        decoding="async"
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        onError={() => setFailed(true)}
+        className="w-full aspect-[16/10] object-cover"
+      />
+    </div>
+  );
+}
 
 export function WorkPage() {
   const { t, openPlannerModal } = useApp();
@@ -32,39 +70,39 @@ export function WorkPage() {
     <>
       <SEOHead pageKey="work" path="/work" />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
-        <div className="max-w-3xl space-y-3">
-          <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
-            Project Bazaar · Honest Work Showcase
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8 md:space-y-10">
+        <header className="max-w-2xl space-y-2.5">
+          <p className="type-label text-[var(--text-terracotta)]">
+            {t.workSection.eyebrow}
           </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-            {t.workSection.headline}
-          </h1>
-          <p className="text-base text-[#4B433C] dark:text-[#E7D8C5]">
+          <h1 className="type-display">{t.workSection.headline}</h1>
+          <p className="type-body text-[var(--text-secondary)]">
             {portfolioData.contentIntegrityNotice}
           </p>
-        </div>
+        </header>
 
         {/* Category + Industry Filter Bar */}
-        <div className="space-y-4 p-5 brutal-border bg-[#FFF9F0] dark:bg-[#212E46] rounded-[6px]">
+        <div className="space-y-4 p-4 brutal-border bg-[var(--bg-surface)] rounded-[8px]">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
-              {portfolioData.filters.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeCategory === cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-3 py-1.5 text-xs font-bold brutal-border rounded-[4px] cursor-pointer ${
-                    activeCategory === cat
-                      ? 'bg-[#FFC21A] text-[#111111]'
-                      : 'bg-[#FFFFFF] dark:bg-[#182235]'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
+              {portfolioData.filters.map((cat) => {
+                const active = activeCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`min-h-[44px] px-3.5 py-2 text-xs font-bold brutal-border rounded-[6px] cursor-pointer transition-all ${
+                      active
+                        ? 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)] brutal-shadow-sm -translate-y-0.5'
+                        : 'bg-[var(--bg-cream)] text-[var(--text-primary)] hover:bg-[var(--bg-sandstone)]'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
             </div>
 
             <div className="shrink-0">
@@ -72,7 +110,7 @@ export function WorkPage() {
                 value={activeIndustry}
                 onChange={(e) => setActiveIndustry(e.target.value)}
                 aria-label="Filter projects by industry"
-                className="px-3 py-2 brutal-border bg-[#FFFFFF] dark:bg-[#182235] rounded-[4px] text-xs font-bold"
+                className="min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] text-[var(--text-primary)] rounded-[6px] text-xs font-bold"
               >
                 {industriesList.map((ind) => (
                   <option key={ind} value={ind}>
@@ -84,49 +122,52 @@ export function WorkPage() {
           </div>
         </div>
 
-        {/* Portfolio Candidates */}
-        <section className="space-y-5">
-          <h2 className="font-editorial text-2xl md:text-3xl font-bold">
-            Portfolio Candidates ({filteredProjects.length})
-          </h2>
+        {/* Sample Product Showcases */}
+        <section className="space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="type-h2">Featured Work ({filteredProjects.length})</h2>
+            <div role="status" aria-live="polite" className="type-label text-[var(--text-secondary)]">
+              {t.workSection.showingPrefix} {filteredProjects.length}{' '}
+              {filteredProjects.length === 1 ? t.workSection.showingSingle : t.workSection.showingPlural}
+            </div>
+          </div>
 
           {filteredProjects.length === 0 ? (
-            <BrutalCard className="p-8 text-center space-y-2">
-              <p className="font-bold">No portfolio candidates match both selected filters.</p>
-              <button
-                type="button"
+            <BrutalCard className="p-6 text-center flex flex-col items-center space-y-3 animate-filter-fade">
+              <EmptySearchIllustration className="w-28 h-20" alt={t.workSection.emptyTitle} />
+              <p className="font-bold text-base">{t.workSection.emptyTitle}</p>
+              <BrutalButton
+                variant="secondary"
+                size="sm"
                 onClick={() => {
                   setActiveCategory('All');
                   setActiveIndustry('All');
                 }}
-                className="text-sm font-bold underline cursor-pointer"
               >
-                Reset filters
-              </button>
+                {t.workSection.showAllBtn}
+              </BrutalButton>
             </BrutalCard>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              key={`${activeCategory}-${activeIndustry}`}
+              className="grid grid-cols-1 md:grid-cols-3 gap-5 animate-filter-fade"
+            >
               {filteredProjects.map((proj) => (
                 <BrutalCard key={proj.slug} className="flex flex-col justify-between h-full">
                   <div>
-                    <div className="brutal-border rounded-[4px] overflow-hidden mb-4 bg-[#F3E5CE]">
-                      <img
-                        src={proj.image}
-                        alt={proj.imageAlt}
-                        width={1200}
-                        height={896}
-                        decoding="async"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        className="w-full aspect-[16/10] object-cover"
-                      />
-                    </div>
-                    <div className="text-[11px] font-mono-num font-bold text-[#B95E50] dark:text-[#FFC21A] mb-1">
+                    <ProjectVisual
+                      image={proj.image}
+                      alt={proj.imageAlt}
+                      illustrationKey={(proj as { illustrationKey?: string }).illustrationKey}
+                    />
+                    <p className="type-label text-[var(--text-terracotta)] mb-1">
                       {proj.statusBadge}
-                    </div>
-                    <h3 className="text-xl font-extrabold mb-1">{proj.name}</h3>
-                    <p className="text-xs font-bold opacity-80 mb-2">{proj.industry}</p>
-                    <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5] leading-relaxed mb-3">
+                    </p>
+                    <h3 className="type-h3 mb-1">{proj.name}</h3>
+                    <p className="text-xs font-bold text-[var(--text-secondary)] mb-2">
+                      {proj.industry}
+                    </p>
+                    <p className="type-small text-[var(--text-secondary)] leading-relaxed mb-3">
                       {proj.shortDesc}
                     </p>
                     <p className="text-xs font-mono-num font-bold">
@@ -134,13 +175,13 @@ export function WorkPage() {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/20">
+                  <div className="pt-4 mt-4 border-t-2 border-[var(--border-ink)]/15">
                     <Link
                       to={`/work/${proj.slug}`}
-                      aria-label={`View 11-part breakdown for ${proj.name}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold underline hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
+                      aria-label={`View breakdown for ${proj.name}`}
+                      className="min-h-[44px] inline-flex items-center gap-1.5 text-sm font-bold underline hover:text-[var(--text-gulabi)]"
                     >
-                      <span>View 11-Part Breakdown</span>
+                      <span>View Full Breakdown</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -150,11 +191,11 @@ export function WorkPage() {
           )}
         </section>
 
-        {/* Launch Case Study Templates */}
+        <JaipurSkylineDivider />
+
+        {/* Sample Outcome Cases */}
         <section className="space-y-5">
-          <h2 className="font-editorial text-2xl md:text-3xl font-bold">
-            Case Study Architecture Templates (Metrics Slots)
-          </h2>
+          <h2 className="type-h2">Sample Case Blueprints (Metrics Overview)</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseStudiesData.caseStudies.map((study) => (
               <CaseStudyCard
@@ -167,15 +208,20 @@ export function WorkPage() {
           </div>
         </section>
 
-        <div className="p-6 brutal-border brutal-shadow bg-[#FFC21A] text-[#111111] rounded-[6px] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <BrutalCard
+          tone="marigold"
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+        >
           <div>
-            <h2 className="text-xl font-extrabold">Want to build something similar?</h2>
-            <p className="text-sm">Start with a 7–10 day Brand &amp; Digital Diagnostic or our 4-step Project Planner.</p>
+            <h2 className="type-h3">Want to build something similar?</h2>
+            <p className="type-small opacity-90">
+              Start with our 60-second interactive Project Planner.
+            </p>
           </div>
-          <BrutalButton variant="ink" size="md" onClick={() => openPlannerModal()}>
-            Plan Your Project
+          <BrutalButton variant="primary" size="md" onClick={() => openPlannerModal()}>
+            {t.nav.cta}
           </BrutalButton>
-        </div>
+        </BrutalCard>
       </div>
 
       <CaseStudyModalView study={selectedModal} onClose={() => setSelectedModal(null)} />

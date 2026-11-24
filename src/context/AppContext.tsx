@@ -16,7 +16,10 @@ export interface SubmittedLeadReceipt {
   selectedServices: string[];
   budget: string;
   timeline: string;
+  engagementType?: string;
+  requirementNotes?: string;
   whatsappUrl: string;
+  demoMode?: boolean;
 }
 
 export interface PlannerLaunchContext {
@@ -24,6 +27,36 @@ export interface PlannerLaunchContext {
   industry?: string;
   note?: string;
 }
+
+export interface InMemoryPlannerDraft {
+  step: number;
+  activePillar: 'design' | 'development' | 'marketing' | 'combo' | 'all';
+  selectedServices: string[];
+  businessName: string;
+  industry: string;
+  otherIndustryText: string;
+  website: string;
+  businessStage: string;
+  budget: string;
+  timeline: string;
+  engagementType: string;
+  requirementNotes: string;
+}
+
+export const INITIAL_PLANNER_DRAFT: InMemoryPlannerDraft = {
+  step: 1,
+  activePillar: 'development',
+  selectedServices: ['Business website'],
+  businessName: '',
+  industry: 'Retail & Jewellery',
+  otherIndustryText: '',
+  website: '',
+  businessStage: 'Growing business',
+  budget: '₹25,000 – ₹60,000',
+  timeline: 'Within 1 month',
+  engagementType: 'One-time project',
+  requirementNotes: '',
+};
 
 interface AppContextValue {
   lang: LanguageMode;
@@ -38,7 +71,16 @@ interface AppContextValue {
   setPreselectedIndustry: React.Dispatch<React.SetStateAction<string>>;
   preselectedNote: string;
   setPreselectedNote: React.Dispatch<React.SetStateAction<string>>;
+  plannerDraft: InMemoryPlannerDraft;
+  setPlannerDraft: React.Dispatch<React.SetStateAction<InMemoryPlannerDraft>>;
+  resetPlannerDraft: () => void;
   plannerModalOpen: boolean;
+  plannerDirty: boolean;
+  setPlannerDirty: React.Dispatch<React.SetStateAction<boolean>>;
+  plannerConfirmDiscard: boolean;
+  setPlannerConfirmDiscard: React.Dispatch<React.SetStateAction<boolean>>;
+  requestClosePlannerModal: () => void;
+  confirmDiscardAndClosePlanner: () => void;
   openPlannerModal: (preselect?: string[] | PlannerLaunchContext) => void;
   closePlannerModal: () => void;
   auditModalOpen: boolean;
@@ -59,7 +101,7 @@ const AppContext = createContext<AppContextValue | null>(null);
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<LanguageMode>(() => {
-    if (typeof window === 'undefined') return 'hinglish';
+    if (typeof window === 'undefined') return 'en';
     const saved = window.localStorage.getItem('ut_lang');
     return saved === 'en' || saved === 'hinglish' ? saved : 'hinglish';
   });
@@ -70,14 +112,33 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   });
 
   const [preselectedServiceIds, setPreselectedServiceIds] = useState<string[]>([]);
-  const [preselectedIndustry, setPreselectedIndustry] = useState<string>('Retail');
+  const [preselectedIndustry, setPreselectedIndustry] = useState<string>('Retail & Jewellery');
   const [preselectedNote, setPreselectedNote] = useState<string>('');
+  const [plannerDraft, setPlannerDraft] = useState<InMemoryPlannerDraft>(INITIAL_PLANNER_DRAFT);
   const [plannerModalOpen, setPlannerModalOpen] = useState(false);
+  const [plannerDirty, setPlannerDirty] = useState(false);
+  const [plannerConfirmDiscard, setPlannerConfirmDiscard] = useState(false);
   const [auditModalOpen, setAuditModalOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [lastReceipt, setLastReceipt] = useState<SubmittedLeadReceipt | null>(null);
   const [chaiCount, setChaiCount] = useState<number>(siteConfig.statsConfig.cupsOfChaiBrewed);
   const [kiteShowerCount, setKiteShowerCount] = useState<number>(0);
+
+  // Clear legacy storage drafts per 15.8 (keep planner draft in-memory only)
+  useEffect(() => {
+    try {
+      window.sessionStorage.removeItem('ut_planner_draft_v1');
+      window.localStorage.removeItem('ut_planner_draft_v1');
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // Keep <html lang="..."> synced with language toggle (3.7)
+  useEffect(() => {
+    document.documentElement.lang = lang === 'hinglish' ? 'en-IN' : 'en';
+    document.documentElement.setAttribute('data-ut-lang', lang);
+  }, [lang]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -92,13 +153,25 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
   const setLang = (next: LanguageMode) => {
     setLangState(next);
-    window.localStorage.setItem('ut_lang', next);
+    try {
+      window.localStorage.setItem('ut_lang', next);
+    } catch {
+      // ignore
+    }
   };
 
   const toggleLang = () => setLang(lang === 'hinglish' ? 'en' : 'hinglish');
   const toggleDark = () => setIsDark((prev) => !prev);
   const brewChai = () => setChaiCount((c) => c + 1);
   const triggerKiteShower = () => setKiteShowerCount((c) => c + 1);
+
+  const resetPlannerDraft = () => {
+    setPlannerDraft(INITIAL_PLANNER_DRAFT);
+    setPreselectedServiceIds([]);
+    setPreselectedNote('');
+    setPlannerDirty(false);
+    setPlannerConfirmDiscard(false);
+  };
 
   const openPlannerModal = (preselect?: string[] | PlannerLaunchContext) => {
     if (Array.isArray(preselect)) {
@@ -114,10 +187,30 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setPreselectedNote(preselect.note);
       }
     }
+    setPlannerConfirmDiscard(false);
     setPlannerModalOpen(true);
   };
 
-  const closePlannerModal = () => setPlannerModalOpen(false);
+  const closePlannerModal = () => {
+    setPlannerConfirmDiscard(false);
+    setPlannerModalOpen(false);
+  };
+
+  const requestClosePlannerModal = () => {
+    if (plannerDirty) {
+      setPlannerConfirmDiscard(true);
+      return;
+    }
+    setPlannerConfirmDiscard(false);
+    setPlannerModalOpen(false);
+  };
+
+  const confirmDiscardAndClosePlanner = () => {
+    resetPlannerDraft();
+    setPlannerConfirmDiscard(false);
+    setPlannerModalOpen(false);
+  };
+
   const openAuditModal = () => setAuditModalOpen(true);
   const closeAuditModal = () => setAuditModalOpen(false);
   const openSearchModal = () => setSearchModalOpen(true);
@@ -161,7 +254,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setPreselectedIndustry,
         preselectedNote,
         setPreselectedNote,
+        plannerDraft,
+        setPlannerDraft,
+        resetPlannerDraft,
         plannerModalOpen,
+        plannerDirty,
+        setPlannerDirty,
+        plannerConfirmDiscard,
+        setPlannerConfirmDiscard,
+        requestClosePlannerModal,
+        confirmDiscardAndClosePlanner,
         openPlannerModal,
         closePlannerModal,
         auditModalOpen,

@@ -11,27 +11,25 @@ export function ProcessPage() {
     <>
       <SEOHead pageKey="process" path="/process" />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-12">
-        <div className="max-w-3xl space-y-3">
-          <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
+        <header className="max-w-3xl space-y-3">
+          <p className="type-label text-[var(--text-terracotta)]">
             {t.processSection.eyebrow}
           </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-            {t.processSection.headline}
-          </h1>
-          <p className="text-base md:text-lg text-[#4B433C] dark:text-[#E7D8C5]">
+          <h1 className="type-display">{t.processSection.headline}</h1>
+          <p className="type-body text-[var(--text-secondary)]">
             {t.processSection.subhead}
           </p>
-        </div>
+        </header>
 
         <ProcessJourneyPath />
 
         <div className="flex flex-wrap gap-4">
-          <BrutalButton variant="hotPink" size="lg" onClick={() => openPlannerModal()}>
-            Start Step 01: Plan Your Project
+          <BrutalButton variant="primary" size="lg" onClick={() => openPlannerModal()}>
+            Start Step 01: Plan Your Shot
           </BrutalButton>
-          <BrutalButton to="/packages" variant="cream" size="lg">
-            See Packages &amp; Pricing
+          <BrutalButton to="/packages" variant="secondary" size="lg">
+            See Packages &amp; Rates
           </BrutalButton>
         </div>
       </div>

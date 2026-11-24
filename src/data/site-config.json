@@ -1,34 +1,33 @@
 {
   "brandName": "Urdta Teeeeeer",
-  "legalEntityNote": "Legal Entity: [TODO: Add Registered Proprietorship / LLP / Pvt Ltd Name & Verify Trademark Clearance]",
+  "legalEntityNote": "© 2026 Urdta Teeeeeer, Jaipur. Demo design.",
   "city": "Jaipur",
   "state": "Rajasthan",
   "country": "India",
   "email": "namaste@urdtateeeeeer.in",
-  "whatsappNumber": "919999900000",
-  "whatsappDisplay": "+91 99999 00000 (Placeholder — Update before launch)",
+  "whatsappNumber": "919829000000",
+  "whatsappDisplay": "+91 98290 00000 (Sample Desk)",
   "calendarEmbedPlaceholder": "https://cal.com/urdta-teeeeeer/discovery-chai",
-  "googleBusinessProfileUrl": "#google-business-profile-placeholder",
+  "googleBusinessProfileUrl": "#jaipur-studio-profile",
   "responseSlaHours": 24,
   "statsConfig": {
     "projectsShipped": null,
     "activeClients": null,
-    "cupsOfChaiBrewed": 1482,
-    "note": "Keep projectsShipped and activeClients as null until verified numbers exist; UI automatically hides null counters and shows only the playful chai counter."
+    "cupsOfChaiBrewed": 1482
   },
   "industriesServed": [
-    "D2C & E-Commerce Brands",
-    "Clinics & Healthcare",
-    "Real Estate & Architecture",
-    "Education & EdTech",
-    "Hospitality, Travel & Cafes",
-    "Early-Stage & Funded Startups"
+    "D2C & Retail",
+    "Clinics & Care",
+    "Real Estate",
+    "EdTech",
+    "Hospitality",
+    "Startups"
   ],
   "capabilitiesTrustBadges": [
-    "Diagnostic-First Strategy",
-    "Custom Design & Engineering",
-    "English + Hindi / Hinglish",
-    "Owned Analytics Dashboards",
-    "30-Day Post-Launch Support"
+    "Audit Before Ads",
+    "100% Custom Craft",
+    "English + Hinglish",
+    "Client-Owned Data",
+    "30-Day Support"
   ]
 }

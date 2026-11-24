@@ -1,35 +1,69 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Search } from 'lucide-react';
+import { Loader2, Search } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { trackConversionEvent } from '../../lib/analytics';
 import { submitFreeAudit } from '../../lib/crmAdapter';
+import { CelebrationBullseyeIllustration } from '../illustrations/JaipurIllustrations';
 import { BrutalButton } from '../ui/BrutalButton';
 import { BrutalModal } from '../ui/BrutalModal';
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const FLEX_URL_REGEX = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/\S*)?$/;
+const INDIAN_MOBILE_REGEX = /^(?:\+?91[\s-]?)?[6-9]\d{9}$/;
+
 export function FreeAuditModal() {
-  const { auditModalOpen, closeAuditModal } = useApp();
+  const { auditModalOpen, closeAuditModal, t } = useApp();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [focusArea, setFocusArea] = useState('Website Speed & Conversion Audit');
   const [error, setError] = useState<string | null>(null);
+  const [invalidField, setInvalidField] = useState<'name' | 'email' | 'url' | 'phone' | null>(null);
   const [auditId, setAuditId] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  const nameRef = React.useRef<HTMLInputElement | null>(null);
+  const emailRef = React.useRef<HTMLInputElement | null>(null);
+  const urlRef = React.useRef<HTMLInputElement | null>(null);
+  const phoneRef = React.useRef<HTMLInputElement | null>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim().length < 2 || !email.includes('@') || websiteUrl.trim().length < 4) {
-      setError('Please enter your name, email, and website/store URL.');
+    if (submitting) return;
+    if (name.trim().length < 2) {
+      setError(t.errors.nameRequired);
+      setInvalidField('name');
+      nameRef.current?.focus();
       return;
     }
+    if (!EMAIL_REGEX.test(email.trim())) {
+      setError(t.errors.emailInvalid);
+      setInvalidField('email');
+      emailRef.current?.focus();
+      return;
+    }
+    if (!FLEX_URL_REGEX.test(websiteUrl.trim())) {
+      setError(t.errors.urlInvalid);
+      setInvalidField('url');
+      urlRef.current?.focus();
+      return;
+    }
+    if (phone.trim() && !INDIAN_MOBILE_REGEX.test(phone.trim())) {
+      setError(t.errors.phoneInvalid);
+      setInvalidField('phone');
+      phoneRef.current?.focus();
+      return;
+    }
+
     setError(null);
+    setInvalidField(null);
     setSubmitting(true);
     const res = await submitFreeAudit({
       name: name.trim(),
       email: email.trim(),
       phone: phone.trim() || 'Not provided',
-      websiteUrl: websiteUrl.trim(),
+      websiteUrl: websiteUrl.trim().startsWith('http') ? websiteUrl.trim() : `https://${websiteUrl.trim()}`,
       focusArea,
     });
     setSubmitting(false);
@@ -42,39 +76,42 @@ export function FreeAuditModal() {
       isOpen={auditModalOpen}
       onClose={() => {
         setAuditId(null);
+        setError(null);
+        setInvalidField(null);
         closeAuditModal();
       }}
-      title="Request a Free 5-Point Website & SEO Audit"
-      accent="peacock"
+      title={t.modals.auditTitle}
+      accent="cobalt"
     >
       {auditId ? (
-        <div className="space-y-4 py-4 text-center">
-          <CheckCircle2 className="w-10 h-10 mx-auto text-[#1FB5B0]" />
-          <h3 className="text-2xl font-extrabold">Audit Request Received!</h3>
-          <p className="text-sm">
-            Reference <span className="font-mono-num font-bold">{auditId}</span> — we&apos;ll send
-            a concise Loom / scorecard review within 48 working hours.
+        <div className="space-y-4 py-4 text-center flex flex-col items-center">
+          <CelebrationBullseyeIllustration className="w-32 h-28" alt={t.modals.auditSuccessTitle} />
+          <h3 className="type-h3">{t.modals.auditSuccessTitle}</h3>
+          <p className="type-small max-w-md text-[var(--text-secondary)]">
+            ID <span className="font-mono-num font-bold text-[var(--text-cobalt)]">{auditId}</span> —{' '}
+            {t.modals.auditSuccessNote}
           </p>
           <BrutalButton
-            variant="marigold"
+            variant="primary"
             size="md"
             onClick={() => {
               setAuditId(null);
               closeAuditModal();
             }}
           >
-            Done
+            {t.modals.auditDone}
           </BrutalButton>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5]">
-            Share your website or store URL. We check mobile speed, clarity in 5 seconds, SEO/AEO
-            structure, and conversion leaks — zero obligation.
-          </p>
+        <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+          <p className="type-small text-[var(--text-secondary)]">{t.modals.auditIntro}</p>
 
           {error && (
-            <div className="p-2.5 brutal-border bg-[#FFC21A] text-[#111111] text-xs font-bold rounded-[4px]">
+            <div
+              id="fa-error-alert"
+              role="alert"
+              className="p-2.5 brutal-border bg-[var(--color-marigold)] text-[var(--text-on-marigold)] text-xs font-bold rounded-[8px]"
+            >
               {error}
             </div>
           )}
@@ -82,26 +119,40 @@ export function FreeAuditModal() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label htmlFor="fa-name" className="block text-xs font-bold mb-1">
-                Your Name *
+                {t.forms.fullName}
               </label>
               <input
+                ref={nameRef}
                 id="fa-name"
                 type="text"
+                aria-invalid={invalidField === 'name'}
+                aria-describedby={invalidField === 'name' ? 'fa-error-alert' : undefined}
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+                onChange={(e) => {
+                  setError(null);
+                  setInvalidField(null);
+                  setName(e.target.value);
+                }}
+                className="w-full min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] rounded-[8px] text-sm"
               />
             </div>
             <div>
               <label htmlFor="fa-email" className="block text-xs font-bold mb-1">
-                Email *
+                {t.forms.email}
               </label>
               <input
+                ref={emailRef}
                 id="fa-email"
                 type="email"
+                aria-invalid={invalidField === 'email'}
+                aria-describedby={invalidField === 'email' ? 'fa-error-alert' : undefined}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+                onChange={(e) => {
+                  setError(null);
+                  setInvalidField(null);
+                  setEmail(e.target.value);
+                }}
+                className="w-full min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] rounded-[8px] text-sm"
               />
             </div>
           </div>
@@ -109,51 +160,66 @@ export function FreeAuditModal() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label htmlFor="fa-url" className="block text-xs font-bold mb-1">
-                Website / Store URL *
+                {t.forms.websiteUrl}
               </label>
               <input
+                ref={urlRef}
                 id="fa-url"
                 type="text"
-                placeholder="https://..."
+                placeholder="brand.in"
+                aria-invalid={invalidField === 'url'}
+                aria-describedby={invalidField === 'url' ? 'fa-error-alert' : undefined}
                 value={websiteUrl}
-                onChange={(e) => setWebsiteUrl(e.target.value)}
-                className="w-full px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+                onChange={(e) => {
+                  setError(null);
+                  setInvalidField(null);
+                  setWebsiteUrl(e.target.value);
+                }}
+                className="w-full min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] rounded-[8px] text-sm"
               />
             </div>
             <div>
               <label htmlFor="fa-phone" className="block text-xs font-bold mb-1">
-                WhatsApp / Phone
+                {t.forms.whatsapp}
               </label>
               <input
+                ref={phoneRef}
                 id="fa-phone"
                 type="tel"
+                placeholder="+91 98290 12345"
+                aria-invalid={invalidField === 'phone'}
+                aria-describedby={invalidField === 'phone' ? 'fa-error-alert' : undefined}
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+                onChange={(e) => {
+                  setError(null);
+                  setInvalidField(null);
+                  setPhone(e.target.value);
+                }}
+                className="w-full min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] rounded-[8px] text-sm"
               />
             </div>
           </div>
 
           <div>
             <label htmlFor="fa-focus" className="block text-xs font-bold mb-1">
-              Primary Audit Focus
+              {t.forms.focusArea}
             </label>
             <select
               id="fa-focus"
               value={focusArea}
               onChange={(e) => setFocusArea(e.target.value)}
-              className="w-full px-3 py-2 brutal-border bg-[#FFF9F0] dark:bg-[#182235] rounded-[4px] text-sm"
+              className="w-full min-h-[44px] px-3 py-2 brutal-border bg-[var(--bg-cream)] rounded-[8px] text-sm"
             >
-              <option>Website Speed & Conversion Audit</option>
-              <option>Local SEO & Google Business Profile</option>
+              <option>Website Speed &amp; Conversion Audit</option>
+              <option>Local SEO &amp; Google Business Profile</option>
               <option>E-Commerce Storefront CRO</option>
-              <option>Ad Account & Landing Page Leaks</option>
+              <option>Ad Account &amp; Landing Page Leaks</option>
             </select>
           </div>
 
-          <BrutalButton type="submit" variant="hotPink" size="md" disabled={submitting} className="w-full">
-            <Search className="w-4 h-4" />
-            <span>{submitting ? 'Submitting…' : 'Request Free Audit'}</span>
+          <BrutalButton type="submit" variant="primary" size="md" disabled={submitting} className="w-full">
+            {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
+            <span>{submitting ? t.modals.auditSubmitting : t.modals.auditSubmit}</span>
           </BrutalButton>
         </form>
       )}

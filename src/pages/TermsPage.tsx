@@ -12,50 +12,46 @@ export function TermsPage() {
         path="/terms"
       />
 
-      <div className="max-w-[920px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-8">
-        <div className="space-y-2">
-          <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
+      <div className="max-w-[860px] mx-auto px-4 md:px-6 py-8 md:py-12 space-y-6">
+        <header className="space-y-2">
+          <p className="type-label text-[var(--text-terracotta)]">
             Honest Scope &amp; Clear Expectations
           </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-            Terms of Engagement
-          </h1>
-          <p className="text-xs font-mono-num opacity-75">{siteConfig.legalEntityNote}</p>
-        </div>
+          <h1 className="type-display">Terms of Engagement</h1>
+          <p className="type-label opacity-75">{siteConfig.legalEntityNote}</p>
+        </header>
 
         <BrutalCard className="space-y-5 text-sm leading-relaxed">
           <section className="space-y-1.5">
-            <h2 className="text-lg font-extrabold">1. Indicative Pricing vs Final Written Scope</h2>
-            <p>
-              Public starter prices (beginning from ₹2,999 for focused starter deliverables and
-              ₹40,000+ for custom websites) serve as transparent guidance. Exact fixed quotes or
-              milestone schedules are confirmed in a written Statement of Work (SoW) after discovery.
+            <h2 className="type-h3">1. Indicative Pricing vs Written Scope</h2>
+            <p className="text-[var(--text-secondary)]">
+              Public starter prices (from ₹2,999 for starter packs and ₹40,000+ for custom
+              websites) provide clear baselines. Final fixed quotes are confirmed in writing after
+              discovery.
             </p>
           </section>
 
           <section className="space-y-1.5">
-            <h2 className="text-lg font-extrabold">2. Third-Party Actuals</h2>
-            <p>
-              Meta/Google ad spend, domain registration, cloud hosting, paid plugins, stock media
-              licenses, and third-party API/AI usage are billed directly to the client at actuals so
-              your business retains direct ownership of every account.
+            <h2 className="type-h3">2. Third-Party Actuals</h2>
+            <p className="text-[var(--text-secondary)]">
+              Ad spend, domains, cloud hosting, and paid licenses are billed directly on client
+              accounts at actuals with zero hidden markup.
             </p>
           </section>
 
           <section className="space-y-1.5">
-            <h2 className="text-lg font-extrabold">3. Structured Revisions &amp; Post-Launch Support</h2>
-            <p>
-              Fixed projects include structured revision rounds (typically 2 rounds per milestone)
-              and a 30-day post-launch warranty window covering defect fixes. Ongoing enhancements
-              and growth retainers are scoped separately.
+            <h2 className="type-h3">3. Revisions &amp; Post-Launch Support</h2>
+            <p className="text-[var(--text-secondary)]">
+              Fixed builds include structured milestone revision rounds and a 30-day post-launch
+              defect support window.
             </p>
           </section>
 
           <section className="space-y-1.5">
-            <h2 className="text-lg font-extrabold">4. Intellectual Property Ownership</h2>
-            <p>
-              Upon full milestone settlement, 100% of custom design assets, source code, and
-              configured analytics dashboards belong to the client.
+            <h2 className="type-h3">4. Intellectual Property Ownership</h2>
+            <p className="text-[var(--text-secondary)]">
+              Upon milestone completion, 100% of design files, source code, and configured
+              dashboards belong to the client.
             </p>
           </section>
         </BrutalCard>

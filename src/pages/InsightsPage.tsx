@@ -4,6 +4,11 @@ import { ArrowUpRight, Search } from 'lucide-react';
 import insightsData from '../data/insights.json';
 import { trackConversionEvent } from '../lib/analytics';
 import { SEOHead } from '../components/SEOHead';
+import {
+  EmptySearchIllustration,
+  ServiceIllustration,
+} from '../components/illustrations/JaipurIllustrations';
+import { BrutalButton } from '../components/ui/BrutalButton';
 import { BrutalCard } from '../components/ui/BrutalCard';
 
 export function InsightsPage() {
@@ -29,30 +34,27 @@ export function InsightsPage() {
     <>
       <SEOHead pageKey="insights" path="/insights" />
 
-      <div className="max-w-[1320px] mx-auto px-4 md:px-6 py-12 md:py-16 space-y-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          <div className="max-w-2xl space-y-3">
-            <p className="font-hand text-base text-[#B95E50] dark:text-[#FFC21A]">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+          <div className="max-w-xl space-y-2">
+            <p className="type-label text-[var(--text-terracotta)]">
               Chai &amp; Strategy Journal
             </p>
-            <h1 className="font-editorial text-4xl md:text-5xl font-bold tracking-tight">
-              Insights for Growing Indian Brands
-            </h1>
-            <p className="text-base text-[#4B433C] dark:text-[#E7D8C5]">
-              Practical playbooks on websites, SEO + AEO, branding, and performance marketing —
-              written in plain language without fluff.
+            <h1 className="type-display">Playbooks for Indian Brands</h1>
+            <p className="type-body text-[var(--text-secondary)]">
+              Short guides on websites, local SEO, AEO, and paid growth without agency jargon.
             </p>
           </div>
 
-          <div className="relative w-full lg:w-80">
+          <div className="relative w-full lg:w-72">
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 opacity-60" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search articles..."
+              placeholder="Search playbooks..."
               aria-label="Search insights articles"
-              className="w-full pl-10 pr-4 py-2.5 brutal-border bg-[#FFF9F0] dark:bg-[#212E46] rounded-[4px] text-sm"
+              className="w-full min-h-[44px] pl-10 pr-4 py-2 brutal-border bg-[var(--bg-surface)] text-[var(--text-primary)] rounded-[6px] text-sm"
             />
           </div>
         </div>
@@ -66,10 +68,10 @@ export function InsightsPage() {
               role="tab"
               aria-selected={category === cat}
               onClick={() => setCategory(cat)}
-              className={`px-3.5 py-2 text-xs font-bold brutal-border rounded-[4px] cursor-pointer ${
+              className={`min-h-[44px] px-3.5 py-2 text-xs font-bold brutal-border rounded-[6px] cursor-pointer ${
                 category === cat
-                  ? 'bg-[#FFC21A] text-[#111111]'
-                  : 'bg-[#FFF9F0] dark:bg-[#212E46]'
+                  ? 'bg-[var(--color-marigold)] text-[var(--text-on-marigold)]'
+                  : 'bg-[var(--bg-surface)] text-[var(--text-primary)]'
               }`}
             >
               {cat}
@@ -79,61 +81,79 @@ export function InsightsPage() {
 
         {/* Featured Article Banner */}
         {featured && category === 'All' && !query && (
-          <BrutalCard tone="marigold" className="p-7 md:p-9 space-y-3">
-            <div className="text-xs font-mono-num font-bold">
-              Featured Playbook · {featured.category} · {featured.readingTime}
+          <BrutalCard tone="marigold" arch="scalloped" className="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+            <div className="md:col-span-4 p-3 brutal-border bg-[var(--bg-surface)] rounded-[8px] flex items-center justify-center">
+              <ServiceIllustration
+                name={(featured as { illustrationKey?: string }).illustrationKey}
+                alt=""
+                className="w-full h-28"
+              />
             </div>
-            <h2 className="font-editorial text-2xl md:text-4xl font-bold">{featured.title}</h2>
-            <p className="text-sm md:text-base max-w-3xl leading-relaxed">{featured.excerpt}</p>
-            <div className="pt-2">
-              <Link
-                to={`/insights/${featured.slug}`}
-                onClick={() => trackConversionEvent('blog_read', { label: featured.slug })}
-                className="inline-flex items-center gap-2 font-bold text-sm underline underline-offset-4"
-              >
-                <span>Read Full Guide</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
+            <div className="md:col-span-8 space-y-3">
+              <p className="type-label">
+                Featured · {featured.category} · {featured.readingTime}
+              </p>
+              <h2 className="type-h2">{featured.title}</h2>
+              <p className="type-body opacity-90 max-w-2xl">{featured.excerpt}</p>
+              <div className="pt-1">
+                <BrutalButton
+                  to={`/insights/${featured.slug}`}
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => trackConversionEvent('blog_read', { label: featured.slug })}
+                >
+                  <span>Read Full Playbook</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </BrutalButton>
+              </div>
             </div>
           </BrutalCard>
         )}
 
         {/* Articles Grid */}
         {filtered.length === 0 ? (
-          <BrutalCard className="p-8 text-center space-y-2">
-            <p className="font-bold">No matching articles found for &ldquo;{query}&rdquo;.</p>
-            <button
-              type="button"
+          <BrutalCard className="p-8 text-center flex flex-col items-center space-y-3">
+            <EmptySearchIllustration className="w-28 h-24" />
+            <p className="font-bold">No matching playbooks found for &ldquo;{query}&rdquo;.</p>
+            <BrutalButton
+              variant="secondary"
+              size="sm"
               onClick={() => {
                 setCategory('All');
                 setQuery('');
               }}
-              className="text-sm font-bold underline cursor-pointer"
             >
               Reset filters
-            </button>
+            </BrutalButton>
           </BrutalCard>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((art) => (
               <BrutalCard key={art.slug} className="flex flex-col justify-between h-full">
-                <div className="space-y-2.5">
-                  <div className="text-xs font-mono-num font-bold text-[#B95E50] dark:text-[#FFC21A]">
-                    {art.category} <span aria-hidden="true">·</span> {art.readingTime}
+                <div className="space-y-3">
+                  <div className="p-3 brutal-border bg-[var(--bg-cream)] rounded-[8px] flex items-center justify-center">
+                    <ServiceIllustration
+                      name={(art as { illustrationKey?: string }).illustrationKey}
+                      alt=""
+                      className="w-full h-28"
+                    />
                   </div>
-                  <h2 className="text-xl font-extrabold leading-snug">{art.title}</h2>
-                  <p className="text-sm text-[#4B433C] dark:text-[#E7D8C5] leading-relaxed">
+                  <p className="type-label text-[var(--text-terracotta)]">
+                    {art.category} <span aria-hidden="true">·</span> {art.readingTime}
+                  </p>
+                  <h2 className="type-h3 leading-snug">{art.title}</h2>
+                  <p className="type-small text-[var(--text-secondary)] leading-relaxed">
                     {art.excerpt}
                   </p>
                 </div>
-                <div className="pt-4 mt-4 border-t-2 border-[#111111]/15 dark:border-[#FFF9F0]/20 flex items-center justify-between text-xs font-bold">
-                  <span>{art.publishedAt}</span>
+                <div className="pt-4 mt-4 border-t-2 border-[var(--border-ink)]/15 flex items-center justify-between text-xs font-bold">
+                  <span className="font-mono-num opacity-75">{art.publishedAt}</span>
                   <Link
                     to={`/insights/${art.slug}`}
                     onClick={() => trackConversionEvent('blog_read', { label: art.slug })}
-                    className="inline-flex items-center gap-1 underline hover:text-[#B95E50] dark:hover:text-[#FFC21A]"
+                    className="min-h-[44px] inline-flex items-center gap-1 underline hover:text-[var(--text-gulabi)]"
                   >
-                    <span>Read Article</span>
+                    <span>Read Guide</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

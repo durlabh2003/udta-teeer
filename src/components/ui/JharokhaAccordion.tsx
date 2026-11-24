@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 export interface FaqItem {
@@ -12,32 +12,39 @@ interface JharokhaAccordionProps {
 
 export function JharokhaAccordion({ items }: JharokhaAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const accordionId = useId();
+  const cappedItems = items.slice(0, 6);
 
   return (
-    <div className="space-y-4">
-      {items.map((item, idx) => {
+    <div className="space-y-3">
+      {cappedItems.map((item, idx) => {
         const isOpen = openIndex === idx;
+        const buttonId = `${accordionId}-btn-${idx}`;
+        const panelId = `${accordionId}-panel-${idx}`;
+
         return (
           <div
             key={item.q}
-            className="brutal-border brutal-shadow-sm rounded-t-[28px] rounded-b-[6px] bg-[#FFFFFF] dark:bg-[#1D2052] overflow-hidden"
+            className="brutal-border brutal-shadow-sm rounded-t-[18px] rounded-b-[8px] bg-[var(--bg-surface)] overflow-hidden"
           >
-            {/* Jharokha cusped arch top trim */}
+            {/* Jharokha cusped arch accent trim */}
             <div
-              className="h-2.5 w-full border-b-[3px] border-[#111111] dark:border-[#FFF4E0] bg-[#F4A6B8]"
+              className="h-2 w-full border-b-2 border-[var(--border-ink)] bg-[var(--color-gulabi)]/25"
               aria-hidden="true"
             />
             <button
+              id={buttonId}
               type="button"
               onClick={() => setOpenIndex(isOpen ? null : idx)}
               aria-expanded={isOpen}
-              className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer hover:bg-[#FFF9EE] dark:hover:bg-[#252968] transition-colors"
+              aria-controls={panelId}
+              className="w-full min-h-[48px] flex items-center justify-between gap-3 px-4 py-3 text-left cursor-pointer hover:bg-[var(--bg-sandstone)]/40 transition-colors focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-inset focus-visible:ring-[var(--focus-ring)]"
             >
-              <span className="font-display font-bold text-base md:text-lg text-[#111111] dark:text-[#FFF4E0]">
+              <span className="font-display font-bold text-sm md:text-base text-[var(--text-primary)] pr-2">
                 {item.q}
               </span>
               <span
-                className={`w-9 h-9 shrink-0 brutal-border bg-[#FFC21A] text-[#111111] flex items-center justify-center rounded-[4px] transition-transform duration-200 ${
+                className={`w-9 h-9 shrink-0 brutal-border bg-[var(--color-marigold)] text-[var(--text-on-marigold)] flex items-center justify-center rounded-[6px] transition-transform duration-200 ${
                   isOpen ? 'rotate-180' : ''
                 }`}
                 aria-hidden="true"
@@ -45,11 +52,22 @@ export function JharokhaAccordion({ items }: JharokhaAccordionProps) {
                 <ChevronDown className="w-5 h-5 stroke-[2.5]" />
               </span>
             </button>
-            {isOpen && (
-              <div className="px-5 pb-5 pt-2 border-t-2 border-dashed border-[#111111]/30 dark:border-[#FFF4E0]/30 text-sm md:text-base leading-relaxed text-[#3A3532] dark:text-[#E6D8C5]">
-                {item.a}
+
+            <div
+              id={panelId}
+              role="region"
+              aria-labelledby={buttonId}
+              aria-hidden={!isOpen}
+              className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="px-4 pb-4 pt-2.5 border-t-2 border-dashed border-[var(--border-ink)]/25 text-sm leading-relaxed text-[var(--text-secondary)] break-words">
+                  {item.a}
+                </div>
               </div>
-            )}
+            </div>
           </div>
         );
       })}

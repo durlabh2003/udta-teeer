@@ -2,56 +2,86 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
-   Urdta Teeeeeer — Digital Pink City + Neo-Brutalist Design Tokens
+   Urdta Teeeeeer — Jaipur Pink City Design System (Light & Dark CSS Tokens)
    ========================================================================== */
 :root {
-  /* Consolidated Jaipur Pink City Palette */
-  --sandstone: #F3E5CE;
-  --ivory: #FFF9F0;
-  --jaipur-pink: #E7B9A4;
-  --gulabi: #F4A6B8;
-  --hot-pink: #FF4F8B;
-  --terracotta: #B95E50;
-  --terracotta-bright: #D9482B;
-  --rose: #D9776B;
-  --marigold: #FFC21A;
-  --saffron: #D99B35;
-  --peacock: #1FB5B0;
-  --indigo: #263650;
-  --charcoal: #282522;
-  --cream: #FFF4E0;
-  --ink: #111111;
+  /* Core Brand Palette */
+  --color-cream: #FFF7EC;
+  --color-sandstone: #F5E6D3;
+  --color-surface: #FFFDF8;
+  --color-elevated: #FFF3DE;
+  --color-gulabi: #C41D57;
+  --color-gulabi-hover: #A81649;
+  --color-gulabi-soft: #F7B7CC;
+  --color-marigold: #FFC21A;
+  --color-cobalt: #1E56A0;
+  --color-cobalt-dark: #68A4FF;
+  --color-terracotta: #94311E;
+  --color-indigo: #1B243B;
 
-  /* Semantic Surface & Text Tokens (WCAG 2.2 AA Contrast) */
-  --bg-canvas: #F3E5CE;
-  --bg-surface: #FFF9F0;
-  --bg-elevated: #FFF4E0;
-  --text-primary: #282522;
-  --text-secondary: #4B433C;
-  --border-ink: #111111;
-  --shadow-color: #111111;
-  --focus-ring: #B95E50;
+  /* Accessible Foreground / Surface Semantics (WCAG 2.2 AA >= 4.5:1) */
+  --bg-canvas: #F5E6D3;
+  --bg-cream: #FFF7EC;
+  --bg-sandstone: #EFE0C9;
+  --bg-surface: #FFFDF8;
+  --bg-elevated: #FFF7EC;
+  --text-primary: #1B243B;
+  --text-secondary: #433934;
+  --text-muted: #524741;
+  --text-gulabi: #B31950;
+  --text-terracotta: #94311E;
+  --text-cobalt: #184A8C;
+  --text-on-gulabi: #FFFDF8;
+  --text-on-cobalt: #FFFDF8;
+  --text-on-marigold: #171A26;
+  --text-on-dark: #FFFDF8;
+  --ink-on-accent: #171A26;
+  --border-ink: #1B243B;
+  --shadow-color: #1B243B;
+  --focus-ring: #B31950;
+  --pattern-ink: rgba(148, 49, 30, 0.08);
+  --pattern-gold: rgba(217, 155, 53, 0.11);
 
-  /* Typography */
-  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-  --font-editorial: 'Playfair Display', Georgia, serif;
-  --font-poster: 'Bowlby One', 'Bricolage Grotesque', sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-hand: 'Permanent Marker', cursive;
-  --font-devanagari: 'Noto Serif Devanagari', serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Strict Max 3 Font Families */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Consistent 8px Grid Borders & Elevation */
+  --border-width: 2px;
+  --radius-card: 8px;
+  --radius-control: 6px;
+  --shadow-sm: 2px 2px 0 0 var(--shadow-color);
+  --shadow-md: 3px 3px 0 0 var(--shadow-color);
+  --shadow-lg: 5px 5px 0 0 var(--shadow-color);
 }
 
 .dark {
   /* Raat Ka Jaipur (Deep Indigo Night Mode) */
-  --bg-canvas: #182235;
-  --bg-surface: #212E46;
-  --bg-elevated: #263650;
-  --text-primary: #FFF9F0;
-  --text-secondary: #E7D8C5;
-  --border-ink: #FFF9F0;
-  --shadow-color: #0D1422;
+  --color-sandstone: #1A2238;
+  --color-cobalt: #68A4FF;
+  --color-terracotta: #FFA088;
+  --bg-canvas: #131929;
+  --bg-cream: #131929;
+  --bg-sandstone: #1A2238;
+  --bg-surface: #1B243B;
+  --bg-elevated: #24304D;
+  --text-primary: #FFF7EC;
+  --text-secondary: #E6D9C7;
+  --text-muted: #D2C4B0;
+  --text-gulabi: #FF85B0;
+  --text-terracotta: #FFA088;
+  --text-cobalt: #7EB6FF;
+  --text-on-gulabi: #FFFDF8;
+  --text-on-cobalt: #131929;
+  --text-on-marigold: #131929;
+  --text-on-dark: #FFF7EC;
+  --ink-on-accent: #131929;
+  --border-ink: #EBDAC5;
+  --shadow-color: #090D16;
   --focus-ring: #FFC21A;
+  --pattern-ink: rgba(255, 194, 26, 0.08);
+  --pattern-gold: rgba(104, 164, 255, 0.08);
 }
 
 @layer base {
@@ -60,6 +90,7 @@
     font-family: var(--font-body);
     background-color: var(--bg-canvas);
     color: var(--text-primary);
+    font-size: 15px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -73,39 +104,79 @@
     min-height: 100vh;
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     text-wrap: balance;
+    letter-spacing: -0.015em;
   }
 
   *:focus-visible {
     outline: 3px solid var(--focus-ring);
-    outline-offset: 3px;
+    outline-offset: 2px;
   }
 }
 
-.font-poster {
-  font-family: var(--font-poster);
+/* Type Scale Utilities */
+.type-display {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.1vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-.font-editorial {
-  font-family: var(--font-editorial);
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.16;
 }
 
-.font-display {
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.type-body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.type-small {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Mapped Typography Classes (strictly 3 families) */
+.font-display,
+.font-editorial,
+.font-poster,
+.font-hand {
   font-family: var(--font-display);
 }
 
 .font-hand {
-  font-family: var(--font-hand);
+  font-style: italic;
+  font-weight: 600;
 }
 
-.font-devanagari {
-  font-family: var(--font-devanagari);
+.font-body {
+  font-family: var(--font-body);
 }
 
 .font-mono-num {
@@ -113,53 +184,78 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* Consistent Tactile Borders & Shadows */
 .brutal-border {
-  border: 3px solid var(--border-ink);
+  border: var(--border-width) solid var(--border-ink);
 }
 
 .brutal-shadow {
-  box-shadow: 6px 6px 0 0 var(--shadow-color);
+  box-shadow: var(--shadow-md);
 }
 
 .brutal-shadow-sm {
-  box-shadow: 4px 4px 0 0 var(--shadow-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .brutal-shadow-lg {
-  box-shadow: 8px 8px 0 0 var(--shadow-color);
+  box-shadow: var(--shadow-lg);
 }
 
 .brutal-press {
-  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 150ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 150ms ease;
 }
 
 .brutal-press:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0 0 var(--shadow-color);
+  box-shadow: var(--shadow-lg);
 }
 
 .brutal-press:active {
-  transform: translate(4px, 4px);
+  transform: translate(3px, 3px);
   box-shadow: 2px 2px 0 0 var(--shadow-color);
 }
 
+/* Jaipur Scalloped / Jharokha Arch Chrome */
+.jharokha-card {
+  border-radius: 24px 24px var(--radius-card) var(--radius-card);
+}
+
+.cusped-arch-top {
+  background-image: radial-gradient(circle at 12px 100%, transparent 9px, var(--border-ink) 9px, var(--border-ink) 11px, var(--color-gulabi-soft) 11px);
+  background-size: 24px 12px;
+  background-repeat: repeat-x;
+}
+
+/* Low-Opacity Jaipur Architectural & Block-Print Section Backgrounds */
 .paper-grain {
-  background-image: radial-gradient(rgba(40, 37, 34, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(var(--pattern-ink) 1px, transparent 0);
   background-size: 16px 16px;
 }
 
-.dark .paper-grain {
-  background-image: radial-gradient(rgba(255, 249, 240, 0.06) 1px, transparent 0);
-  background-size: 16px 16px;
+.jaali-bg {
+  background-image:
+    linear-gradient(45deg, var(--pattern-ink) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--pattern-ink) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bagru-bg {
+  background-image:
+    radial-gradient(circle at 8px 8px, var(--pattern-ink) 2px, transparent 2.5px),
+    radial-gradient(circle at 24px 24px, var(--pattern-gold) 2px, transparent 2.5px);
+  background-size: 32px 32px;
 }
 
 .bandhani-bg {
   background-image:
-    radial-gradient(circle at 8px 8px, #B95E50 2px, transparent 2.5px),
-    radial-gradient(circle at 24px 24px, #D99B35 2px, transparent 2.5px);
+    radial-gradient(circle at 10px 10px, var(--pattern-ink) 2.2px, transparent 2.5px),
+    radial-gradient(circle at 26px 26px, var(--pattern-gold) 2.2px, transparent 2.5px);
   background-size: 32px 32px;
 }
 
+/* Subtle Animations */
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0%);
@@ -179,17 +275,35 @@
   animation-play-state: paused;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
+@keyframes kite-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(-3deg);
   }
-  .brutal-press:hover,
-  .brutal-press:active {
-    transform: none;
+  50% {
+    transform: translateY(-6px) rotate(3deg);
   }
+}
+
+.animate-kite-float {
+  animation: kite-float 4s ease-in-out infinite;
+}
+
+@keyframes arrow-sweep {
+  0% {
+    transform: translateX(-12%);
+    opacity: 0;
+  }
+  15%, 85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(112%);
+    opacity: 0;
+  }
+}
+
+.animate-arrow-sweep {
+  animation: arrow-sweep 9s ease-in-out infinite;
 }
 
 @keyframes chai-steam {
@@ -202,10 +316,44 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(-22px) scale(1.2);
+    transform: translateY(-20px) scale(1.15);
   }
 }
 
 .animate-chai-steam {
   animation: chai-steam 1.8s ease-out infinite;
+}
+
+@keyframes filter-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-filter-fade {
+  animation: filter-fade 200ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .animate-kite-float,
+  .animate-arrow-sweep,
+  .animate-chai-steam,
+  .animate-filter-fade {
+    animation: none;
+  }
+  .brutal-press:hover,
+  .brutal-press:active {
+    transform: none;
+  }
 }

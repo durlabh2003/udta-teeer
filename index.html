@@ -12,11 +12,11 @@
 
     <!-- PWA & Mobile App Icons -->
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#F3E5CE" />
+    <meta name="theme-color" content="#FFF7EC" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="UrdtaTeer" />
+    <meta name="apple-mobile-web-app-title" content="Urdta Teeeeeer" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
 
@@ -29,31 +29,27 @@
       property="og:description"
       content="Jaipur branding agency, custom web development &amp; digital growth studio. One accountable team for UI/UX, e-commerce, SEO &amp; ads. Plan your project in 60s."
     />
-    <meta property="og:image" content="https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg" />
+    <meta property="og:image" content="https://udta-teeer.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Urdta Teeeeeer — Branding &amp; Web Development Studio in Jaipur" />
     <meta
       name="twitter:description"
       content="Jaipur branding agency, custom web development &amp; digital growth studio. One accountable team for UI/UX, e-commerce, SEO &amp; ads."
     />
-    <meta name="twitter:image" content="https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg" />
+    <meta name="twitter:image" content="https://udta-teeer.vercel.app/og-image.jpg" />
 
-    <!-- Performance: Preconnect & Preload Critical Visual/Font Assets -->
+    <!-- Performance: Preconnect & Strictly 3 Font Families (Display Serif, Clean Sans, Tiny Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
-      as="image"
-      href="/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+Devanagari:wght@600;700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+Devanagari:wght@600;700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
       rel="stylesheet"
     />
 
@@ -66,10 +62,10 @@
             "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
             "@id": "https://udta-teeer.vercel.app/#organization",
             "name": "Urdta Teeeeeer",
-            "alternateName": "Udta Teer Creative Technology Studio",
+            "alternateName": "Urdta Teeeeeer Jaipur Studio",
             "url": "https://udta-teeer.vercel.app/",
             "logo": "https://udta-teeer.vercel.app/pwa-512x512.png",
-            "image": "https://udta-teeer.vercel.app/src/assets/images/jaipur_studio_hero_art_1794811735554.jpg",
+            "image": "https://udta-teeer.vercel.app/og-image.jpg",
             "description": "Jaipur branding agency, custom web development, UI/UX design, e-commerce, and digital growth studio uniting creative, engineering, and marketing under one accountable team.",
             "email": "namaste@urdtateeeeeer.in",
             "address": {
@@ -88,7 +84,7 @@
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Brand Identity & UI/UX Design (Creative Haveli)",
+                    "name": "Brand Identity & UI/UX Design (Design Haveli)",
                     "serviceType": "Branding & Design"
                   }
                 },
@@ -96,7 +92,7 @@
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "Custom Website, E-Commerce & SaaS Development (Digital Karkhana)",
+                    "name": "Custom Website, E-Commerce & SaaS Development (Dev Karkhana)",
                     "serviceType": "Web & Product Development"
                   }
                 },
@@ -125,11 +121,17 @@
   <body>
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#FFC21A] focus:text-[#111111] focus:font-bold focus:border-2 focus:border-[#111111]"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#FFC21A] focus:text-[#1B243B] focus:font-bold focus:border-2 focus:border-[#1B243B]"
     >
       Skip to content
     </a>
-    <div id="root"></div>
+    <div id="root">
+      <main style="max-width:960px;margin:0 auto;padding:48px 24px;font-family:sans-serif;color:#1B243B;background:#FFF7EC;">
+        <p style="font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;">Jaipur Creative Technology Studio</p>
+        <h1 style="font-size:40px;line-height:1.1;margin:12px 0;">One studio. Brand, web &amp; growth.</h1>
+        <p style="font-size:18px;max-width:600px;">Design, code, and growth engineered under one Pink City roof.</p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

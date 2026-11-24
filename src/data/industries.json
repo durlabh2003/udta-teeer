@@ -1,204 +1,214 @@
 {
-  "disclaimer": "These represent target customer sectors and tailored digital solutions — never fabricated claims about existing client rosters.",
+  "disclaimer": "Target business sectors & tailored Jaipur digital workflows — never fabricated client claims.",
   "industries": [
     {
       "slug": "retail",
       "name": "Jewellery & Retail",
       "jaipurEstablishment": "Johari Bazaar Showroom",
-      "tagline": "Build a digital storefront that showcases your craftsmanship and helps buyers discover your brand.",
-      "intro": "Jaipur's jewellery and retail businesses thrive on trust, visual detail, and personal relationships. Online, slow websites or flat catalogue PDFs cost you both local footfall and national buyers.",
+      "illustrationKey": "ecommerce",
+      "tagline": "Craft-first digital storefronts for high-ticket retail.",
+      "intro": "Turn showroom trust into fast, zoomable product catalogues and instant WhatsApp enquiries.",
       "challenges": [
-        "High-value products look flat without directional photography and clean zoomable galleries.",
-        "Outdated websites fail to capture WhatsApp inquiries or online orders cleanly.",
-        "Heavy reliance on offline walk-ins limits pan-India D2C growth."
+        "Flat product photos without craft zoom",
+        "Slow checkout and buried WhatsApp links",
+        "Over-reliance on offline showroom walk-ins"
       ],
-      "designSolutions": ["Luxury-leaning Brand Identity & Packaging", "Editorial Product Catalogue UI", "Art Direction for Product Shoots"],
-      "developmentSolutions": ["Custom Shopify / WooCommerce Storefront", "UPI, COD Verification & Insured Shipping Flows", "WhatsApp Inquiry & Video-Call Booking"],
-      "marketingSolutions": ["Local & National Jewellery SEO", "Meta Carousel & Video Catalog Ads", "Festive Season Retargeting"],
-      "recommendedCombo": "Brand Identity + E-Commerce Storefront + Performance Ads",
+      "designSolutions": ["Luxury Brand Identity & Packaging", "Editorial Product Catalogue UI", "Product Art Direction"],
+      "developmentSolutions": ["Shopify / WooCommerce Storefront", "UPI, COD & Insured Checkout", "WhatsApp Concierge Triggers"],
+      "marketingSolutions": ["Local & National Jewellery SEO", "Meta Catalog Ads", "Festive Retargeting"],
+      "recommendedCombo": "Brand Identity + E-Commerce + Ads",
       "relatedProjectSlugs": ["tapinfi"],
       "faqs": [
-        { "q": "Can customers enquire on WhatsApp before paying online?", "a": "Yes. High-ticket retail works best with both direct checkout and instant WhatsApp concierge triggers per product." }
+        { "q": "Can buyers message on WhatsApp before paying online?", "a": "Yes — every product supports instant WhatsApp concierge triggers alongside direct checkout." }
       ]
     },
     {
       "slug": "hospitality",
       "name": "Hospitality & Tourism",
       "jaipurEstablishment": "Haveli Heritage Stay",
-      "tagline": "Turn your hospitality business into a destination guests can discover and book directly.",
-      "intro": "Boutique hotels, heritage stays, and curated travel operators lose 18–25% of margin to OTA aggregators. We build direct-booking digital experiences that capture travelers early.",
+      "illustrationKey": "website",
+      "tagline": "Direct-booking hotel sites that beat OTA fees.",
+      "intro": "Capture travellers early and convert room searches directly without 20% aggregator commissions.",
       "challenges": [
-        "Paying recurring commissions to aggregators due to weak direct websites.",
-        "Mobile visitors drop off when room tariffs, dates, and inquiry buttons are buried.",
-        "Invisible on Google Maps and AI travel search for Jaipur/Rajasthan itineraries."
+        "Margin loss to OTA aggregators",
+        "Buried room tariffs on mobile screens",
+        "Low visibility on Google Maps & AI search"
       ],
-      "designSolutions": ["Atmospheric Heritage Web Design", "Room & Experience Storytelling Layouts", "Digital Lookbooks"],
-      "developmentSolutions": ["Direct Booking & Availability Inquiry Engine", "Fast Mobile Speed over 4G", "Multilingual / Currency Ready Pages"],
-      "marketingSolutions": ["Google Business Profile + Travel SEO/AEO", "Destination Search Ads", "Reels & Visual Itinerary Content"],
-      "recommendedCombo": "Creative Website + Direct Booking Flow + Local SEO",
+      "designSolutions": ["Heritage Storytelling Layouts", "Room & Experience Galleries", "Digital Lookbooks"],
+      "developmentSolutions": ["Direct Availability & Booking Flow", "Fast 4G Mobile Performance", "Multi-Currency Pages"],
+      "marketingSolutions": ["Google Business + Travel SEO", "Destination Search Ads", "Reels Itinerary Campaigns"],
+      "recommendedCombo": "Creative Website + Direct Booking + Local SEO",
       "relatedProjectSlugs": ["case-study-2"],
       "faqs": [
-        { "q": "Can you integrate our existing PMS or channel manager?", "a": "Yes — we connect popular hotel booking engines or build clean direct inquiry workflows." }
+        { "q": "Can you connect our existing booking engine or PMS?", "a": "Yes — we integrate major booking engines cleanly into a bespoke UI." }
       ]
     },
     {
       "slug": "handicrafts",
       "name": "Handicrafts & Lifestyle",
       "jaipurEstablishment": "Sanganer Craft Studio",
-      "tagline": "Take authentic Rajasthani craft and lifestyle products from local workshops to global carts.",
-      "intro": "Block prints, blue pottery, home decor, and slow-fashion labels deserve digital storefronts that honor craft provenance while converting international and metro buyers.",
+      "illustrationKey": "branding",
+      "tagline": "Block print & artisanal brands built for D2C carts.",
+      "intro": "Pair Sanganer heritage storytelling with crisp D2C UX and packaging that earns metro & export margins.",
       "challenges": [
-        "Artisanal stories get lost on generic marketplace listings.",
-        "International and D2C buyers need clear sizing, care, and shipping reassurance.",
-        "Inconsistent packaging and social visuals weaken premium pricing."
+        "Craft story lost on generic marketplaces",
+        "Missing size, care & shipping clarity",
+        "Mismatched social and packaging visuals"
       ],
-      "designSolutions": ["Story-Driven Brand Identity & Labels", "Packaging & Unboxing Inserts", "Warm Editorial Storefront UI"],
-      "developmentSolutions": ["D2C E-Commerce Storefront", "Bundle & Gift-Box Builders", "Multi-Currency / Export Inquiry Support"],
-      "marketingSolutions": ["Craft Provenance Reels & Content", "Meta Advantage+ Shopping Campaigns", "Organic Pinterest & Search SEO"],
-      "recommendedCombo": "Packaging + Shopify Storefront + Social Creative System",
+      "designSolutions": ["Artisanal Identity & Labels", "Unboxing & Packaging Systems", "Editorial D2C Storefront UI"],
+      "developmentSolutions": ["Custom D2C Storefront", "Gift-Box & Bundle Builders", "Export Trade Inquiry Flows"],
+      "marketingSolutions": ["Provenance Reels Content", "Meta Shopping Campaigns", "Organic Search & Pinterest SEO"],
+      "recommendedCombo": "Packaging + Storefront + Creative System",
       "relatedProjectSlugs": ["case-study-1"],
       "faqs": [
-        { "q": "Do you handle B2B export inquiries alongside D2C retail?", "a": "Yes, we build dual flows: instant cart checkout for consumers and bulk trade inquiry forms for wholesale buyers." }
+        { "q": "Can retail and B2B export buyers use the same site?", "a": "Yes — instant cart for D2C shoppers plus gated bulk RFQ forms for trade buyers." }
       ]
     },
     {
       "slug": "education",
       "name": "Education & Institutions",
       "jaipurEstablishment": "Vidya Kendra Campus",
-      "tagline": "Turn campus searches and parent inquiries into organized, trackable admissions pipelines.",
-      "intro": "Schools, coaching institutes, and EdTech platforms need clarity for parents and speed for counselors — eliminating lost inquiry spreadsheets during peak admission months.",
+      "illustrationKey": "crm",
+      "tagline": "Organised parent enquiries & admission pipelines.",
+      "intro": "Replace cluttered PDFs and scattered spreadsheets with clear campus UX and automated CRM routing.",
       "challenges": [
-        "Cluttered multi-tab websites that overwhelm parents on mobile.",
-        "Admission inquiries scattered across calls, paper forms, and WhatsApp.",
-        "Rising cost per admission lead on Google and Meta Ads."
+        "Overwhelming multi-tab mobile menus",
+        "Lost admissions across paper & chats",
+        "Rising Google/Meta cost per inquiry"
       ],
-      "designSolutions": ["Clear Course & Campus UX Architecture", "High-Converting Admission Landing Pages", "Digital Prospectus Design"],
-      "developmentSolutions": ["Admission Portal & Inquiry Routing", "CRM Pipeline + Automated Counselor Follow-up", "Student Resource Portals"],
-      "marketingSolutions": ["Search Ads for High-Intent Courses", "Local SEO & Campus Visibility", "Hindi & Hinglish Parent Campaigns"],
-      "recommendedCombo": "Admission Landing System + CRM Automation + Google/Meta Ads",
+      "designSolutions": ["Clear Course UX Architecture", "Admission Landing Pages", "Digital Prospectus"],
+      "developmentSolutions": ["Admission Inquiry Routing", "CRM + Counselor Alerts", "Student Resource Portals"],
+      "marketingSolutions": ["High-Intent Course Search Ads", "Campus Local SEO", "Bilingual Parent Campaigns"],
+      "recommendedCombo": "Admission Site + CRM + Search Ads",
       "relatedProjectSlugs": ["vyapaar-saathi"],
       "faqs": [
-        { "q": "Can leads route straight to our admission counselors?", "a": "Yes, every form and WhatsApp click syncs directly with your CRM and notifies the assigned counselor." }
+        { "q": "Can enquiries alert counselors immediately?", "a": "Yes — every lead routes straight into your CRM with automated follow-up triggers." }
       ]
     },
     {
       "slug": "restaurants",
       "name": "Restaurants & Cafes",
       "jaipurEstablishment": "MI Road Roastery",
-      "tagline": "Fill tables, grow direct orders, and stand out in Jaipur's thriving food scene.",
-      "intro": "Cafes, QSRs, and specialty restaurants shouldn't rely solely on food-delivery discounts. We build memorable brand worlds, scannable menus, and local discovery engines.",
+      "illustrationKey": "mobile-app",
+      "tagline": "Fast digital menus, QR ordering & fuller tables.",
+      "intro": "Ditch unreadable PDF menus for thumb-friendly ordering, table bookings, and hyper-local discovery.",
       "challenges": [
-        "Customers only see PDF menus that are impossible to read on phones.",
-        "Zero direct table reservation or catering inquiry capture.",
-        "Posting generic festival graphics without local footfall impact."
+        "Slow pinch-to-zoom PDF menus",
+        "Zero direct table or catering capture",
+        "Generic posts with zero footfall impact"
       ],
-      "designSolutions": ["Menu & Table Collateral Design", "Vibrant Social Reels & Visual Identity", "Interactive Digital Menu UI"],
-      "developmentSolutions": ["Fast Mobile Menu + QR Ordering Web App", "Table Reservation & Catering Forms", "Cafe Operations & POS Dashboards"],
-      "marketingSolutions": ["Google Maps & 'Near Me' Local SEO", "Geo-Targeted Instagram Reels Ads", "Loyalty & WhatsApp Broadcast Flows"],
-      "recommendedCombo": "Brand & Menu Design + Digital Ordering/Menu + Local SEO",
+      "designSolutions": ["Menu & Table Collateral", "Food Reels Visual System", "Mobile Digital Menu UI"],
+      "developmentSolutions": ["QR Web Menu & Ordering", "Table & Catering Booking", "Operations & POS Dashboards"],
+      "marketingSolutions": ["Google Maps 'Near Me' SEO", "Geo-Targeted Reels Ads", "WhatsApp Loyalty Flows"],
+      "recommendedCombo": "Menu UX + QR Ordering + Local SEO",
       "relatedProjectSlugs": ["cafeos"],
       "faqs": [
-        { "q": "Can we update menu items and prices ourselves?", "a": "Yes, we build clean menu management so your team can update prices or specials in seconds." }
+        { "q": "Can our staff update dishes and pricing daily?", "a": "Yes — our admin bar updates menu items and specials in seconds." }
       ]
     },
     {
       "slug": "startups",
       "name": "Startups & SaaS",
       "jaipurEstablishment": "Malviya Nagar Tech Hub",
-      "tagline": "Go from early concept to sharp product UX, scalable MVP, and investor-ready launch.",
-      "intro": "Early-stage founders need speed without brittle tech debt. We unite positioning, UI/UX prototyping, full-stack engineering, and launch acquisition in one tight team.",
+      "illustrationKey": "saas",
+      "tagline": "Product UX, scalable MVP & sharp launch positioning.",
+      "intro": "Move from idea to functional React/Node product and investor-ready site under one sprint team.",
       "challenges": [
-        "Product value takes 3 paragraphs to explain instead of 5 seconds.",
-        "Disconnected freelance designers and backend devs slow down MVP launches.",
-        "Need credible pitch decks and demo-ready builds for fundraising."
+        "Product pitch takes paragraphs to grasp",
+        "Siloed freelance designers & coders",
+        "Demo builds unready for investors"
       ],
-      "designSolutions": ["Startup Identity & Positioning", "Product UI/UX & Design Systems", "Investor Pitch Decks"],
-      "developmentSolutions": ["SaaS MVP & Custom Web Apps", "Role-Based Dashboards & Billing", "API & Workflow Integrations"],
-      "marketingSolutions": ["Launch Waitlist & Product Marketing", "AEO/GEO Search Positioning", "Founder-Led Content Systems"],
-      "recommendedCombo": "UI/UX System + SaaS MVP Milestones + Launch Website",
+      "designSolutions": ["Startup Brand & Positioning", "Design Systems & Prototypes", "Investor Pitch Kits"],
+      "developmentSolutions": ["SaaS MVP & Web Apps", "Role Dashboards & Billing", "API & AI Automations"],
+      "marketingSolutions": ["Waitlist & Launch Funnels", "AEO/GEO Search Presence", "Founder Content Systems"],
+      "recommendedCombo": "UI/UX System + SaaS MVP + Launch Site",
       "relatedProjectSlugs": ["tapinfi", "cafeos"],
       "faqs": [
-        { "q": "Do we retain 100% IP and code ownership?", "a": "Always. All repositories, Figma files, and cloud infrastructure sit in accounts you own." }
+        { "q": "Do we own 100% of code and Figma files?", "a": "Always — repositories and design files live in accounts your company owns." }
       ]
     },
     {
       "slug": "healthcare",
       "name": "Healthcare & Clinics",
       "jaipurEstablishment": "C-Scheme Care Clinic",
-      "tagline": "Build patient trust online with clear specialty pages and frictionless appointment booking.",
-      "intro": "Patients search symptoms, doctor credentials, and clinic proximity before calling. Clean information architecture and ethical local SEO turn searches into booked consultations.",
+      "illustrationKey": "ui-ux",
+      "tagline": "Accessible clinic UX & instant booking times.",
+      "intro": "Verify doctor credentials, timings, and book visits in two taps.",
       "challenges": [
-        "Outdated clinic sites lacking doctor profiles, procedure FAQs, or clear timings.",
-        "Missed patient calls without instant WhatsApp appointment confirmation.",
-        "Low Google Maps visibility against aggregator directories."
+        "Missing doctor bios & clear timings",
+        "Dropped calls without WhatsApp booking",
+        "Outranked by aggregator directories"
       ],
-      "designSolutions": ["Calm, Trust-Building Clinic UI", "Accessible High-Contrast Typography", "Patient Education Infographics"],
-      "developmentSolutions": ["Appointment Booking & Slot Forms", "Automated WhatsApp Reminder Flows", "Doctor & Treatment Directory"],
-      "marketingSolutions": ["Hyper-Local Healthcare SEO", "Hindi & English Patient Content", "Ethical Google Search Campaigns"],
-      "recommendedCombo": "Business Website + Local SEO + WhatsApp Appointment Flow",
+      "designSolutions": ["Calm Accessible Clinic UI", "Clear Doctor Profile Layouts", "Patient Care Guides"],
+      "developmentSolutions": ["Timings & Doctor Booking Forms", "WhatsApp Reminder Flows", "Treatment Directories"],
+      "marketingSolutions": ["Hyper-Local Healthcare SEO", "Bilingual Patient Content", "Google Search Campaigns"],
+      "recommendedCombo": "Clinic Website + Local SEO + Booking Flow",
       "relatedProjectSlugs": ["case-study-2"],
       "faqs": [
-        { "q": "Can patients book specific doctors or time slots?", "a": "Yes, we configure slot preferences and instant clinic reception notifications." }
+        { "q": "Can patients select specific doctors and timings?", "a": "Yes — instant timing filters notify your clinic front desk right away." }
       ]
     },
     {
       "slug": "real-estate",
       "name": "Real Estate & Interiors",
       "jaipurEstablishment": "Vaishali Nagar Studio",
-      "tagline": "Present properties and architectural projects with clarity that filters serious buyers.",
-      "intro": "Developers, brokers, and interior studios need fast project microsites, downloadable floor plans, and qualified site-visit funnels instead of junk leads.",
+      "illustrationKey": "lead-gen",
+      "tagline": "Fast project microsites that filter serious buyers.",
+      "intro": "Replace 30MB brochure PDFs with interactive floor plans and qualified site-visit funnels.",
       "challenges": [
-        "Heavy brochure PDFs take 30 seconds to load on mobile.",
-        "Paid ad campaigns generate unverified clicks instead of site visits.",
-        "No clean gallery for completed interior or residential milestones."
+        "Heavy PDFs stalling on mobile 4G",
+        "Unqualified clicks draining ad spend",
+        "Scattered project milestone galleries"
       ],
-      "designSolutions": ["Project Microsite & Floor-Plan UI", "Digital Brochures & Pitch Kits", "Architectural Portfolio Layouts"],
-      "developmentSolutions": ["Property Listing & Filter Portals", "Site-Visit & Brochure Lead Gating", "CRM Lead Qualification Automation"],
-      "marketingSolutions": ["High-Intent Search & Meta Lead Ads", "Project Walkthrough Video Edits", "Local Real Estate SEO"],
-      "recommendedCombo": "Project Landing System + CRM Lead Routing + Performance Ads",
+      "designSolutions": ["Project Microsite & Plan UI", "Interactive Pitch Kits", "Portfolio Lookbooks"],
+      "developmentSolutions": ["Property Filter Portals", "Gated Floor-Plan Downloads", "CRM Lead Qualification"],
+      "marketingSolutions": ["High-Intent Lead Ads", "Project Walkthrough Reels", "Jaipur Locality SEO"],
+      "recommendedCombo": "Microsite + CRM Routing + Lead Ads",
       "relatedProjectSlugs": ["vyapaar-saathi"],
       "faqs": [
-        { "q": "How do you reduce low-quality leads in real estate ads?", "a": "We use qualifying form questions, transparent price brackets on landing pages, and location-specific targeting." }
+        { "q": "How do you cut down junk real-estate leads?", "a": "With transparent budget brackets and two-step qualification before submission." }
       ]
     },
     {
       "slug": "manufacturing",
       "name": "Manufacturing & Industrial",
       "jaipurEstablishment": "Sitapura Industrial Unit",
-      "tagline": "Modernize your B2B corporate presence and turn technical specs into RFQ inquiries.",
-      "intro": "Industrial suppliers, stone/marble exporters, and manufacturers across Rajasthan often have world-class factories paired with 2012 websites. We fix that credibility gap.",
+      "illustrationKey": "dashboard",
+      "tagline": "Modern B2B corporate sites & clean RFQ workflows.",
+      "intro": "Give international and institutional buyers proof of factory scale with structured SKU specs.",
       "challenges": [
-        "International buyers judge factory reliability by your website within 10 seconds.",
-        "Hard-to-browse product catalogs without downloadable spec sheets or RFQ forms.",
-        "Manual handling of distributor and export enquiries."
+        "Dated sites hurting buyer credibility",
+        "No downloadable spec sheets or RFQ cart",
+        "Manual dealer inquiry tracking"
       ],
-      "designSolutions": ["B2B Corporate Identity Refresh", "Structured Spec-Sheet & Catalog Design", "Trade-Fair Digital Collateral"],
-      "developmentSolutions": ["Corporate B2B Website & Catalog", "Multi-Item RFQ / Quote Basket", "CRM Integration for Sales Teams"],
-      "marketingSolutions": ["B2B Technical SEO & Export Keywords", "LinkedIn & Google Search Lead Gen", "Factory Capability Videos"],
-      "recommendedCombo": "Corporate Website + Product Catalog + B2B RFQ System",
+      "designSolutions": ["B2B Corporate Identity", "Digital Spec Catalogs", "Trade-Fair Collateral"],
+      "developmentSolutions": ["Corporate B2B Web Platform", "Multi-SKU Quote Cart (RFQ)", "Sales CRM Sync"],
+      "marketingSolutions": ["B2B Export Technical SEO", "LinkedIn & Search Lead Gen", "Factory Capability Reels"],
+      "recommendedCombo": "Corporate Site + SKU Catalog + RFQ CRM",
       "relatedProjectSlugs": ["vyapaar-saathi"],
       "faqs": [
-        { "q": "Can buyers request quotes for multiple SKUs at once?", "a": "Yes, we can build an RFQ inquiry cart without needing public retail checkout prices." }
+        { "q": "Can buyers request quotes for multiple SKUs without public prices?", "a": "Yes — our RFQ cart collects multi-SKU quantities directly for your sales desk." }
       ]
     },
     {
       "slug": "other",
       "name": "Your Industry Isn't Listed?",
       "jaipurEstablishment": "Custom Studio Desk",
-      "tagline": "We build custom digital systems around your exact operational requirements.",
-      "intro": "Whether you run a legal practice, fitness collective, logistics fleet, NGO, or niche B2B platform — our Diagnostic-first model maps your exact funnel and crafts a bespoke system.",
+      "illustrationKey": "seo",
+      "tagline": "Bespoke digital systems shaped around your model.",
+      "intro": "From legal practices to logistics collectives — we start with a Diagnostic and build to fit.",
       "challenges": [
-        "Off-the-shelf templates don't fit your workflow.",
-        "Need design, engineering, and marketing talking to each other.",
-        "Want honest pricing and clear milestones."
+        "Generic off-the-shelf themes break workflow",
+        "Need design, dev & growth aligned",
+        "Want honest scope & clear pricing"
       ],
-      "designSolutions": ["Bespoke Brand & UI/UX Architecture", "Custom Editorial & Visual Direction"],
-      "developmentSolutions": ["Custom Web Platforms, Portals & Automations", "Third-Party API & Payment Integrations"],
-      "marketingSolutions": ["Custom Search, Paid & Content Strategy", "Owned Analytics Dashboard"],
-      "recommendedCombo": "Brand & Digital Diagnostic + Custom Scope Plan",
+      "designSolutions": ["Bespoke Brand & UX Architecture", "Custom Editorial Direction"],
+      "developmentSolutions": ["Custom Platforms & Automations", "API & Payment Integrations"],
+      "marketingSolutions": ["Custom Search & Growth Strategy", "Owned Analytics Setup"],
+      "recommendedCombo": "Brand & Digital Diagnostic + Custom Stack",
       "relatedProjectSlugs": ["case-study-3"],
       "faqs": [
-        { "q": "How do we scope an unusual business model?", "a": "Book a 20-minute discovery call or start with our Brand & Digital Diagnostic to map requirements clearly." }
+        { "q": "How do we scope a niche business model?", "a": "Start with a 20-minute call or Brand Diagnostic to lock milestones cleanly." }
       ]
     }
   ]

@@ -1,5 +1,4 @@
-import siteConfig from '../data/site-config.json';
-import { getUtmContext } from './analytics';
+import { BRAND_CONFIG } from '../data/brandConfig';
 
 export interface PlannerLeadPayload {
   fullName: string;
@@ -25,7 +24,7 @@ export interface LeadSubmissionResult {
   leadId: string;
   whatsappUrl: string;
   mailtoUrl: string;
-  backendStored: boolean;
+  demoMode: boolean;
   error?: string;
 }
 
@@ -40,17 +39,41 @@ export interface AuditSubmissionPayload {
 export function buildWhatsAppLink(customMessage?: string): string {
   const text = encodeURIComponent(
     customMessage ||
-      'Namaste Urdta Teeeeeer! I visited your site and want to discuss my project.'
+      `Namaste ${BRAND_CONFIG.name}! I visited your site and want to discuss my project.`
   );
-  return `https://wa.me/${siteConfig.whatsappNumber}?text=${text}`;
+  return `https://wa.me/${BRAND_CONFIG.whatsappNumber}?text=${text}`;
 }
 
+const usedLeadSuffixes = new Set<number>();
+
+/**
+ * Pure client-side simulated lead submission (demo mode — zero backend writes).
+ * Prevents spam honeypot, returns unique tracked 4-digit Lead ID and formatted WhatsApp brief.
+ */
 export async function submitPlannerLead(
   payload: PlannerLeadPayload
 ): Promise<LeadSubmissionResult> {
-  const utm = getUtmContext();
+  await new Promise((resolve) => setTimeout(resolve, 350));
+
+  if (payload.honeypot && payload.honeypot.trim().length > 0) {
+    return {
+      ok: true,
+      leadId: 'UT-DEMO-0000',
+      whatsappUrl: buildWhatsAppLink(),
+      mailtoUrl: `mailto:${BRAND_CONFIG.email}`,
+      demoMode: true,
+    };
+  }
+
+  let suffix = Math.floor(1000 + Math.random() * 9000);
+  while (usedLeadSuffixes.has(suffix)) {
+    suffix = ((suffix + 137 - 1000) % 9000) + 1000;
+  }
+  usedLeadSuffixes.add(suffix);
+  const leadId = `UT-${new Date().getFullYear()}-${suffix}`;
+
   const summaryLines = [
-    `Namaste Urdta Teeeeeer! New Project Plan`,
+    `Namaste ${BRAND_CONFIG.name}! Project Brief (${leadId})`,
     `Name: ${payload.fullName}`,
     `Phone: ${payload.phone}`,
     `Email: ${payload.email}`,
@@ -59,64 +82,32 @@ export async function submitPlannerLead(
     `Services: ${payload.selectedServices.join(', ')}`,
     `Budget: ${payload.budget}`,
     `Timeline: ${payload.timeline}`,
+    `Engagement: ${payload.engagementType}`,
     payload.requirementNotes ? `Notes: ${payload.requirementNotes}` : '',
   ].filter(Boolean);
 
   const formattedText = summaryLines.join('\n');
-  let leadId = `UT-${new Date().getFullYear()}-${Date.now().toString().slice(-3)}`;
-  let backendStored = false;
-
-  try {
-    const res = await fetch('/api/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...payload,
-        ...utm,
-      }),
-    });
-    const json = await res.json();
-    if (res.ok && json.ok) {
-      leadId = json.leadId;
-      backendStored = true;
-    } else if (!res.ok) {
-      return {
-        ok: false,
-        leadId: '',
-        whatsappUrl: buildWhatsAppLink(formattedText),
-        mailtoUrl: `mailto:${siteConfig.email}`,
-        backendStored: false,
-        error: json.error || 'Could not submit right now. Please try again or use WhatsApp.',
-      };
-    }
-  } catch {
-    backendStored = false;
-  }
 
   return {
     ok: true,
     leadId,
-    whatsappUrl: buildWhatsAppLink(`[${leadId}]\n${formattedText}`),
-    mailtoUrl: `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      `[New Growth Plan ${leadId}] ${payload.fullName}`
+    whatsappUrl: buildWhatsAppLink(formattedText),
+    mailtoUrl: `mailto:${BRAND_CONFIG.email}?subject=${encodeURIComponent(
+      `[Project Plan ${leadId}] ${payload.fullName}`
     )}&body=${encodeURIComponent(formattedText)}`,
-    backendStored,
+    demoMode: true,
   };
 }
 
 export async function submitFreeAudit(payload: AuditSubmissionPayload) {
-  try {
-    const res = await fetch('/api/audit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const json = await res.json();
-    return {
-      ok: res.ok && json.ok,
-      auditId: json.auditId ?? `AUD-${Date.now().toString().slice(-4)}`,
-    };
-  } catch {
-    return { ok: true, auditId: `AUD-${Date.now().toString().slice(-4)}` };
-  }
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  const auditId = `AUD-${new Date().getFullYear()}-${String(
+    Math.floor(100 + Math.random() * 899)
+  )}`;
+  return {
+    ok: true,
+    auditId,
+    demoMode: true,
+    websiteUrl: payload.websiteUrl,
+  };
 }
